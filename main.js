@@ -1,8 +1,12 @@
 // FAQ Toggle
-document.querySelectorAll('.faq-question').forEach(question => {
+document.querySelectorAll('.faq__question').forEach(question => {
     question.addEventListener('click', () => {
         const faqItem = question.parentElement;
+        const isExpanded = question.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle this FAQ item
         faqItem.classList.toggle('active');
+        question.setAttribute('aria-expanded', !isExpanded);
     });
 });
 
