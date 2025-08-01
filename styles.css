@@ -220,7 +220,9 @@ body {
 
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: 
+    linear-gradient(135deg, rgba(255, 107, 107, 0.85) 0%, rgba(255, 159, 67, 0.85) 100%),
+    url('/media/year-one/full/morning_camping-1.JPG') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -446,10 +448,23 @@ body {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.info__card-icon {
-  font-size: var(--font-size-3xl);
-  margin-bottom: var(--space-sm);
-  display: block;
+.info__card-image {
+  width: 100%;
+  height: 200px;
+  margin-bottom: var(--space-lg);
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.info__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.info__card:hover .info__card-image img {
+  transform: scale(1.05);
 }
 
 .info__card-title {
@@ -575,6 +590,31 @@ body {
   border: none;
 }
 
+/* Add subtle background images for each card */
+.festival__card:nth-child(1) {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('/media/year-one/full/art_installation-4.JPG') center/cover;
+}
+
+.festival__card:nth-child(2) {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('/media/year-one/full/art_installation-5.JPG') center/cover;
+}
+
+.festival__card:nth-child(3) {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('/media/year-one/full/community_moments-1.JPG') center/cover;
+}
+
+.festival__card:nth-child(4) {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('/media/year-one/full/community_moments-2.JPG') center/cover;
+}
+
 .festival__card::before {
   content: '';
   position: absolute;
@@ -683,32 +723,27 @@ body {
 
 .gallery__item {
   aspect-ratio: 1;
-  background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
   border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-2xl);
   transition: transform var(--transition-normal);
   position: relative;
   overflow: hidden;
   contain: layout style paint;
+  cursor: pointer;
 }
 
 .gallery__item:hover {
   transform: scale(1.05);
 }
 
-.gallery__item::before {
-  content: 'Photo from Year 1';
-  position: absolute;
-  bottom: var(--space-xs);
-  left: var(--space-xs);
-  font-size: var(--font-size-sm);
-  opacity: 0.8;
-  font-weight: var(--font-weight-normal);
+.gallery__item:hover .gallery__image {
+  transform: scale(1.1);
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
 }
 
 .gallery__placeholder-text {
@@ -850,9 +885,24 @@ body {
    RESPONSIVE DESIGN - Mobile First Approach
    ========================================================================== */
 
+/* Accessibility and Performance Improvements */
+@media (prefers-reduced-motion: reduce) {
+  .gallery__image,
+  .hero,
+  .festival__card,
+  .info__card-image img,
+  .info__card,
+  .gallery__item {
+    transition: none !important;
+  }
+}
+
 /* Mobile adjustments (default styles above are mobile-first) */
 
 @media (max-width: 640px) {
+  .hero {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
   .nav {
     padding: var(--space-xs) 0;
   }
