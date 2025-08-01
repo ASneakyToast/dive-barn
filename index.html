@@ -27,10 +27,10 @@
     </nav>
 
     <!-- Floating RSVP Button -->
-    <button type="button" class="floating-rsvp" id="floating-rsvp-btn" aria-label="RSVP for Dive Barn 2025">
+    <a href="https://partiful.com" class="floating-rsvp" aria-label="RSVP for Dive Barn 2025" target="_blank" rel="noopener">
         <span class="floating-rsvp__text">RSVP</span>
         <span class="floating-rsvp__icon">→</span>
-    </button>
+    </a>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -38,10 +38,10 @@
             <h1 class="hero__title">DIVE BARN 2025</h1>
             <h2 class="hero__subtitle">October 13, 2025</h2>
             <p class="hero__tagline">Where Art, Music, and Community Come Together Under Mendocino Stars</p>
-            <button type="button" class="btn btn--primary btn--hero" id="hero-rsvp-btn">
+            <a href="https://partiful.com" class="btn btn--primary btn--hero" target="_blank" rel="noopener">
                 <span>RSVP NOW - IT'S FREE!</span>
                 <span class="btn__badge">Limited Space</span>
-            </button>
+            </a>
         </div>
     </section>
 
@@ -83,37 +83,37 @@
         </div>
         <div class="gallery__grid">
             <div class="gallery__item">
-                <img src="/media/year-one/full/art_installation-1.JPG" 
+                <img src="media/year-one/full/art_installation-1.JPG" 
                      alt="Interactive art installation at Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
             </div>
             <div class="gallery__item">
-                <img src="/media/year-one/full/community_moments-1.JPG" 
+                <img src="media/year-one/full/community_moments-1.JPG" 
                      alt="Festival attendees connecting at Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
             </div>
             <div class="gallery__item">
-                <img src="/media/year-one/full/art_installation-2.JPG" 
+                <img src="media/year-one/full/art_installation-2.JPG" 
                      alt="Art installation illuminated at night at Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
             </div>
             <div class="gallery__item">
-                <img src="/media/year-one/full/morning_camping-1.JPG" 
+                <img src="media/year-one/full/morning_camping-1.JPG" 
                      alt="Peaceful camping scene at dawn after Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
             </div>
             <div class="gallery__item">
-                <img src="/media/year-one/full/community_moments-2.JPG" 
+                <img src="media/year-one/full/community_moments-2.JPG" 
                      alt="Community gathering at Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
             </div>
             <div class="gallery__item">
-                <img src="/media/year-one/full/art_installation-3.JPG" 
+                <img src="media/year-one/full/art_installation-3.JPG" 
                      alt="Creative art piece at Dive Barn 2024" 
                      loading="lazy"
                      class="gallery__image">
@@ -133,9 +133,9 @@
                     Join us for a night of art, music, and community under the stars. Free entry with camping included.
                 </p>
             </div>
-            <button type="button" class="btn btn--primary btn--large" id="cta-rsvp-btn">
+            <a href="https://partiful.com" class="btn btn--primary btn--large" target="_blank" rel="noopener">
                 RSVP NOW
-            </button>
+            </a>
         </div>
     </section>
 
@@ -148,7 +148,7 @@
         <div class="info__grid">
             <div class="info__card">
                 <div class="info__card-image">
-                    <img src="/media/year-one/full/morning_camping-2.JPG" alt="Dawn at Dive Barn festival">
+                    <img src="media/year-one/full/morning_camping-2.JPG" alt="Dawn at Dive Barn festival">
                 </div>
                 <div class="info__card-content">
                     <h3 class="info__card-title">When</h3>
@@ -158,7 +158,7 @@
             
             <div class="info__card">
                 <div class="info__card-image">
-                    <img src="/media/year-one/full/community_moments-3.JPG" alt="Ranch landscape at Dive Barn">
+                    <img src="media/year-one/full/community_moments-3.JPG" alt="Ranch landscape at Dive Barn">
                 </div>
                 <div class="info__card-content">
                     <h3 class="info__card-title">Where</h3>
@@ -168,7 +168,7 @@
             
             <div class="info__card">
                 <div class="info__card-image">
-                    <img src="/media/year-one/full/morning_camping-1.JPG" alt="Camping area at Dive Barn">
+                    <img src="media/year-one/full/morning_camping-1.JPG" alt="Camping area at Dive Barn">
                 </div>
                 <div class="info__card-content">
                     <h3 class="info__card-title">Camping</h3>
@@ -178,7 +178,7 @@
             
             <div class="info__card">
                 <div class="info__card-image">
-                    <img src="/media/year-one/full/community_moments-4.JPG" alt="Festival essentials and preparation">
+                    <img src="media/year-one/full/community_moments-4.JPG" alt="Festival essentials and preparation">
                 </div>
                 <div class="info__card-content">
                     <h3 class="info__card-title">Essentials</h3>
@@ -311,58 +311,6 @@
         </div>
     </section>
 
-    <!-- RSVP Modal -->
-    <div id="rsvp-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
-        <div class="modal__overlay" tabindex="-1" data-modal="close">
-            <div class="modal__container" role="document">
-                <button class="modal__close" aria-label="Close RSVP form" data-modal="close">×</button>
-                <h2 id="modal-title" class="modal__title">RSVP for Dive Barn 2025</h2>
-                <p id="modal-description" class="modal__description">Join us for an unforgettable night of art, music, and community!</p>
-                
-                <form id="rsvp-form" class="rsvp-form">
-                    <div class="form__group">
-                        <label for="name" class="form__label">Name *</label>
-                        <input type="text" id="name" name="name" class="form__input" required aria-describedby="name-error">
-                        <span id="name-error" class="form__error" role="alert"></span>
-                    </div>
-                    
-                    <div class="form__group">
-                        <label for="email" class="form__label">Email *</label>
-                        <input type="email" id="email" name="email" class="form__input" required aria-describedby="email-error">
-                        <span id="email-error" class="form__error" role="alert"></span>
-                    </div>
-                    
-                    <div class="form__group">
-                        <label for="guests" class="form__label">Number of guests (including yourself)</label>
-                        <select id="guests" name="guests" class="form__input">
-                            <option value="1">1 person</option>
-                            <option value="2">2 people</option>
-                            <option value="3">3 people</option>
-                            <option value="4">4 people</option>
-                            <option value="5+">5+ people</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form__group">
-                        <label for="notes" class="form__label">Special requests or notes (optional)</label>
-                        <textarea id="notes" name="notes" class="form__input" rows="3" placeholder="Need a ride? Camping with friends? Let us know!"></textarea>
-                    </div>
-                    
-                    <div class="form__actions">
-                        <button type="submit" class="btn btn--primary" id="submit-rsvp">Submit RSVP</button>
-                        <button type="button" class="btn btn--secondary" data-modal="close">Cancel</button>
-                    </div>
-                </form>
-                
-                <div id="rsvp-success" class="rsvp-success" hidden>
-                    <h3>🎉 Thanks for RSVPing!</h3>
-                    <p>We'll send you the exact location details and final updates closer to the festival date.</p>
-                    <p><strong>Save the date:</strong> October 13, 2025</p>
-                    <button type="button" class="btn btn--primary" data-modal="close">Got it!</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="main.js"></script>
 </body>

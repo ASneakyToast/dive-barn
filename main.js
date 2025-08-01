@@ -59,7 +59,7 @@ window.addEventListener('scroll', () => {
 
     // Hide floating RSVP button when near the CTA section
     const ctaSection = document.getElementById('rsvp-cta');
-    const floatingBtn = document.getElementById('floating-rsvp-btn');
+    const floatingBtn = document.querySelector('.floating-rsvp');
     if (ctaSection && floatingBtn) {
         const ctaTop = ctaSection.offsetTop;
         const ctaHeight = ctaSection.offsetHeight;
@@ -128,103 +128,3 @@ document.querySelectorAll('.btn').forEach(btn => {
     });
 });
 
-// RSVP Modal functionality
-const modal = document.getElementById('rsvp-modal');
-const rsvpForm = document.getElementById('rsvp-form');
-const rsvpSuccess = document.getElementById('rsvp-success');
-
-// All RSVP buttons that should open the modal
-const floatingRsvpBtn = document.getElementById('floating-rsvp-btn');
-const heroRsvpBtn = document.getElementById('hero-rsvp-btn');
-const ctaRsvpBtn = document.getElementById('cta-rsvp-btn');
-
-// Function to open modal
-function openRsvpModal() {
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    // Focus first form input for accessibility
-    const firstInput = modal.querySelector('.form__input');
-    setTimeout(() => firstInput?.focus(), 100);
-}
-
-// Add click handlers to all RSVP buttons
-floatingRsvpBtn?.addEventListener('click', openRsvpModal);
-heroRsvpBtn?.addEventListener('click', openRsvpModal);
-ctaRsvpBtn?.addEventListener('click', openRsvpModal);
-
-// Close modal
-document.addEventListener('click', (e) => {
-    if (e.target.matches('[data-modal="close"]') || e.target === modal.querySelector('.modal__overlay')) {
-        closeModal();
-    }
-});
-
-// Close modal with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeModal();
-    }
-});
-
-function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    // Reset form when closing
-    rsvpForm.reset();
-    rsvpForm.style.display = '';
-    rsvpSuccess.hidden = true;
-    // Clear any error messages
-    document.querySelectorAll('.form__error').forEach(error => {
-        error.textContent = '';
-    });
-}
-
-// Form submission
-rsvpForm?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Basic form validation
-    const formData = new FormData(rsvpForm);
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    
-    let isValid = true;
-    
-    // Validate name
-    if (!name) {
-        showError('name-error', 'Name is required');
-        isValid = false;
-    }
-    
-    // Validate email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) {
-        showError('email-error', 'Email is required');
-        isValid = false;
-    } else if (!emailRegex.test(email)) {
-        showError('email-error', 'Please enter a valid email address');
-        isValid = false;
-    }
-    
-    if (isValid) {
-        // Simulate form submission
-        const submitBtn = document.getElementById('submit-rsvp');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        
-        // In a real app, you'd send this data to your server
-        setTimeout(() => {
-            rsvpForm.style.display = 'none';
-            rsvpSuccess.hidden = false;
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit RSVP';
-        }, 1000);
-    }
-});
-
-function showError(errorId, message) {
-    const errorElement = document.getElementById(errorId);
-    if (errorElement) {
-        errorElement.textContent = message;
-    }
-}
