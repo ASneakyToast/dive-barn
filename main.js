@@ -56,6 +56,24 @@ window.addEventListener('scroll', () => {
             link.setAttribute('aria-current', 'page');
         }
     });
+
+    // Hide floating RSVP button when near the CTA section
+    const ctaSection = document.getElementById('rsvp-cta');
+    const floatingBtn = document.getElementById('floating-rsvp-btn');
+    if (ctaSection && floatingBtn) {
+        const ctaTop = ctaSection.offsetTop;
+        const ctaHeight = ctaSection.offsetHeight;
+        const scrollBottom = window.scrollY + window.innerHeight;
+        
+        // Hide button when CTA section is visible
+        if (scrollBottom >= ctaTop && window.scrollY <= ctaTop + ctaHeight) {
+            floatingBtn.style.opacity = '0';
+            floatingBtn.style.pointerEvents = 'none';
+        } else {
+            floatingBtn.style.opacity = '1';
+            floatingBtn.style.pointerEvents = 'auto';
+        }
+    }
 });
 
 // Modern scroll reveal animations
@@ -112,18 +130,27 @@ document.querySelectorAll('.btn').forEach(btn => {
 
 // RSVP Modal functionality
 const modal = document.getElementById('rsvp-modal');
-const rsvpBtn = document.getElementById('rsvp-btn');
 const rsvpForm = document.getElementById('rsvp-form');
 const rsvpSuccess = document.getElementById('rsvp-success');
 
-// Open modal
-rsvpBtn?.addEventListener('click', () => {
+// All RSVP buttons that should open the modal
+const floatingRsvpBtn = document.getElementById('floating-rsvp-btn');
+const heroRsvpBtn = document.getElementById('hero-rsvp-btn');
+const ctaRsvpBtn = document.getElementById('cta-rsvp-btn');
+
+// Function to open modal
+function openRsvpModal() {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
     // Focus first form input for accessibility
     const firstInput = modal.querySelector('.form__input');
     setTimeout(() => firstInput?.focus(), 100);
-});
+}
+
+// Add click handlers to all RSVP buttons
+floatingRsvpBtn?.addEventListener('click', openRsvpModal);
+heroRsvpBtn?.addEventListener('click', openRsvpModal);
+ctaRsvpBtn?.addEventListener('click', openRsvpModal);
 
 // Close modal
 document.addEventListener('click', (e) => {

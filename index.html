@@ -22,10 +22,15 @@
             <li><a href="#hero" class="nav__link" aria-label="Go to Dive Barn home section">Barn</a></li>
             <li><a href="#festival" class="nav__link" aria-label="Go to festival information section">Festival</a></li>
             <li><a href="#info" class="nav__link" aria-label="Go to essential details section">Info</a></li>
-            <li><a href="#rsvp" class="nav__link" aria-label="Go to RSVP section">RSVP</a></li>
             <li><a href="#faq" class="nav__link" aria-label="Go to frequently asked questions section">FAQ</a></li>
         </ul>
     </nav>
+
+    <!-- Floating RSVP Button -->
+    <button type="button" class="floating-rsvp" id="floating-rsvp-btn" aria-label="RSVP for Dive Barn 2025">
+        <span class="floating-rsvp__text">RSVP</span>
+        <span class="floating-rsvp__icon">→</span>
+    </button>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
@@ -33,7 +38,10 @@
             <h1 class="hero__title">DIVE BARN 2025</h1>
             <h2 class="hero__subtitle">October 13, 2025</h2>
             <p class="hero__tagline">Where Art, Music, and Community Come Together Under Mendocino Stars</p>
-            <a href="#rsvp" class="btn btn--primary">RSVP NOW</a>
+            <button type="button" class="btn btn--primary btn--hero" id="hero-rsvp-btn">
+                <span>RSVP NOW - IT'S FREE!</span>
+                <span class="btn__badge">Limited Space</span>
+            </button>
         </div>
     </section>
 
@@ -70,25 +78,18 @@
         </div>
     </section>
 
-    <!-- RSVP Section -->
-    <section id="rsvp" class="section section--rsvp">
-        <div class="section__header">
-            <h2 class="section__title">Join the Festival</h2>
-        </div>
-        <div class="text-center">
-            <p style="font-size: 1.2rem; margin-bottom: 3rem; color: rgba(255,255,255,0.9);">
-                All are welcome at Dive Barn 2025. RSVP to receive location details and join our community of artists, musicians, and free spirits.
-            </p>
-            <div class="rsvp__card">
-                <h3 class="rsvp__card-title">RSVP for October 13, 2025</h3>
-                <p class="rsvp__card-text">
-                    Free festival with camping included. RSVP required for address and directions to the ranch.
-                </p>
-                <button type="button" class="btn btn--primary" id="rsvp-btn">RSVP Now - It's Free!</button>
-                <p class="rsvp__card-footer">
-                    Need a ride? Looking for camping buddies? <a href="#faq">Check our FAQ</a> for carpool info or email hello@divebarn.com
+    <!-- RSVP Call-to-Action Banner -->
+    <section id="rsvp-cta" class="section section--rsvp-cta">
+        <div class="rsvp-cta__container">
+            <div class="rsvp-cta__content">
+                <h2 class="rsvp-cta__title">Reserve Your Spot</h2>
+                <p class="rsvp-cta__text">
+                    Join us for a night of art, music, and community under the stars. Free entry with camping included.
                 </p>
             </div>
+            <button type="button" class="btn btn--primary btn--large" id="cta-rsvp-btn">
+                RSVP NOW
+            </button>
         </div>
     </section>
 
