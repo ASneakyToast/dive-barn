@@ -1368,6 +1368,7 @@ body {
   gap: var(--space-xs);
   min-height: 56px;
   animation: floatingBounce 2s ease-in-out infinite;
+  text-decoration: none;
 }
 
 @keyframes floatingBounce {
