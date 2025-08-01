@@ -17,13 +17,13 @@
     <a href="#hero" class="skip-link">Skip to main content</a>
     
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <ul class="nav__list">
-            <li><a href="#hero" class="nav__link">Barn</a></li>
-            <li><a href="#festival" class="nav__link">Festival</a></li>
-            <li><a href="#info" class="nav__link">Info</a></li>
-            <li><a href="#rsvp" class="nav__link">RSVP</a></li>
-            <li><a href="#faq" class="nav__link">FAQ</a></li>
+            <li><a href="#hero" class="nav__link" aria-label="Go to Dive Barn home section">Barn</a></li>
+            <li><a href="#festival" class="nav__link" aria-label="Go to festival information section">Festival</a></li>
+            <li><a href="#info" class="nav__link" aria-label="Go to essential details section">Info</a></li>
+            <li><a href="#rsvp" class="nav__link" aria-label="Go to RSVP section">RSVP</a></li>
+            <li><a href="#faq" class="nav__link" aria-label="Go to frequently asked questions section">FAQ</a></li>
         </ul>
     </nav>
 
@@ -84,7 +84,7 @@
                 <p class="rsvp__card-text">
                     Free festival with camping included. RSVP required for address and directions to the ranch.
                 </p>
-                <a href="#" class="btn btn--primary">RSVP Now - It's Free!</a>
+                <button type="button" class="btn btn--primary" id="rsvp-btn">RSVP Now - It's Free!</button>
                 <p class="rsvp__card-footer">
                     Need a ride? Looking for camping buddies? <a href="#faq">Check our FAQ</a> for carpool info or email hello@divebarn.com
                 </p>
@@ -150,32 +150,40 @@
                 <div class="info__card-image">
                     <img src="/media/year-one/full/morning_camping-2.JPG" alt="Dawn at Dive Barn festival">
                 </div>
-                <h3 class="info__card-title">When</h3>
-                <p class="info__card-text">October 13, 2025<br>Gates open at sunset<br>Festival until dawn</p>
+                <div class="info__card-content">
+                    <h3 class="info__card-title">When</h3>
+                    <p class="info__card-text">October 13, 2025<br>Gates open at sunset<br>Festival until dawn</p>
+                </div>
             </div>
             
             <div class="info__card">
                 <div class="info__card-image">
                     <img src="/media/year-one/full/community_moments-3.JPG" alt="Ranch landscape at Dive Barn">
                 </div>
-                <h3 class="info__card-title">Where</h3>
-                <p class="info__card-text">Yorkville Schoolhouse Ranch<br>Mendocino County, CA<br><em>Address provided after RSVP</em></p>
+                <div class="info__card-content">
+                    <h3 class="info__card-title">Where</h3>
+                    <p class="info__card-text">Yorkville Schoolhouse Ranch<br>Mendocino County, CA<br><em>Address provided after RSVP</em></p>
+                </div>
             </div>
             
             <div class="info__card">
                 <div class="info__card-image">
                     <img src="/media/year-one/full/morning_camping-1.JPG" alt="Camping area at Dive Barn">
                 </div>
-                <h3 class="info__card-title">Camping</h3>
-                <p class="info__card-text">Free camping included<br>BYO gear & supplies<br>Arrive early for best spots</p>
+                <div class="info__card-content">
+                    <h3 class="info__card-title">Camping</h3>
+                    <p class="info__card-text">Free camping included<br>BYO gear & supplies<br>Arrive early for best spots</p>
+                </div>
             </div>
             
             <div class="info__card">
                 <div class="info__card-image">
                     <img src="/media/year-one/full/community_moments-4.JPG" alt="Festival essentials and preparation">
                 </div>
-                <h3 class="info__card-title">Essentials</h3>
-                <p class="info__card-text">Water (1 gal/person/day)<br>Layers for cool nights<br>Flashlight/headlamp</p>
+                <div class="info__card-content">
+                    <h3 class="info__card-title">Essentials</h3>
+                    <p class="info__card-text">Water (1 gal/person/day)<br>Layers for cool nights<br>Flashlight/headlamp</p>
+                </div>
             </div>
         </div>
     </section>
@@ -302,6 +310,59 @@
             </div>
         </div>
     </section>
+
+    <!-- RSVP Modal -->
+    <div id="rsvp-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+        <div class="modal__overlay" tabindex="-1" data-modal="close">
+            <div class="modal__container" role="document">
+                <button class="modal__close" aria-label="Close RSVP form" data-modal="close">×</button>
+                <h2 id="modal-title" class="modal__title">RSVP for Dive Barn 2025</h2>
+                <p id="modal-description" class="modal__description">Join us for an unforgettable night of art, music, and community!</p>
+                
+                <form id="rsvp-form" class="rsvp-form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Name *</label>
+                        <input type="text" id="name" name="name" class="form__input" required aria-describedby="name-error">
+                        <span id="name-error" class="form__error" role="alert"></span>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email *</label>
+                        <input type="email" id="email" name="email" class="form__input" required aria-describedby="email-error">
+                        <span id="email-error" class="form__error" role="alert"></span>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="guests" class="form__label">Number of guests (including yourself)</label>
+                        <select id="guests" name="guests" class="form__input">
+                            <option value="1">1 person</option>
+                            <option value="2">2 people</option>
+                            <option value="3">3 people</option>
+                            <option value="4">4 people</option>
+                            <option value="5+">5+ people</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form__group">
+                        <label for="notes" class="form__label">Special requests or notes (optional)</label>
+                        <textarea id="notes" name="notes" class="form__input" rows="3" placeholder="Need a ride? Camping with friends? Let us know!"></textarea>
+                    </div>
+                    
+                    <div class="form__actions">
+                        <button type="submit" class="btn btn--primary" id="submit-rsvp">Submit RSVP</button>
+                        <button type="button" class="btn btn--secondary" data-modal="close">Cancel</button>
+                    </div>
+                </form>
+                
+                <div id="rsvp-success" class="rsvp-success" hidden>
+                    <h3>🎉 Thanks for RSVPing!</h3>
+                    <p>We'll send you the exact location details and final updates closer to the festival date.</p>
+                    <p><strong>Save the date:</strong> October 13, 2025</p>
+                    <button type="button" class="btn btn--primary" data-modal="close">Got it!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
 </body>

@@ -210,8 +210,13 @@ body {
 }
 
 .nav__link:hover::before,
-.nav__link:focus-visible::before {
+.nav__link:focus-visible::before,
+.nav__link.active::before {
   width: 100%;
+}
+
+.nav__link.active {
+  color: var(--color-primary);
 }
 
 /* ==========================================================================
@@ -309,7 +314,9 @@ body {
    ========================================================================== */
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-family-body);
   font-weight: var(--font-weight-black);
   text-decoration: none;
@@ -322,6 +329,7 @@ body {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 44px;
 }
 
 .btn--primary {
@@ -435,12 +443,13 @@ body {
 
 .info__card {
   background: white;
-  padding: var(--space-2xl);
+  padding: 0;
   border-radius: var(--radius-xl);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
+  overflow: hidden;
 }
 
 .info__card:hover {
@@ -450,10 +459,10 @@ body {
 
 .info__card-image {
   width: 100%;
-  height: 200px;
-  margin-bottom: var(--space-lg);
+  height: 240px;
+  margin-bottom: 0;
   overflow: hidden;
-  border-radius: var(--radius-md);
+  border-radius: 0;
 }
 
 .info__card-image img {
@@ -465,6 +474,10 @@ body {
 
 .info__card:hover .info__card-image img {
   transform: scale(1.05);
+}
+
+.info__card-content {
+  padding: var(--space-xl);
 }
 
 .info__card-title {
@@ -806,6 +819,9 @@ body {
   border: none;
   width: 100%;
   text-align: left;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .faq__question:hover,
@@ -882,6 +898,184 @@ body {
 }
 
 /* ==========================================================================
+   MODAL & FORMS
+   ========================================================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  padding: var(--space-lg);
+}
+
+.modal__container {
+  background: white;
+  border-radius: var(--radius-xl);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--space-xl);
+  position: relative;
+  animation: modalSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal__close {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.modal__close:hover {
+  background: var(--color-background-alt);
+  color: var(--color-text);
+}
+
+.modal__title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+  padding-right: var(--space-xl);
+}
+
+.modal__description {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.form__group {
+  margin-bottom: var(--space-lg);
+}
+
+.form__label {
+  display: block;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.form__input {
+  width: 100%;
+  padding: var(--space-md);
+  border: 2px solid var(--color-background-alt);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.form__input:invalid {
+  border-color: #ef4444;
+}
+
+.form__error {
+  display: block;
+  color: #ef4444;
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+.form__actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  margin-top: var(--space-xl);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 2px solid var(--color-background-alt);
+}
+
+.btn--secondary:hover {
+  background: var(--color-background-alt);
+  color: var(--color-text);
+}
+
+.rsvp-success {
+  text-align: center;
+}
+
+.rsvp-success h3 {
+  color: var(--color-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-md);
+}
+
+.rsvp-success p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   ANIMATION CLASSES
+   ========================================================================== */
+
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-section {
+  transform: translateY(40px);
+}
+
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN - Mobile First Approach
    ========================================================================== */
 
@@ -916,8 +1110,12 @@ body {
   
   .nav__link {
     font-size: var(--font-size-xs);
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-md) var(--space-sm);
     letter-spacing: 1px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .section {
