@@ -456,7 +456,7 @@ body {
 
 .info__card {
   background: white;
-  padding: var(--space-lg);
+  padding: var(--space-md);
   border-radius: var(--radius-xl);
   text-align: center;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -520,47 +520,42 @@ body {
   color: var(--color-text-muted);
 }
 
-/* ==========================================================================
-   SAFETY WARNING BANNER
-   ========================================================================== */
-
-.section--warning {
-  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
-  padding: var(--space-md);
-}
-
-.warning__banner {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
+/* 4-card grid layout */
+.info__grid--four-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: var(--space-md);
-  background: rgba(255, 255, 255, 0.1);
-  padding: var(--space-md);
-  border-radius: var(--radius-lg);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.warning__icon {
-  font-size: var(--font-size-3xl);
-  flex-shrink: 0;
+/* Urgent card styling for fire safety */
+.info__card--urgent {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+    linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+  border: 2px solid rgba(211, 47, 47, 0.2);
 }
 
-.warning__title {
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-lg);
+.info__card--urgent::before {
+  background: linear-gradient(90deg, #d32f2f, #b71c1c);
+  height: 4px;
+}
+
+.info__card--urgent .info__card-title {
+  color: #d32f2f;
   font-weight: var(--font-weight-bold);
-  color: white;
-  margin-bottom: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
-.warning__text {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: var(--font-size-lg);
-  line-height: var(--line-height-relaxed);
-  margin: 0;
+.info__card--urgent .info__card-icon {
+  color: #d32f2f;
+}
+
+.info__card--urgent .info__card-text strong {
+  color: #d32f2f;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -1174,7 +1169,8 @@ body {
   }
   
   /* Mobile optimizations for new sections */
-  .info__grid {
+  .info__grid,
+  .info__grid--four-cards {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
   }
@@ -1189,13 +1185,6 @@ body {
   .festival__card:nth-child(3),
   .festival__card:nth-child(4) { 
     grid-column: span 1; 
-  }
-  
-  .warning__banner {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--space-xs);
-    padding: var(--space-sm);
   }
   
   .faq__category-title {
@@ -1221,6 +1210,12 @@ body {
   .festival__card:nth-child(2),
   .festival__card:nth-child(3) { 
     grid-column: span 3; 
+  }
+  
+  /* 2x2 grid for info cards on tablets */
+  .info__grid--four-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 }
 
