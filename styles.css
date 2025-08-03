@@ -485,6 +485,12 @@ body {
     url('media/year-one/full/community_moments-4.JPG') center/cover;
 }
 
+.info__card:nth-child(4) {
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('media/year-one/full/art_installation-3.JPG') center/cover;
+}
+
 .info__card::before {
   content: '';
   position: absolute;
@@ -520,13 +526,29 @@ body {
   color: var(--color-text-muted);
 }
 
-/* 4-card grid layout */
+/* 4-card staggered grid layout - matches festival grid */
 .info__grid--four-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-md);
-  max-width: 1200px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-sm);
+  max-width: 1400px;
   margin: 0 auto;
+}
+
+.info__card:nth-child(1) { 
+  grid-column: span 7; 
+}
+
+.info__card:nth-child(2) { 
+  grid-column: span 5; 
+}
+
+.info__card:nth-child(3) { 
+  grid-column: span 5; 
+}
+
+.info__card:nth-child(4) { 
+  grid-column: span 7; 
 }
 
 /* Urgent card styling for fire safety */
@@ -1174,6 +1196,13 @@ body {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
   }
+
+  .info__card:nth-child(1),
+  .info__card:nth-child(2),
+  .info__card:nth-child(3),
+  .info__card:nth-child(4) { 
+    grid-column: span 1; 
+  }
   
   .festival__grid {
     grid-template-columns: 1fr;
@@ -1214,8 +1243,18 @@ body {
   
   /* 2x2 grid for info cards on tablets */
   .info__grid--four-cards {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: var(--space-md);
+  }
+
+  .info__card:nth-child(1),
+  .info__card:nth-child(4) { 
+    grid-column: span 4; 
+  }
+
+  .info__card:nth-child(2),
+  .info__card:nth-child(3) { 
+    grid-column: span 3; 
   }
 }
 
