@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SCHEDULE & MAP STYLES
+   SCHEDULE & MAP STYLES + PROPERTY PAGE STYLES
    ========================================================================== */
 
 /* Schedule Section */
@@ -179,6 +179,183 @@
 }
 
 /* Mobile Responsive */
+/* ==========================================================================
+   PROPERTY PAGE STYLES
+   ========================================================================== */
+
+/* Property Overview */
+.section--property-overview {
+  background: var(--color-surface);
+}
+
+.property__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.property__intro {
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+}
+
+.property__text {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.property__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Owners Section */
+.section--owners {
+  background: var(--color-background);
+}
+
+.owners__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.owners__card {
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.owners__name {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.owners__description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.owners__description:last-child {
+  margin-bottom: 0;
+}
+
+/* History Timeline */
+.section--history {
+  background: var(--color-surface);
+}
+
+.history__timeline {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.history__item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+  background: white;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.history__item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.history__year {
+  text-align: right;
+  padding-top: var(--space-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+
+.history__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+}
+
+.history__description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Location Grid */
+.section--location {
+  background: var(--color-background);
+}
+
+.location__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.location__card {
+  background: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.location__card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.location__icon {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-xs);
+}
+
+.location__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.location__description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Future Section */
+.section--future {
+  background: var(--color-surface);
+}
+
+.future__content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+}
+
+.future__text {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.future__text:last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .schedule__item {
     grid-template-columns: 1fr;
@@ -192,6 +369,21 @@
   }
   
   .map__info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .history__item {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+  
+  .history__year {
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .location__grid {
     grid-template-columns: 1fr;
   }
 }
