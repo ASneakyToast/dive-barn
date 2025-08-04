@@ -1453,6 +1453,17 @@ body {
   transform: translateX(4px);
 }
 
+/* Event Day Styling */
+.floating-rsvp--event-day {
+  background: var(--color-accent);
+  box-shadow: 0 4px 24px rgba(78, 205, 196, 0.4);
+}
+
+.floating-rsvp--event-day:hover {
+  background: var(--color-sage-green);
+  box-shadow: 0 6px 32px rgba(78, 205, 196, 0.6);
+}
+
 /* Responsive: smaller on mobile */
 @media (max-width: 768px) {
   .floating-rsvp {

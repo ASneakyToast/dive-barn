@@ -113,6 +113,70 @@ window.addEventListener('beforeunload', () => {
     observer.disconnect();
 });
 
+// Dynamic Floating Action Button - Event Day Detection
+function isEventDay() {
+    const now = new Date();
+    const eventDate = new Date('2025-10-13'); // October 13, 2025
+    
+    // Check for manual override via URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('event-mode') === 'true') {
+        return true;
+    }
+    
+    // Check if it's event day (with 6 hour buffer before and after)
+    const eventStart = new Date(eventDate);
+    eventStart.setHours(6, 0, 0, 0); // 6 AM event day
+    
+    const eventEnd = new Date(eventDate);
+    eventEnd.setDate(eventEnd.getDate() + 1);
+    eventEnd.setHours(6, 0, 0, 0); // 6 AM next day
+    
+    return now >= eventStart && now <= eventEnd;
+}
+
+function updateFloatingButton() {
+    const floatingBtn = document.querySelector('.floating-rsvp');
+    if (!floatingBtn) return;
+    
+    const textElement = floatingBtn.querySelector('.floating-rsvp__text');
+    const iconElement = floatingBtn.querySelector('.floating-rsvp__icon');
+    
+    if (isEventDay()) {
+        // Event day mode: Link to schedule
+        floatingBtn.href = 'schedule.html';
+        floatingBtn.setAttribute('aria-label', 'View festival schedule');
+        floatingBtn.target = '_self'; // Remove external link behavior
+        floatingBtn.removeAttribute('rel');
+        
+        if (textElement) textElement.textContent = 'Schedule';
+        if (iconElement) iconElement.textContent = '📅';
+        
+        // Add event day styling
+        floatingBtn.classList.add('floating-rsvp--event-day');
+    } else {
+        // Normal mode: Link to RSVP
+        floatingBtn.href = 'https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo';
+        floatingBtn.setAttribute('aria-label', 'RSVP for Dive Barn 2025');
+        floatingBtn.target = '_blank';
+        floatingBtn.setAttribute('rel', 'noopener');
+        
+        if (textElement) textElement.textContent = 'RSVP';
+        if (iconElement) iconElement.textContent = '→';
+        
+        // Remove event day styling
+        floatingBtn.classList.remove('floating-rsvp--event-day');
+    }
+}
+
+// Initialize floating button on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateFloatingButton();
+    
+    // Update every minute in case the event starts while page is open
+    setInterval(updateFloatingButton, 60000);
+});
+
 // Add magnetic button effects
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('mousemove', (e) => {
