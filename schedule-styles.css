@@ -1,0 +1,197 @@
+/* ==========================================================================
+   SCHEDULE & MAP STYLES
+   ========================================================================== */
+
+/* Schedule Section */
+.section--schedule {
+  background: var(--color-surface);
+}
+
+.schedule__timeline {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.schedule__item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+  background: white;
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+.schedule__item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+}
+
+.schedule__item--highlight {
+  border: 2px solid var(--color-accent);
+  background: linear-gradient(to right, rgba(78, 205, 196, 0.05), white);
+}
+
+.schedule__time {
+  text-align: right;
+  padding-top: var(--space-xs);
+}
+
+.schedule__hour {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+}
+
+.schedule__venue {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-xs);
+}
+
+.schedule__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+}
+
+.schedule__description {
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-sm);
+}
+
+.schedule__category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.schedule__category--music {
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--color-primary);
+}
+
+.schedule__category--workshop {
+  background: rgba(255, 159, 67, 0.1);
+  color: var(--color-secondary);
+}
+
+.schedule__category--art {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--color-accent);
+}
+
+.schedule__category--community {
+  background: rgba(95, 39, 205, 0.1);
+  color: var(--color-deep-purple);
+}
+
+.schedule__category--food {
+  background: rgba(255, 159, 67, 0.1);
+  color: var(--color-secondary);
+}
+
+.schedule__category--special {
+  background: rgba(78, 205, 196, 0.2);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.schedule__category--performance {
+  background: rgba(95, 39, 205, 0.1);
+  color: var(--color-deep-purple);
+}
+
+.schedule__category--wellness {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--color-accent);
+}
+
+/* Map Section */
+.section--map {
+  background: var(--color-background);
+}
+
+.map__container {
+  max-width: 1200px;
+  margin: 0 auto var(--space-xl);
+}
+
+.map__placeholder {
+  background: white;
+  padding: var(--space-xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  border: 2px dashed var(--color-text-muted);
+}
+
+.map__placeholder-text {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+
+.map__info {
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.map__info-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.map__info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.map__info-item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: start;
+}
+
+.map__info-icon {
+  font-size: var(--font-size-lg);
+  flex-shrink: 0;
+}
+
+/* Navigation active state for schedule page */
+.nav__link--active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .schedule__item {
+    grid-template-columns: 1fr;
+    gap: var(--space-xs);
+  }
+  
+  .schedule__time {
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: var(--space-xs);
+  }
+  
+  .map__info-grid {
+    grid-template-columns: 1fr;
+  }
+}
