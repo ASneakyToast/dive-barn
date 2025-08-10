@@ -27,10 +27,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Navigation scroll behavior and active states
 const navLinks = document.querySelectorAll('.nav__link');
 const sections = document.querySelectorAll('section[id]');
+const nav = document.querySelector('nav');
+const ctaSection = document.getElementById('rsvp-cta');
+const floatingBtn = document.querySelector('.floating-rsvp');
 
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 100) {
+// Throttled scroll handler for better performance
+let ticking = false;
+
+function updateOnScroll() {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    
+    // Update navigation background
+    if (scrollY > 100) {
         nav.style.background = 'rgba(255, 255, 255, 1)';
         nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
     } else {
@@ -42,8 +51,7 @@ window.addEventListener('scroll', () => {
     let currentSection = '';
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop - 100) {
+        if (scrollY >= sectionTop - 100) {
             currentSection = section.getAttribute('id');
         }
     });
@@ -58,15 +66,13 @@ window.addEventListener('scroll', () => {
     });
 
     // Hide floating RSVP button when near the CTA section
-    const ctaSection = document.getElementById('rsvp-cta');
-    const floatingBtn = document.querySelector('.floating-rsvp');
     if (ctaSection && floatingBtn) {
         const ctaTop = ctaSection.offsetTop;
         const ctaHeight = ctaSection.offsetHeight;
-        const scrollBottom = window.scrollY + window.innerHeight;
+        const scrollBottom = scrollY + windowHeight;
         
         // Hide button when CTA section is visible
-        if (scrollBottom >= ctaTop && window.scrollY <= ctaTop + ctaHeight) {
+        if (scrollBottom >= ctaTop && scrollY <= ctaTop + ctaHeight) {
             floatingBtn.style.opacity = '0';
             floatingBtn.style.pointerEvents = 'none';
         } else {
@@ -74,7 +80,16 @@ window.addEventListener('scroll', () => {
             floatingBtn.style.pointerEvents = 'auto';
         }
     }
-});
+    
+    ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(updateOnScroll);
+        ticking = true;
+    }
+}, { passive: true });
 
 // Modern scroll reveal animations
 const observerOptions = {
@@ -92,12 +107,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Initialize reveal animations
+// Initialize reveal animations (moved delays to CSS for better performance)
 document.addEventListener('DOMContentLoaded', () => {
     // Observe cards for staggered animations
-    document.querySelectorAll('.info__card, .festival__card').forEach((card, index) => {
+    document.querySelectorAll('.info__card, .festival__card').forEach(card => {
         card.classList.add('reveal-ready');
-        card.style.transitionDelay = `${index * 0.1}s`;
         observer.observe(card);
     });
 
@@ -173,22 +187,9 @@ function updateFloatingButton() {
 document.addEventListener('DOMContentLoaded', () => {
     updateFloatingButton();
     
-    // Update every minute in case the event starts while page is open
-    setInterval(updateFloatingButton, 60000);
+    // Only update every 5 minutes to reduce unnecessary processing
+    setInterval(updateFloatingButton, 300000);
 });
 
-// Add magnetic button effects
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = '';
-    });
-});
+// Simplified button hover effects (replaced expensive magnetic effects with CSS-only)
 
