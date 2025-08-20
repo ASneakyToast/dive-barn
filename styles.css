@@ -1959,6 +1959,38 @@ body {
 /* Removed pulseBadge animation for better performance */
 
 /* ==========================================================================
+   INLINE LINKS
+   ========================================================================== */
+
+.inline-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.inline-link::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.inline-link:hover {
+  color: var(--color-secondary);
+}
+
+.inline-link:hover::after {
+  width: 100%;
+  background: var(--color-secondary);
+}
+
+/* ==========================================================================
    RSVP CALL-TO-ACTION BANNER
    ========================================================================== */
 
