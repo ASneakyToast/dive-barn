@@ -1,0 +1,19 @@
+{
+  "name": "dive-barn-design-system",
+  "version": "1.0.0",
+  "description": "Design system tokens for Dive Barn festival site",
+  "main": "index.js",
+  "scripts": {
+    "build-tokens": "style-dictionary build --config style-dictionary.config.js",
+    "watch-tokens": "style-dictionary build --config style-dictionary.config.js --watch",
+    "dev": "npm run build-tokens && npm run watch-tokens",
+    "build": "npm run build-tokens",
+    "prebuild": "npm run build-tokens"
+  },
+  "keywords": ["design-system", "tokens", "css"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "style-dictionary": "^4.0.0"
+  }
+}

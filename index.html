@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="tokens/build/tokens.css">
+    <link rel="stylesheet" href="tokens/build/theme-system.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -295,8 +297,13 @@
     <!-- Footer -->
     <dive-barn-footer></dive-barn-footer>
 
+    <script src="theme-switcher.js"></script>
     <script src="nav-component.js"></script>
     <script src="footer-component.js"></script>
     <script src="main.js"></script>
+    <script>
+        // Add theme toggle button to the site
+        themeSwitcher.createToggleButton();
+    </script>
 </body>
 </html>

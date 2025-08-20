@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dive Barn Design System Demo</title>
+    <link rel="stylesheet" href="styles-tokens.css">
+    <style>
+        .demo-section {
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+        }
+        
+        .demo-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .color-swatch {
+            padding: var(--spacing-sm);
+            text-align: center;
+            border-radius: var(--border-radius-md);
+            font-size: var(--typography-font-size-sm);
+            font-weight: var(--typography-font-weight-medium);
+        }
+        
+        .token-example {
+            background: var(--component-card-background);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-sm);
+            font-family: var(--typography-font-family-mono);
+            font-size: var(--typography-font-size-sm);
+            border: 1px solid var(--color-border-muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <ul class="nav__list">
+                <li><a href="#colors" class="nav__link">Colors</a></li>
+                <li><a href="#typography" class="nav__link">Typography</a></li>
+                <li><a href="#components" class="nav__link">Components</a></li>
+                <li><a href="#spacing" class="nav__link">Spacing</a></li>
+                <li><a href="#themes" class="nav__link">Themes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section">
+        <div class="section__header">
+            <h1 class="section__title">Dive Barn Design System</h1>
+            <p class="section__subtitle">A modern, token-based design system built with Style Dictionary</p>
+        </div>
+
+        <!-- Colors Section -->
+        <section id="colors" class="demo-section">
+            <h2>Color System</h2>
+            <div class="demo-grid grid--4">
+                <div class="color-swatch bg-primary text-white">
+                    Primary<br>
+                    <code>--color-primary</code>
+                </div>
+                <div class="color-swatch bg-secondary text-white">
+                    Secondary<br>
+                    <code>--color-secondary</code>
+                </div>
+                <div class="color-swatch bg-accent text-white">
+                    Accent<br>
+                    <code>--color-accent</code>
+                </div>
+                <div class="color-swatch bg-surface border">
+                    Surface<br>
+                    <code>--color-surface</code>
+                </div>
+            </div>
+            
+            <h3>Status Colors</h3>
+            <div class="demo-grid grid--4">
+                <div class="color-swatch" style="background: var(--color-status-success-500); color: white;">
+                    Success<br>
+                    <code>--color-status-success-500</code>
+                </div>
+                <div class="color-swatch" style="background: var(--color-status-warning-500); color: white;">
+                    Warning<br>
+                    <code>--color-status-warning-500</code>
+                </div>
+                <div class="color-swatch" style="background: var(--color-status-error-500); color: white;">
+                    Error<br>
+                    <code>--color-status-error-500</code>
+                </div>
+                <div class="color-swatch" style="background: var(--color-status-info-500); color: white;">
+                    Info<br>
+                    <code>--color-status-info-500</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography Section -->
+        <section id="typography" class="demo-section">
+            <h2>Typography Scale</h2>
+            <div style="font-size: var(--typography-font-size-4xl); font-weight: var(--typography-font-weight-black); margin-bottom: var(--spacing-sm);">
+                Hero Text (4XL)
+            </div>
+            <div style="font-size: var(--typography-font-size-3xl); font-weight: var(--typography-font-weight-bold); margin-bottom: var(--spacing-sm);">
+                Heading 1 (3XL)
+            </div>
+            <div style="font-size: var(--typography-font-size-2xl); font-weight: var(--typography-font-weight-bold); margin-bottom: var(--spacing-sm);">
+                Heading 2 (2XL)
+            </div>
+            <div style="font-size: var(--typography-font-size-xl); font-weight: var(--typography-font-weight-semibold); margin-bottom: var(--spacing-sm);">
+                Heading 3 (XL)
+            </div>
+            <div style="font-size: var(--typography-font-size-lg); font-weight: var(--typography-font-weight-semibold); margin-bottom: var(--spacing-sm);">
+                Heading 4 (Large)
+            </div>
+            <div style="font-size: var(--typography-font-size-base); margin-bottom: var(--spacing-sm);">
+                Body text (Base) - This is the standard body text size with comfortable reading line height.
+            </div>
+            <div style="font-size: var(--typography-font-size-sm); color: var(--color-text-muted);">
+                Small text (SM) - Used for captions and secondary information.
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section id="components" class="demo-section">
+            <h2>Components</h2>
+            
+            <h3>Buttons</h3>
+            <div class="demo-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <button class="btn btn--primary">Primary Button</button>
+                <button class="btn btn--secondary">Secondary Button</button>
+            </div>
+            
+            <h3>Cards</h3>
+            <div class="demo-grid grid--3">
+                <div class="card">
+                    <div class="card__icon">🎨</div>
+                    <h3 class="card__title">Art Installation</h3>
+                    <p class="card__text">Experience immersive art pieces that blend seamlessly with the natural environment.</p>
+                </div>
+                <div class="card">
+                    <div class="card__icon">🎵</div>
+                    <h3 class="card__title">Live Music</h3>
+                    <p class="card__text">Multiple stages featuring local and touring artists across genres.</p>
+                </div>
+                <div class="card">
+                    <div class="card__icon">🤝</div>
+                    <h3 class="card__title">Community</h3>
+                    <p class="card__text">Connect with like-minded individuals in an authentic environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing Section -->
+        <section id="spacing" class="demo-section">
+            <h2>Spacing System</h2>
+            <div class="demo-grid">
+                <div class="token-example">XS: var(--spacing-xs) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-xs);"></span></div>
+                <div class="token-example">SM: var(--spacing-sm) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-sm);"></span></div>
+                <div class="token-example">MD: var(--spacing-md) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-md);"></span></div>
+                <div class="token-example">LG: var(--spacing-lg) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-lg);"></span></div>
+                <div class="token-example">XL: var(--spacing-xl) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-xl);"></span></div>
+            </div>
+        </section>
+
+        <!-- Themes Section -->
+        <section id="themes" class="demo-section">
+            <h2>Theme System</h2>
+            <p>Click the theme toggle button in the top-right corner to switch between light and dark themes. The theme preference is automatically saved and respects your system preference.</p>
+            
+            <div class="demo-grid grid--2">
+                <div class="card">
+                    <h3 class="card__title">Light Theme</h3>
+                    <p class="card__text">Clean, bright design perfect for daytime browsing with high contrast for accessibility.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card__title">Dark Theme</h3>
+                    <p class="card__text">Reduced eye strain for low-light environments while maintaining visual hierarchy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Token Examples -->
+        <section class="demo-section">
+            <h2>Design Token Examples</h2>
+            <div class="demo-grid grid--2">
+                <div>
+                    <h3>Component Tokens</h3>
+                    <div class="token-example">--component-button-primary-background</div>
+                    <div class="token-example">--component-card-shadow-hover</div>
+                    <div class="token-example">--component-navigation-backdrop-blur</div>
+                </div>
+                <div>
+                    <h3>Effect Tokens</h3>
+                    <div class="token-example">--effects-transition-duration-normal</div>
+                    <div class="token-example">--effects-shadow-lg</div>
+                    <div class="token-example">--effects-blur-md</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="theme-switcher.js"></script>
+    <script>
+        // Add theme toggle button to the page
+        themeSwitcher.createToggleButton();
+        
+        // Highlight active nav links based on scroll position
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav__link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

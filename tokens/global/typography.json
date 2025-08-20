@@ -1,0 +1,41 @@
+{
+  "typography": {
+    "font-family": {
+      "display": { "value": "'Inter', 'Helvetica Neue', sans-serif" },
+      "body": { "value": "'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif" },
+      "mono": { "value": "Monaco, 'Courier New', monospace" }
+    },
+    "font-weight": {
+      "normal": { "value": "400" },
+      "medium": { "value": "500" },
+      "semibold": { "value": "600" },
+      "bold": { "value": "700" },
+      "extrabold": { "value": "800" },
+      "black": { "value": "900" }
+    },
+    "font-size": {
+      "xs": { "value": "clamp(0.75rem, 1vw, 0.875rem)" },
+      "sm": { "value": "clamp(0.875rem, 1.5vw, 1rem)" },
+      "base": { "value": "clamp(1rem, 2vw, 1.125rem)" },
+      "lg": { "value": "clamp(1.125rem, 2.5vw, 1.5rem)" },
+      "xl": { "value": "clamp(1.5rem, 3vw, 2rem)" },
+      "2xl": { "value": "clamp(2rem, 4vw, 3rem)" },
+      "3xl": { "value": "clamp(3rem, 6vw, 4rem)" },
+      "4xl": { "value": "clamp(4rem, 8vw, 6rem)" },
+      "hero": { "value": "clamp(3rem, 8vw, 6rem)" }
+    },
+    "line-height": {
+      "tight": { "value": "1.1" },
+      "normal": { "value": "1.3" },
+      "relaxed": { "value": "1.4" },
+      "loose": { "value": "1.6" }
+    },
+    "letter-spacing": {
+      "tight": { "value": "-0.025em" },
+      "normal": { "value": "0" },
+      "wide": { "value": "0.025em" },
+      "wider": { "value": "0.05em" },
+      "widest": { "value": "0.1em" }
+    }
+  }
+}

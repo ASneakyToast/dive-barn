@@ -1,0 +1,39 @@
+{
+  "effects": {
+    "shadow": {
+      "none": { "value": "0 0 0 0 transparent" },
+      "sm": { "value": "0 2px 4px rgba(43, 38, 34, 0.06)" },
+      "md": { "value": "0 4px 12px rgba(43, 38, 34, 0.10)" },
+      "lg": { "value": "0 8px 24px rgba(43, 38, 34, 0.15)" },
+      "xl": { "value": "0 16px 48px rgba(43, 38, 34, 0.20)" },
+      "2xl": { "value": "0 24px 64px rgba(43, 38, 34, 0.25)" },
+      "inner": { "value": "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)" }
+    },
+    "transition": {
+      "duration": {
+        "instant": { "value": "0ms" },
+        "fast": { "value": "150ms" },
+        "normal": { "value": "300ms" },
+        "slow": { "value": "500ms" },
+        "slower": { "value": "750ms" }
+      },
+      "easing": {
+        "ease": { "value": "ease" },
+        "ease-in": { "value": "cubic-bezier(0.4, 0, 1, 1)" },
+        "ease-out": { "value": "cubic-bezier(0, 0, 0.2, 1)" },
+        "ease-in-out": { "value": "cubic-bezier(0.4, 0, 0.2, 1)" },
+        "bounce": { "value": "cubic-bezier(0.68, -0.55, 0.265, 1.55)" },
+        "spring": { "value": "cubic-bezier(0.175, 0.885, 0.32, 1.275)" }
+      }
+    },
+    "blur": {
+      "none": { "value": "0" },
+      "sm": { "value": "4px" },
+      "md": { "value": "8px" },
+      "lg": { "value": "16px" },
+      "xl": { "value": "24px" },
+      "2xl": { "value": "40px" },
+      "3xl": { "value": "64px" }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+/* ==========================================================================
+   THEME SYSTEM - Manual Theme Implementation
+   ========================================================================== */
+
+/* Default (Light) Theme */
+:root {
+  --color-background: var(--color-white);
+  --color-surface: var(--color-gray-50);
+  --color-surface-variant: var(--color-gray-100);
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-500);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-inverse: var(--color-white);
+  --color-border-default: rgba(0, 0, 0, 0.05);
+  --color-border-muted: rgba(0, 0, 0, 0.06);
+  --color-interactive-hover: rgba(0, 0, 0, 0.04);
+  --color-interactive-pressed: rgba(0, 0, 0, 0.08);
+  --color-interactive-disabled: rgba(0, 0, 0, 0.12);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --color-background: var(--color-gray-900);
+  --color-surface: var(--color-gray-800);
+  --color-surface-variant: var(--color-gray-700);
+  --color-text-primary: var(--color-gray-50);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-muted: var(--color-gray-400);
+  --color-text-inverse: var(--color-gray-900);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-muted: rgba(255, 255, 255, 0.05);
+  --color-interactive-hover: rgba(255, 255, 255, 0.04);
+  --color-interactive-pressed: rgba(255, 255, 255, 0.08);
+  --color-interactive-disabled: rgba(255, 255, 255, 0.12);
+  
+  /* Update component tokens for dark theme */
+  --component-card-background: var(--color-surface);
+  --component-form-input-background: var(--color-surface);
+  --component-navigation-background: rgba(30, 41, 59, 0.95);
+  --component-navigation-border: rgba(255, 255, 255, 0.02);
+  --component-navigation-link-text: var(--color-text-primary);
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-background: var(--color-gray-900);
+    --color-surface: var(--color-gray-800);
+    --color-surface-variant: var(--color-gray-700);
+    --color-text-primary: var(--color-gray-50);
+    --color-text-secondary: var(--color-gray-300);
+    --color-text-muted: var(--color-gray-400);
+    --color-text-inverse: var(--color-gray-900);
+    --color-border-default: rgba(255, 255, 255, 0.1);
+    --color-border-muted: rgba(255, 255, 255, 0.05);
+    --color-interactive-hover: rgba(255, 255, 255, 0.04);
+    --color-interactive-pressed: rgba(255, 255, 255, 0.08);
+    --color-interactive-disabled: rgba(255, 255, 255, 0.12);
+    
+    /* Update component tokens for dark theme */
+    --component-card-background: var(--color-surface);
+    --component-form-input-background: var(--color-surface);
+    --component-navigation-background: rgba(30, 41, 59, 0.95);
+    --component-navigation-border: rgba(255, 255, 255, 0.02);
+    --component-navigation-link-text: var(--color-text-primary);
+  }
+}
+
+/* Theme transition animation */
+* {
+  transition: 
+    background-color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out),
+    border-color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out),
+    color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
