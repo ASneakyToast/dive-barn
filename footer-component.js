@@ -23,18 +23,8 @@ class DiveBarnFooter extends HTMLElement {
                 <div class="footer__container">
                     <div class="footer__content">
                         <div class="footer__section">
-                            <h3 class="footer__title">Dive Barn 2025</h3>
-                            <p class="footer__text">Building an unforgettable music and arts experience through community support and transparency.</p>
-                        </div>
-                        
-                        <div class="footer__section">
-                            <h4 class="footer__subtitle">Quick Links</h4>
-                            <ul class="footer__links">
-                                <li><a href="index.html" class="footer__link ${currentPage === 'index.html' ? 'footer__link--active' : ''}">Home</a></li>
-                                <li><a href="schedule.html" class="footer__link ${currentPage === 'schedule.html' ? 'footer__link--active' : ''}">Schedule</a></li>
-                                <li><a href="yorkville-schoolhouse-ranch.html" class="footer__link ${currentPage === 'yorkville-schoolhouse-ranch.html' ? 'footer__link--active' : ''}">Venue</a></li>
-                                <li><a href="financial-transparency.html" class="footer__link ${currentPage === 'financial-transparency.html' ? 'footer__link--active' : ''}">Transparency</a></li>
-                            </ul>
+                            <h3 class="footer__title"><a href="index.html" class="footer__title-link">Dive Barn 2025</a></h3>
+                            <p class="footer__text">Building an unforgettable music and arts experience at <a href="yorkville-schoolhouse-ranch.html" class="footer__inline-link">Yorkville Schoolhouse Ranch</a> through community support and transparency.</p>
                         </div>
                         
                         <div class="footer__section">
@@ -42,17 +32,12 @@ class DiveBarnFooter extends HTMLElement {
                             <div class="footer__contact">
                                 <p class="footer__contact-item">
                                     <strong>Email:</strong> 
-                                    <a href="mailto:hello@divebarn.com" class="footer__contact-link">hello@divebarn.com</a>
+                                    <a href="mailto:divebarnranch@gmail.com" class="footer__contact-link">divebarnranch@gmail.com</a>
                                 </p>
                                 <p class="footer__contact-item">
-                                    <strong>Phone:</strong> 
-                                    <a href="tel:" class="footer__contact-link">(xxx) xxx-xxxx</a>
+                                    <strong>Instagram:</strong> 
+                                    <a href="https://instagram.com/divebarnranch" class="footer__contact-link" target="_blank" rel="noopener">@divebarnranch</a>
                                 </p>
-                                <div class="footer__social-links">
-                                    <a href="#" class="footer__social-link" title="Instagram" aria-label="Follow us on Instagram">📷</a>
-                                    <a href="mailto:hello@divebarn.com" class="footer__social-link" title="Email" aria-label="Send us an email">✉️</a>
-                                    <a href="tel:" class="footer__social-link" title="Phone" aria-label="Call us">📞</a>
-                                </div>
                             </div>
                         </div>
                         
@@ -63,6 +48,9 @@ class DiveBarnFooter extends HTMLElement {
                                 <a href="https://paypal.me/divebarn" class="footer__donation-link" target="_blank" rel="noopener">PayPal</a>
                                 <a href="https://cash.app/$DiveBarn" class="footer__donation-link" target="_blank" rel="noopener">Cash App</a>
                             </div>
+                            <p class="footer__transparency-link">
+                                <a href="financial-transparency.html" class="footer__link">Learn more about our financial transparency</a>
+                            </p>
                         </div>
                     </div>
                     

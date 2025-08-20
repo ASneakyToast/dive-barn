@@ -1732,6 +1732,32 @@ body {
     margin-bottom: 1rem;
 }
 
+.footer__title-link {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 4px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.footer__title-link:hover {
+    color: var(--color-primary);
+    text-decoration-color: white;
+}
+
+.footer__inline-link {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 2px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.footer__inline-link:hover {
+    color: var(--color-primary);
+    text-decoration-color: white;
+}
+
 .footer__subtitle {
     font-size: 1rem;
     font-weight: var(--font-weight-semibold);
@@ -1787,6 +1813,26 @@ body {
 .footer__donation-link:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
+}
+
+.footer__transparency-link {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+}
+
+.footer__transparency-link a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: var(--color-primary);
+    text-underline-offset: 2px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.footer__transparency-link a:hover {
+    color: var(--color-primary);
+    text-decoration-color: white;
 }
 
 .footer__contact {
