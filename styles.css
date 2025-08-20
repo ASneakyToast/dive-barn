@@ -13,14 +13,10 @@
   --color-cloud: #F8F9FA;            /* Off-white */
   --color-pure-white: #FFFFFF;       /* Pure white */
   
-  /* Semantic Colors */
+  /* App-specific color overrides (keep only non-theme-aware colors) */
   --color-primary: var(--color-vibrant-coral);
   --color-secondary: var(--color-electric-orange);
   --color-accent: var(--color-sage-green);
-  --color-background: var(--color-pure-white);
-  --color-surface: var(--color-cloud);
-  --color-text: var(--color-charcoal);
-  --color-text-muted: var(--color-concrete);
   --color-text-light: rgba(255, 255, 255, 0.9);
   
   /* Typography */
@@ -129,7 +125,7 @@ body {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   background-color: var(--color-background);
   overflow-x: hidden;
 }
@@ -176,7 +172,7 @@ body {
 }
 
 .nav__link {
-  color: var(--color-text);
+  color: var(--color-text-primary);
   text-decoration: none;
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-sm);
@@ -364,7 +360,7 @@ body {
   font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-2xl));
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
   position: relative;
 }
@@ -624,7 +620,7 @@ body {
 .info__item-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
   line-height: var(--line-height-tight);
 }
@@ -704,7 +700,7 @@ body {
 .info__feature-title {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin: 0;
   line-height: var(--line-height-tight);
 }
@@ -881,7 +877,7 @@ body {
   padding: var(--space-lg);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
@@ -1030,7 +1026,7 @@ body {
   padding: var(--space-sm) var(--space-md);
   display: none;
   line-height: var(--line-height-normal);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .faq__item.active .faq__answer {
@@ -1166,7 +1162,7 @@ body {
 
 .modal__close:hover {
   background: var(--color-background-alt);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .modal__title {
@@ -1189,7 +1185,7 @@ body {
 .form__label {
   display: block;
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text);
+  color: var(--color-text-primary);
   margin-bottom: 2px;
 }
 
@@ -1235,7 +1231,7 @@ body {
 
 .btn--secondary:hover {
   background: var(--color-background-alt);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .rsvp-success {

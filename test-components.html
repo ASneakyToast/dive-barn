@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Test</title>
+    
+    <!-- Design System -->
+    <link rel="stylesheet" href="tokens/build/tokens.css">
+    <link rel="stylesheet" href="tokens/build/theme-system.css">
+    <link rel="stylesheet" href="components/nav/nav-styles.css">
+    <link rel="stylesheet" href="components/footer/footer-styles.css">
+    <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/card/card-styles.css">
+    <link rel="stylesheet" href="components/theme-switcher/theme-switcher-styles.css">
+    
+    <style>
+        body {
+            font-family: var(--typography-font-family-body);
+            padding: var(--spacing-lg);
+            background: var(--color-background);
+            color: var(--color-text-primary);
+        }
+        .test-section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-md);
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Component Test</h1>
+    
+    <div class="test-section">
+        <h2>Navigation Component</h2>
+        <dive-barn-nav></dive-barn-nav>
+    </div>
+    
+    <div class="test-section">
+        <h2>Button Components</h2>
+        <db-button variant="primary">Primary Button</db-button>
+        <db-button variant="secondary">Secondary Button</db-button>
+        <db-button variant="accent" icon="🎵">With Icon</db-button>
+    </div>
+    
+    <div class="test-section">
+        <h2>Card Component</h2>
+        <db-card variant="default" hoverable style="max-width: 400px;">
+            <db-card-header>
+                <db-card-icon>🎨</db-card-icon>
+                <db-card-content>
+                    <db-card-title>Test Card</db-card-title>
+                </db-card-content>
+            </db-card-header>
+            <db-card-text>This is a test card to verify that styling works correctly with design tokens.</db-card-text>
+        </db-card>
+    </div>
+    
+    <div class="test-section">
+        <h2>Footer Component</h2>
+        <p>Now using db-button components for donation links:</p>
+        <dive-barn-footer></dive-barn-footer>
+    </div>
+
+    <!-- Load Components -->
+    <script src="components/theme-switcher/theme-switcher.js"></script>
+    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/nav/nav-component.js"></script>
+    <script src="components/footer/footer-component.js"></script>
+    <script src="components/button/button-component.js"></script>
+    <script src="components/card/card-component.js"></script>
+    
+    <script>
+        themeSwitcher.createToggleButton();
+        console.log('All components loaded for testing');
+    </script>
+</body>
+</html>

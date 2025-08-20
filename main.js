@@ -24,10 +24,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navigation scroll behavior and active states
-const navLinks = document.querySelectorAll('.nav__link');
-const sections = document.querySelectorAll('section[id]');
-const nav = document.querySelector('nav');
+// Floating button scroll behavior
 const ctaSection = document.getElementById('rsvp-cta');
 const floatingBtn = document.querySelector('.floating-rsvp');
 
@@ -38,33 +35,6 @@ function updateOnScroll() {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
     
-    // Update navigation background
-    if (scrollY > 100) {
-        nav.style.background = 'rgba(255, 255, 255, 1)';
-        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-        nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-    }
-
-    // Update active navigation link based on scroll position
-    let currentSection = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (scrollY >= sectionTop - 100) {
-            currentSection = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        link.removeAttribute('aria-current');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-            link.setAttribute('aria-current', 'page');
-        }
-    });
-
     // Hide floating RSVP button when near the CTA section
     if (ctaSection && floatingBtn) {
         const ctaTop = ctaSection.offsetTop;

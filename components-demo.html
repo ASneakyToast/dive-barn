@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dive Barn Web Components Demo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Design System -->
+    <link rel="stylesheet" href="tokens/build/tokens.css">
+    <link rel="stylesheet" href="tokens/build/theme-system.css">
+    <link rel="stylesheet" href="components/nav/nav-styles.css">
+    <link rel="stylesheet" href="components/footer/footer-styles.css">
+    <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/card/card-styles.css">
+    <link rel="stylesheet" href="components/theme-switcher/theme-switcher-styles.css">
+    
+    <style>
+        body {
+            font-family: var(--typography-font-family-body);
+            font-size: var(--typography-font-size-base);
+            line-height: var(--typography-line-height-normal);
+            color: var(--color-text-primary);
+            background-color: var(--color-background);
+            margin: 0;
+            padding: var(--spacing-lg);
+            transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+        }
+
+        .demo-section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--color-surface);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--color-border-muted);
+        }
+
+        .demo-title {
+            font-family: var(--typography-font-family-display);
+            font-size: var(--typography-font-size-xl);
+            font-weight: var(--typography-font-weight-bold);
+            color: var(--color-primary);
+            margin: 0 0 var(--spacing-md) 0;
+        }
+
+        .demo-grid {
+            display: grid;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+
+        .demo-grid--2 { grid-template-columns: repeat(2, 1fr); }
+        .demo-grid--3 { grid-template-columns: repeat(3, 1fr); }
+        .demo-grid--4 { grid-template-columns: repeat(4, 1fr); }
+        
+        @media (max-width: 768px) {
+            .demo-grid--2,
+            .demo-grid--3,
+            .demo-grid--4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .code-example {
+            background: var(--color-gray-100);
+            padding: var(--spacing-sm);
+            border-radius: var(--border-radius-md);
+            font-family: var(--typography-font-family-mono);
+            font-size: var(--typography-font-size-xs);
+            color: var(--color-text-primary);
+            margin-top: var(--spacing-sm);
+            overflow-x: auto;
+        }
+
+        [data-theme="dark"] .code-example {
+            background: var(--color-gray-800);
+            color: var(--color-gray-200);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <dive-barn-nav></dive-barn-nav>
+
+    <main>
+        <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
+            <h1 style="font-size: var(--typography-font-size-3xl); font-weight: var(--typography-font-weight-black); color: var(--color-primary); margin-bottom: var(--spacing-sm);">
+                Web Components Demo
+            </h1>
+            <p style="font-size: var(--typography-font-size-lg); color: var(--color-text-secondary); max-width: 800px; margin: 0 auto;">
+                Explore our token-based web components with consistent styling, accessibility features, and theme support.
+            </p>
+        </header>
+
+        <!-- Button Components -->
+        <section class="demo-section">
+            <h2 class="demo-title">Button Components</h2>
+            <p>Flexible button components with multiple variants, sizes, and states.</p>
+
+            <div class="demo-grid">
+                <div>
+                    <h3>Variants</h3>
+                    <div class="button-group">
+                        <db-button variant="primary">Primary</db-button>
+                        <db-button variant="secondary">Secondary</db-button>
+                        <db-button variant="accent">Accent</db-button>
+                        <db-button variant="ghost">Ghost</db-button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Sizes</h3>
+                    <div class="button-group">
+                        <db-button size="small">Small</db-button>
+                        <db-button size="normal">Normal</db-button>
+                        <db-button size="large">Large</db-button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>With Icons</h3>
+                    <div class="button-group">
+                        <db-button variant="primary" icon="🎵">Music</db-button>
+                        <db-button variant="secondary" icon="🎨">Art</db-button>
+                        <db-button variant="accent" icon="🤝">Community</db-button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>States</h3>
+                    <div class="button-group">
+                        <db-button variant="primary" loading>Loading</db-button>
+                        <db-button variant="secondary" disabled>Disabled</db-button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example">
+&lt;db-button variant="primary" size="large" icon="🎵"&gt;RSVP Now&lt;/db-button&gt;
+&lt;db-button variant="secondary" loading&gt;Processing...&lt;/db-button&gt;
+            </div>
+        </section>
+
+        <!-- Card Components -->
+        <section class="demo-section">
+            <h2 class="demo-title">Card Components</h2>
+            <p>Versatile card components with structured content areas and interactive states.</p>
+
+            <div class="demo-grid demo-grid--3">
+                <db-card variant="default" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🎨</db-card-icon>
+                        <db-card-content>
+                            <db-card-title level="3">Art Installation</db-card-title>
+                            <p class="card__subtitle">Interactive Experience</p>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        Experience immersive art pieces that blend seamlessly with the natural environment of the ranch.
+                    </db-card-text>
+                </db-card>
+
+                <db-card variant="featured" clickable>
+                    <db-card-header>
+                        <db-card-icon>🎵</db-card-icon>
+                        <db-card-content>
+                            <db-card-title level="3">Live Music</db-card-title>
+                            <p class="card__subtitle">Featured Event</p>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        Multiple stages featuring local and touring artists across genres, from folk to electronic under the stars.
+                    </db-card-text>
+                    <db-card-footer>
+                        <span>All ages welcome</span>
+                        <db-button size="small" variant="ghost">Learn More</db-button>
+                    </db-card-footer>
+                </db-card>
+
+                <db-card variant="urgent" elevated>
+                    <db-card-header>
+                        <db-card-icon>🚫</db-card-icon>
+                        <db-card-content>
+                            <db-card-title level="3">Fire Safety</db-card-title>
+                            <p class="card__subtitle">Important Notice</p>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        <strong>No campfires, candles, or flames</strong> allowed on the property. The ranch is extremely dry in October.
+                    </db-card-text>
+                </db-card>
+            </div>
+
+            <div class="code-example">
+&lt;db-card variant="featured" clickable hoverable&gt;
+    &lt;db-card-header&gt;
+        &lt;db-card-icon&gt;🎵&lt;/db-card-icon&gt;
+        &lt;db-card-content&gt;
+            &lt;db-card-title&gt;Live Music&lt;/db-card-title&gt;
+        &lt;/db-card-content&gt;
+    &lt;/db-card-header&gt;
+    &lt;db-card-text&gt;Content here...&lt;/db-card-text&gt;
+&lt;/db-card&gt;
+            </div>
+        </section>
+
+        <!-- Navigation Component -->
+        <section class="demo-section">
+            <h2 class="demo-title">Navigation Component</h2>
+            <p>The navigation component automatically adapts to different pages and includes active state highlighting.</p>
+            
+            <div style="background: var(--color-background); border: 1px solid var(--color-border-muted); border-radius: var(--border-radius-md); overflow: hidden;">
+                <dive-barn-nav></dive-barn-nav>
+            </div>
+
+            <div class="code-example">
+&lt;dive-barn-nav&gt;&lt;/dive-barn-nav&gt;
+            </div>
+        </section>
+
+        <!-- Theme System -->
+        <section class="demo-section">
+            <h2 class="demo-title">Theme System</h2>
+            <p>All components automatically respond to theme changes. Try the theme toggle button in the top-right corner!</p>
+
+            <div class="demo-grid demo-grid--2">
+                <div>
+                    <h3>Light Theme Features</h3>
+                    <ul>
+                        <li>High contrast for readability</li>
+                        <li>Clean, bright interface</li>
+                        <li>Optimized for daytime use</li>
+                        <li>WCAG AA compliant colors</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Dark Theme Features</h3>
+                    <ul>
+                        <li>Reduced eye strain</li>
+                        <li>Better for low-light environments</li>
+                        <li>Maintains visual hierarchy</li>
+                        <li>Automatic system detection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="button-group" style="margin-top: var(--spacing-md);">
+                <db-button onclick="themeSwitcher.setTheme('light')">Light Theme</db-button>
+                <db-button onclick="themeSwitcher.setTheme('dark')">Dark Theme</db-button>
+                <db-button onclick="themeSwitcher.clearStoredTheme()" variant="ghost">System Default</db-button>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <section class="demo-section">
+            <h2 class="demo-title">Interactive Demo</h2>
+            <p>Try clicking the buttons and cards to see the interactive features in action.</p>
+
+            <div class="demo-grid demo-grid--2">
+                <db-card clickable hoverable>
+                    <db-card-header>
+                        <db-card-icon>⚡</db-card-icon>
+                        <db-card-content>
+                            <db-card-title>Interactive Card</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        This card is clickable and hoverable. It will dispatch custom events when clicked.
+                    </db-card-text>
+                </db-card>
+
+                <div style="padding: var(--spacing-md); background: var(--color-background); border-radius: var(--border-radius-md); border: 1px solid var(--color-border-muted);">
+                    <h3>Button Interactions</h3>
+                    <div class="button-group">
+                        <db-button id="demo-btn-1" variant="primary">Click Me!</db-button>
+                        <db-button id="demo-btn-2" variant="secondary" icon="🎉">Celebrate</db-button>
+                    </div>
+                    <div id="interaction-log" style="margin-top: var(--spacing-sm); font-size: var(--typography-font-size-sm); color: var(--color-text-muted);">
+                        Click interactions will appear here...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <dive-barn-footer></dive-barn-footer>
+
+    <!-- Load Components -->
+    <script src="components/theme-switcher/theme-switcher.js"></script>
+    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/nav/nav-component.js"></script>
+    <script src="components/footer/footer-component.js"></script>
+    <script src="components/button/button-component.js"></script>
+    <script src="components/card/card-component.js"></script>
+
+    <script>
+        // Add theme toggle button
+        themeSwitcher.createToggleButton();
+
+        // Interactive demo functionality
+        const interactionLog = document.getElementById('interaction-log');
+        let logCount = 0;
+
+        function logInteraction(message) {
+            logCount++;
+            const timestamp = new Date().toLocaleTimeString();
+            interactionLog.innerHTML += `<div>${logCount}. [${timestamp}] ${message}</div>`;
+            interactionLog.scrollTop = interactionLog.scrollHeight;
+        }
+
+        // Button event listeners
+        document.getElementById('demo-btn-1').addEventListener('db-click', (e) => {
+            logInteraction('Primary button clicked! 🎯');
+        });
+
+        document.getElementById('demo-btn-2').addEventListener('db-click', (e) => {
+            logInteraction('Celebrate button clicked! 🎉');
+        });
+
+        // Card event listeners
+        document.addEventListener('db-card-click', (e) => {
+            logInteraction('Interactive card clicked! 📦');
+        });
+
+        // Theme change listener
+        document.addEventListener('themechange', (e) => {
+            logInteraction(`Theme changed to: ${e.detail.theme} 🌓`);
+        });
+
+        // Navigation demonstration
+        const navLinks = document.querySelectorAll('dive-barn-nav');
+        navLinks.forEach(nav => {
+            nav.addEventListener('click', (e) => {
+                if (e.target.matches('a')) {
+                    e.preventDefault();
+                    logInteraction(`Navigation clicked: ${e.target.textContent} 🧭`);
+                }
+            });
+        });
+
+        console.log('🎨 Dive Barn Design System Components loaded!');
+        console.log('🔧 All components use design tokens for consistent styling');
+        console.log('🌓 Theme system automatically applies to all components');
+        console.log('♿ Components include accessibility features and keyboard navigation');
+    </script>
+</body>
+</html>

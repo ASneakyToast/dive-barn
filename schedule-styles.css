@@ -57,7 +57,7 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-xs);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .schedule__description {
@@ -281,7 +281,7 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-xs);
-  color: var(--color-text);
+  color: var(--color-text-primary);
 }
 
 .history__description {
