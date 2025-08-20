@@ -1,0 +1,839 @@
+/* Financial Transparency Page Styles */
+
+/* Section Titles - Center Aligned */
+.section__title {
+    text-align: center;
+}
+
+.section__subtitle {
+    text-align: center;
+}
+
+/* Hero Section - Financial */
+.hero--financial {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    padding: 8rem 0 6rem;
+}
+
+.hero--financial .hero__title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.hero--financial .hero__subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* Funding Overview */
+.funding-overview {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.funding-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.stat__value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat__label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Progress Bar */
+.progress-container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    border-radius: 0.5rem;
+    transition: width 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.progress-percentage {
+    position: absolute;
+    right: 0;
+    top: -2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Support Section */
+.section--support {
+    background: var(--color-background);
+    padding: 4rem 0;
+}
+
+.donation-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.donation-btn {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.donation-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+}
+
+.donation-btn__icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 3rem;
+    text-align: center;
+}
+
+.donation-btn__content {
+    flex: 1;
+}
+
+.donation-btn__title {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+}
+
+.donation-btn__subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.donation-btn--venmo:hover {
+    border-color: #3D95CE;
+}
+
+.donation-btn--paypal:hover {
+    border-color: #0070BA;
+}
+
+.donation-btn--cashapp:hover {
+    border-color: #00C853;
+}
+
+.donation-note {
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-top: 2rem;
+    border-left: 4px solid var(--color-primary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Milestone Timeline */
+.section--milestones {
+    background: var(--color-surface);
+    padding: 4rem 0;
+}
+
+.milestone-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem auto 0;
+}
+
+.milestone-timeline::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-border));
+}
+
+.milestone {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 5rem;
+}
+
+.milestone__marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4rem;
+    height: 4rem;
+    background: white;
+    border: 3px solid var(--color-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.milestone--achieved .milestone__marker {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.milestone--current .milestone__marker {
+    background: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.milestone__content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+}
+
+.milestone__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.milestone__amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.milestone__description {
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.milestone__status {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.milestone__progress {
+    margin-top: 1rem;
+}
+
+.milestone__progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: var(--color-border);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.milestone__progress-fill {
+    height: 100%;
+    background: var(--color-secondary);
+    border-radius: 0.25rem;
+    transition: width 0.8s ease-out;
+}
+
+.milestone__progress-text {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+}
+
+/* Expense Breakdown */
+.section--expenses {
+    background: white;
+    padding: 4rem 0;
+}
+
+.expense-table-container {
+    margin-top: 3rem;
+    background: var(--color-surface);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.expense-table th {
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.expense-table th:last-child {
+    text-align: right;
+}
+
+.expense-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.expense-table td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+.category-name {
+    background: var(--color-background);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-primary);
+    vertical-align: top;
+    border-right: 2px solid var(--color-border);
+}
+
+.expense-category-header .category-name {
+    border-top: 2px solid var(--color-primary);
+}
+
+.category-subtotal {
+    background: var(--color-background);
+    border-top: 2px solid var(--color-border);
+}
+
+.category-subtotal td {
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.grand-total {
+    background: var(--color-primary);
+    color: white;
+}
+
+.grand-total td {
+    padding: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    border-bottom: none;
+}
+
+/* Community Contributions */
+.section--community {
+    background: var(--color-background);
+    padding: 4rem 0;
+}
+
+.simple-contributions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.contribution-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--color-border);
+}
+
+.contribution-item--major {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border-color: transparent;
+}
+
+.contribution-item__amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-right: 1.5rem;
+    min-width: 4rem;
+    color: var(--color-primary);
+}
+
+.contribution-item--major .contribution-item__amount {
+    color: white;
+}
+
+.contribution-item__details {
+    flex: 1;
+}
+
+.contribution-item__name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+}
+
+.contribution-item--major .contribution-item__name {
+    color: white;
+}
+
+.contribution-item__message {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.contribution-item--major .contribution-item__message {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contribution-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: var(--color-surface);
+    border-radius: 1rem;
+    border: 1px solid var(--color-border);
+}
+
+.contribution-cta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.contribution-cta p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* Footer Enhancements */
+.footer__donation-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer__donation-link {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer__donation-link:hover {
+    color: var(--color-primary);
+}
+
+.footer__transparency {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+}
+
+/* Floating Donate Button */
+.floating-donate {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 3rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.floating-donate:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.floating-donate:active {
+    transform: translateY(0);
+}
+
+.floating-donate__text {
+    font-family: inherit;
+}
+
+.floating-donate__icon {
+    font-size: 1.2rem;
+}
+
+/* Donation Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 1rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-text);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-body > p {
+    margin-bottom: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.donation-options-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.donation-option {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: var(--color-text);
+}
+
+.donation-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary);
+}
+
+.donation-option__icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    width: 3rem;
+    text-align: center;
+}
+
+.donation-option__content {
+    flex: 1;
+}
+
+.donation-option__title {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.donation-option__subtitle {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.donation-option__arrow {
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    transition: transform 0.3s ease;
+}
+
+.donation-option:hover .donation-option__arrow {
+    transform: translateX(0.25rem);
+}
+
+.modal-note {
+    background: var(--color-background);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--color-primary);
+}
+
+.modal-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* Mobile Styles for Modal */
+@media (max-width: 768px) {
+    .floating-donate {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .donation-option {
+        padding: 1rem;
+    }
+    
+    .donation-option__icon {
+        font-size: 1.75rem;
+        margin-right: 0.75rem;
+        width: 2.5rem;
+    }
+    
+    .donation-option__title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero--financial {
+        padding: 6rem 0 4rem;
+    }
+    
+    .hero--financial .hero__title {
+        font-size: 2.5rem;
+    }
+    
+    .funding-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat {
+        padding: 1rem;
+    }
+    
+    .stat__value {
+        font-size: 2rem;
+    }
+    
+    .donation-options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .donation-btn {
+        padding: 1.5rem;
+    }
+    
+    .milestone-timeline::before {
+        left: 1rem;
+    }
+    
+    .milestone {
+        padding-left: 3rem;
+    }
+    
+    .milestone__marker {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    
+    .expense-table-container {
+        overflow-x: auto;
+        border-radius: 0.75rem;
+    }
+    
+    .expense-table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+    
+    .expense-table th,
+    .expense-table td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .simple-contributions {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero--financial .hero__title {
+        font-size: 2rem;
+    }
+    
+    .hero--financial .hero__subtitle {
+        font-size: 1rem;
+    }
+    
+    .milestone__content {
+        padding: 1.5rem;
+    }
+    
+    .expense-table {
+        font-size: 0.85rem;
+    }
+    
+    .expense-table th,
+    .expense-table td {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    .category-name {
+        font-size: 0.9rem;
+    }
+    
+    .contribution-highlight {
+        padding: 1.5rem;
+    }
+}
