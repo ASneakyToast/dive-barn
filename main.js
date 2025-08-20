@@ -91,41 +91,7 @@ window.addEventListener('scroll', () => {
     }
 }, { passive: true });
 
-// Modern scroll reveal animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            // Stop observing this element to prevent memory leaks
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-// Initialize reveal animations (moved delays to CSS for better performance)
-document.addEventListener('DOMContentLoaded', () => {
-    // Observe cards for staggered animations
-    document.querySelectorAll('.info__card, .festival__card').forEach(card => {
-        card.classList.add('reveal-ready');
-        observer.observe(card);
-    });
-
-    // Observe sections
-    document.querySelectorAll('section:not(#hero)').forEach(section => {
-        section.classList.add('reveal-ready', 'reveal-section');
-        observer.observe(section);
-    });
-});
-
-// Cleanup function for when the page is unloaded
-window.addEventListener('beforeunload', () => {
-    observer.disconnect();
-});
+// Removed scroll-based reveal animations for simpler CSS-only approach
 
 // Dynamic Floating Action Button - Event Day Detection
 function isEventDay() {

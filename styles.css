@@ -1257,31 +1257,25 @@ body {
    ANIMATION CLASSES
    ========================================================================== */
 
-.reveal-ready {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* Simple page-load animations for cards */
+.info__card {
+  animation: fadeInUp 0.6s ease-out both;
 }
 
-.reveal-section {
-  transform: translateY(40px);
+.festival__card {
+  animation: fadeInUp 0.6s ease-out both;
 }
 
-.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* Staggered delays for cards */
+.info__card:nth-child(1) { animation-delay: 0.1s; }
+.info__card:nth-child(2) { animation-delay: 0.2s; }
+.info__card:nth-child(3) { animation-delay: 0.3s; }
+.info__card:nth-child(4) { animation-delay: 0.4s; }
 
-/* CSS-based staggered animations for cards */
-.info__card.reveal-ready:nth-child(1) { transition-delay: 0.1s; }
-.info__card.reveal-ready:nth-child(2) { transition-delay: 0.2s; }
-.info__card.reveal-ready:nth-child(3) { transition-delay: 0.3s; }
-.info__card.reveal-ready:nth-child(4) { transition-delay: 0.4s; }
-
-.festival__card.reveal-ready:nth-child(1) { transition-delay: 0.1s; }
-.festival__card.reveal-ready:nth-child(2) { transition-delay: 0.2s; }
-.festival__card.reveal-ready:nth-child(3) { transition-delay: 0.3s; }
-.festival__card.reveal-ready:nth-child(4) { transition-delay: 0.4s; }
+.festival__card:nth-child(1) { animation-delay: 0.1s; }
+.festival__card:nth-child(2) { animation-delay: 0.2s; }
+.festival__card:nth-child(3) { animation-delay: 0.3s; }
+.festival__card:nth-child(4) { animation-delay: 0.4s; }
 
 /* ==========================================================================
    RESPONSIVE DESIGN - Mobile First Approach
@@ -1596,11 +1590,7 @@ body {
   }
 }
 
-/* Modern Animation Classes */
-.animate-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
+/* Removed animate-in class - using simple CSS animations instead */
 
 /* Utility classes */
 .sr-only {
