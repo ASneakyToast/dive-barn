@@ -499,6 +499,15 @@ body {
   margin: 0 auto;
 }
 
+/* 6-card staggered grid layout */
+.info__grid--six-cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-sm);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .info__card:nth-child(1) { 
   grid-column: span 7; 
 }
@@ -513,6 +522,26 @@ body {
 
 .info__card:nth-child(4) { 
   grid-column: span 7; 
+}
+
+/* Six-card grid layout */
+.info__grid--six-cards .info__card:nth-child(1) { 
+  grid-column: span 4; 
+}
+.info__grid--six-cards .info__card:nth-child(2) { 
+  grid-column: span 4; 
+}
+.info__grid--six-cards .info__card:nth-child(3) { 
+  grid-column: span 4; 
+}
+.info__grid--six-cards .info__card:nth-child(4) { 
+  grid-column: span 4; 
+}
+.info__grid--six-cards .info__card:nth-child(5) { 
+  grid-column: span 4; 
+}
+.info__grid--six-cards .info__card:nth-child(6) { 
+  grid-column: span 4; 
 }
 
 /* Urgent card styling for fire safety */
@@ -542,6 +571,165 @@ body {
   font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* Info container layout */
+.info__container {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.info__main {
+  flex: 1;
+}
+
+.info__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.info__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.2s ease;
+}
+
+.info__item:last-child {
+  border-bottom: none;
+}
+
+.info__item:hover {
+  padding-left: var(--space-xs);
+}
+
+.info__item-icon {
+  font-size: var(--font-size-xl);
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.1em;
+}
+
+.info__item-content {
+  flex: 1;
+}
+
+.info__item-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  line-height: var(--line-height-tight);
+}
+
+.info__item-text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Urgent item styling */
+.info__item--urgent {
+  background: linear-gradient(90deg, rgba(211, 47, 47, 0.02), rgba(183, 28, 28, 0.02));
+  border-left: 4px solid #d32f2f;
+  padding-left: var(--space-sm);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.info__item--urgent .info__item-title {
+  color: #d32f2f;
+}
+
+.info__item--urgent .info__item-icon {
+  color: #d32f2f;
+}
+
+/* Info item links */
+.info__item-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.info__item-link:hover {
+  color: var(--color-secondary);
+  transform: translateX(2px);
+}
+
+/* Sidebar features */
+.info__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.info__feature {
+  background: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.info__feature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.info__feature-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.info__feature-icon {
+  font-size: var(--font-size-lg);
+  line-height: 1;
+}
+
+.info__feature-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+.info__feature-text {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.info__feature-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.info__feature-link:hover {
+  color: var(--color-secondary);
+  transform: translateX(2px);
 }
 
 /* ==========================================================================
@@ -1167,15 +1355,56 @@ body {
   
   /* Mobile optimizations for new sections */
   .info__grid,
-  .info__grid--four-cards {
+  .info__grid--four-cards,
+  .info__grid--six-cards {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
+  }
+  
+  /* Mobile container layout */
+  .info__container {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  
+  /* Mobile list layout */
+  .info__list {
+    gap: var(--space-sm);
+  }
+  
+  .info__item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border-bottom: none;
+  }
+  
+  .info__item:hover {
+    padding-left: var(--space-sm);
+  }
+  
+  .info__item-icon {
+    font-size: var(--font-size-lg);
+  }
+  
+  /* Mobile sidebar */
+  .info__sidebar {
+    gap: var(--space-md);
+  }
+  
+  .info__feature {
+    padding: var(--space-sm);
   }
 
   .info__card:nth-child(1),
   .info__card:nth-child(2),
   .info__card:nth-child(3),
-  .info__card:nth-child(4) { 
+  .info__card:nth-child(4),
+  .info__grid--six-cards .info__card:nth-child(5),
+  .info__grid--six-cards .info__card:nth-child(6) { 
     grid-column: span 1; 
   }
   
@@ -1221,6 +1450,18 @@ body {
     grid-template-columns: repeat(6, 1fr);
     gap: var(--space-md);
   }
+  
+  /* 2x3 grid for six-card layout on tablets */
+  .info__grid--six-cards {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-md);
+  }
+  
+  /* Tablet container layout */
+  .info__container {
+    grid-template-columns: 1fr 280px;
+    gap: var(--space-lg);
+  }
 
   .info__card:nth-child(1),
   .info__card:nth-child(4) { 
@@ -1229,6 +1470,16 @@ body {
 
   .info__card:nth-child(2),
   .info__card:nth-child(3) { 
+    grid-column: span 3; 
+  }
+  
+  /* Six-card layout on tablets - 2 columns, 3 rows */
+  .info__grid--six-cards .info__card:nth-child(1),
+  .info__grid--six-cards .info__card:nth-child(2),
+  .info__grid--six-cards .info__card:nth-child(3),
+  .info__grid--six-cards .info__card:nth-child(4),
+  .info__grid--six-cards .info__card:nth-child(5),
+  .info__grid--six-cards .info__card:nth-child(6) { 
     grid-column: span 3; 
   }
 }
