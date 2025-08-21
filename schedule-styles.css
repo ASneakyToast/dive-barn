@@ -29,8 +29,8 @@
 }
 
 .schedule__item--highlight {
-  border: 2px solid var(--color-accent);
-  background: linear-gradient(to right, rgba(78, 205, 196, 0.05), white);
+  border: 2px solid var(--color-primary);
+  background: linear-gradient(to right, rgba(255, 107, 107, 0.05), white);
 }
 
 .schedule__time {
@@ -157,7 +157,8 @@
 
 .map__info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: var(--space-md);
 }
 
