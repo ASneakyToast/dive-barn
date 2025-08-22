@@ -1,0 +1,82 @@
+/* DB Table Component Styles */
+.db-table-container {
+    background: var(--color-surface);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.db-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.db-table th {
+    background: var(--color-primary);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.db-table th:last-child {
+    text-align: right;
+}
+
+.db-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+}
+
+.db-table td:last-child {
+    text-align: right;
+    font-weight: 500;
+}
+
+.db-table tr:last-child td {
+    border-bottom: none;
+}
+
+.db-table .total-row {
+    background: var(--color-background);
+    font-weight: 600;
+}
+
+.db-table .total-row td {
+    border-top: 2px solid var(--color-primary);
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .db-table-container {
+        overflow-x: auto;
+        border-radius: 0.75rem;
+    }
+    
+    .db-table {
+        min-width: 600px;
+        font-size: 0.9rem;
+    }
+    
+    .db-table th,
+    .db-table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .db-table {
+        font-size: 0.85rem;
+    }
+    
+    .db-table th,
+    .db-table td {
+        padding: 0.5rem 0.25rem;
+    }
+}

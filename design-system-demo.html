@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dive Barn Design System Demo</title>
     <link rel="stylesheet" href="styles-tokens.css">
+    <link rel="stylesheet" href="components/heading/heading-styles.css">
     <style>
         .demo-section {
             margin-bottom: var(--spacing-2xl);
@@ -51,9 +52,10 @@
     </header>
 
     <main class="section">
-        <div class="section__header">
-            <h1 class="section__title">Dive Barn Design System</h1>
-            <p class="section__subtitle">A modern, token-based design system built with Style Dictionary</p>
+        <db-heading 
+            title="Dive Barn Design System" 
+            subtitle="A modern, token-based design system built with Style Dictionary">
+        </db-heading>
         </div>
 
         <!-- Colors Section -->
@@ -204,6 +206,7 @@
         </section>
     </main>
 
+    <script src="components/heading/heading-component.js"></script>
     <script src="theme-switcher.js"></script>
     <script>
         // Add theme toggle button to the page

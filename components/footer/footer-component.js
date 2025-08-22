@@ -1,10 +1,11 @@
 /**
  * Dive Barn Footer Component
- * A reusable footer web component for all pages
+ * A reusable footer web component using design tokens
  */
 class DiveBarnFooter extends HTMLElement {
     constructor() {
         super();
+        // No Shadow DOM - use existing CSS from main styles
     }
 
     connectedCallback() {
@@ -44,9 +45,7 @@ class DiveBarnFooter extends HTMLElement {
                         <div class="footer__section">
                             <h4 class="footer__subtitle">Support Us</h4>
                             <div class="footer__donation-links">
-                                <a href="https://venmo.com/dive-barn" class="footer__donation-link" target="_blank" rel="noopener">Venmo</a>
-                                <a href="https://paypal.me/divebarn" class="footer__donation-link" target="_blank" rel="noopener">PayPal</a>
-                                <a href="https://cash.app/$DiveBarn" class="footer__donation-link" target="_blank" rel="noopener">Cash App</a>
+                                <db-button variant="primary" size="small" onclick="window.open('https://venmo.com/dive-barn', '_blank', 'noopener')">Venmo</db-button>
                             </div>
                             <p class="footer__transparency-link">
                                 <a href="financial-transparency.html" class="footer__link">Learn more about our financial transparency</a>
@@ -59,6 +58,7 @@ class DiveBarnFooter extends HTMLElement {
                         ${showTransparency ? `<p class="footer__transparency">Last updated: <span id="last-updated">${this.getAttribute('last-updated') || 'August 20, 2025'}</span></p>` : ''}
                     </div>
                 </div>
+                
             </footer>
         `;
     }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dive Barn 2025 - Annual Arts Festival | October 13, Mendocino County</title>
+    <title>Dive Barn 2025 - Annual Arts Festival | October 11, Mendocino County</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="components/nav/nav-styles.css">
     <link rel="stylesheet" href="components/footer/footer-styles.css">
     <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/modal/modal-styles.css">
     <link rel="stylesheet" href="components/theme-switcher/theme-switcher-styles.css">
+    <link rel="stylesheet" href="components/cta/cta-styles.css">
+    <link rel="stylesheet" href="components/heading/heading-styles.css">
     <link rel="stylesheet" href="tokens/build/theme-system.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -35,52 +38,60 @@
     <section id="hero" class="hero">
         <div class="hero__content">
             <h1 class="hero__title">DIVE BARN 2025</h1>
-            <h2 class="hero__subtitle">October 13, 2025</h2>
-            <p class="hero__tagline">Where Art, Music, and Community Come Together Under Mendocino Stars</p>
+            <h2 class="hero__subtitle">October 11, 2025</h2>
+            <p class="hero__tagline">An annual arts and music gathering on a ranch in Mendocino County</p>
             <a href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" class="btn btn--primary btn--hero" target="_blank" rel="noopener">
-                <span>RSVP NOW - IT'S FREE!</span>
-                <span class="btn__badge">Limited Space</span>
+                <span>RSVP NOW</span>
+                <span class="btn__badge">Space is limited</span>
             </a>
         </div>
     </section>
 
     <!-- Festival Overview Section -->
     <section id="festival" class="section section--festival">
-        <div class="section__header">
-            <h2 class="section__title">An Annual Gathering Like No Other</h2>
-            <p class="section__subtitle">Dive Barn brings together artists, musicians, and free spirits for an unforgettable experience on a historic 2,000-acre ranch. Discover incredible art installations, dance until dawn, and connect with a community that celebrates creativity and authenticity in the heart of Mendocino County. <a href="schedule.html" class="inline-link">See the full schedule →</a></p>
-        </div>
-        <div class="festival__grid">
-            <div class="festival__card">
-                <div class="festival__card-icon">🎵</div>
-                <h3 class="festival__card-title">Live Music</h3>
-                <p class="festival__card-text">Multiple stages featuring local and touring artists across genres, from folk to electronic under the stars.</p>
+        <db-heading 
+            title="An Annual Gathering Like No Other" 
+            subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. All are welcome to this growing, one-day festival. <a href='schedule.html' class='inline-link'>See the full schedule →</a>">
+        </db-heading>
+        <div class="festival__layout" style="margin-bottom: var(--space-xl);">
+            <div class="festival__cards">
+                <a href="schedule.html#music" class="festival__card">
+                    <div class="festival__card-header">
+                        <div class="festival__card-icon">🎵</div>
+                        <h3 class="festival__card-title">Live Music</h3>
+                    </div>
+                    <p class="festival__card-text">Local Bay Area bands Town Bully and Good Actor along with various djs</p>
+                    <span class="festival__card-link">See the line up →</span>
+                </a>
+                
+                <a href="schedule.html#art" class="festival__card">
+                    <div class="festival__card-header">
+                        <div class="festival__card-icon">🎨</div>
+                        <h3 class="festival__card-title">Art Exhibition</h3>
+                    </div>
+                    <p class="festival__card-text">Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.</p>
+                    <span class="festival__card-link">Discover what to see →</span>
+                </a>
+                
+                <a href="schedule.html#food" class="festival__card">
+                    <div class="festival__card-header">
+                        <div class="festival__card-icon">🍽️</div>
+                        <h3 class="festival__card-title">Local Flavors</h3>
+                    </div>
+                    <p class="festival__card-text">Curated food and beverages from regional vendors, celebrating Mendocino's agricultural heritage.</p>
+                    <span class="festival__card-link">What's for dinner? →</span>
+                </a>
+                
             </div>
             
-            <div class="festival__card">
-                <div class="festival__card-icon">🎨</div>
-                <h3 class="festival__card-title">Immersive Art</h3>
-                <p class="festival__card-text">Interactive installations throughout the ranch, featuring local artists and site-specific works.</p>
-            </div>
-            
-            <div class="festival__card">
-                <div class="festival__card-icon">🍽️</div>
-                <h3 class="festival__card-title">Local Flavors</h3>
-                <p class="festival__card-text">Curated food and beverages from regional vendors, celebrating Mendocino's agricultural heritage.</p>
-            </div>
-            
-            <div class="festival__card">
-                <div class="festival__card-icon">🤝</div>
-                <h3 class="festival__card-title">Authentic Community</h3>
-                <p class="festival__card-text">A celebration of creativity and connection, where strangers become friends around shared experiences.</p>
+            <div class="festival__poster">
+                <img src="media/dive-barn-2025-poster.jpg" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
             </div>
         </div>
         
         
         <!-- Gallery Section (within Festival) -->
-        <div class="section__header" style="margin-top: var(--space-xl);">
-            <h2 class="section__title">Memories from Year 1</h2>
-        </div>
+        <db-heading title="Memories from Year 1" subtitle="A glimpse into the magic we created together in 2024" style="margin-top: var(--space-xl);"></db-heading>
         <div class="gallery__grid">
             <div class="gallery__item">
                 <img src="media/year-one/full/art_installation-1.JPG" 
@@ -125,27 +136,24 @@
     </section>
 
     <!-- RSVP Call-to-Action Banner -->
-    <section id="rsvp-cta" class="section section--rsvp-cta">
-        <div class="rsvp-cta__container">
-            <div class="rsvp-cta__content">
-                <h2 class="rsvp-cta__title">Reserve Your Spot</h2>
-                <p class="rsvp-cta__text">
-                    Join us for an evening of art, music, and authentic community connections. Free entry – all are welcome.
-                </p>
-            </div>
-            <a href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" class="btn btn--primary btn--large" target="_blank" rel="noopener">
-                RSVP NOW
-            </a>
-        </div>
-    </section>
+    <dive-barn-cta 
+        id="rsvp-cta"
+        title="Reserve Your Spot"
+        text="Join us for a one-day festival of art, music, and food. All are welcome!"
+        button-text="RSVP NOW"
+        button-url="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo"
+        target="_blank"
+        rel="noopener"
+        variant="primary">
+    </dive-barn-cta>
 
 
     <!-- Essential Info Cards Section -->
     <section id="info" class="section section--info">
-        <div class="section__header">
-            <h2 class="section__title">Essential Details</h2>
-            <p class="section__subtitle">Everything you need to know for an incredible experience</p>
-        </div>
+        <db-heading 
+            title="Essential Details" 
+            subtitle="Everything you need to know for an incredible experience">
+        </db-heading>
         <div class="info__container">
             <div class="info__main">
                 <div class="info__list">
@@ -153,7 +161,7 @@
                         <div class="info__item-icon">🌅</div>
                         <div class="info__item-content">
                             <h3 class="info__item-title">When</h3>
-                            <p class="info__item-text">October 13, 2025 • Gates open at sunset • Festival until dawn</p>
+                            <p class="info__item-text">October 11, 2025. Gates open at 12 noon, festivities conclude at 12 midnight.</p>
                         </div>
                     </div>
                     
@@ -184,32 +192,30 @@
             </div>
             
             <div class="info__sidebar">
-                <div class="info__feature">
+                <a href="yorkville-schoolhouse-ranch.html" class="info__feature">
                     <div class="info__feature-header">
                         <div class="info__feature-icon">🏛️</div>
                         <h3 class="info__feature-title">Historic Property</h3>
                     </div>
                     <p class="info__feature-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
-                    <a href="yorkville-schoolhouse-ranch.html" class="info__feature-link">Explore the Ranch →</a>
-                </div>
+                    <span class="info__feature-link">Explore the Ranch →</span>
+                </a>
                 
-                <div class="info__feature">
+                <a href="financial-transparency.html" class="info__feature">
                     <div class="info__feature-header">
                         <div class="info__feature-icon">💝</div>
                         <h3 class="info__feature-title">Support the Festival</h3>
                     </div>
                     <p class="info__feature-text">See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</p>
-                    <a href="financial-transparency.html" class="info__feature-link">View Transparency →</a>
-                </div>
+                    <span class="info__feature-link">View Transparency →</span>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section id="faq" class="section section--faq">
-        <div class="section__header">
-            <h2 class="section__title">Festival FAQ</h2>
-        </div>
+        <db-heading title="Festival FAQ"></db-heading>
         <div class="faq__container">
             
             <div class="faq__category">
@@ -305,6 +311,9 @@
     <script src="components/nav/nav-scroll-handler.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
+    <script src="components/modal/modal-component.js"></script>
+    <script src="components/cta/cta-component.js"></script>
+    <script src="components/heading/heading-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
     <script src="main.js"></script>
     <script>

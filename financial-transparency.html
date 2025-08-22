@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="components/nav/nav-styles.css">
     <link rel="stylesheet" href="components/footer/footer-styles.css">
     <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/modal/modal-styles.css">
+    <link rel="stylesheet" href="components/table/table-styles.css">
+    <link rel="stylesheet" href="components/cta/cta-styles.css">
+    <link rel="stylesheet" href="components/heading/heading-styles.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="financial-transparency.css">
     <meta name="description" content="Complete transparency on how we fund and create Dive Barn 2025. See exactly where your support goes and help us reach our goals.">
@@ -16,12 +20,6 @@
 <body>
     <!-- Navigation -->
     <dive-barn-nav></dive-barn-nav>
-
-    <!-- Floating Donate Button -->
-    <button class="floating-donate" aria-label="Donate to Dive Barn 2025" onclick="openDonationModal()">
-        <span class="floating-donate__text">Donate Now</span>
-        <span class="floating-donate__icon">❤️</span>
-    </button>
 
     <!-- Hero Section -->
     <section class="hero hero--financial">
@@ -32,11 +30,11 @@
                 <div class="funding-overview">
                     <div class="funding-stats">
                         <div class="stat">
-                            <span class="stat__value" id="total-raised">$1,580</span>
+                            <span class="stat__value" id="total-raised">$1,060</span>
                             <span class="stat__label">Raised</span>
                         </div>
                         <div class="stat">
-                            <span class="stat__value" id="goal-amount">$7,690</span>
+                            <span class="stat__value" id="goal-amount">$9,370</span>
                             <span class="stat__label">Goal</span>
                         </div>
                         <div class="stat">
@@ -46,176 +44,78 @@
                     </div>
                     <div class="progress-container">
                         <div class="progress-bar">
-                            <div class="progress-fill" id="progress-fill" style="width: 20.5%"></div>
+                            <div class="progress-fill" id="progress-fill" style="width: 11.3%"></div>
                         </div>
-                        <span class="progress-percentage" id="progress-percentage">20.5%</span>
+                        <span class="progress-percentage" id="progress-percentage">11.3%</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Milestone Timeline -->
-    <section class="section section--milestones">
-        <div class="container">
-            <h2 class="section__title">Funding Milestones</h2>
-            <p class="section__subtitle">Track our progress toward key festival goals</p>
-            
-            <div class="milestone-timeline">
-                <div class="milestone milestone--achieved">
-                    <div class="milestone__marker">✓</div>
-                    <div class="milestone__content">
-                        <h3 class="milestone__title">Community Foundation</h3>
-                        <div class="milestone__amount">$1,000</div>
-                        <p class="milestone__description">Initial planning, permits, and website development</p>
-                        <div class="milestone__status">Achieved August 2025</div>
-                    </div>
-                </div>
-                
-                <div class="milestone milestone--current">
-                    <div class="milestone__marker">🎯</div>
-                    <div class="milestone__content">
-                        <h3 class="milestone__title">Venue Secured</h3>
-                        <div class="milestone__amount">$3,500</div>
-                        <p class="milestone__description">Ranch rental deposit and basic infrastructure</p>
-                        <div class="milestone__progress">
-                            <div class="milestone__progress-bar">
-                                <div class="milestone__progress-fill" style="width: 45%"></div>
-                            </div>
-                            <span class="milestone__progress-text">$580 remaining</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone__marker">🎵</div>
-                    <div class="milestone__content">
-                        <h3 class="milestone__title">Artists Confirmed</h3>
-                        <div class="milestone__amount">$7,500</div>
-                        <p class="milestone__description">Performance fees and travel expenses for our lineup</p>
-                        <div class="milestone__status">Next goal</div>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone__marker">🔊</div>
-                    <div class="milestone__content">
-                        <h3 class="milestone__title">Production Ready</h3>
-                        <div class="milestone__amount">$12,000</div>
-                        <p class="milestone__description">Sound system, lighting, stage, and safety equipment</p>
-                        <div class="milestone__status">Future goal</div>
-                    </div>
-                </div>
-                
-                <div class="milestone">
-                    <div class="milestone__marker">🎉</div>
-                    <div class="milestone__content">
-                        <h3 class="milestone__title">Festival Complete</h3>
-                        <div class="milestone__amount">$7,690</div>
-                        <p class="milestone__description">Full production, art installations, and magical experience</p>
-                        <div class="milestone__status">Final goal</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Support Options -->
     <section class="section section--support">
         <div class="container">
-            <h2 class="section__title">Support Dive Barn 2025</h2>
-            <p class="section__subtitle">Every contribution helps us create an unforgettable experience</p>
+            <db-heading 
+                title="Support Dive Barn 2025" 
+                subtitle="Every contribution helps us create an unforgettable experience">
+            </db-heading>
             
-            <div class="donation-options">
-                <a href="https://venmo.com/dive-barn" class="donation-btn donation-btn--venmo" target="_blank" rel="noopener">
-                    <div class="donation-btn__icon">💙</div>
-                    <div class="donation-btn__content">
-                        <span class="donation-btn__title">Venmo</span>
-                        <span class="donation-btn__subtitle">@dive-barn</span>
-                    </div>
-                </a>
-                
-                <a href="https://paypal.me/divebarn" class="donation-btn donation-btn--paypal" target="_blank" rel="noopener">
-                    <div class="donation-btn__icon">💰</div>
-                    <div class="donation-btn__content">
-                        <span class="donation-btn__title">PayPal</span>
-                        <span class="donation-btn__subtitle">paypal.me/divebarn</span>
-                    </div>
-                </a>
-                
-                <a href="https://cash.app/$DiveBarn" class="donation-btn donation-btn--cashapp" target="_blank" rel="noopener">
-                    <div class="donation-btn__icon">💚</div>
-                    <div class="donation-btn__content">
-                        <span class="donation-btn__title">Cash App</span>
-                        <span class="donation-btn__subtitle">$DiveBarn</span>
-                    </div>
-                </a>
+            <div class="support-grid">
+                <div class="support-grid__image">
+                    <img src="media/year-one/full/community_moments-1.JPG" alt="Dive Barn community moments" class="support-image">
+                </div>
+                <div class="support-grid__content">
+                    <h3 class="transparency-subheading">Why We Share Everything</h3>
+                    <p class="transparency-statement">
+                        We believe in complete transparency about how Dive Barn is funded and where every dollar goes. By openly sharing our budget, expenses, and community contributions, we build trust with our supporters and demonstrate our commitment to responsible stewardship of the resources entrusted to us.
+                    </p>
+                    <p class="transparency-statement">
+                        This page shows exactly what it costs to create an unforgettable weekend of music, art, and community connection. We're accountable to everyone who believes in this vision and chooses to support it.
+                    </p>
+                </div>
             </div>
-            
-            <p class="donation-note">
-                <strong>How to contribute:</strong> Click any payment link above, enter your amount, and add "Dive Barn 2025" in the message. 
-                Want to be featured on our contributor wall? Include your name or Instagram handle!
-            </p>
         </div>
     </section>
+
+    <!-- Donation Call-to-Action -->
+    <dive-barn-cta 
+        title="Help Make It Happen"
+        text="Every contribution brings us closer to our goal."
+        button-text="DONATE NOW"
+        button-url="https://venmo.com/dive-barn"
+        target="_blank"
+        rel="noopener"
+        variant="donation">
+    </dive-barn-cta>
 
     <!-- Where Money Goes -->
     <section class="section section--expenses">
         <div class="container">
-            <h2 class="section__title">Where Your Money Goes</h2>
-            <p class="section__subtitle">Complete breakdown of festival expenses</p>
+            <db-heading 
+                title="Where Your Money Goes" 
+                subtitle="Complete breakdown of festival expenses">
+            </db-heading>
             
-            <div class="expense-table-container">
-                <table class="expense-table">
-                    <thead>
-                        <tr>
-                            <th>Expense</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Ranch rental</td>
-                            <td>$3,000</td>
-                        </tr>
-                        <tr>
-                            <td>Pee pee poo poo place</td>
-                            <td>$1,200</td>
-                        </tr>
-                        <tr>
-                            <td>Jumbo's Win Win (food vendor)</td>
-                            <td>$750</td>
-                        </tr>
-                        <tr>
-                            <td>Design team</td>
-                            <td>$600</td>
-                        </tr>
-                        <tr>
-                            <td>Shuttle bus</td>
-                            <td>$500</td>
-                        </tr>
-                        <tr>
-                            <td>Preparator</td>
-                            <td>$400</td>
-                        </tr>
-                        <tr>
-                            <td>Artist stipends</td>
-                            <td>$250 per artist</td>
-                        </tr>
-                        <tr>
-                            <td>New safe stairs</td>
-                            <td>$240</td>
-                        </tr>
-                        <tr>
-                            <td>Band fees</td>
-                            <td>$200 per band</td>
-                        </tr>
-                        <tr class="grand-total">
-                            <td><strong>Total Festival Budget</strong></td>
-                            <td><strong>$7,690</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="expenses-grid">
+                <div class="expenses-grid__table">
+                    <db-table 
+                        headers='["Expense", "Amount"]' 
+                        data='[["Yorkville Schoolhouse Ranch (Event space rental)", "$3,000"], ["Artist stipend x12", "$3,000"], ["Jumbo&apos;s Win Win (Food vendor)", "$850"], ["Porta Potty", "$700"], ["Quality Time (Design agency)", "$600"], ["Shuttle bus", "$500"], ["Band fees x2", "$400"], ["New safe stairs", "$320"], ["Total Festival Budget", "$9,370"]]'
+                        highlight-total>
+                    </db-table>
+                </div>
+                <div class="expenses-grid__gallery">
+                    <div class="expense-gallery">
+                        <img src="media/year-one/full/community_moments-1.JPG" alt="Community gathering at Dive Barn" class="gallery-image">
+                        <img src="media/year-one/full/art_installation-3.JPG" alt="Art installation at the festival" class="gallery-image">
+                        <img src="media/year-one/full/morning_camping-1.JPG" alt="Morning camping experience" class="gallery-image">
+                        <img src="media/year-one/full/art_installation-5.JPG" alt="Creative art showcase" class="gallery-image">
+                        <img src="media/year-one/full/community_moments-3.JPG" alt="Festival community moments" class="gallery-image">
+                        <img src="media/year-one/full/art_installation-7.JPG" alt="Artistic elements of the festival" class="gallery-image">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -223,38 +123,29 @@
     <!-- Community Contributions -->
     <section class="section section--community">
         <div class="container">
-            <h2 class="section__title">Community Support</h2>
-            <p class="section__subtitle">Thank you to everyone who has contributed so far!</p>
+            <db-heading 
+                title="Community Donations" 
+                subtitle="Thank you to everyone who has contributed so far!">
+            </db-heading>
             
-            <div class="simple-contributions">
-                <div class="contribution-item contribution-item--major">
-                    <div class="contribution-item__amount">$500</div>
-                    <div class="contribution-item__name">The Chef</div>
-                    <div class="contribution-item__message">Donating time and talent for festival kitchen</div>
+            <div class="community-grid">
+                <div class="community-grid__table">
+                    <db-table 
+                        headers='["Contributor", "Amount"]' 
+                        data='[["The Chef", "$500"], ["Quality Time", "$300"], ["Joel Lithgow", "$250"], ["RSVP Tickets", "$10"], ["Total Community Donations", "$1,060"]]'
+                        highlight-total>
+                    </db-table>
                 </div>
-                
-                <div class="contribution-item contribution-item--major">
-                    <div class="contribution-item__amount">$500</div>
-                    <div class="contribution-item__name">Design Team</div>
-                    <div class="contribution-item__message">Visual identity and creative direction</div>
+                <div class="community-grid__sponsors">
+                    <div class="sponsor-gallery">
+                        <div class="sponsor-logo-container">
+                            <img src="media/sponsors/quality-time.png" alt="Quality Time - Design Agency Sponsor" class="sponsor-logo">
+                        </div>
+                        <div class="sponsor-logo-container">
+                            <img src="media/sponsors/jumbos.png" alt="Jumbo's Win Win - Food Vendor Sponsor" class="sponsor-logo">
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="contribution-item">
-                    <div class="contribution-item__amount">$250</div>
-                    <div class="contribution-item__name">Sarah M.</div>
-                    <div class="contribution-item__message">"Can't wait for this magical weekend!"</div>
-                </div>
-                
-                <div class="contribution-item">
-                    <div class="contribution-item__amount">$100</div>
-                    <div class="contribution-item__name">Anonymous</div>
-                    <div class="contribution-item__message">"Supporting local arts & music ✨"</div>
-                </div>
-            </div>
-            
-            <div class="contribution-cta">
-                <h3>Want to be featured here?</h3>
-                <p>Include your name and a message when you contribute!</p>
             </div>
         </div>
     </section>
@@ -262,57 +153,14 @@
     <!-- Footer -->
     <dive-barn-footer show-transparency last-updated="August 20, 2025"></dive-barn-footer>
 
-    <!-- Donation Modal -->
-    <div id="donation-modal" class="modal" onclick="closeDonationModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3>Support Dive Barn 2025</h3>
-                <button class="modal-close" onclick="closeDonationModal()" aria-label="Close modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p>Choose your preferred payment method:</p>
-                
-                <div class="donation-options-modal">
-                    <a href="https://venmo.com/dive-barn" class="donation-option" target="_blank" rel="noopener" onclick="trackDonationClick('venmo')">
-                        <div class="donation-option__icon">💙</div>
-                        <div class="donation-option__content">
-                            <span class="donation-option__title">Venmo</span>
-                            <span class="donation-option__subtitle">@dive-barn</span>
-                        </div>
-                        <div class="donation-option__arrow">→</div>
-                    </a>
-                    
-                    <a href="https://paypal.me/divebarn" class="donation-option" target="_blank" rel="noopener" onclick="trackDonationClick('paypal')">
-                        <div class="donation-option__icon">💰</div>
-                        <div class="donation-option__content">
-                            <span class="donation-option__title">PayPal</span>
-                            <span class="donation-option__subtitle">paypal.me/divebarn</span>
-                        </div>
-                        <div class="donation-option__arrow">→</div>
-                    </a>
-                    
-                    <a href="https://cash.app/$DiveBarn" class="donation-option" target="_blank" rel="noopener" onclick="trackDonationClick('cashapp')">
-                        <div class="donation-option__icon">💚</div>
-                        <div class="donation-option__content">
-                            <span class="donation-option__title">Cash App</span>
-                            <span class="donation-option__subtitle">$DiveBarn</span>
-                        </div>
-                        <div class="donation-option__arrow">→</div>
-                    </a>
-                </div>
-                
-                <div class="modal-note">
-                    <p><strong>💝 Thank you!</strong> Include "Dive Barn 2025" in your payment message and let us know if you'd like to be featured on our contributor wall.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="components/nav/nav-scroll-handler.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
+    <script src="components/table/table-component.js"></script>
+    <script src="components/cta/cta-component.js"></script>
+    <script src="components/heading/heading-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
-    <script src="financial-transparency.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -66,7 +66,7 @@ window.addEventListener('scroll', () => {
 // Dynamic Floating Action Button - Event Day Detection
 function isEventDay() {
     const now = new Date();
-    const eventDate = new Date('2025-10-13'); // October 13, 2025
+    const eventDate = new Date('2025-10-11'); // October 11, 2025
     
     // Check for manual override via URL parameter
     const urlParams = new URLSearchParams(window.location.search);

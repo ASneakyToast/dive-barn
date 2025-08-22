@@ -13,7 +13,7 @@
   backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--component-navigation-border, rgba(0, 0, 0, 0.05));
   transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-xs) 0;
 }
 
 .nav:hover {

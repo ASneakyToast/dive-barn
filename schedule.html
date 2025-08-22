@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="components/nav/nav-styles.css">
     <link rel="stylesheet" href="components/footer/footer-styles.css">
     <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/modal/modal-styles.css">
+    <link rel="stylesheet" href="components/heading/heading-styles.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="schedule-styles.css">
 </head>
@@ -32,9 +34,10 @@
 
     <!-- Schedule Section -->
     <section id="schedule" class="section section--schedule">
-        <div class="section__header">
-            <h2 class="section__title">Festival Schedule</h2>
-            <p class="section__subtitle">October 11, 2025 - A day of music, art, and connection under the Mendocino stars</p>
+        <db-heading 
+            title="Festival Schedule" 
+            subtitle="October 11, 2025 - A day of music, art, and connection under the Mendocino stars">
+        </db-heading>
         </div>
         
         <!-- Single Day Schedule -->
@@ -184,6 +187,8 @@
     <script src="components/nav/nav-scroll-handler.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
+    <script src="components/modal/modal-component.js"></script>
+    <script src="components/heading/heading-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
     <script src="main.js"></script>
     <script src="schedule.js"></script>

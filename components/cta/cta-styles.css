@@ -1,0 +1,88 @@
+/* CTA Component Base Styles */
+.section--cta {
+  padding: var(--space-lg) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.section--cta-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+}
+
+.section--cta-donation {
+  background: linear-gradient(135deg, var(--color-deep-purple), var(--color-secondary));
+}
+
+.section--cta::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+}
+
+.cta__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.cta__content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cta__title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  color: white;
+  margin-bottom: var(--space-xs);
+  line-height: var(--line-height-tight);
+}
+
+.cta__text {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+}
+
+.section--cta .btn--large {
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-lg);
+  background: white;
+  color: var(--color-primary);
+  border: 2px solid white;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.section--cta .btn--large:hover {
+  background: transparent;
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .cta__container {
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .cta__title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .cta__text {
+    font-size: var(--font-size-base);
+  }
+}

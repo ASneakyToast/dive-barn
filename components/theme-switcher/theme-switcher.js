@@ -36,6 +36,11 @@ class ThemeSwitcher {
   applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     this.theme = theme;
+    
+    // Dispatch theme change event for web components
+    document.dispatchEvent(new CustomEvent('themechange', {
+      detail: { theme }
+    }));
   }
 
   setTheme(theme) {
@@ -82,92 +87,8 @@ class ThemeSwitcher {
   }
 }
 
-// CSS for the toggle button (inject into page)
-const toggleCSS = `
-.theme-toggle {
-  position: fixed;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  z-index: 1000;
-  background: var(--color-surface);
-  border: 2px solid var(--color-border-default);
-  border-radius: var(--border-radius-full);
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
-  box-shadow: var(--effects-shadow-md);
-}
-
-.theme-toggle:hover {
-  background: var(--color-interactive-hover);
-  transform: scale(1.05);
-  box-shadow: var(--effects-shadow-lg);
-}
-
-.theme-toggle:focus-visible {
-  outline: 3px solid var(--color-interactive-focus);
-  outline-offset: 2px;
-}
-
-.theme-toggle__icon {
-  font-size: 1.25rem;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.theme-toggle__sun,
-.theme-toggle__moon {
-  position: absolute;
-  transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
-}
-
-:root .theme-toggle__sun {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-:root .theme-toggle__moon {
-  opacity: 0;
-  transform: rotate(180deg) scale(0);
-}
-
-[data-theme="dark"] .theme-toggle__sun {
-  opacity: 0;
-  transform: rotate(180deg) scale(0);
-}
-
-[data-theme="dark"] .theme-toggle__moon {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .theme-toggle__icon {
-    font-size: 1rem;
-  }
-}
-`;
-
-// Inject CSS
-if (!document.getElementById('theme-toggle-styles')) {
-  const style = document.createElement('style');
-  style.id = 'theme-toggle-styles';
-  style.textContent = toggleCSS;
-  document.head.appendChild(style);
-}
+// Note: Theme toggle styles are now loaded from external CSS file:
+// components/theme-switcher/theme-switcher-styles.css
 
 // Initialize theme switcher
 const themeSwitcher = new ThemeSwitcher();
