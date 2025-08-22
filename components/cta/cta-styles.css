@@ -1,19 +1,27 @@
-/* CTA Component Base Styles */
-.section--cta {
+/**
+ * CTA Component Styles
+ * Using design tokens for consistent styling
+ */
+
+/* Base CTA component */
+.db-cta {
   padding: var(--spacing-lg) 0;
   position: relative;
   overflow: hidden;
+  border-radius: var(--border-radius-lg);
 }
 
-.section--cta-primary {
+/* Variants */
+.db-cta--primary {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 }
 
-.section--cta-donation {
+.db-cta--donation {
   background: linear-gradient(135deg, var(--color-purple-500), var(--color-secondary));
 }
 
-.section--cta::before {
+/* Decorative overlay effect */
+.db-cta::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -23,10 +31,11 @@
   background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
 }
 
-.cta__container {
+/* Container */
+.db-cta__container {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: var(--sizing-container-xl);
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
   display: flex;
@@ -36,53 +45,138 @@
   flex-wrap: wrap;
 }
 
-.cta__content {
+/* Content area */
+.db-cta__content {
   flex: 1;
   min-width: 300px;
 }
 
-.cta__title {
+/* Title */
+.db-cta__title {
   font-family: var(--typography-font-family-display);
   font-size: var(--typography-font-size-2xl);
   font-weight: var(--typography-font-weight-black);
-  color: white;
+  color: var(--color-white);
   margin-bottom: var(--spacing-xs);
   line-height: var(--typography-line-height-tight);
 }
 
-.cta__text {
+/* Text */
+.db-cta__text {
   font-size: var(--typography-font-size-lg);
   color: rgba(255, 255, 255, 0.95);
   margin: 0;
+  line-height: var(--typography-line-height-normal);
 }
 
-.section--cta .btn--large {
+/* Button */
+.db-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--spacing-md) var(--spacing-xl);
+  font-family: var(--typography-font-family-body);
   font-size: var(--typography-font-size-lg);
-  background: white;
+  font-weight: var(--typography-font-weight-semibold);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: var(--color-white);
   color: var(--color-primary);
-  border: 2px solid white;
-  transition: all 0.2s ease;
+  border: 2px solid var(--color-white);
+  border-radius: var(--component-button-border-radius);
+  transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
   white-space: nowrap;
+  min-height: 48px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.section--cta .btn--large:hover {
+.db-cta__button:hover,
+.db-cta__button:focus-visible {
   background: transparent;
-  color: white;
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--effects-shadow-md);
+}
+
+.db-cta__button:active {
+  transform: translateY(0);
+}
+
+/* Focus styles */
+.db-cta__button:focus-visible {
+  outline: 3px solid var(--color-interactive-focus);
+  outline-offset: 2px;
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
-  .cta__container {
+  .db-cta {
+    padding: var(--spacing-md) 0;
+  }
+
+  .db-cta__container {
+    flex-direction: column;
     text-align: center;
     justify-content: center;
+    padding: 0 var(--spacing-sm);
+    gap: var(--spacing-lg);
   }
   
-  .cta__title {
+  .db-cta__content {
+    min-width: unset;
+  }
+  
+  .db-cta__title {
     font-size: var(--typography-font-size-xl);
   }
   
-  .cta__text {
+  .db-cta__text {
     font-size: var(--typography-font-size-base);
+  }
+
+  .db-cta__button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--typography-font-size-base);
+    min-height: 44px;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .db-cta {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .db-cta__container {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .db-cta__button {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-default);
+}
+
+[data-theme="dark"] .db-cta__button:hover,
+[data-theme="dark"] .db-cta__button:focus-visible {
+  background: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .db-cta__button {
+    transition: none;
+  }
+  
+  .db-cta__button:hover {
+    transform: none !important;
   }
 }

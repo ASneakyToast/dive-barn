@@ -59,23 +59,23 @@ class DiveBarnCTA extends HTMLElement {
         const rel = this.rel;
 
         this.innerHTML = `
-            <section class="section section--cta section--cta-${variant}">
-                <div class="cta__container">
-                    <div class="cta__content">
-                        <h2 class="cta__title">${title}</h2>
-                        ${text ? `<p class="cta__text">${text}</p>` : ''}
+            <div class="db-cta db-cta--${variant}">
+                <div class="db-cta__container">
+                    <div class="db-cta__content">
+                        <h2 class="db-cta__title">${title}</h2>
+                        ${text ? `<p class="db-cta__text">${text}</p>` : ''}
                     </div>
                     <a href="${buttonUrl}" 
-                       class="btn btn--primary btn--large" 
+                       class="db-cta__button" 
                        target="${target}"
                        ${rel ? `rel="${rel}"` : ''}>
                         ${buttonText}
                     </a>
                 </div>
-            </section>
+            </div>
         `;
     }
 }
 
 // Register the custom element
-customElements.define('dive-barn-cta', DiveBarnCTA);
+customElements.define('db-cta', DiveBarnCTA);
