@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dive Barn Web Components Demo</title>
+    <title>Dive Barn Design System & Components Demo</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,10 +96,10 @@
     <main>
         <header style="text-align: center; margin-bottom: var(--spacing-2xl);">
             <h1 style="font-size: var(--typography-font-size-3xl); font-weight: var(--typography-font-weight-black); color: var(--color-primary); margin-bottom: var(--spacing-sm);">
-                Web Components Demo
+                Design System & Components Demo
             </h1>
             <p style="font-size: var(--typography-font-size-lg); color: var(--color-text-secondary); max-width: 800px; margin: 0 auto;">
-                Explore our token-based web components with consistent styling, accessibility features, and theme support.
+                Complete showcase of our token-based design system with interactive web components, design foundations, and accessibility features.
             </p>
         </header>
 
@@ -259,6 +259,76 @@
                 <db-button onclick="themeSwitcher.setTheme('light')">Light Theme</db-button>
                 <db-button onclick="themeSwitcher.setTheme('dark')">Dark Theme</db-button>
                 <db-button onclick="themeSwitcher.clearStoredTheme()" variant="ghost">System Default</db-button>
+            </div>
+        </section>
+
+        <!-- Design System Foundations -->
+        <section class="demo-section">
+            <h2 class="demo-title">Design System Foundations</h2>
+            <p>The token-based design system that powers all components.</p>
+
+            <h3>Color System</h3>
+            <div class="demo-grid demo-grid--4">
+                <div style="padding: var(--spacing-sm); text-align: center; border-radius: var(--border-radius-md); font-size: var(--typography-font-size-sm); font-weight: var(--typography-font-weight-medium); background: var(--color-primary); color: white;">
+                    Primary<br>
+                    <code>--color-primary</code>
+                </div>
+                <div style="padding: var(--spacing-sm); text-align: center; border-radius: var(--border-radius-md); font-size: var(--typography-font-size-sm); font-weight: var(--typography-font-weight-medium); background: var(--color-secondary); color: white;">
+                    Secondary<br>
+                    <code>--color-secondary</code>
+                </div>
+                <div style="padding: var(--spacing-sm); text-align: center; border-radius: var(--border-radius-md); font-size: var(--typography-font-size-sm); font-weight: var(--typography-font-weight-medium); background: var(--color-accent); color: white;">
+                    Accent<br>
+                    <code>--color-accent</code>
+                </div>
+                <div style="padding: var(--spacing-sm); text-align: center; border-radius: var(--border-radius-md); font-size: var(--typography-font-size-sm); font-weight: var(--typography-font-weight-medium); background: var(--color-surface); border: 1px solid var(--color-border-muted);">
+                    Surface<br>
+                    <code>--color-surface</code>
+                </div>
+            </div>
+
+            <h3>Typography Scale</h3>
+            <div style="margin-top: var(--spacing-md);">
+                <div style="font-size: var(--typography-font-size-4xl); font-weight: var(--typography-font-weight-black); margin-bottom: var(--spacing-sm);">
+                    Hero Text (4XL)
+                </div>
+                <div style="font-size: var(--typography-font-size-3xl); font-weight: var(--typography-font-weight-bold); margin-bottom: var(--spacing-sm);">
+                    Heading 1 (3XL)
+                </div>
+                <div style="font-size: var(--typography-font-size-2xl); font-weight: var(--typography-font-weight-bold); margin-bottom: var(--spacing-sm);">
+                    Heading 2 (2XL)
+                </div>
+                <div style="font-size: var(--typography-font-size-xl); font-weight: var(--typography-font-weight-semibold); margin-bottom: var(--spacing-sm);">
+                    Heading 3 (XL)
+                </div>
+                <div style="font-size: var(--typography-font-size-lg); font-weight: var(--typography-font-weight-semibold); margin-bottom: var(--spacing-sm);">
+                    Heading 4 (Large)
+                </div>
+                <div style="font-size: var(--typography-font-size-base); margin-bottom: var(--spacing-sm);">
+                    Body text (Base) - This is the standard body text size with comfortable reading line height.
+                </div>
+                <div style="font-size: var(--typography-font-size-sm); color: var(--color-text-muted);">
+                    Small text (SM) - Used for captions and secondary information.
+                </div>
+            </div>
+
+            <h3>Spacing System</h3>
+            <div class="demo-grid" style="margin-top: var(--spacing-md);">
+                <div style="background: var(--component-card-background); padding: var(--spacing-sm); border-radius: var(--border-radius-sm); font-family: var(--typography-font-family-mono); font-size: var(--typography-font-size-sm); border: 1px solid var(--color-border-muted);">
+                    XS: var(--spacing-xs) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-xs);"></span>
+                </div>
+                <div style="background: var(--component-card-background); padding: var(--spacing-sm); border-radius: var(--border-radius-sm); font-family: var(--typography-font-family-mono); font-size: var(--typography-font-size-sm); border: 1px solid var(--color-border-muted);">
+                    SM: var(--spacing-sm) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-sm);"></span>
+                </div>
+                <div style="background: var(--component-card-background); padding: var(--spacing-sm); border-radius: var(--border-radius-sm); font-family: var(--typography-font-family-mono); font-size: var(--typography-font-size-sm); border: 1px solid var(--color-border-muted);">
+                    MD: var(--spacing-md) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-md);"></span>
+                </div>
+                <div style="background: var(--component-card-background); padding: var(--spacing-sm); border-radius: var(--border-radius-sm); font-family: var(--typography-font-family-mono); font-size: var(--typography-font-size-sm); border: 1px solid var(--color-border-muted);">
+                    LG: var(--spacing-lg) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-lg);"></span>
+                </div>
+                <div style="background: var(--component-card-background); padding: var(--spacing-sm); border-radius: var(--border-radius-sm); font-family: var(--typography-font-family-mono); font-size: var(--typography-font-size-sm); border: 1px solid var(--color-border-muted);">
+                    XL: var(--spacing-xl) = <span style="display: inline-block; background: var(--color-primary); height: 4px; width: var(--spacing-xl);"></span>
+                </div>
             </div>
         </section>
 
