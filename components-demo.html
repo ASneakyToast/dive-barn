@@ -155,55 +155,97 @@
         <!-- Card Components -->
         <section class="demo-section">
             <h2 class="demo-title">Card Components</h2>
-            <p>Versatile card components with structured content areas and interactive states.</p>
+            <p>Versatile card components with link support, hover effects, and multiple variants. All cards use the same base component with different content and configuration.</p>
 
+            <h3>Production Examples</h3>
+            <p>Real cards from the homepage - demonstrating link functionality and consistent styling</p>
             <div class="demo-grid demo-grid--3">
-                <db-card variant="default" hoverable>
-                    <db-card-header>
-                        <db-card-icon>🎨</db-card-icon>
-                        <db-card-content>
-                            <db-card-title level="3">Art Installation</db-card-title>
-                            <p class="card__subtitle">Interactive Experience</p>
-                        </db-card-content>
-                    </db-card-header>
-                    <db-card-text>
-                        Experience immersive art pieces that blend seamlessly with the natural environment of the ranch.
-                    </db-card-text>
-                </db-card>
-
-                <db-card variant="featured" clickable>
+                <db-card href="schedule.html#music" hoverable>
                     <db-card-header>
                         <db-card-icon>🎵</db-card-icon>
                         <db-card-content>
-                            <db-card-title level="3">Live Music</db-card-title>
-                            <p class="card__subtitle">Featured Event</p>
+                            <db-card-title>Live Music</db-card-title>
                         </db-card-content>
                     </db-card-header>
                     <db-card-text>
-                        Multiple stages featuring local and touring artists across genres, from folk to electronic under the stars.
+                        Local Bay Area bands Town Bully and Good Actor along with various DJs
                     </db-card-text>
-                    <db-card-footer>
-                        <span>All ages welcome</span>
-                        <db-button size="small" variant="ghost">Learn More</db-button>
-                    </db-card-footer>
+                    <db-card-link>See the line up →</db-card-link>
+                </db-card>
+
+                <db-card href="schedule.html#art" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🎨</db-card-icon>
+                        <db-card-content>
+                            <db-card-title>Art Exhibition</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.
+                    </db-card-text>
+                    <db-card-link>Discover what to see →</db-card-link>
+                </db-card>
+
+                <db-card href="financial-transparency.html" hoverable>
+                    <db-card-header>
+                        <db-card-icon>💝</db-card-icon>
+                        <db-card-content>
+                            <db-card-title>Support the Festival</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.
+                    </db-card-text>
+                    <db-card-link>View Transparency →</db-card-link>
+                </db-card>
+            </div>
+
+            <h3>Special Variants</h3>
+            <p>Different visual styles for special use cases</p>
+            <div class="demo-grid demo-grid--3">
+                <db-card variant="featured" clickable>
+                    <db-card-header>
+                        <db-card-icon>⭐</db-card-icon>
+                        <db-card-content>
+                            <db-card-title>Featured Event</db-card-title>
+                            <p class="db-card__subtitle">Special Highlight</p>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        Featured variant adds a primary color accent border to highlight important content.
+                    </db-card-text>
                 </db-card>
 
                 <db-card variant="urgent" elevated>
                     <db-card-header>
                         <db-card-icon>🚫</db-card-icon>
                         <db-card-content>
-                            <db-card-title level="3">Fire Safety</db-card-title>
-                            <p class="card__subtitle">Important Notice</p>
+                            <db-card-title>Important Notice</db-card-title>
+                            <p class="db-card__subtitle">Please Read</p>
                         </db-card-content>
                     </db-card-header>
                     <db-card-text>
-                        <strong>No campfires, candles, or flames</strong> allowed on the property. The ranch is extremely dry in October.
+                        <strong>No campfires, candles, or flames</strong> allowed on the property. Urgent variant uses red styling for critical information.
+                    </db-card-text>
+                </db-card>
+
+                <db-card variant="success" hoverable>
+                    <db-card-header>
+                        <db-card-icon>✅</db-card-icon>
+                        <db-card-content>
+                            <db-card-title>Success State</db-card-title>
+                            <p class="db-card__subtitle">All Good</p>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>
+                        Success variant with green accent styling for positive messaging and confirmations.
                     </db-card-text>
                 </db-card>
             </div>
 
             <div class="code-example">
-&lt;db-card variant="featured" clickable hoverable&gt;
+&lt;!-- Basic Linkable Card --&gt;
+&lt;db-card href="schedule.html#music" hoverable&gt;
     &lt;db-card-header&gt;
         &lt;db-card-icon&gt;🎵&lt;/db-card-icon&gt;
         &lt;db-card-content&gt;
@@ -211,6 +253,13 @@
         &lt;/db-card-content&gt;
     &lt;/db-card-header&gt;
     &lt;db-card-text&gt;Content here...&lt;/db-card-text&gt;
+    &lt;db-card-link&gt;See the line up →&lt;/db-card-link&gt;
+&lt;/db-card&gt;
+
+&lt;!-- Variant Card --&gt;
+&lt;db-card variant="featured" clickable&gt;
+    &lt;db-card-header&gt;...&lt;/db-card-header&gt;
+    &lt;db-card-text&gt;...&lt;/db-card-text&gt;
 &lt;/db-card&gt;
             </div>
         </section>

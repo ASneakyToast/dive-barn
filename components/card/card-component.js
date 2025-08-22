@@ -9,7 +9,7 @@ class DiveBarnCard extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ['variant', 'hoverable', 'clickable', 'elevated'];
+        return ['variant', 'hoverable', 'clickable', 'elevated', 'href'];
     }
 
     connectedCallback() {
@@ -24,7 +24,34 @@ class DiveBarnCard extends HTMLElement {
     }
 
     setupEventListeners() {
-        if (this.hasAttribute('clickable')) {
+        const href = this.getAttribute('href');
+        
+        if (href) {
+            // Convert to link behavior
+            this.style.cursor = 'pointer';
+            this.setAttribute('tabindex', '0');
+            this.setAttribute('role', 'link');
+            
+            this.addEventListener('click', (e) => {
+                if (e.metaKey || e.ctrlKey) {
+                    // Allow opening in new tab with cmd/ctrl+click
+                    window.open(href, '_blank');
+                } else {
+                    window.location.href = href;
+                }
+            });
+
+            this.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (e.metaKey || e.ctrlKey) {
+                        window.open(href, '_blank');
+                    } else {
+                        window.location.href = href;
+                    }
+                }
+            });
+        } else if (this.hasAttribute('clickable')) {
             this.style.cursor = 'pointer';
             
             this.addEventListener('click', (e) => {
@@ -83,7 +110,7 @@ class DiveBarnCardHeader extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__header';
+        this.className = 'db-card__header';
     }
 }
 
@@ -96,7 +123,7 @@ class DiveBarnCardContent extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__content';
+        this.className = 'db-card__content';
     }
 }
 
@@ -109,7 +136,7 @@ class DiveBarnCardFooter extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__footer';
+        this.className = 'db-card__footer';
     }
 }
 
@@ -122,7 +149,7 @@ class DiveBarnCardIcon extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__icon';
+        this.className = 'db-card__icon';
         this.setAttribute('aria-hidden', 'true');
     }
 }
@@ -136,10 +163,9 @@ class DiveBarnCardTitle extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__title';
-        if (!this.querySelector('h1, h2, h3, h4, h5, h6')) {
-            const level = this.getAttribute('level') || '3';
-            const heading = document.createElement(`h${level}`);
+        this.className = 'db-card__title';
+        if (!this.querySelector('h4')) {
+            const heading = document.createElement('h4');
             heading.innerHTML = this.innerHTML;
             this.innerHTML = '';
             this.appendChild(heading);
@@ -156,7 +182,21 @@ class DiveBarnCardText extends HTMLElement {
     }
 
     connectedCallback() {
-        this.className = 'card__text';
+        this.className = 'db-card__text';
+    }
+}
+
+/**
+ * Card Link Component
+ */
+class DiveBarnCardLink extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    connectedCallback() {
+        this.className = 'db-card__link';
+        this.setAttribute('role', 'link');
     }
 }
 
@@ -168,3 +208,4 @@ customElements.define('db-card-footer', DiveBarnCardFooter);
 customElements.define('db-card-icon', DiveBarnCardIcon);
 customElements.define('db-card-title', DiveBarnCardTitle);
 customElements.define('db-card-text', DiveBarnCardText);
+customElements.define('db-card-link', DiveBarnCardLink);

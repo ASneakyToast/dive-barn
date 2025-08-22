@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="components/nav/nav-styles.css">
     <link rel="stylesheet" href="components/footer/footer-styles.css">
     <link rel="stylesheet" href="components/button/button-styles.css">
+    <link rel="stylesheet" href="components/card/card-styles.css">
     <link rel="stylesheet" href="components/theme-switcher/theme-switcher-styles.css">
     <link rel="stylesheet" href="components/cta/cta-styles.css">
     <link rel="stylesheet" href="components/heading/heading-styles.css">
@@ -53,32 +54,38 @@
         </db-heading>
         <div class="festival__layout" style="margin-bottom: var(--space-xl);">
             <div class="festival__cards">
-                <a href="schedule.html#music" class="festival__card">
-                    <div class="festival__card-header">
-                        <div class="festival__card-icon">🎵</div>
-                        <h3 class="festival__card-title">Live Music</h3>
-                    </div>
-                    <p class="festival__card-text">Local Bay Area bands Town Bully and Good Actor along with various djs</p>
-                    <span class="festival__card-link">See the line up →</span>
-                </a>
+                <db-card href="schedule.html#music" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🎵</db-card-icon>
+                        <db-card-content>
+                            <db-card-title >Live Music</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>Local Bay Area bands Town Bully and Good Actor along with various djs</db-card-text>
+                    <db-card-link>See the line up →</db-card-link>
+                </db-card>
                 
-                <a href="schedule.html#art" class="festival__card">
-                    <div class="festival__card-header">
-                        <div class="festival__card-icon">🎨</div>
-                        <h3 class="festival__card-title">Art Exhibition</h3>
-                    </div>
-                    <p class="festival__card-text">Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.</p>
-                    <span class="festival__card-link">Discover what to see →</span>
-                </a>
+                <db-card href="schedule.html#art" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🎨</db-card-icon>
+                        <db-card-content>
+                            <db-card-title >Art Exhibition</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.</db-card-text>
+                    <db-card-link>Discover what to see →</db-card-link>
+                </db-card>
                 
-                <a href="schedule.html#food" class="festival__card">
-                    <div class="festival__card-header">
-                        <div class="festival__card-icon">🍽️</div>
-                        <h3 class="festival__card-title">Local Flavors</h3>
-                    </div>
-                    <p class="festival__card-text">Curated food and beverages from regional vendors, celebrating Mendocino's agricultural heritage.</p>
-                    <span class="festival__card-link">What's for dinner? →</span>
-                </a>
+                <db-card href="schedule.html#food" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🍽️</db-card-icon>
+                        <db-card-content>
+                            <db-card-title >Local Flavors</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>Curated food and beverages from regional vendors, celebrating Mendocino's agricultural heritage.</db-card-text>
+                    <db-card-link>What's for dinner? →</db-card-link>
+                </db-card>
                 
             </div>
             
@@ -190,23 +197,27 @@
             </div>
             
             <div class="info__sidebar">
-                <a href="yorkville-schoolhouse-ranch.html" class="info__feature">
-                    <div class="info__feature-header">
-                        <div class="info__feature-icon">🏛️</div>
-                        <h3 class="info__feature-title">Historic Property</h3>
-                    </div>
-                    <p class="info__feature-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
-                    <span class="info__feature-link">Explore the Ranch →</span>
-                </a>
+                <db-card href="yorkville-schoolhouse-ranch.html" hoverable>
+                    <db-card-header>
+                        <db-card-icon>🏛️</db-card-icon>
+                        <db-card-content>
+                            <db-card-title >Historic Property</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</db-card-text>
+                    <db-card-link>Explore the Ranch →</db-card-link>
+                </db-card>
                 
-                <a href="financial-transparency.html" class="info__feature">
-                    <div class="info__feature-header">
-                        <div class="info__feature-icon">💝</div>
-                        <h3 class="info__feature-title">Support the Festival</h3>
-                    </div>
-                    <p class="info__feature-text">See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</p>
-                    <span class="info__feature-link">View Transparency →</span>
-                </a>
+                <db-card href="financial-transparency.html" hoverable>
+                    <db-card-header>
+                        <db-card-icon>💝</db-card-icon>
+                        <db-card-content>
+                            <db-card-title >Support the Festival</db-card-title>
+                        </db-card-content>
+                    </db-card-header>
+                    <db-card-text>See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</db-card-text>
+                    <db-card-link>View Transparency →</db-card-link>
+                </db-card>
             </div>
         </div>
     </section>
@@ -309,6 +320,7 @@
     <script src="components/nav/nav-scroll-handler.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
+    <script src="components/card/card-component.js"></script>
     <script src="components/cta/cta-component.js"></script>
     <script src="components/heading/heading-component.js"></script>
     <script src="components/footer/footer-component.js"></script>

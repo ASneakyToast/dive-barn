@@ -269,30 +269,6 @@ body {
   border: 1px solid var(--component-card-border);
 }
 
-.card:hover {
-  transform: translate3d(0, -4px, 0);
-  box-shadow: var(--component-card-shadow-hover);
-}
-
-.card__icon {
-  font-size: var(--typography-font-size-2xl);
-  margin-bottom: var(--spacing-xs);
-  display: block;
-}
-
-.card__title {
-  font-family: var(--typography-font-family-display);
-  font-size: var(--typography-font-size-lg);
-  font-weight: var(--typography-font-weight-semibold);
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.card__text {
-  font-size: var(--typography-font-size-base);
-  line-height: var(--typography-line-height-relaxed);
-  color: var(--color-text-secondary);
-}
 
 /* ==========================================================================
    GRID LAYOUTS - Token Based
