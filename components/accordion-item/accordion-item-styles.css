@@ -1,0 +1,54 @@
+/**
+ * Dive Barn Accordion Item Component Styles
+ * Native details/summary based accordion with design tokens
+ */
+
+.db-accordion-item {
+  background: var(--color-surface);
+  margin-bottom: var(--spacing-xs);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: var(--effects-shadow-sm);
+  border-left: 3px solid var(--color-secondary);
+  transition: box-shadow var(--effects-transition-duration-normal);
+}
+
+.db-accordion-item:hover {
+  box-shadow: var(--effects-shadow-md);
+}
+
+.db-accordion-item__question {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  transition: background var(--effects-transition-duration-normal);
+  font-weight: var(--typography-font-weight-semibold);
+  font-size: var(--typography-font-size-base);
+  border: none;
+  width: 100%;
+  text-align: left;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.db-accordion-item__question::-webkit-details-marker {
+  display: none;
+}
+
+.db-accordion-item__question:hover,
+.db-accordion-item__question:focus-visible {
+  background: var(--color-primary);
+}
+
+.db-accordion-item__answer {
+  padding: var(--spacing-sm) var(--spacing-md);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-primary);
+}
+
+.db-accordion-item__answer p {
+  margin: 0;
+}

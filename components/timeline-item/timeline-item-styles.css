@@ -1,0 +1,195 @@
+/**
+ * Timeline Item Component Styles
+ * Using design tokens for consistent styling
+ * Reusable for schedule events and history items
+ */
+
+@layer components {
+
+.db-timeline-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--effects-shadow-sm);
+  transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+}
+
+.db-timeline-item[hidden] {
+  display: none;
+}
+
+/* Hover effects */
+.db-timeline-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--effects-shadow-md);
+}
+
+/* Highlighted variant */
+.db-timeline-item--highlight {
+  border: 2px solid var(--color-primary);
+  background: linear-gradient(to right, rgba(255, 107, 107, 0.05), var(--color-surface));
+}
+
+/* Clickable state */
+.db-timeline-item--clickable {
+  cursor: pointer;
+}
+
+.db-timeline-item--clickable:active {
+  transform: translateX(2px);
+}
+
+.db-timeline-item--clickable:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Time/Date Column */
+.db-timeline-item__time {
+  text-align: right;
+  padding-top: var(--spacing-xs);
+}
+
+.db-timeline-item__time-text {
+  font-weight: var(--typography-font-weight-semibold);
+  color: var(--color-primary);
+  font-size: var(--typography-font-size-sm);
+}
+
+/* Content Column */
+.db-timeline-item__content {
+  /* Content container - no specific styles needed */
+}
+
+.db-timeline-item__venue {
+  display: block;
+  font-size: var(--typography-font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.db-timeline-item__body {
+  /* Body container for slotted content */
+}
+
+.db-timeline-item__title h3 {
+  font-size: var(--typography-font-size-lg);
+  font-weight: var(--typography-font-weight-semibold);
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-primary);
+  margin-top: 0;
+}
+
+.db-timeline-item__description p {
+  color: var(--color-text-muted);
+  line-height: var(--typography-line-height-relaxed);
+  margin-bottom: var(--spacing-sm);
+  margin-top: 0;
+}
+
+.db-timeline-item__description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Category badges */
+.db-timeline-item__category {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--border-radius-full);
+  font-size: var(--typography-font-size-xs);
+  font-weight: var(--typography-font-weight-medium);
+  margin-top: var(--spacing-xs);
+}
+
+.db-timeline-item__category--music {
+  background: rgba(255, 107, 107, 0.1);
+  color: var(--color-primary);
+}
+
+.db-timeline-item__category--workshop {
+  background: rgba(255, 159, 67, 0.1);
+  color: var(--color-secondary);
+}
+
+.db-timeline-item__category--art {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--color-accent);
+}
+
+.db-timeline-item__category--community {
+  background: rgba(95, 39, 205, 0.1);
+  color: var(--color-deep-purple);
+}
+
+.db-timeline-item__category--food {
+  background: rgba(255, 159, 67, 0.1);
+  color: var(--color-secondary);
+}
+
+.db-timeline-item__category--special {
+  background: rgba(78, 205, 196, 0.2);
+  color: var(--color-accent);
+  font-weight: var(--typography-font-weight-semibold);
+}
+
+.db-timeline-item__category--performance {
+  background: rgba(95, 39, 205, 0.1);
+  color: var(--color-deep-purple);
+}
+
+.db-timeline-item__category--wellness {
+  background: rgba(78, 205, 196, 0.1);
+  color: var(--color-accent);
+}
+
+.db-timeline-item__category--transportation {
+  background: rgba(95, 39, 205, 0.1);
+  color: var(--color-deep-purple);
+}
+
+.db-timeline-item__category--default {
+  background: var(--color-interactive-hover);
+  color: var(--color-text-muted);
+}
+
+/* Type variants */
+.db-timeline-item--history .db-timeline-item__time-text {
+  /* History items might want different styling for years vs times */
+}
+
+.db-timeline-item--schedule .db-timeline-item__venue {
+  /* Schedule items have venues, history items typically don't */
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .db-timeline-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+  
+  .db-timeline-item__time {
+    text-align: left;
+    padding-top: 0;
+    margin-bottom: var(--spacing-xs);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .db-timeline-item {
+    transition: none;
+  }
+  
+  .db-timeline-item:hover {
+    transform: none;
+  }
+}
+
+}
