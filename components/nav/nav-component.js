@@ -6,7 +6,6 @@ class DiveBarnNav extends HTMLElement {
     constructor() {
         super();
         // Don't use Shadow DOM to avoid CSS custom property inheritance issues
-        this.scrollHandler = null;
     }
 
     connectedCallback() {
@@ -14,65 +13,13 @@ class DiveBarnNav extends HTMLElement {
         this.setupNavigation();
     }
 
-    setupNavigation() {
-        // Initialize scroll handler for background changes and active link highlighting
-        this.initializeScrollHandler();
-        
-        // Add initial active link highlighting
-        this.highlightActiveLink();
-        
+    setupNavigation() {        
         // Listen for theme changes
         document.addEventListener('themechange', () => {
             // Component will automatically inherit CSS custom properties
         });
-        
-        // Listen for hash changes to update active links
-        window.addEventListener('hashchange', () => {
-            this.highlightActiveLink();
-        });
     }
 
-    initializeScrollHandler() {
-        // Check if NavScrollHandler is available
-        if (typeof NavScrollHandler !== 'undefined') {
-            this.scrollHandler = new NavScrollHandler({
-                navElement: this.querySelector('.nav'),
-                sectionSelector: 'section[id]',
-                linkSelector: '.nav__link',
-                scrollThreshold: 100,
-                activeClass: 'nav__link--active',
-                sectionOffset: 100
-            });
-        } else {
-            console.warn('NavScrollHandler not available. Make sure nav-scroll-handler.js is loaded before nav-component.js');
-        }
-    }
-
-    disconnectedCallback() {
-        // Clean up scroll handler when component is removed
-        if (this.scrollHandler) {
-            this.scrollHandler.destroy();
-            this.scrollHandler = null;
-        }
-    }
-
-    highlightActiveLink() {
-        const currentHash = window.location.hash;
-        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        
-        const links = this.querySelectorAll('.nav__link');
-        links.forEach(link => {
-            link.classList.remove('nav__link--active');
-            
-            // Check if this link matches current page/section
-            const href = link.getAttribute('href');
-            if (href === currentHash || 
-                (currentPath !== 'index.html' && href.includes(currentPath)) ||
-                (currentPath === 'index.html' && href === '#hero' && !currentHash)) {
-                link.classList.add('nav__link--active');
-            }
-        });
-    }
 
     render() {
         // Get current page for link determination
