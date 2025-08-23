@@ -1,0 +1,26 @@
+/* ==========================================================================
+   BASE LAYER - Fundamental HTML element styles
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+  }
+
+  body {
+    font-family: var(--typography-font-family-body);
+    font-size: var(--typography-font-size-base);
+    line-height: var(--typography-line-height-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    overflow-x: hidden;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 3px solid var(--color-interactive-focus);
+    outline-offset: 2px;
+    border-radius: var(--border-radius-sm);
+  }
+}

@@ -1,0 +1,87 @@
+/**
+ * ==========================================================================
+ * SEMANTIC CONTEXT TOKENS - Tier 2
+ * Contextual meanings assigned to primitive tokens
+ * These create the semantic layer that can be theme-aware
+ * ==========================================================================
+ */
+
+@layer semantic-tokens {
+  :root {
+    /* ==========================================================================
+       BRAND & IDENTITY COLORS - Semantic meanings
+       ========================================================================== */
+    
+    --color-primary: var(--color-coral-500);
+    --color-secondary: var(--color-orange-500);
+    --color-accent: var(--color-teal-500);
+    --color-deep-purple: var(--color-purple-500);
+    
+    /* Shadow colors that match theme */
+    --color-primary-shadow: rgba(255, 107, 107, 0.4);
+    --color-primary-shadow-hover: rgba(255, 107, 107, 0.6);
+    --color-secondary-shadow: rgba(255, 159, 67, 0.4);
+    --color-secondary-shadow-hover: rgba(255, 159, 67, 0.6);
+    --color-accent-shadow: rgba(78, 205, 196, 0.4);
+    --color-accent-shadow-hover: rgba(78, 205, 196, 0.6);
+    
+    /* Hero gradient colors - sunset theme for light mode */
+    --color-hero-gradient-start: rgba(220, 38, 127, 0.85);
+    --color-hero-gradient-end: rgba(255, 193, 7, 0.85);
+
+    /* ==========================================================================
+       SURFACE & BACKGROUND COLORS - Semantic surface meanings
+       ========================================================================== */
+    
+    --color-background: var(--color-white);
+    --color-surface: var(--color-gray-50);
+
+    /* ==========================================================================
+       TEXT COLORS - Semantic text meanings
+       ========================================================================== */
+    
+    --color-text-primary: var(--color-gray-900);
+    --color-text-secondary: var(--color-gray-500);
+    --color-text-muted: var(--color-gray-500);
+    --color-text-light: rgba(255, 255, 255, 0.9);
+    --color-text-inverse: var(--color-white);
+
+    /* ==========================================================================
+       BORDER COLORS - Semantic border meanings
+       ========================================================================== */
+    
+    --color-border-default: rgba(0, 0, 0, 0.05);
+    --color-border-muted: rgba(0, 0, 0, 0.06);
+    --color-border-subtle: rgba(0, 0, 0, 0.02);
+
+    /* ==========================================================================
+       INTERACTIVE STATES - Semantic interaction meanings
+       ========================================================================== */
+    
+    --color-interactive-hover: rgba(0, 0, 0, 0.04);
+    --color-interactive-pressed: rgba(0, 0, 0, 0.08);
+    --color-interactive-focus: var(--color-accent);
+    --color-interactive-disabled: rgba(0, 0, 0, 0.12);
+
+    /* ==========================================================================
+       STATUS MEANINGS - Semantic status colors
+       ========================================================================== */
+    
+    /* These reference the primitive status colors but provide semantic meaning */
+    --color-success: var(--color-status-success-500);
+    --color-success-subtle: var(--color-status-success-50);
+    --color-success-strong: var(--color-status-success-900);
+    
+    --color-warning: var(--color-status-warning-500);
+    --color-warning-subtle: var(--color-status-warning-50);
+    --color-warning-strong: var(--color-status-warning-900);
+    
+    --color-error: var(--color-status-error-500);
+    --color-error-subtle: var(--color-status-error-50);
+    --color-error-strong: var(--color-status-error-900);
+    
+    --color-info: var(--color-status-info-500);
+    --color-info-subtle: var(--color-status-info-50);
+    --color-info-strong: var(--color-status-info-900);
+  }
+}
