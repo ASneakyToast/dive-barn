@@ -25,7 +25,7 @@
                 <div class="funding-overview">
                     <div class="funding-stats">
                         <div class="stat">
-                            <span class="stat__value" id="total-raised">$1,060</span>
+                            <span class="stat__value" id="total-raised">$4,060</span>
                             <span class="stat__label">Raised</span>
                         </div>
                         <div class="stat">
@@ -39,9 +39,9 @@
                     </div>
                     <div class="progress-container">
                         <div class="progress-bar">
-                            <div class="progress-fill" id="progress-fill" style="width: 11.3%"></div>
+                            <div class="progress-fill" id="progress-fill" style="width: 43.3%"></div>
                         </div>
-                        <span class="progress-percentage" id="progress-percentage">11.3%</span>
+                        <span class="progress-percentage" id="progress-percentage">43.3%</span>
                     </div>
                 </div>
             </div>
@@ -63,10 +63,10 @@
             <div class="support-grid__content">
                 <h3 class="transparency-subheading">Why We Share Everything</h3>
                 <p class="transparency-statement">
-                    We believe in complete transparency about how Dive Barn is funded and where every dollar goes. By openly sharing our budget, expenses, and community contributions, we build trust with our supporters and demonstrate our commitment to responsible stewardship of the resources entrusted to us.
+                    <strong>The organizers don't take any money</strong> (and don't anticipate to). We're incredibly grateful that the Yorkville Schoolhouse Ranch space is given to us for free, but we're still responsible for minor renovations and improvements to keep it safe and beautiful.
                 </p>
                 <p class="transparency-statement">
-                    This page shows exactly what it costs to create an unforgettable weekend of music, art, and community connection. We're accountable to everyone who believes in this vision and chooses to support it.
+                    Your support helps us pay for food and drink, tip Scott and his bartender (please tip your bartender!), and most importantly, pay our artists and bands meaningful stipends for all their incredible work and materials. All merchandise sales go directly to Quality Time, our design agency, who's giving us a subsidized rate for their amazing work.
                 </p>
             </div>
         </div>
@@ -117,14 +117,14 @@
     <section class="section">
         <db-heading 
             title="Community Donations" 
-            subtitle="Thank you to everyone who has contributed so far!">
+            subtitle="Cash donations and in-kind contributions from our amazing community">
         </db-heading>
         
         <div class="community-grid">
             <div class="community-grid__table">
                 <db-table 
                     headers='["Contributor", "Amount"]' 
-                    data='[["The Chef", "$500"], ["Quality Time", "$300"], ["Joel Lithgow", "$250"], ["RSVP Tickets", "$10"], ["Total Community Donations", "$1,060"]]'
+                    data='[["Eric and Barb", "$3,000"], ["Scott (Jumbo&apos;s Win Win)", "$500"], ["Quality Time", "$300"], ["Joel Lithgow", "$250"], ["RSVP Tickets", "$10"], ["Total Community Donations", "$4,060"]]'
                     highlight-total>
                 </db-table>
             </div>
@@ -141,6 +141,18 @@
         </div>
     </section>
 
+    <!-- Floating Donation Button -->
+    <db-floating-button 
+        href="https://venmo.com/dive-barn" 
+        text="GIVE" 
+        icon="💝" 
+        variant="event-day" 
+        position="bottom-right" 
+        target="_blank" 
+        rel="noopener" 
+        aria-label="Donate to Dive Barn 2025">
+    </db-floating-button>
+
     <!-- Footer -->
     <dive-barn-footer show-transparency last-updated="August 20, 2025"></dive-barn-footer>
 
@@ -153,6 +165,7 @@
     <script src="components/cta/cta-component.js"></script>
     <script src="components/heading/heading-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
+    <script src="components/floating-button/floating-button-component.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
