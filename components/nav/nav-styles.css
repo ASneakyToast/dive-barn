@@ -3,23 +3,21 @@
  * Using design tokens and CSS custom properties
  */
 
+@layer components {
+
 .nav {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  background: var(--component-navigation-background, rgba(255, 255, 255, 0.95));
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--component-navigation-border, rgba(0, 0, 0, 0.05));
+  background: var(--color-surface);
+  backdrop-filter: blur(var(--component-navigation-backdrop-blur));
+  border-bottom: 1px solid var(--color-border-subtle);
   transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
   padding: var(--spacing-xs) 0;
 }
 
-.nav:hover {
-  background: var(--component-navigation-background-hover, rgba(255, 255, 255, 0.98));
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
 
 .nav__list {
   list-style: none;
@@ -34,7 +32,7 @@
 }
 
 .nav__link {
-  color: var(--component-navigation-link-text, var(--color-text-primary));
+  color: var(--color-text-primary);
   text-decoration: none;
   font-weight: var(--typography-font-weight-semibold);
   font-size: var(--typography-font-size-sm);
@@ -114,4 +112,6 @@
   .nav__link:hover {
     transform: none;
   }
+}
+
 }

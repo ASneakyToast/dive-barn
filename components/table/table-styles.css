@@ -1,4 +1,6 @@
 /* DB Table Component Styles */
+
+@layer components {
 .db-table-container {
     background: var(--color-surface);
     border-radius: 1rem;
@@ -79,4 +81,6 @@
     .db-table td {
         padding: 0.5rem 0.25rem;
     }
+}
+
 }

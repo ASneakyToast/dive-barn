@@ -3,6 +3,8 @@
  * Using design tokens and CSS custom properties
  */
 
+@layer components {
+
 .footer {
     background: var(--color-gray-900);
     color: var(--color-text-light);
@@ -120,13 +122,11 @@
 }
 
 .footer__transparency-link {
+    display: block;
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-}
-
-.footer__transparency-link a {
     color: var(--color-text-muted);
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
@@ -134,10 +134,11 @@
     transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
-.footer__transparency-link a:hover {
+.footer__transparency-link:hover {
     color: var(--color-primary);
     text-decoration-color: white;
 }
+
 
 .footer__contact {
     display: flex;
@@ -260,4 +261,6 @@
     .footer__social-link:hover {
         transform: none;
     }
+}
+
 }

@@ -1,19 +1,21 @@
 /**
- * Theme Switcher Component Styles
+ * Theme Toggle Component Styles
  * Using design tokens for consistent styling
  */
 
-.theme-toggle {
+@layer components {
+
+.db-theme-toggle {
   position: fixed;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  z-index: 1000;
+  top: 25px;
+  right: 25px;
+  z-index: 1001;
+  display: inline-flex;
   background: var(--color-surface);
   border: 2px solid var(--color-border-default);
   border-radius: var(--border-radius-full);
   width: 3rem;
   height: 3rem;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -21,18 +23,18 @@
   box-shadow: var(--effects-shadow-md);
 }
 
-.theme-toggle:hover {
+.db-theme-toggle:hover {
   background: var(--color-interactive-hover);
   transform: scale(1.05);
   box-shadow: var(--effects-shadow-lg);
 }
 
-.theme-toggle:focus-visible {
+.db-theme-toggle:focus-visible {
   outline: 3px solid var(--color-interactive-focus);
   outline-offset: 2px;
 }
 
-.theme-toggle__icon {
+.db-theme-toggle__icon {
   font-size: 1.25rem;
   position: relative;
   display: flex;
@@ -40,55 +42,114 @@
   justify-content: center;
 }
 
-.theme-toggle__sun,
-.theme-toggle__moon {
+.db-theme-toggle__sun,
+.db-theme-toggle__moon {
   position: absolute;
   transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
 }
 
-:root .theme-toggle__sun {
+:root .db-theme-toggle__sun {
   opacity: 1;
   transform: rotate(0deg) scale(1);
 }
 
-:root .theme-toggle__moon {
+:root .db-theme-toggle__moon {
   opacity: 0;
   transform: rotate(180deg) scale(0);
 }
 
-[data-theme="dark"] .theme-toggle__sun {
+[data-theme="dark"] .db-theme-toggle__sun {
   opacity: 0;
   transform: rotate(180deg) scale(0);
 }
 
-[data-theme="dark"] .theme-toggle__moon {
+[data-theme="dark"] .db-theme-toggle__moon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
+}
+
+/* Size variations */
+.db-theme-toggle--small {
+  width: 2rem;
+  height: 2rem;
+}
+
+.db-theme-toggle--small .db-theme-toggle__icon {
+  font-size: 1rem;
+}
+
+.db-theme-toggle--large {
+  width: 4rem;
+  height: 4rem;
+}
+
+.db-theme-toggle--large .db-theme-toggle__icon {
+  font-size: 1.5rem;
+}
+
+/* Size variations - normal is default, explicit for clarity */
+.db-theme-toggle--normal {
+  width: 3rem;
+  height: 3rem;
+}
+
+.db-theme-toggle--normal .db-theme-toggle__icon {
+  font-size: 1.25rem;
+}
+
+/* Variant variations - default styling */
+.db-theme-toggle--default {
+  /* Uses base styles - no additional styling needed */
+}
+
+/* Position variations */
+.db-theme-toggle--fixed {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+}
+
+.db-theme-toggle--relative {
+  position: relative;
+  top: unset;
+  right: unset;
+  display: inline-flex;
+}
+
+.db-theme-toggle--absolute {
+  position: absolute;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .theme-toggle {
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
+  .db-theme-toggle {
+    top: 15px;
+    right: 15px;
     width: 2.5rem;
     height: 2.5rem;
   }
   
-  .theme-toggle__icon {
+  .db-theme-toggle--fixed {
+    top: 15px;
+    right: 15px;
+  }
+  
+  .db-theme-toggle__icon {
     font-size: 1rem;
   }
 }
 
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
-  .theme-toggle,
-  .theme-toggle__sun,
-  .theme-toggle__moon {
+  .db-theme-toggle,
+  .db-theme-toggle__sun,
+  .db-theme-toggle__moon {
     transition: none;
   }
   
-  .theme-toggle:hover {
+  .db-theme-toggle:hover {
     transform: none;
   }
+}
+
 }

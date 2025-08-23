@@ -3,6 +3,8 @@
  * Using design tokens for consistent styling
  */
 
+@layer components {
+
 .db-button {
     display: inline-flex;
     align-items: center;
@@ -28,39 +30,39 @@
 
 /* Variants */
 .db-button--primary {
-    background: var(--component-button-primary-background);
-    color: var(--component-button-primary-text);
-    border: 1px solid var(--component-button-primary-border);
-    box-shadow: var(--component-button-primary-shadow);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border: 1px solid transparent;
+    box-shadow: var(--effects-shadow-sm);
 }
 
 .db-button--primary:hover:not([disabled]) {
-    background: var(--component-button-primary-background-hover);
+    background: var(--color-coral-600);
     transform: translateY(-2px);
-    box-shadow: var(--component-button-primary-shadow-hover);
+    box-shadow: var(--effects-shadow-md);
 }
 
 .db-button--primary:active:not([disabled]) {
-    background: var(--component-button-primary-background-pressed);
+    background: var(--color-coral-700);
     transform: translateY(0);
 }
 
 .db-button--secondary {
-    background: var(--component-button-secondary-background);
-    color: var(--component-button-secondary-text);
-    border: 2px solid var(--component-button-secondary-border);
-    box-shadow: var(--component-button-secondary-shadow);
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 2px solid var(--color-border-default);
+    box-shadow: var(--effects-shadow-none);
 }
 
 .db-button--secondary:hover:not([disabled]) {
-    background: var(--component-button-secondary-background-hover);
+    background: var(--color-interactive-hover);
     color: var(--color-text-primary);
     transform: translateY(-2px);
     box-shadow: var(--effects-shadow-md);
 }
 
 .db-button--secondary:active:not([disabled]) {
-    background: var(--component-button-secondary-background-pressed);
+    background: var(--color-interactive-pressed);
     transform: translateY(0);
 }
 
@@ -203,4 +205,6 @@
     .db-button:hover {
         transform: none !important;
     }
+}
+
 }

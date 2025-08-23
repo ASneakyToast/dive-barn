@@ -3,6 +3,8 @@
  * Using design tokens for consistent styling
  */
 
+@layer components {
+
 /* Base CTA component */
 .db-cta {
   padding: var(--spacing-lg) 0;
@@ -179,4 +181,6 @@
   .db-cta__button:hover {
     transform: none !important;
   }
+}
+
 }

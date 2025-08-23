@@ -59,36 +59,10 @@ class ThemeSwitcher {
     this.setTheme(this.getSystemTheme());
   }
 
-  // Create a theme toggle button
-  createToggleButton(container = document.body) {
-    const button = document.createElement('button');
-    button.className = 'theme-toggle';
-    button.setAttribute('aria-label', 'Toggle theme');
-    button.innerHTML = `
-      <span class="theme-toggle__icon">
-        <span class="theme-toggle__sun">☀️</span>
-        <span class="theme-toggle__moon">🌙</span>
-      </span>
-    `;
-
-    button.addEventListener('click', () => {
-      this.toggleTheme();
-      this.updateToggleButton(button);
-    });
-
-    this.updateToggleButton(button);
-    container.appendChild(button);
-    return button;
-  }
-
-  updateToggleButton(button) {
-    const isDark = this.theme === 'dark';
-    button.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
-  }
 }
 
-// Note: Theme toggle styles are now loaded from external CSS file:
-// components/theme-switcher/theme-switcher-styles.css
+// Note: Theme toggle UI is now handled by the db-theme-toggle web component:
+// components/theme-switcher/theme-toggle-component.js
 
 // Initialize theme switcher
 const themeSwitcher = new ThemeSwitcher();

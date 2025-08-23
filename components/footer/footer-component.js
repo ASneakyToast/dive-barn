@@ -47,9 +47,9 @@ class DiveBarnFooter extends HTMLElement {
                             <div class="footer__donation-links">
                                 <db-button variant="primary" size="small" onclick="window.open('https://venmo.com/dive-barn', '_blank', 'noopener')">Venmo</db-button>
                             </div>
-                            <p class="footer__transparency-link">
-                                <a href="financial-transparency.html" class="footer__link">Learn more about our financial transparency</a>
-                            </p>
+                            <a href="financial-transparency.html" class="footer__transparency-link">
+                                Learn more about our financial transparency
+                            </a>
                         </div>
                     </div>
                     
