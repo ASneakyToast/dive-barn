@@ -122,11 +122,6 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Support Section */
-.section--support {
-    background: var(--color-background);
-    padding: 4rem 0;
-}
 
 .transparency-subheading {
     color: var(--color-primary);
@@ -171,11 +166,6 @@
         gap: 2rem;
     }
     
-    .expenses-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
     .expense-gallery {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
@@ -183,11 +173,6 @@
     
     .gallery-image {
         height: 100px;
-    }
-    
-    .community-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
     }
     
     .sponsor-gallery {
@@ -280,10 +265,6 @@
 }
 
 /* Milestone Timeline */
-.section--milestones {
-    background: var(--color-surface);
-    padding: 4rem 0;
-}
 
 .milestone-timeline {
     position: relative;
@@ -405,10 +386,6 @@
 }
 
 /* Expense Breakdown */
-.section--expenses {
-    background: var(--color-background);
-    padding: 4rem 0 2rem 0;
-}
 
 .expenses-grid {
     display: grid;
@@ -523,10 +500,6 @@
 }
 
 /* Community Contributions */
-.section--community {
-    background: var(--color-background);
-    padding: 4rem 0;
-}
 
 .community-grid {
     display: grid;
@@ -700,7 +673,6 @@
     }
     
     .expense-table {
-        min-width: 600px;
         font-size: 0.9rem;
     }
     
@@ -712,6 +684,24 @@
     .simple-contributions {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+    
+    .expenses-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .expenses-grid__gallery {
+        order: -1;
+    }
+    
+    .community-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .community-grid__sponsors {
+        order: -1;
     }
 }
 

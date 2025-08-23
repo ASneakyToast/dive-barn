@@ -5,7 +5,7 @@
 @layer components {
   /* Hero Section */
   .hero {
-    min-height: 100vh;
+    min-height: 100dvh;
     background: 
       linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%),
       url('/media/year-one/full/morning_camping-1.JPG') center/cover no-repeat;
@@ -333,9 +333,6 @@
   /* Urgent item styling */
   .info__item--urgent {
     background: linear-gradient(90deg, rgba(211, 47, 47, 0.02), rgba(183, 28, 28, 0.02));
-    border-left: 4px solid #d32f2f;
-    padding-left: var(--spacing-sm);
-    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   }
 
   .info__item--urgent .info__item-title { color: #d32f2f; }
@@ -811,6 +808,8 @@
     }
     
     .info__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: var(--spacing-sm);
     }
     
@@ -818,15 +817,16 @@
       flex-direction: column;
       align-items: flex-start;
       gap: var(--spacing-xs);
-      padding: var(--spacing-sm);
-      background: var(--color-surface);
-      border-radius: var(--border-radius-md);
-      border-bottom: none;
+      padding: var(--spacing-sm) 0;
+      background: transparent;
+      border-radius: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
     
     .info__item-icon {
       font-size: var(--typography-font-size-lg);
     }
+    
     
     .info__sidebar {
       gap: var(--spacing-md);

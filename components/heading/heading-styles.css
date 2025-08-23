@@ -39,7 +39,7 @@
 
 .section__subtitle {
   font-size: var(--typography-font-size-base);
-  line-height: var(--typography-line-height-normal);
+  line-height: var(--typography-line-height-relaxed);
   color: var(--color-text-muted);
   max-width: 800px;
   margin: 0 auto var(--spacing-md);

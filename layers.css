@@ -16,7 +16,7 @@
 @import url('tokens/layers/global-tokens.css');
 @import url('tokens/layers/semantic-tokens.css');  
 @import url('tokens/layers/component-tokens.css');
-@import url('tokens/build/theme-system.css') layer(semantic-tokens);
+@import url('tokens/layers/theme-system.css') layer(semantic-tokens);
 
 /* Import layer-specific files */
 @import url('layers/reset.css');
