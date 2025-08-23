@@ -1,5 +1,7 @@
 /* Financial Transparency Page Styles */
 
+@layer pages {
+
 /* Section Titles - Center Aligned */
 .section__title {
     text-align: center;
@@ -9,12 +11,14 @@
     text-align: center;
 }
 
+}
+
 /* Hero Section - Financial */
 .hero--financial {
     background: 
-        linear-gradient(135deg, rgba(255, 107, 107, 0.85) 0%, rgba(255, 159, 67, 0.85) 100%),
+        linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%),
         url('/media/year-one/full/community_moments-2.JPG') center/cover no-repeat;
-    color: white;
+    color: var(--color-text-light);
     padding: 8rem 0 6rem;
     min-height: auto;
 }
@@ -84,7 +88,7 @@
 
 .progress-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4ade80, #22c55e);
+    background: linear-gradient(90deg, var(--color-status-success-500), var(--color-status-success-600));
     border-radius: 1rem;
     transition: width 0.8s ease-out;
     position: relative;
@@ -114,7 +118,7 @@
     transform: translateY(-50%);
     font-weight: 600;
     font-size: 0.9rem;
-    color: white;
+    color: var(--color-text-light);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -214,7 +218,7 @@
     display: flex;
     align-items: center;
     padding: 2rem;
-    background: white;
+    background: var(--color-surface);
     border: 2px solid var(--color-border);
     border-radius: 1rem;
     text-decoration: none;
@@ -309,7 +313,7 @@
     top: 0;
     width: 4rem;
     height: 4rem;
-    background: white;
+    background: var(--color-surface);
     border: 3px solid var(--color-border);
     border-radius: 50%;
     display: flex;
@@ -339,7 +343,7 @@
 }
 
 .milestone__content {
-    background: white;
+    background: var(--color-surface);
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -402,7 +406,7 @@
 
 /* Expense Breakdown */
 .section--expenses {
-    background: white;
+    background: var(--color-background);
     padding: 4rem 0 2rem 0;
 }
 

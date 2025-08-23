@@ -10,25 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles-tokens.css">
-    <link rel="stylesheet" href="components/nav/nav-styles.css">
-    <link rel="stylesheet" href="components/footer/footer-styles.css">
-    <link rel="stylesheet" href="components/button/button-styles.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="schedule-styles.css">
+    <!-- CSS Layers - Single entry point for organized cascade -->
+    <link rel="stylesheet" href="layers.css">
 </head>
 <body>
     <!-- Skip link for accessibility -->
     <a href="#content" class="skip-link">Skip to main content</a>
     
+    <!-- Theme Toggle -->
+    <db-theme-toggle></db-theme-toggle>
+    
     <!-- Navigation -->
     <dive-barn-nav></dive-barn-nav>
 
     <!-- Floating RSVP Button -->
-    <a href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" class="floating-rsvp" aria-label="RSVP for Dive Barn 2025" target="_blank" rel="noopener">
-        <span class="floating-rsvp__text">RSVP</span>
-        <span class="floating-rsvp__icon">→</span>
-    </a>
+    <db-floating-button 
+        href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" 
+        text="RSVP" 
+        icon="→" 
+        aria-label="RSVP for Dive Barn 2025" 
+        target="_blank" 
+        rel="noopener">
+    </db-floating-button>
 
     <!-- Main Content -->
     <main id="content">
@@ -76,65 +79,17 @@
             </div>
             
             <div class="history__timeline">
-                <div class="history__item">
-                    <div class="history__year">Early 1860s</div>
-                    <div class="history__content">
-                        <h3 class="history__title">The One-Room Schoolhouse</h3>
-                        <p class="history__description">
-                            The one-room schoolhouse, currently residing on the south-east side of the property, was built in the early 1860s on land donated by prominent early settler Silas E. Gaskill. The original location was just across the highway from the entrance to the Jim Hill Ranch.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="Early 1860s" type="history" title="The One-Room Schoolhouse" description="The one-room schoolhouse, currently residing on the south-east side of the property, was built in the early 1860s on land donated by prominent early settler Silas E. Gaskill. The original location was just across the highway from the entrance to the Jim Hill Ranch."></db-timeline-item>
                 
-                <div class="history__item">
-                    <div class="history__year">1865</div>
-                    <div class="history__content">
-                        <h3 class="history__title">The Gaskill Mystery</h3>
-                        <p class="history__description">
-                            In a dramatic turn of events, Silas E. Gaskill was arrested on suspicion of murder in 1865. He was released on his own recognizance for $1,000, but forfeited the bail, fled the country, and was never heard from again—leaving behind one of the valley's enduring mysteries.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="1865" type="history" title="The Gaskill Mystery" description="In a dramatic turn of events, Silas E. Gaskill was arrested on suspicion of murder in 1865. He was released on his own recognizance for $1,000, but forfeited the bail, fled the country, and was never heard from again—leaving behind one of the valley's enduring mysteries."></db-timeline-item>
                 
-                <div class="history__item">
-                    <div class="history__year">1919-2008</div>
-                    <div class="history__content">
-                        <h3 class="history__title">The Johnson Ranch Era</h3>
-                        <p class="history__description">
-                            Glenn Johnson began building the 2,000-acre ranch in 1919 by acquiring and combining smaller properties and homesteads. Later, his son Stanley continued expanding the operation. The Johnsons ran sheep and cattle on the ranch until Stanley retired in 2008, ending nearly 90 years of family stewardship.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="1919-2008" type="history" title="The Johnson Ranch Era" description="Glenn Johnson began building the 2,000-acre ranch in 1919 by acquiring and combining smaller properties and homesteads. Later, his son Stanley continued expanding the operation. The Johnsons ran sheep and cattle on the ranch until Stanley retired in 2008, ending nearly 90 years of family stewardship."></db-timeline-item>
                 
-                <div class="history__item">
-                    <div class="history__year">1926</div>
-                    <div class="history__content">
-                        <h3 class="history__title">Moving the Schoolhouse</h3>
-                        <p class="history__description">
-                            The schoolhouse was moved to its current location in 1926 and continued to serve as the Yorkville grammar and middle school until 1947, when California passed a law requiring all schools to have flush toilets—marking the end of its educational era.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="1926" type="history" title="Moving the Schoolhouse" description="The schoolhouse was moved to its current location in 1926 and continued to serve as the Yorkville grammar and middle school until 1947, when California passed a law requiring all schools to have flush toilets—marking the end of its educational era."></db-timeline-item>
                 
-                <div class="history__item">
-                    <div class="history__year">2012-2022</div>
-                    <div class="history__content">
-                        <h3 class="history__title">The Acorn Ranch</h3>
-                        <p class="history__description">
-                            Peter and Mimi Buckley purchased the ranch from the Johnsons in 2012, renaming it The Acorn Ranch. The Buckleys imported a herd of Cinta Senese pigs from Italy—a rare and ancient Tuscan breed prized by charcuterie makers—and raised them on the property. However, some pigs escaped and bred with wild boars, contributing to Northern California's wild pig population. These are the pigs you may encounter on the property today.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="2012-2022" type="history" title="The Acorn Ranch" description="Peter and Mimi Buckley purchased the ranch from the Johnsons in 2012, renaming it The Acorn Ranch. The Buckleys imported a herd of Cinta Senese pigs from Italy—a rare and ancient Tuscan breed prized by charcuterie makers—and raised them on the property. However, some pigs escaped and bred with wild boars, contributing to Northern California's wild pig population. These are the pigs you may encounter on the property today."></db-timeline-item>
                 
-                <div class="history__item">
-                    <div class="history__year">2022-Present</div>
-                    <div class="history__content">
-                        <h3 class="history__title">Yorkville Schoolhouse Ranch</h3>
-                        <p class="history__description">
-                            Eric Carlson and Barbara Henderson purchased the ranch from the Buckleys in 2022, renaming it the Yorkville Schoolhouse Ranch to emphasize the important role that heritage building played in forming the surrounding community. Today, the property continues its legacy as a gathering place, now hosting Dive Barn and other cultural events that celebrate creativity, community, and connection to the land.
-                        </p>
-                    </div>
-                </div>
+                <db-timeline-item year="2022-Present" type="history" title="Yorkville Schoolhouse Ranch" description="Eric Carlson and Barbara Henderson purchased the ranch from the Buckleys in 2022, renaming it the Yorkville Schoolhouse Ranch to emphasize the important role that heritage building played in forming the surrounding community. Today, the property continues its legacy as a gathering place, now hosting Dive Barn and other cultural events that celebrate creativity, community, and connection to the land."></db-timeline-item>
             </div>
         </section>
 
@@ -160,9 +115,12 @@
     <!-- Footer -->
     <dive-barn-footer></dive-barn-footer>
 
-    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/theme-switcher/theme-switcher.js"></script>
+    <script src="components/theme-switcher/theme-toggle-component.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
+    <script src="components/timeline-item/timeline-item-component.js"></script>
+    <script src="components/floating-button/floating-button-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
     <script src="main.js"></script>
 </body>

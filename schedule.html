@@ -10,26 +10,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="styles-tokens.css">
-    <link rel="stylesheet" href="components/nav/nav-styles.css">
-    <link rel="stylesheet" href="components/footer/footer-styles.css">
-    <link rel="stylesheet" href="components/button/button-styles.css">
-    <link rel="stylesheet" href="components/heading/heading-styles.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="schedule-styles.css">
+    <!-- CSS Layers - Single entry point for organized cascade -->
+    <link rel="stylesheet" href="layers.css">
 </head>
 <body>
     <!-- Skip link for accessibility -->
     <a href="#schedule" class="skip-link">Skip to main content</a>
     
+    <!-- Theme Toggle -->
+    <db-theme-toggle></db-theme-toggle>
+    
     <!-- Navigation -->
     <dive-barn-nav></dive-barn-nav>
 
     <!-- Floating RSVP Button -->
-    <a href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" class="floating-rsvp" aria-label="RSVP for Dive Barn 2025" target="_blank" rel="noopener">
-        <span class="floating-rsvp__text">RSVP</span>
-        <span class="floating-rsvp__icon">→</span>
-    </a>
+    <db-floating-button 
+        href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" 
+        text="RSVP" 
+        icon="→" 
+        aria-label="RSVP for Dive Barn 2025" 
+        target="_blank" 
+        rel="noopener">
+    </db-floating-button>
 
     <!-- Schedule Section -->
     <section id="schedule" class="section section--schedule">
@@ -43,137 +45,27 @@
         <div class="schedule__day schedule__day--active">
             <div class="schedule__timeline">
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">12:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">San Francisco - Mission District</span>
-                        <h3 class="schedule__title">Shuttle Bus Pickup</h3>
-                        <p class="schedule__description">Complimentary shuttle service from San Francisco to Dive Barn. Meet at the designated pickup location for a scenic 3-hour journey to the ranch.</p>
-                        <span class="schedule__category schedule__category--community">Transportation</span>
-                    </div>
-                </div>
+                <db-timeline-item time="12:00 PM" venue="San Francisco - Mission District" type="schedule" title="Shuttle Bus Pickup" description="Complimentary shuttle service from San Francisco to Dive Barn. Meet at the designated pickup location for a scenic 3-hour journey to the ranch." category="Transportation" category-variant="transportation"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">2:00 PM - Dusk</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Art Barn</span>
-                        <h3 class="schedule__title">Selby's interactive component</h3>
-                        <p class="schedule__description">Partake in a sculptural performance with human-sized animal cones. An immersive interactive experience throughout the day.</p>
-                        <span class="schedule__category schedule__category--workshop">Interactive performance</span>
-                    </div>
-                </div>
+                <db-timeline-item time="2:00 PM - Dusk" venue="Art Barn" type="schedule" title="Selby's interactive component" description="Partake in a sculptural performance with human-sized animal cones. An immersive interactive experience throughout the day." category="Interactive performance" category-variant="workshop"></db-timeline-item>
                 
-                <div class="schedule__item schedule__item--highlight">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">2:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Welcome Pavilion</span>
-                        <h3 class="schedule__title">Gates Open & Radio DJ</h3>
-                        <p class="schedule__description">Start your jouney with a warm welcome, orientation, and live music from a background music dj??? Also, maybe film a 'Welcome to Dive Barn' orientation at this time for you know, our documentary and next years marketing right?!</p>
-                        <span class="schedule__category schedule__category--community">Community</span>
-                    </div>
-                </div>
+                <db-timeline-item time="2:00 PM" venue="Welcome Pavilion" type="schedule" highlight title="Gates Open & Radio DJ" description="Start your jouney with a warm welcome, orientation, and live music from a background music dj??? Also, maybe film a 'Welcome to Dive Barn' orientation at this time for you know, our documentary and next years marketing right?!" category="Community" category-variant="community"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">3:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Throughout the Ranch</span>
-                        <h3 class="schedule__title">Artist Led tour by Mary Graham</h3>
-                        <p class="schedule__description">Join artist Mary Graham for a walking tour exploring the ranch's art installations, historical sites, the river, and junk yard. Meet at the Welcome Pavilion.</p>
-                        <span class="schedule__category schedule__category--special">Special Event</span>
-                    </div>
-                </div>
+                <db-timeline-item time="3:00 PM" venue="Throughout the Ranch" type="schedule" title="Artist Led tour by Mary Graham" description="Join artist Mary Graham for a walking tour exploring the ranch's art installations, historical sites, the river, and junk yard. Meet at the Welcome Pavilion." category="Special Event" category-variant="special"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">3:45 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Orchard Grove</span>
-                        <h3 class="schedule__title">Apple Picking & Cider Workshop with Eric Henderson</h3>
-                        <p class="schedule__description">Join Eric Henderson for hands-on apple picking followed by a traditional cider-making workshop. Learn the art of pressing fresh cider from ranch-grown apples.</p>
-                        <span class="schedule__category schedule__category--workshop">Workshop</span>
-                    </div>
-                </div>
+                <db-timeline-item time="3:45 PM" venue="Orchard Grove" type="schedule" title="Apple Picking & Cider Workshop with Eric Henderson" description="Join Eric Henderson for hands-on apple picking followed by a traditional cider-making workshop. Learn the art of pressing fresh cider from ranch-grown apples." category="Workshop" category-variant="workshop"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">4:30 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Meadow Stage</span>
-                        <h3 class="schedule__title">John [Last Name] plays a set in the meadow</h3>
-                        <p class="schedule__description">Solo piano performance creating intimate melodies perfect for golden hour reflection in the meadow.</p>
-                        <span class="schedule__category schedule__category--music">Music</span>
-                    </div>
-                </div>
+                <db-timeline-item time="4:30 PM" venue="Meadow Stage" type="schedule" title="John [Last Name] plays a set in the meadow" description="Solo piano performance creating intimate melodies perfect for golden hour reflection in the meadow." category="Music" category-variant="music"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">6:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Main Stage</span>
-                        <h3 class="schedule__title">Manu's multi-musician performance</h3>
-                        <p class="schedule__description">Contemporary dance collective Movement Medicine presents an original piece exploring connection to land and community. Not to be missed.</p>
-                        <span class="schedule__category schedule__category--performance">Performance</span>
-                    </div>
-                </div>
+                <db-timeline-item time="6:00 PM" venue="Main Stage" type="schedule" title="Manu's multi-musician performance" description="Contemporary dance collective Movement Medicine presents an original piece exploring connection to land and community. Not to be missed." category="Performance" category-variant="performance"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">7:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Historic Barn</span>
-                        <h3 class="schedule__title">Video projections by Artist Name</h3>
-                        <p class="schedule__description">Immersive video installations projected across multiple surfaces of the historic barn. Experience a curated collection of visual art that transforms the architectural space into a canvas of light and motion.</p>
-                        <span class="schedule__category schedule__category--art">Art Installation</span>
-                    </div>
-                </div>
+                <db-timeline-item time="7:00 PM" venue="Historic Barn" type="schedule" title="Video projections by Artist Name" description="Immersive video installations projected across multiple surfaces of the historic barn. Experience a curated collection of visual art that transforms the architectural space into a canvas of light and motion." category="Art Installation" category-variant="art"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">8:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Main Stage</span>
-                        <h3 class="schedule__title">Good Actor</h3>
-                        <p class="schedule__description">Indie rock collective delivering powerful melodies and introspective lyrics under the evening stars.</p>
-                        <span class="schedule__category schedule__category--music">Music</span>
-                    </div>
-                </div>
+                <db-timeline-item time="8:00 PM" venue="Main Stage" type="schedule" title="Good Actor" description="Indie rock collective delivering powerful melodies and introspective lyrics under the evening stars." category="Music" category-variant="music"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">9:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Main Stage</span>
-                        <h3 class="schedule__title">Town Bully</h3>
-                        <p class="schedule__description">High-energy rock band bringing driving rhythms and electrifying performances to close out the evening.</p>
-                        <span class="schedule__category schedule__category--music">Music</span>
-                    </div>
-                </div>
+                <db-timeline-item time="9:00 PM" venue="Main Stage" type="schedule" title="Town Bully" description="High-energy rock band bringing driving rhythms and electrifying performances to close out the evening." category="Music" category-variant="music"></db-timeline-item>
                 
-                <div class="schedule__item">
-                    <div class="schedule__time">
-                        <span class="schedule__hour">10:00 PM</span>
-                    </div>
-                    <div class="schedule__content">
-                        <span class="schedule__venue">Barn Stage</span>
-                        <h3 class="schedule__title">DJ Mystic & Friends</h3>
-                        <p class="schedule__description">Dance until dawn with deep house, world beats, and surprise guest DJs in the transformed historic barn.</p>
-                        <span class="schedule__category schedule__category--music">Late Night</span>
-                    </div>
-                </div>
+                <db-timeline-item time="10:00 PM" venue="Barn Stage" type="schedule" title="DJ Mystic & Friends" description="Dance until dawn with deep house, world beats, and surprise guest DJs in the transformed historic barn." category="Late Night" category-variant="music"></db-timeline-item>
                 
             </div>
         </div>
@@ -183,10 +75,13 @@
     <!-- Footer -->
     <dive-barn-footer></dive-barn-footer>
 
-    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/theme-switcher/theme-switcher.js"></script>
+    <script src="components/theme-switcher/theme-toggle-component.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
     <script src="components/heading/heading-component.js"></script>
+    <script src="components/timeline-item/timeline-item-component.js"></script>
+    <script src="components/floating-button/floating-button-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
     <script src="main.js"></script>
     <script src="schedule.js"></script>

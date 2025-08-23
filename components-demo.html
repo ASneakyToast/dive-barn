@@ -10,14 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Design System -->
-    <link rel="stylesheet" href="tokens/build/tokens.css">
-    <link rel="stylesheet" href="tokens/build/theme-system.css">
-    <link rel="stylesheet" href="components/nav/nav-styles.css">
-    <link rel="stylesheet" href="components/footer/footer-styles.css">
-    <link rel="stylesheet" href="components/button/button-styles.css">
-    <link rel="stylesheet" href="components/card/card-styles.css">
-    <link rel="stylesheet" href="components/theme-switcher/theme-switcher-styles.css">
+    <!-- CSS Layers - Single entry point for organized cascade -->
+    <link rel="stylesheet" href="layers.css">
     
     <style>
         body {
@@ -90,6 +84,9 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <db-theme-toggle></db-theme-toggle>
+    
     <!-- Navigation Component -->
     <dive-barn-nav></dive-barn-nav>
 
@@ -416,9 +413,24 @@
     <!-- Footer Component -->
     <dive-barn-footer></dive-barn-footer>
 
+    <!-- Theme Toggle Examples -->
+    <section>
+        <h2>Theme Toggle Variations</h2>
+        <p>Note: Theme toggle is now integrated into navigation. Examples below:</p>
+        
+        <p>Small size, relative position:</p>
+        <db-theme-toggle size="small" position="relative"></db-theme-toggle>
+        
+        <p>Large size, relative position:</p>
+        <db-theme-toggle size="large" position="relative"></db-theme-toggle>
+        
+        <p>Fixed position standalone:</p>
+        <db-theme-toggle position="fixed"></db-theme-toggle>
+    </section>
+
     <!-- Load Components -->
     <script src="components/theme-switcher/theme-switcher.js"></script>
-    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/theme-switcher/theme-toggle-component.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/footer/footer-component.js"></script>
     <script src="components/button/button-component.js"></script>

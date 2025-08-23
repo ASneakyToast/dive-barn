@@ -4,19 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Transparency - Dive Barn 2025</title>
-    <link rel="stylesheet" href="styles-tokens.css">
-    <link rel="stylesheet" href="components/nav/nav-styles.css">
-    <link rel="stylesheet" href="components/footer/footer-styles.css">
-    <link rel="stylesheet" href="components/button/button-styles.css">
-    <link rel="stylesheet" href="components/table/table-styles.css">
-    <link rel="stylesheet" href="components/cta/cta-styles.css">
-    <link rel="stylesheet" href="components/heading/heading-styles.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="financial-transparency.css">
+    <!-- CSS Layers - Single entry point for organized cascade -->
+    <link rel="stylesheet" href="layers.css">
     <meta name="description" content="Complete transparency on how we fund and create Dive Barn 2025. See exactly where your support goes and help us reach our goals.">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
+    <!-- Theme Toggle -->
+    <db-theme-toggle></db-theme-toggle>
+    
     <!-- Navigation -->
     <dive-barn-nav></dive-barn-nav>
 
@@ -155,7 +151,8 @@
     <dive-barn-footer show-transparency last-updated="August 20, 2025"></dive-barn-footer>
 
 
-    <script src="components/nav/nav-scroll-handler.js"></script>
+    <script src="components/theme-switcher/theme-switcher.js"></script>
+    <script src="components/theme-switcher/theme-toggle-component.js"></script>
     <script src="components/nav/nav-component.js"></script>
     <script src="components/button/button-component.js"></script>
     <script src="components/table/table-component.js"></script>
