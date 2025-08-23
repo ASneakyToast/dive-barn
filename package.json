@@ -1,11 +1,11 @@
 {
   "name": "dive-barn-design-system",
   "version": "1.0.0",
-  "description": "Design system tokens for Dive Barn festival site",
+  "description": "Dive Barn festival website with CSS layers architecture",
   "main": "index.js",
   "scripts": {
   },
-  "keywords": ["design-system", "tokens", "css"],
+  "keywords": ["festival", "website", "css-layers"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
