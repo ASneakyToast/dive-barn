@@ -1,6 +1,7 @@
 [build]
-  # Static site - no build command needed
-  publish = "."
+  # Astro build configuration
+  command = "npm run build"
+  publish = "dist"
 
 [[headers]]
   # Apply headers to all files
