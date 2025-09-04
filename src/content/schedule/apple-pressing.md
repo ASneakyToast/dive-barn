@@ -2,7 +2,7 @@
 title: "Apple Pressing Workshop"
 time: "1:30 PM"
 stage: "Orchard Grove"
-performer: "Eric Henderson"
+performer: "Eric Carlson"
 description: "Hands-on apple pressing workshop using ranch-grown apples"
 order: 3
 ---
