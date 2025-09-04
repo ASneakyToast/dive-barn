@@ -128,8 +128,8 @@
                 <div>
                     <h3>With Icons</h3>
                     <div class="button-group">
-                        <db-button variant="primary" icon="🎵">Music</db-button>
-                        <db-button variant="secondary" icon="🎨">Art</db-button>
+                        <db-button variant="primary">Music</db-button>
+                        <db-button variant="secondary">Art</db-button>
                         <db-button variant="accent" icon="🤝">Community</db-button>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="code-example">
-&lt;db-button variant="primary" size="large" icon="🎵"&gt;RSVP Now&lt;/db-button&gt;
+&lt;db-button variant="primary" size="large"&gt;RSVP Now&lt;/db-button&gt;
 &lt;db-button variant="secondary" loading&gt;Processing...&lt;/db-button&gt;
             </div>
         </section>
@@ -159,7 +159,6 @@
             <div class="demo-grid demo-grid--3">
                 <db-card href="schedule.html#music" hoverable>
                     <db-card-header>
-                        <db-card-icon>🎵</db-card-icon>
                         <db-card-content>
                             <db-card-title>Live Music</db-card-title>
                         </db-card-content>
@@ -172,7 +171,6 @@
 
                 <db-card href="schedule.html#art" hoverable>
                     <db-card-header>
-                        <db-card-icon>🎨</db-card-icon>
                         <db-card-content>
                             <db-card-title>Art Exhibition</db-card-title>
                         </db-card-content>
@@ -185,7 +183,6 @@
 
                 <db-card href="financial-transparency.html" hoverable>
                     <db-card-header>
-                        <db-card-icon>💝</db-card-icon>
                         <db-card-content>
                             <db-card-title>Support the Festival</db-card-title>
                         </db-card-content>
@@ -202,7 +199,6 @@
             <div class="demo-grid demo-grid--3">
                 <db-card variant="featured" clickable>
                     <db-card-header>
-                        <db-card-icon>⭐</db-card-icon>
                         <db-card-content>
                             <db-card-title>Featured Event</db-card-title>
                             <p class="db-card__subtitle">Special Highlight</p>
@@ -215,7 +211,6 @@
 
                 <db-card variant="urgent" elevated>
                     <db-card-header>
-                        <db-card-icon>🚫</db-card-icon>
                         <db-card-content>
                             <db-card-title>Important Notice</db-card-title>
                             <p class="db-card__subtitle">Please Read</p>
@@ -244,7 +239,6 @@
 &lt;!-- Basic Linkable Card --&gt;
 &lt;db-card href="schedule.html#music" hoverable&gt;
     &lt;db-card-header&gt;
-        &lt;db-card-icon&gt;🎵&lt;/db-card-icon&gt;
         &lt;db-card-content&gt;
             &lt;db-card-title&gt;Live Music&lt;/db-card-title&gt;
         &lt;/db-card-content&gt;
@@ -453,7 +447,7 @@
 
         // Button event listeners
         document.getElementById('demo-btn-1').addEventListener('db-click', (e) => {
-            logInteraction('Primary button clicked! 🎯');
+            logInteraction('Primary button clicked!');
         });
 
         document.getElementById('demo-btn-2').addEventListener('db-click', (e) => {

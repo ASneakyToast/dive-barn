@@ -5,10 +5,8 @@
 @layer components {
   /* Hero Section */
   .hero {
-    min-height: 100dvh;
-    background: 
-      linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%),
-      url('/media/year-one/full/morning_camping-1.JPG') center/cover no-repeat;
+    min-height: 66vh;
+    background: url('/media/grid-of-all-cards.png') center/contain no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
