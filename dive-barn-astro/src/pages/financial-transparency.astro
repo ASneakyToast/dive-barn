@@ -17,30 +17,26 @@ const description = 'Complete transparency on how we fund and create Dive Barn 2
 
 // Funding data - updated with correct in-kind vs cash breakdown
 const totalRaised = 4060;
-const essentialCashNeeds = 1200; // What we actually must pay for (porta potty + shuttle)
-const dreamGoal = 4800; // Essential + volunteers (Quality Time + artists)
+const essentialCashNeeds = 500; // What we actually must pay for (shuttle bus only, porta potties now in-kind)
+const dreamGoal = 5550; // Total of all cash expenses (shuttle + food/bev + design + gas + stipend + band fees)
 const contributorsCount = 23;
 const progressPercentage = ((totalRaised / essentialCashNeeds) * 100).toFixed(1);
 
-// In-Kind Donations Table
-const inKindHeaders = ['In-Kind Donation', 'Value'];
-const inKindData = [
-  ['Yorkville Schoolhouse Ranch (Event space)', '$3,000'],
-  ['Barn Safety Renovations', '$320'],
-  ['Jumbo\'s Win Win (Food services)', '$850'],
-  ['Lithgow BBQ (Food services)', '$500'],
-  ['Total In-Kind Value', '$4,670']
-];
-
-// Expense List (in priority order)
-const expenseHeaders = ['Expense', 'Amount', 'Status'];
+// Unified Expenses Table
+const expenseHeaders = ['Order', 'Expense', 'Amount'];
 const expenseData = [
-  ['Porta Potties', '$700', 'Funded ✅'],
-  ['Shuttle bus', '$500', 'Funded ✅'],
-  ['Band fees x2', '$400', 'Volunteering ⭐'],
-  ['Quality Time (Design work)', '$600', 'Volunteering ⭐'],
-  ['Artist stipends x12', '$3,000', 'Volunteering ⭐'],
-  ['Total Expenses', '$5,200', '']
+  ['-', 'Yorkville Schoolhouse Ranch (Event space)', 'In-kind donation'],
+  ['-', 'Barn Safety Renovations', 'In-kind donation'],
+  ['-', 'Porta Potties', 'In-kind donation'],
+  ['-', 'Off Hours (Curators)', 'In-kind donation'],
+  ['-', 'Jumbo\'s Win Win (Food services)', 'In-kind donation'],
+  ['-', 'Lithgow BBQ (Food services)', 'In-kind donation'],
+  ['1', 'Shuttle bus', '$500'],
+  ['2', 'Food and Bev costs', '$850'],
+  ['3', 'QT Design Agency Fee', '$600'],
+  ['4', 'Gas money for artists + bands', '$200'],
+  ['5', 'Artist stipend', '$3,000'],
+  ['6', 'Band fees', '$400']
 ];
 ---
 
@@ -51,42 +47,6 @@ const expenseData = [
   <!-- Navigation -->
   <Navigation />
 
-  <!-- Hero Section -->
-  <section class="hero hero--financial">
-    <div class="hero__container">
-      <div class="hero__content">
-        <h1 class="hero__title">Building Magic Together</h1>
-        <p class="hero__subtitle">Complete transparency on how we fund and create Dive Barn 2025</p>
-        <div class="funding-overview">
-          <div class="funding-stats">
-            <div class="stat">
-              <span class="stat__value">${totalRaised.toLocaleString()}</span>
-              <span class="stat__label">Raised</span>
-            </div>
-            <div class="stat">
-              <span class="stat__value">${essentialCashNeeds.toLocaleString()}</span>
-              <span class="stat__label">Essential Needs</span>
-            </div>
-            <div class="stat">
-              <span class="stat__value">${dreamGoal.toLocaleString()}</span>
-              <span class="stat__label">Dream Goal</span>
-            </div>
-            <div class="stat">
-              <span class="stat__value">{contributorsCount}</span>
-              <span class="stat__label">Contributors</span>
-            </div>
-          </div>
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div class="progress-fill" style={`width: ${progressPercentage}%`}></div>
-            </div>
-            <span class="progress-percentage">{progressPercentage}%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Support Options -->
   <section class="section">
     <Heading 
@@ -96,15 +56,15 @@ const expenseData = [
     
     <div class="support-grid">
       <div class="support-grid__image">
-        <img src="/media/year-one/full/community_moments-1.JPG" alt="Dive Barn community moments" class="support-image">
+        <img src="/media/Selected Photo 2 1.png" alt="Dive Barn community moments" class="support-image">
       </div>
       <div class="support-grid__content">
-        <h3 class="transparency-subheading">Why We Share Everything</h3>
+        <h3 class="transparency-subheading">How We Fund Dive Barn</h3>
         <p class="transparency-statement">
-          <strong>The organizers don't take any money</strong> (and don't anticipate to). Amazing news: our <strong>essential cash needs are fully covered</strong>! We show you exactly where every dollar goes in priority order: <strong>✅ items already funded</strong>, and <strong>⭐ volunteers currently working for free</strong> who we'd love to compensate with your continued support.
+          <strong>The entire project is self-funded.</strong> We've been very lucky to have some generous people on board to make it happen, but we're also scaling up from last year, which creates new costs. Donations will go towards subsidizing food and beverage, as well as design fees for branding/merchandise.
         </p>
         <p class="transparency-statement">
-          Thanks to incredible <strong>in-kind donations</strong> (~$5,070 value) from the Yorkville Schoolhouse Ranch, Eric, the bands, Jumbo's Win Win, and Lithgow BBQ, nearly every cash donation can now go directly toward paying our amazing volunteers who are making this magic happen.
+          This is made possible by incredible supporters: <strong>Eric Carlson and Barbara Henderson, Scott and Gerard for food and drink, Off Hours (our curators), Quality Time (our designers), all our amazing artists, and our friends and family</strong> who make this magic happen.
         </p>
       </div>
     </div>
@@ -117,40 +77,23 @@ const expenseData = [
       text="Every contribution brings us closer to our goal."
       buttonText="DONATE NOW"
       href="https://venmo.com/dive-barn"
-      variant="donation"
+      variant="primary"
       target="_blank"
       rel="noopener"
     />
   </section>
 
-  <!-- In-Kind Donations -->
+  <!-- Expenses -->
   <section class="section">
     <Heading 
-      title="In-Kind Donations" 
-      subtitle="Services and items generously donated for free"
-    />
-    
-    <div class="financial-container">
-      <Table 
-        headers={inKindHeaders}
-        data={inKindData}
-        highlightTotal
-      />
-    </div>
-  </section>
-
-  <!-- Expense List -->
-  <section class="section">
-    <Heading 
-      title="Expense List" 
-      subtitle="Priority order: ✅ funded • ⭐ volunteering (hoping for payment)"
+      title="All Expenses" 
+      subtitle="In-kind donations and cash expenses for Dive Barn 2025"
     />
     
     <div class="financial-container">
       <Table 
         headers={expenseHeaders}
         data={expenseData}
-        highlightTotal
       />
     </div>
   </section>
@@ -160,7 +103,7 @@ const expenseData = [
   <FloatingButton 
     href="https://venmo.com/dive-barn" 
     text="GIVE" 
-    icon="💝" 
+ 
     variant="primary" 
     position="bottom-right" 
     target="_blank" 

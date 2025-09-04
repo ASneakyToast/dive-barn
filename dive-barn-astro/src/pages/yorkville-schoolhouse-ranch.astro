@@ -41,8 +41,7 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
     <Hero 
       title="Yorkville Schoolhouse Ranch"
       subtitle="A 2,000-acre historic property in the heart of Mendocino County"
-      tagline="Where heritage meets community, and history comes alive"
-      backgroundImage="/media/year-one/full/morning_camping-2.JPG"
+      backgroundImage="/media/Website Banner Image 1.png"
       variant="ranch"
     />
 
@@ -126,6 +125,55 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
             title="Yorkville Schoolhouse Ranch" 
             description="Eric Carlson and Barbara Henderson purchased the ranch from the Buckleys in 2022, renaming it the Yorkville Schoolhouse Ranch to emphasize the important role that heritage building played in forming the surrounding community. Today, the property continues its legacy as a gathering place, now hosting Dive Barn and other cultural events that celebrate creativity, community, and connection to the land."
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- Dive Barn 2024 Gallery Section -->
+    <section class="section section--gallery">
+      <div class="gallery__container">
+        <Heading 
+          title="Dive Barn 2024 Memories" 
+          subtitle="A glimpse into the magic we created together in our first year"
+          centered={true}
+        />
+        <div class="gallery__grid">
+          <div class="gallery__item">
+            <img src="/media/year-one/full/art_installation-1.JPG" 
+                 alt="Interactive art installation at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
+          <div class="gallery__item">
+            <img src="/media/year-one/full/community_moments-1.JPG" 
+                 alt="Festival attendees connecting at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
+          <div class="gallery__item">
+            <img src="/media/year-one/full/art_installation-2.JPG" 
+                 alt="Art installation illuminated at night at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
+          <div class="gallery__item">
+            <img src="/media/year-one/full/morning_camping-1.JPG" 
+                 alt="Sunrise moments after an unforgettable night at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
+          <div class="gallery__item">
+            <img src="/media/year-one/full/community_moments-2.JPG" 
+                 alt="Community gathering at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
+          <div class="gallery__item">
+            <img src="/media/year-one/full/art_installation-3.JPG" 
+                 alt="Creative art piece at Dive Barn 2024" 
+                 loading="lazy"
+                 class="gallery__image">
+          </div>
         </div>
       </div>
     </section>
@@ -233,17 +281,78 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
   margin-top: var(--spacing-xl);
 }
 
+/* Gallery Section */
+.section--gallery {
+  padding: 4rem 0;
+  background: var(--color-surface);
+}
+
+.gallery__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xl);
+}
+
+.gallery__item {
+  aspect-ratio: 1;
+  border-radius: var(--border-radius-md);
+  transition: transform var(--effects-transition-duration-normal);
+  position: relative;
+  overflow: hidden;
+  contain: layout style paint;
+  cursor: pointer;
+}
+
+.gallery__item:hover {
+  transform: scale(1.05);
+}
+
+.gallery__item:hover .gallery__image {
+  transform: scale(1.1);
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--effects-transition-duration-normal);
+}
+
+.gallery__placeholder-text {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Gallery staggered animations */
+.gallery__item:nth-child(1) { animation: slideInUp 0.6s ease-out 0.1s both; }
+.gallery__item:nth-child(2) { animation: slideInUp 0.6s ease-out 0.2s both; }
+.gallery__item:nth-child(3) { animation: slideInUp 0.6s ease-out 0.3s both; }
+.gallery__item:nth-child(4) { animation: slideInUp 0.6s ease-out 0.4s both; }
+.gallery__item:nth-child(5) { animation: slideInUp 0.6s ease-out 0.5s both; }
+.gallery__item:nth-child(6) { animation: slideInUp 0.6s ease-out 0.6s both; }
+
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
   
   .section--stewards,
-  .section--history {
+  .section--history,
+  .section--gallery {
     padding: 2.5rem 0;
   }
   
   .stewards__container,
-  .history__container {
+  .history__container,
+  .gallery__container {
     padding: 0 var(--spacing-md);
   }
   
@@ -259,6 +368,11 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
   
   .stewards__photo {
     max-height: 350px;
+  }
+  
+  .gallery__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
   }
   
 }
