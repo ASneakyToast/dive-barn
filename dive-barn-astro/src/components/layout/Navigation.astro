@@ -1,0 +1,58 @@
+---
+import { NAVIGATION_LINKS } from '../../utils/constants';
+
+// Get current pathname for active link highlighting
+const pathname = Astro.url.pathname;
+const isHomePage = pathname === '/';
+
+// Helper function to determine nav link destinations
+const getNavLink = (href: string, section?: string) => {
+  if (section && isHomePage) {
+    return `#${section}`;
+  } else if (section) {
+    return `/${href}#${section}`;
+  }
+  return href;
+};
+
+// Updated navigation links with section handling
+const navLinks = [
+  { 
+    href: isHomePage ? '#hero' : '/', 
+    label: 'Barn',
+    ariaLabel: isHomePage ? 'Go to Dive Barn home section' : 'Go to Dive Barn home page'
+  },
+  { 
+    href: getNavLink('', 'festival'), 
+    label: 'Festival',
+    ariaLabel: 'Go to festival information section'
+  },
+  { 
+    href: getNavLink('', 'info'), 
+    label: 'Info',
+    ariaLabel: 'Go to essential details section'
+  },
+  { 
+    href: getNavLink('', 'faq'), 
+    label: 'FAQ',
+    ariaLabel: 'Go to frequently asked questions section'
+  }
+];
+---
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <ul class="nav__list">
+    {navLinks.map(link => (
+      <li>
+        <a 
+          href={link.href} 
+          class="nav__link"
+          aria-label={link.ariaLabel}
+          data-current={pathname === link.href ? 'page' : undefined}
+        >
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>

@@ -1,0 +1,31 @@
+{
+  "name": "dive-barn-astro",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Dive Barn festival website built with Astro.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "eslint src --ext .ts,.astro",
+    "format": "prettier --write src",
+    "astro": "astro"
+  },
+  "keywords": ["festival", "website", "astro", "css-layers"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "astro": "^5.13.5",
+    "@astrojs/netlify": "^6.0.0",
+    "@astrojs/check": "^0.9.0",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.14.0"
+  }
+}

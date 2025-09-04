@@ -1,0 +1,148 @@
+---
+import type { HeadingLevel, ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  title: string;
+  subtitle?: string;
+  tagline?: string;
+  backgroundImage?: string;
+  variant?: 'default' | 'financial' | 'ranch';
+  level?: HeadingLevel;
+}
+
+const { 
+  title,
+  subtitle,
+  tagline,
+  backgroundImage,
+  variant = 'default',
+  level = 1,
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
+const SubtitleTag = `h${level + 1}` as keyof HTMLElementTagNameMap;
+
+const classes = [
+  'hero',
+  variant !== 'default' && `hero--${variant}`,
+  className
+].filter(Boolean).join(' ');
+
+const heroStyle = backgroundImage 
+  ? `background-image: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%), url('${backgroundImage}'); background-size: cover; background-position: center;`
+  : '';
+---
+
+<section class={classes} style={heroStyle} {...rest}>
+  <div class="hero__container">
+    <div class="hero__content">
+      <HeadingTag class="hero__title">{title}</HeadingTag>
+      {subtitle && (
+        <SubtitleTag class="hero__subtitle">{subtitle}</SubtitleTag>
+      )}
+      {tagline && (
+        <p class="hero__tagline">{tagline}</p>
+      )}
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
+  color: var(--color-text-light);
+  overflow: hidden;
+}
+
+.hero__container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  text-align: center;
+  z-index: 2;
+}
+
+.hero__content {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.hero__title {
+  font-family: var(--typography-font-family-display);
+  font-size: clamp(var(--typography-font-size-2xl), 6vw, var(--typography-font-size-4xl));
+  font-weight: var(--typography-font-weight-black);
+  line-height: var(--typography-line-height-tight);
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero__subtitle {
+  font-family: var(--typography-font-family-display);
+  font-size: clamp(var(--typography-font-size-lg), 3vw, var(--typography-font-size-xl));
+  font-weight: var(--typography-font-weight-semibold);
+  line-height: var(--typography-line-height-normal);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero__tagline {
+  font-size: var(--typography-font-size-lg);
+  font-weight: var(--typography-font-weight-normal);
+  line-height: var(--typography-line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero variants */
+.hero--financial .hero__title,
+.hero--ranch .hero__title {
+  color: var(--color-text-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .hero__container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero__tagline {
+    font-size: var(--typography-font-size-base);
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .hero__content {
+    animation: none;
+  }
+}
+</style>

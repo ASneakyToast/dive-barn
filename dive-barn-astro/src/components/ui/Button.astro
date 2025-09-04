@@ -1,0 +1,117 @@
+---
+import type { ButtonVariant, ButtonSize, ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  disabled?: boolean;
+  loading?: boolean;
+  icon?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { 
+  variant = 'primary', 
+  size = 'normal', 
+  disabled = false,
+  loading = false,
+  icon,
+  href,
+  target,
+  rel,
+  type = 'button',
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const Component = href ? 'a' : 'button';
+
+const classes = [
+  'db-button',
+  `db-button--${variant}`,
+  `db-button--${size}`,
+  loading && 'db-button--loading',
+  disabled && 'db-button--disabled',
+  className
+].filter(Boolean).join(' ');
+
+const buttonProps = href ? {
+  href,
+  target,
+  rel,
+  role: 'button',
+  ...(disabled && { 'aria-disabled': 'true', tabindex: -1 }),
+  ...(loading && { 'aria-busy': 'true' })
+} : {
+  type,
+  disabled: disabled || loading,
+  ...(loading && { 'aria-busy': 'true' })
+};
+---
+
+<Component 
+  class={classes}
+  {...buttonProps}
+  {...rest}
+>
+  {loading && (
+    <span class="db-button__spinner" aria-hidden="true">
+      <svg class="db-button__spinner-icon" width="16" height="16" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M12 2 A10 10 0 0 1 22 12" stroke="currentColor" stroke-width="2" fill="none">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            values="0 12 12;360 12 12"
+            dur="1s"
+            repeatCount="indefinite"/>
+        </path>
+      </svg>
+    </span>
+  )}
+  
+  {icon && !loading && (
+    <span class="db-button__icon" aria-hidden="true">{icon}</span>
+  )}
+  
+  <span class={`db-button__text ${loading ? 'db-button__text--loading' : ''}`}>
+    <slot />
+  </span>
+</Component>
+
+<style>
+  .db-button__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .db-button__spinner-icon {
+    color: currentColor;
+  }
+
+  .db-button__text--loading {
+    opacity: 0;
+  }
+
+  .db-button--loading {
+    position: relative;
+    color: transparent;
+  }
+
+  .db-button--loading .db-button__spinner {
+    color: currentColor;
+  }
+
+  .db-button--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+</style>

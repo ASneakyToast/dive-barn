@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingButton from '../components/ui/FloatingButton.astro';
+import Heading from '../components/ui/Heading.astro';
+import CTA from '../components/ui/CTA.astro';
+import Table from '../components/ui/Table.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
+
+// Import the financial transparency page styles
+import '../styles/pages/financial-transparency.css';
+
+// Page metadata
+const title = 'Financial Transparency - Dive Barn 2025';
+const description = 'Complete transparency on how we fund and create Dive Barn 2025. See exactly where your support goes and help us reach our goals.';
+
+// Funding data - updated with correct in-kind vs cash breakdown
+const totalRaised = 4060;
+const essentialCashNeeds = 1200; // What we actually must pay for (porta potty + shuttle)
+const dreamGoal = 4800; // Essential + volunteers (Quality Time + artists)
+const contributorsCount = 23;
+const progressPercentage = ((totalRaised / essentialCashNeeds) * 100).toFixed(1);
+
+// In-Kind Donations Table
+const inKindHeaders = ['In-Kind Donation', 'Value'];
+const inKindData = [
+  ['Yorkville Schoolhouse Ranch (Event space)', '$3,000'],
+  ['Barn Safety Renovations', '$320'],
+  ['Jumbo\'s Win Win (Food services)', '$850'],
+  ['Lithgow BBQ (Food services)', '$500'],
+  ['Total In-Kind Value', '$4,670']
+];
+
+// Expense List (in priority order)
+const expenseHeaders = ['Expense', 'Amount', 'Status'];
+const expenseData = [
+  ['Porta Potties', '$700', 'Funded ✅'],
+  ['Shuttle bus', '$500', 'Funded ✅'],
+  ['Band fees x2', '$400', 'Volunteering ⭐'],
+  ['Quality Time (Design work)', '$600', 'Volunteering ⭐'],
+  ['Artist stipends x12', '$3,000', 'Volunteering ⭐'],
+  ['Total Expenses', '$5,200', '']
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Theme Toggle -->
+  <ThemeToggle />
+  
+  <!-- Navigation -->
+  <Navigation />
+
+  <!-- Hero Section -->
+  <section class="hero hero--financial">
+    <div class="hero__container">
+      <div class="hero__content">
+        <h1 class="hero__title">Building Magic Together</h1>
+        <p class="hero__subtitle">Complete transparency on how we fund and create Dive Barn 2025</p>
+        <div class="funding-overview">
+          <div class="funding-stats">
+            <div class="stat">
+              <span class="stat__value">${totalRaised.toLocaleString()}</span>
+              <span class="stat__label">Raised</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value">${essentialCashNeeds.toLocaleString()}</span>
+              <span class="stat__label">Essential Needs</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value">${dreamGoal.toLocaleString()}</span>
+              <span class="stat__label">Dream Goal</span>
+            </div>
+            <div class="stat">
+              <span class="stat__value">{contributorsCount}</span>
+              <span class="stat__label">Contributors</span>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style={`width: ${progressPercentage}%`}></div>
+            </div>
+            <span class="progress-percentage">{progressPercentage}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Options -->
+  <section class="section">
+    <Heading 
+      title="Support Dive Barn 2025" 
+      subtitle="Every contribution helps us create an unforgettable experience"
+    />
+    
+    <div class="support-grid">
+      <div class="support-grid__image">
+        <img src="/media/year-one/full/community_moments-1.JPG" alt="Dive Barn community moments" class="support-image">
+      </div>
+      <div class="support-grid__content">
+        <h3 class="transparency-subheading">Why We Share Everything</h3>
+        <p class="transparency-statement">
+          <strong>The organizers don't take any money</strong> (and don't anticipate to). Amazing news: our <strong>essential cash needs are fully covered</strong>! We show you exactly where every dollar goes in priority order: <strong>✅ items already funded</strong>, and <strong>⭐ volunteers currently working for free</strong> who we'd love to compensate with your continued support.
+        </p>
+        <p class="transparency-statement">
+          Thanks to incredible <strong>in-kind donations</strong> (~$5,070 value) from the Yorkville Schoolhouse Ranch, Eric, the bands, Jumbo's Win Win, and Lithgow BBQ, nearly every cash donation can now go directly toward paying our amazing volunteers who are making this magic happen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donation Call-to-Action -->
+  <section class="section">
+    <CTA 
+      title="Help Make It Happen"
+      text="Every contribution brings us closer to our goal."
+      buttonText="DONATE NOW"
+      href="https://venmo.com/dive-barn"
+      variant="donation"
+      target="_blank"
+      rel="noopener"
+    />
+  </section>
+
+  <!-- In-Kind Donations -->
+  <section class="section">
+    <Heading 
+      title="In-Kind Donations" 
+      subtitle="Services and items generously donated for free"
+    />
+    
+    <div class="financial-container">
+      <Table 
+        headers={inKindHeaders}
+        data={inKindData}
+        highlightTotal
+      />
+    </div>
+  </section>
+
+  <!-- Expense List -->
+  <section class="section">
+    <Heading 
+      title="Expense List" 
+      subtitle="Priority order: ✅ funded • ⭐ volunteering (hoping for payment)"
+    />
+    
+    <div class="financial-container">
+      <Table 
+        headers={expenseHeaders}
+        data={expenseData}
+        highlightTotal
+      />
+    </div>
+  </section>
+
+
+  <!-- Floating Donation Button -->
+  <FloatingButton 
+    href="https://venmo.com/dive-barn" 
+    text="GIVE" 
+    icon="💝" 
+    variant="primary" 
+    position="bottom-right" 
+    target="_blank" 
+    rel="noopener" 
+    ariaLabel="Donate to Dive Barn 2025"
+  />
+
+  <!-- Footer -->
+  <Footer showTransparency lastUpdated="August 20, 2025" />
+</BaseLayout>

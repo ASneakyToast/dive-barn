@@ -1,0 +1,119 @@
+---
+import type { SiteConfig } from '../types';
+import { SITE_CONFIG } from '../utils/constants';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'event';
+  date?: string;
+}
+
+const { 
+  title = SITE_CONFIG.title,
+  description = SITE_CONFIG.description,
+  image,
+  type = 'website',
+  date
+} = Astro.props;
+
+const fullTitle = title === SITE_CONFIG.title ? title : `${title} | ${SITE_CONFIG.title}`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImage = image ? new URL(image, Astro.site) : new URL(SITE_CONFIG.image, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>{fullTitle}</title>
+  <meta name="title" content={fullTitle}>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={type}>
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={socialImage}>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={canonicalURL}>
+  <meta property="twitter:title" content={fullTitle}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={socialImage}>
+  
+  <!-- Event Structured Data -->
+  {type === 'event' && (
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "MusicEvent",
+      "name": "Dive Barn 2025",
+      "startDate": "2025-10-11T10:00:00-07:00",
+      "endDate": "2025-10-11T23:00:00-07:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Yorkville Schoolhouse Ranch",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Mendocino County",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        }
+      },
+      "image": socialImage.href,
+      "description": description,
+      "offers": {
+        "@type": "Offer",
+        "url": "https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": date
+      }
+    })} />
+  )}
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Theme initialization script -->
+  <script is:inline>
+    // Initialize theme before page renders to prevent flash
+    (function() {
+      const getTheme = () => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      };
+      
+      const theme = getTheme();
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+  
+  <slot />
+</body>
+</html>

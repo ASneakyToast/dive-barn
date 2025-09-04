@@ -1,0 +1,235 @@
+---
+interface Props {
+  size?: 'small' | 'normal' | 'large';
+  position?: 'fixed' | 'relative';
+  variant?: 'default' | 'floating';
+}
+
+const { 
+  size = 'normal',
+  position = 'fixed',
+  variant = 'default'
+} = Astro.props;
+
+const classes = [
+  'db-theme-toggle',
+  `db-theme-toggle--${size}`,
+  `db-theme-toggle--${position}`,
+  `db-theme-toggle--${variant}`
+].join(' ');
+---
+
+<button 
+  id="theme-toggle"
+  class={classes}
+  type="button"
+  aria-label="Toggle theme"
+  data-theme-toggle
+>
+  <span class="db-theme-toggle__icon" aria-hidden="true">
+    <svg class="db-theme-toggle__sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="5"></circle>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+    </svg>
+    <svg class="db-theme-toggle__moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </span>
+</button>
+
+<script is:inline>
+  class ThemeToggle {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+
+      // Set initial state
+      this.updateToggleState();
+
+      // Handle theme toggle
+      toggle.addEventListener('click', () => {
+        this.toggleTheme();
+      });
+
+      // Listen for system theme changes
+      if (typeof window !== 'undefined' && window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if (!localStorage.getItem('theme')) {
+            this.updateToggleState();
+          }
+        });
+      }
+    }
+
+    getTheme() {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      if (typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      return 'light';
+    }
+
+    setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      
+      // Dispatch custom event for other components
+      document.dispatchEvent(new CustomEvent('themechange', {
+        detail: { theme }
+      }));
+    }
+
+    toggleTheme() {
+      const currentTheme = this.getTheme();
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      this.setTheme(newTheme);
+      this.updateToggleState();
+      return newTheme;
+    }
+
+    updateToggleState() {
+      const toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+
+      const currentTheme = this.getTheme();
+      const isDark = currentTheme === 'dark';
+      
+      toggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} theme`);
+      toggle.setAttribute('data-theme', currentTheme);
+      
+      // Update icon visibility
+      const sun = toggle.querySelector('.db-theme-toggle__sun');
+      const moon = toggle.querySelector('.db-theme-toggle__moon');
+      
+      if (sun && moon) {
+        if (isDark) {
+          sun.style.display = 'block';
+          moon.style.display = 'none';
+        } else {
+          sun.style.display = 'none';
+          moon.style.display = 'block';
+        }
+      }
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new ThemeToggle());
+  } else {
+    new ThemeToggle();
+  }
+
+  // Also initialize on any navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', () => new ThemeToggle());
+</script>
+
+<style>
+  .db-theme-toggle {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    background: var(--color-surface-elevated, #ffffff);
+    border: 2px solid var(--color-border, #e5e5e5);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .db-theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .db-theme-toggle:focus {
+    outline: 2px solid var(--color-focus-ring, #007acc);
+    outline-offset: 2px;
+  }
+
+  .db-theme-toggle__icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-primary, #1a1a1a);
+  }
+
+  /* Ensure visibility with fallbacks */
+  @supports not (background: var(--color-surface-elevated)) {
+    .db-theme-toggle {
+      background: #ffffff;
+      border: 1px solid #e5e5e5;
+    }
+    
+    .db-theme-toggle__icon {
+      color: #1a1a1a;
+    }
+  }
+
+  .db-theme-toggle__sun,
+  .db-theme-toggle__moon {
+    position: absolute;
+    transition: opacity 0.2s ease;
+  }
+
+  /* Default to moon icon (for light theme) */
+  .db-theme-toggle__sun {
+    display: none;
+  }
+
+  .db-theme-toggle__moon {
+    display: block;
+  }
+
+  /* Theme variants */
+  .db-theme-toggle--small {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .db-theme-toggle--large {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .db-theme-toggle--relative {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
+
+  .db-theme-toggle--floating {
+    background: var(--color-primary, #007acc);
+    color: var(--color-primary-contrast, white);
+    border: none;
+  }
+
+  .db-theme-toggle--floating .db-theme-toggle__icon {
+    color: currentColor;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .db-theme-toggle {
+      top: 1rem;
+      right: 1rem;
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,572 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import Heading from '../components/ui/Heading.astro';
+import Accordion from '../components/ui/Accordion.astro';
+import FloatingButton from '../components/ui/FloatingButton.astro';
+
+// Page metadata
+const title = 'Dive Barn Design System & Components Demo';
+const description = 'Complete showcase of our token-based design system with interactive components, design foundations, and accessibility features.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Theme Toggle -->
+  <ThemeToggle />
+  
+  <!-- Navigation -->
+  <Navigation />
+
+  <main class="demo-main">
+    <header class="demo-header">
+      <h1 class="demo-hero-title">Design System & Components Demo</h1>
+      <p class="demo-hero-subtitle">
+        Complete showcase of our token-based design system with interactive components, design foundations, and accessibility features.
+      </p>
+    </header>
+
+    <!-- Button Components -->
+    <section class="demo-section">
+      <h2 class="demo-title">Button Components</h2>
+      <p>Flexible button components with multiple variants, sizes, and states.</p>
+
+      <div class="demo-grid">
+        <div>
+          <h3>Variants</h3>
+          <div class="button-group">
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="accent">Accent</Button>
+            <Button variant="ghost">Ghost</Button>
+          </div>
+        </div>
+
+        <div>
+          <h3>Sizes</h3>
+          <div class="button-group">
+            <Button size="small">Small</Button>
+            <Button size="normal">Normal</Button>
+            <Button size="large">Large</Button>
+          </div>
+        </div>
+
+        <div>
+          <h3>With Icons</h3>
+          <div class="button-group">
+            <Button variant="primary" icon="🎵">Music</Button>
+            <Button variant="secondary" icon="🎨">Art</Button>
+            <Button variant="accent" icon="🤝">Community</Button>
+          </div>
+        </div>
+
+        <div>
+          <h3>States</h3>
+          <div class="button-group">
+            <Button variant="primary" loading>Loading</Button>
+            <Button variant="secondary" disabled>Disabled</Button>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example">
+&lt;Button variant="primary" size="large" icon="🎵"&gt;RSVP Now&lt;/Button&gt;
+&lt;Button variant="secondary" loading&gt;Processing...&lt;/Button&gt;
+      </div>
+    </section>
+
+    <!-- Card Components -->
+    <section class="demo-section">
+      <h2 class="demo-title">Card Components</h2>
+      <p>Versatile card components with link support, hover effects, and multiple variants.</p>
+
+      <h3>Production Examples</h3>
+      <p>Real cards from the homepage - demonstrating link functionality and consistent styling</p>
+      <div class="demo-grid demo-grid--3">
+        <Card href="/schedule#music" hoverable>
+          <div class="card-header">
+            <span class="card-icon">🎵</span>
+            <div class="card-content">
+              <h4 class="card-title">Live Music</h4>
+            </div>
+          </div>
+          <div class="card-text">
+            Local Bay Area bands Town Bully and Good Actor along with various DJs
+          </div>
+          <div class="card-link">See the line up →</div>
+        </Card>
+
+        <Card href="/schedule#art" hoverable>
+          <div class="card-header">
+            <span class="card-icon">🎨</span>
+            <div class="card-content">
+              <h4 class="card-title">Art Exhibition</h4>
+            </div>
+          </div>
+          <div class="card-text">
+            Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.
+          </div>
+          <div class="card-link">Discover what to see →</div>
+        </Card>
+
+        <Card href="/financial-transparency" hoverable>
+          <div class="card-header">
+            <span class="card-icon">💝</span>
+            <div class="card-content">
+              <h4 class="card-title">Support the Festival</h4>
+            </div>
+          </div>
+          <div class="card-text">
+            See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.
+          </div>
+          <div class="card-link">View Transparency →</div>
+        </Card>
+      </div>
+
+      <div class="code-example">
+&lt;Card href="/schedule#music" hoverable&gt;
+  &lt;div class="card-header"&gt;
+    &lt;span class="card-icon"&gt;🎵&lt;/span&gt;
+    &lt;div class="card-content"&gt;
+      &lt;h4 class="card-title"&gt;Live Music&lt;/h4&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-text"&gt;Content here...&lt;/div&gt;
+  &lt;div class="card-link"&gt;See the line up →&lt;/div&gt;
+&lt;/Card&gt;
+      </div>
+    </section>
+
+    <!-- Accordion Component -->
+    <section class="demo-section">
+      <h2 class="demo-title">Accordion Component</h2>
+      <p>Collapsible content sections for FAQs and organized information display.</p>
+      
+      <Accordion title="What should I bring to Dive Barn?">
+        <p>Bring your personal water bottle, warm jacket for cool nights, comfortable dancing shoes, and an open mind for creative experiences!</p>
+      </Accordion>
+
+      <Accordion title="Is camping allowed?">
+        <p>Yes! Camping is allowed and encouraged. Please bring your own tent and sleeping gear. Campfires are not permitted due to fire restrictions.</p>
+      </Accordion>
+
+      <div class="code-example">
+&lt;Accordion title="What should I bring to Dive Barn?"&gt;
+  &lt;p&gt;Content goes here...&lt;/p&gt;
+&lt;/Accordion&gt;
+      </div>
+    </section>
+
+    <!-- Heading Component -->
+    <section class="demo-section">
+      <h2 class="demo-title">Heading Component</h2>
+      <p>Semantic heading component with consistent styling and optional subtitles.</p>
+      
+      <Heading 
+        title="This is a Heading" 
+        subtitle="With an optional subtitle for additional context"
+        level={2}
+      />
+
+      <Heading 
+        title="Centered Heading" 
+        subtitle="This heading is centered"
+        level={3}
+        centered
+      />
+
+      <div class="code-example">
+&lt;Heading 
+  title="This is a Heading" 
+  subtitle="With an optional subtitle"
+  level={2}
+/&gt;
+      </div>
+    </section>
+
+    <!-- Theme System -->
+    <section class="demo-section">
+      <h2 class="demo-title">Theme System</h2>
+      <p>All components automatically respond to theme changes. Try the theme toggle button in the top navigation!</p>
+
+      <div class="demo-grid demo-grid--2">
+        <div>
+          <h3>Light Theme Features</h3>
+          <ul>
+            <li>High contrast for readability</li>
+            <li>Clean, bright interface</li>
+            <li>Optimized for daytime use</li>
+            <li>WCAG AA compliant colors</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Dark Theme Features</h3>
+          <ul>
+            <li>Reduced eye strain</li>
+            <li>Better for low-light environments</li>
+            <li>Maintains visual hierarchy</li>
+            <li>Automatic system detection</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Design System Foundations -->
+    <section class="demo-section">
+      <h2 class="demo-title">Design System Foundations</h2>
+      <p>The token-based design system that powers all components.</p>
+
+      <h3>Color System</h3>
+      <div class="demo-grid demo-grid--4">
+        <div class="color-swatch color-swatch--primary">
+          Primary<br>
+          <code>--color-primary</code>
+        </div>
+        <div class="color-swatch color-swatch--secondary">
+          Secondary<br>
+          <code>--color-secondary</code>
+        </div>
+        <div class="color-swatch color-swatch--accent">
+          Accent<br>
+          <code>--color-accent</code>
+        </div>
+        <div class="color-swatch color-swatch--surface">
+          Surface<br>
+          <code>--color-surface</code>
+        </div>
+      </div>
+
+      <h3>Typography Scale</h3>
+      <div class="typography-demo">
+        <div class="type-4xl">Hero Text (4XL)</div>
+        <div class="type-3xl">Heading 1 (3XL)</div>
+        <div class="type-2xl">Heading 2 (2XL)</div>
+        <div class="type-xl">Heading 3 (XL)</div>
+        <div class="type-lg">Heading 4 (Large)</div>
+        <div class="type-base">Body text (Base) - This is the standard body text size with comfortable reading line height.</div>
+        <div class="type-sm">Small text (SM) - Used for captions and secondary information.</div>
+      </div>
+
+      <h3>Spacing System</h3>
+      <div class="spacing-demo">
+        <div class="spacing-item">
+          XS: var(--spacing-xs) = <span class="spacing-bar spacing-bar--xs"></span>
+        </div>
+        <div class="spacing-item">
+          SM: var(--spacing-sm) = <span class="spacing-bar spacing-bar--sm"></span>
+        </div>
+        <div class="spacing-item">
+          MD: var(--spacing-md) = <span class="spacing-bar spacing-bar--md"></span>
+        </div>
+        <div class="spacing-item">
+          LG: var(--spacing-lg) = <span class="spacing-bar spacing-bar--lg"></span>
+        </div>
+        <div class="spacing-item">
+          XL: var(--spacing-xl) = <span class="spacing-bar spacing-bar--xl"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Demo -->
+    <section class="demo-section">
+      <h2 class="demo-title">Interactive Demo</h2>
+      <p>Components with built-in accessibility features and keyboard navigation support.</p>
+
+      <div class="demo-grid demo-grid--2">
+        <Card clickable hoverable>
+          <div class="card-header">
+            <span class="card-icon">⚡</span>
+            <div class="card-content">
+              <h4 class="card-title">Interactive Card</h4>
+            </div>
+          </div>
+          <div class="card-text">
+            This card is clickable and hoverable with keyboard navigation support.
+          </div>
+        </Card>
+
+        <div class="interaction-panel">
+          <h3>Button Interactions</h3>
+          <div class="button-group">
+            <Button variant="primary">Click Me!</Button>
+            <Button variant="secondary" icon="🎉">Celebrate</Button>
+          </div>
+          <p class="demo-note">
+            All components include proper focus states and keyboard navigation.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Button -->
+  <FloatingButton 
+    href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" 
+    text="RSVP" 
+    icon="→" 
+    ariaLabel="RSVP for Dive Barn 2025" 
+    target="_blank" 
+    rel="noopener"
+  />
+
+  <!-- Footer -->
+  <Footer />
+</BaseLayout>
+
+<style>
+/* Demo page specific styles */
+.demo-main {
+  font-family: var(--typography-font-family-body);
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: var(--spacing-lg);
+  transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl, 4rem);
+}
+
+.demo-hero-title {
+  font-size: var(--typography-font-size-3xl);
+  font-weight: var(--typography-font-weight-black);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.demo-hero-subtitle {
+  font-size: var(--typography-font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.demo-section {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-muted);
+}
+
+.demo-title {
+  font-family: var(--typography-font-family-display);
+  font-size: var(--typography-font-size-xl);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.demo-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.demo-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.demo-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.demo-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 768px) {
+  .demo-grid--2,
+  .demo-grid--3,
+  .demo-grid--4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .demo-main {
+    padding: var(--spacing-md);
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.code-example {
+  background: var(--color-gray-100);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  font-family: var(--typography-font-family-mono);
+  font-size: var(--typography-font-size-xs);
+  color: var(--color-text-primary);
+  margin-top: var(--spacing-sm);
+  overflow-x: auto;
+  white-space: pre-line;
+}
+
+[data-theme="dark"] .code-example {
+  background: var(--color-gray-800);
+  color: var(--color-gray-200);
+}
+
+/* Card demo styles */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-icon {
+  font-size: var(--typography-font-size-lg);
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-title {
+  font-size: var(--typography-font-size-lg);
+  font-weight: var(--typography-font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.card-text {
+  color: var(--color-text-secondary);
+  line-height: var(--typography-line-height-relaxed);
+  margin-bottom: var(--spacing-sm);
+}
+
+.card-link {
+  color: var(--color-primary);
+  font-weight: var(--typography-font-weight-medium);
+  font-size: var(--typography-font-size-sm);
+}
+
+/* Color swatches */
+.color-swatch {
+  padding: var(--spacing-sm);
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  font-size: var(--typography-font-size-sm);
+  font-weight: var(--typography-font-weight-medium);
+}
+
+.color-swatch code {
+  font-size: var(--typography-font-size-xs);
+}
+
+.color-swatch--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.color-swatch--secondary {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.color-swatch--accent {
+  background: var(--color-accent);
+  color: white;
+}
+
+.color-swatch--surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-muted);
+}
+
+/* Typography demo */
+.typography-demo {
+  margin-top: var(--spacing-md);
+}
+
+.type-4xl {
+  font-size: var(--typography-font-size-4xl);
+  font-weight: var(--typography-font-weight-black);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-3xl {
+  font-size: var(--typography-font-size-3xl);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-2xl {
+  font-size: var(--typography-font-size-2xl);
+  font-weight: var(--typography-font-weight-bold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-xl {
+  font-size: var(--typography-font-size-xl);
+  font-weight: var(--typography-font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-lg {
+  font-size: var(--typography-font-size-lg);
+  font-weight: var(--typography-font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-base {
+  font-size: var(--typography-font-size-base);
+  margin-bottom: var(--spacing-sm);
+}
+
+.type-sm {
+  font-size: var(--typography-font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Spacing demo */
+.spacing-demo {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.spacing-item {
+  background: var(--color-surface);
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-family: var(--typography-font-family-mono);
+  font-size: var(--typography-font-size-sm);
+  border: 1px solid var(--color-border-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.spacing-bar {
+  display: inline-block;
+  background: var(--color-primary);
+  height: 4px;
+}
+
+.spacing-bar--xs { width: var(--spacing-xs); }
+.spacing-bar--sm { width: var(--spacing-sm); }
+.spacing-bar--md { width: var(--spacing-md); }
+.spacing-bar--lg { width: var(--spacing-lg); }
+.spacing-bar--xl { width: var(--spacing-xl); }
+
+/* Interaction panel */
+.interaction-panel {
+  padding: var(--spacing-md);
+  background: var(--color-background);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-muted);
+}
+
+.demo-note {
+  font-size: var(--typography-font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-sm);
+  margin-bottom: 0;
+}
+</style>

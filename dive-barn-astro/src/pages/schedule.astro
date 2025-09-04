@@ -1,0 +1,202 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingButton from '../components/ui/FloatingButton.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
+import Heading from '../components/ui/Heading.astro';
+import Card from '../components/ui/Card.astro';
+import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
+
+// Fetch schedule data from content collections
+const scheduleEntries = await getCollection('schedule');
+const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+---
+
+<BaseLayout 
+  title="Festival Schedule - Dive Barn 2025"
+  description="View the complete schedule for Dive Barn 2025, including performance times, artist showcases, and special events"
+  type="event"
+  date={EVENT_INFO.date}
+>
+  <!-- Theme Toggle -->
+  <ThemeToggle />
+  
+  <!-- Navigation -->
+  <Navigation />
+
+  <!-- Floating RSVP Button -->
+  <FloatingButton 
+    href={SOCIAL_LINKS.rsvp}
+    text="RSVP" 
+    icon="→" 
+    ariaLabel="RSVP for Dive Barn 2025"
+  />
+
+  <main class="main">
+    <!-- Hero Section -->
+    <section class="hero hero--page">
+      <div class="hero__content">
+        <h1 class="hero__title">Festival Schedule</h1>
+        <h2 class="hero__subtitle">October 11, 2025</h2>
+        <p class="hero__tagline">A full day of music, art, and community</p>
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section section--schedule">
+      <div class="container">
+        <Heading 
+          title="Event Timeline" 
+          subtitle="All times are approximate and subject to change. We recommend arriving early to enjoy the full experience!"
+        />
+        
+        <div class="schedule-grid">
+          {sortedSchedule.map((item) => (
+            <Card class="schedule-card" elevated>
+              <div class="schedule-card__time">
+                <span class="schedule-card__time-text">{item.data.time}</span>
+                {item.data.stage && (
+                  <span class="schedule-card__stage">{item.data.stage}</span>
+                )}
+              </div>
+              <div class="schedule-card__content">
+                <h3 class="schedule-card__title">{item.data.title}</h3>
+                <p class="schedule-card__performer">{item.data.performer}</p>
+                {item.data.description && (
+                  <p class="schedule-card__description">{item.data.description}</p>
+                )}
+                <div class="schedule-card__body" set:html={item.body} />
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <!-- Additional Info -->
+        <div class="schedule-info">
+          <Heading 
+            title="Important Notes" 
+            subtitle="Everything you need to know about attending"
+          />
+          
+          <div class="info-grid">
+            <div class="info-card">
+              <h3>Arrival & Parking</h3>
+              <p>Gates open at 9:30 AM. Free parking is available on-site. We recommend carpooling when possible.</p>
+            </div>
+            
+            <div class="info-card">
+              <h3>Food & Beverages</h3>
+              <p>Food vendors will be available throughout the day. You're welcome to bring your own water bottle and snacks.</p>
+            </div>
+            
+            <div class="info-card">
+              <h3>Weather Preparation</h3>
+              <p>October in Mendocino County can be variable. Bring layers and comfortable shoes for walking on ranch grounds.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</BaseLayout>
+
+<style>
+  .schedule-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .schedule-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .schedule-card__time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .schedule-card__time-text {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--color-primary, #007acc);
+  }
+
+  .schedule-card__stage {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #666);
+    margin-top: 0.25rem;
+  }
+
+  .schedule-card__content {
+    min-width: 0;
+  }
+
+  .schedule-card__title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-semibold, 600);
+    margin-bottom: 0.5rem;
+  }
+
+  .schedule-card__performer {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary, #666);
+    margin-bottom: 0.75rem;
+  }
+
+  .schedule-card__description {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-card__body {
+    line-height: 1.6;
+  }
+
+  .schedule-info {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .info-card {
+    padding: 1.5rem;
+    background: var(--color-surface-elevated, #f9f9f9);
+    border-radius: var(--radius-medium, 0.5rem);
+  }
+
+  .info-card h3 {
+    margin-bottom: 1rem;
+    font-weight: var(--font-weight-semibold, 600);
+  }
+
+  @media (max-width: 768px) {
+    .schedule-card {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .schedule-card__time {
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,48 @@
+/**
+ * ==========================================================================
+ * COMPONENT-SPECIFIC TOKENS - Tier 3
+ * Component-specific computed values and contextual overrides
+ * These tokens are tailored for specific component needs
+ * ==========================================================================
+ */
+
+@layer component-tokens {
+  :root {
+    /* ==========================================================================
+       BUTTON COMPONENT TOKENS - Button-specific behavior and structure
+       ========================================================================== */
+    
+    /* Button sizing and behavior - structural tokens only */
+    --component-button-padding-x: var(--spacing-md);
+    --component-button-padding-y: var(--spacing-sm);
+    --component-button-border-radius: var(--border-radius-md);
+    --component-button-font-weight: var(--typography-font-weight-semibold);
+    --component-button-transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+
+    /* ==========================================================================
+       CARD COMPONENT TOKENS - Card-specific behavior and structure
+       ========================================================================== */
+    
+    /* Card sizing and behavior - structural tokens only */
+    --component-card-border-radius: var(--border-radius-xl);
+    --component-card-padding: var(--spacing-md);
+    --component-card-gap: var(--spacing-sm);
+
+    /* ==========================================================================
+       FORM COMPONENT TOKENS - Form-specific behavior and structure
+       ========================================================================== */
+    
+    /* Form sizing and behavior - structural tokens only */
+    --component-form-input-padding-x: var(--spacing-sm);
+    --component-form-input-padding-y: var(--spacing-xs);
+    --component-form-input-border-radius: var(--border-radius-md);
+    --component-form-label-font-weight: var(--typography-font-weight-medium);
+
+    /* ==========================================================================
+       NAVIGATION COMPONENT TOKENS - Navigation-specific behavior and structure
+       ========================================================================== */
+    
+    /* Navigation behavior - structural tokens only */
+    --component-navigation-backdrop-blur: var(--effects-blur-lg);
+  }
+}

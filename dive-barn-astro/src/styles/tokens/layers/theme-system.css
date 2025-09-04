@@ -1,0 +1,137 @@
+/* ==========================================================================
+   THEME SYSTEM - Manual Theme Implementation
+   ========================================================================== */
+
+/* Default (Light) Theme */
+:root {
+  --color-background: var(--color-white);
+  --color-surface: var(--color-gray-50);
+  --color-surface-variant: var(--color-gray-100);
+  --color-surface-elevated: var(--color-white);
+  --color-surface-hover: var(--color-gray-100);
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-500);
+  --color-text-muted: var(--color-gray-500);
+  --color-text-inverse: var(--color-white);
+  --color-text-emphasis: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-border-default: rgba(0, 0, 0, 0.05);
+  --color-border-muted: rgba(0, 0, 0, 0.06);
+  --color-focus-ring: var(--color-primary);
+  --color-interactive-hover: rgba(0, 0, 0, 0.04);
+  --color-interactive-pressed: rgba(0, 0, 0, 0.08);
+  --color-interactive-disabled: rgba(0, 0, 0, 0.12);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Core backgrounds and surfaces */
+  --color-background: var(--color-gray-900);
+  --color-surface: var(--color-gray-800);
+  --color-surface-variant: var(--color-gray-700);
+  --color-surface-elevated: var(--color-gray-700);
+  --color-surface-hover: var(--color-gray-600);
+  
+  /* Text colors */
+  --color-text-primary: var(--color-gray-50);
+  --color-text-secondary: var(--color-gray-300);
+  --color-text-muted: var(--color-gray-400);
+  --color-text-inverse: var(--color-white);
+  --color-text-emphasis: var(--color-gray-50);
+  --color-text-light: rgba(255, 255, 255, 0.9);
+  
+  /* Purple theme colors for dark mode */
+  --color-primary: var(--color-purple-400);
+  --color-secondary: var(--color-purple-600);
+  --color-accent: var(--color-teal-400);
+  
+  /* Shadow colors for dark mode - match purple theme */
+  --color-primary-shadow: rgba(168, 85, 247, 0.4);
+  --color-primary-shadow-hover: rgba(168, 85, 247, 0.6);
+  --color-secondary-shadow: rgba(147, 51, 234, 0.4);
+  --color-secondary-shadow-hover: rgba(147, 51, 234, 0.6);
+  --color-accent-shadow: rgba(45, 212, 191, 0.4);
+  --color-accent-shadow-hover: rgba(45, 212, 191, 0.6);
+  
+  /* Hero gradient colors - nighttime theme for dark mode */
+  --color-hero-gradient-start: rgba(168, 85, 247, 0.85);
+  --color-hero-gradient-end: rgba(15, 23, 42, 0.90);
+  
+  /* Border colors */
+  --color-border: var(--color-gray-600);
+  --color-border-default: rgba(255, 255, 255, 0.1);
+  --color-border-muted: rgba(255, 255, 255, 0.05);
+  --color-border-subtle: rgba(255, 255, 255, 0.02);
+  
+  /* Interactive states */
+  --color-focus-ring: var(--color-primary);
+  --color-interactive-hover: rgba(255, 255, 255, 0.04);
+  --color-interactive-pressed: rgba(255, 255, 255, 0.08);
+  --color-interactive-focus: var(--color-accent);
+  --color-interactive-disabled: rgba(255, 255, 255, 0.12);
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Core backgrounds and surfaces */
+    --color-background: var(--color-gray-900);
+    --color-surface: var(--color-gray-800);
+    --color-surface-variant: var(--color-gray-700);
+    --color-surface-elevated: var(--color-gray-700);
+    --color-surface-hover: var(--color-gray-600);
+    
+    /* Text colors */
+    --color-text-primary: var(--color-gray-50);
+    --color-text-secondary: var(--color-gray-300);
+    --color-text-muted: var(--color-gray-400);
+    --color-text-inverse: var(--color-white);
+    --color-text-emphasis: var(--color-gray-50);
+    --color-text-light: rgba(255, 255, 255, 0.9);
+    
+    /* Purple theme colors for dark mode */
+    --color-primary: var(--color-purple-400);
+    --color-secondary: var(--color-purple-600);
+    --color-accent: var(--color-teal-400);
+    
+    /* Shadow colors for dark mode - match purple theme */
+    --color-primary-shadow: rgba(168, 85, 247, 0.4);
+    --color-primary-shadow-hover: rgba(168, 85, 247, 0.6);
+    --color-secondary-shadow: rgba(147, 51, 234, 0.4);
+    --color-secondary-shadow-hover: rgba(147, 51, 234, 0.6);
+    --color-accent-shadow: rgba(45, 212, 191, 0.4);
+    --color-accent-shadow-hover: rgba(45, 212, 191, 0.6);
+    
+    /* Hero gradient colors - nighttime theme for dark mode */
+    --color-hero-gradient-start: rgba(168, 85, 247, 0.85);
+    --color-hero-gradient-end: rgba(15, 23, 42, 0.90);
+    
+    /* Border colors */
+    --color-border: var(--color-gray-600);
+    --color-border-default: rgba(255, 255, 255, 0.1);
+    --color-border-muted: rgba(255, 255, 255, 0.05);
+    --color-border-subtle: rgba(255, 255, 255, 0.02);
+    
+    /* Interactive states */
+    --color-focus-ring: var(--color-primary);
+    --color-interactive-hover: rgba(255, 255, 255, 0.04);
+    --color-interactive-pressed: rgba(255, 255, 255, 0.08);
+    --color-interactive-focus: var(--color-accent);
+    --color-interactive-disabled: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* Theme transition animation */
+* {
+  transition: 
+    background-color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out),
+    border-color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out),
+    color var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,277 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/layout/Navigation.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingButton from '../components/ui/FloatingButton.astro';
+import TimelineItem from '../components/ui/TimelineItem.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
+import Heading from '../components/ui/Heading.astro';
+import Hero from '../components/ui/Hero.astro';
+import CTA from '../components/ui/CTA.astro';
+import Card from '../components/ui/Card.astro';
+
+// Page metadata
+const title = 'Yorkville Schoolhouse Ranch - Dive Barn 2025 | Historic Property';
+const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre historic property in Mendocino County that serves as the backdrop for Dive Barn 2025.';
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Skip link for accessibility -->
+  <a href="#content" class="skip-link">Skip to main content</a>
+  
+  <!-- Theme Toggle -->
+  <ThemeToggle />
+  
+  <!-- Navigation -->
+  <Navigation />
+
+  <!-- Floating RSVP Button -->
+  <FloatingButton 
+    href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" 
+    text="RSVP" 
+    icon="→" 
+    ariaLabel="RSVP for Dive Barn 2025" 
+    target="_blank" 
+    rel="noopener"
+  />
+
+  <!-- Main Content -->
+  <main id="content">
+    <!-- Hero Section -->
+    <Hero 
+      title="Yorkville Schoolhouse Ranch"
+      subtitle="A 2,000-acre historic property in the heart of Mendocino County"
+      tagline="Where heritage meets community, and history comes alive"
+      backgroundImage="/media/year-one/full/morning_camping-2.JPG"
+      variant="ranch"
+    />
+
+
+    <!-- Current Stewards Section -->
+    <section class="section section--stewards">
+      <div class="stewards__container">
+        <Heading 
+          title="Current Stewards" 
+          subtitle="Meet the caretakers preserving this historic property for future generations"
+        />
+        
+        <div class="stewards__layout">
+          <div class="stewards__content">
+            <h3 class="stewards__names">Eric Carlson & Barbara Henderson</h3>
+            <p class="stewards__story">
+              In 2022, Eric and Barbara became the proud stewards of this remarkable 2,000-acre property, embracing both its rich history and its potential as a gathering place for community and creativity.
+            </p>
+            <p class="stewards__mission">
+              Their vision extends far beyond preservation—they're committed to sharing the ranch's natural beauty and cultural significance with others through thoughtfully curated events like Dive Barn, ensuring this special place continues to foster connection, artistic expression, and memorable experiences for generations to come.
+            </p>
+          </div>
+          <div class="stewards__image">
+            <img src="/media/year-one/full/community_moments-1.JPG" 
+                 alt="Eric Carlson and Barbara Henderson, stewards of Yorkville Schoolhouse Ranch" 
+                 class="stewards__photo"
+                 loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property History Section -->
+    <section class="section section--history">
+      <div class="history__container">
+        <Heading 
+          title="A Living History" 
+          subtitle="From one-room schoolhouse to cultural gathering place – discover the rich heritage of this remarkable property"
+          centered={true}
+        />
+        
+        <div class="history__timeline">
+          <TimelineItem 
+            year="Early 1860s" 
+            type="history" 
+            title="The One-Room Schoolhouse" 
+            description="The one-room schoolhouse, currently residing on the south-east side of the property, was built in the early 1860s on land donated by prominent early settler Silas E. Gaskill. The original location was just across the highway from the entrance to the Jim Hill Ranch."
+          />
+          
+          <TimelineItem 
+            year="1865" 
+            type="history" 
+            title="The Gaskill Mystery" 
+            description="In a dramatic turn of events, Silas E. Gaskill was arrested on suspicion of murder in 1865. He was released on his own recognizance for $1,000, but forfeited the bail, fled the country, and was never heard from again—leaving behind one of the valley's enduring mysteries."
+          />
+          
+          <TimelineItem 
+            year="1919-2008" 
+            type="history" 
+            title="The Johnson Ranch Era" 
+            description="Glenn Johnson began building the 2,000-acre ranch in 1919 by acquiring and combining smaller properties and homesteads. Later, his son Stanley continued expanding the operation. The Johnsons ran sheep and cattle on the ranch until Stanley retired in 2008, ending nearly 90 years of family stewardship."
+          />
+          
+          <TimelineItem 
+            year="1926" 
+            type="history" 
+            title="Moving the Schoolhouse" 
+            description="The schoolhouse was moved to its current location in 1926 and continued to serve as the Yorkville grammar and middle school until 1947, when California passed a law requiring all schools to have flush toilets—marking the end of its educational era."
+          />
+          
+          <TimelineItem 
+            year="2012-2022" 
+            type="history" 
+            title="The Acorn Ranch" 
+            description="Peter and Mimi Buckley purchased the ranch from the Johnsons in 2012, renaming it The Acorn Ranch. The Buckleys imported a herd of Cinta Senese pigs from Italy—a rare and ancient Tuscan breed prized by charcuterie makers—and raised them on the property. However, some pigs escaped and bred with wild boars, contributing to Northern California's wild pig population. These are the pigs you may encounter on the property today."
+          />
+          
+          <TimelineItem 
+            year="2022-Present" 
+            type="history" 
+            title="Yorkville Schoolhouse Ranch" 
+            description="Eric Carlson and Barbara Henderson purchased the ranch from the Buckleys in 2022, renaming it the Yorkville Schoolhouse Ranch to emphasize the important role that heritage building played in forming the surrounding community. Today, the property continues its legacy as a gathering place, now hosting Dive Barn and other cultural events that celebrate creativity, community, and connection to the land."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Large CTA Section -->
+    <section class="section">
+      <CTA 
+        title="Experience This Historic Beauty"
+        text="Join us at Dive Barn 2025 and become part of this remarkable property's continuing story. From the historic schoolhouse to the rolling hills, every corner tells a tale."
+        buttonText="Discover Dive Barn 2025"
+        href="/"
+        variant="primary"
+      />
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+</BaseLayout>
+
+<style>
+/* ==========================================================================
+   RANCH PAGE STYLES
+   ========================================================================== */
+
+
+
+/* Stewards Section */
+.section--stewards {
+  padding: 4rem 0;
+  background: var(--color-surface);
+}
+
+.stewards__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.stewards__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.stewards__image {
+  position: relative;
+}
+
+.stewards__photo {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  max-height: 500px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stewards__photo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stewards__content {
+  padding: 0;
+}
+
+.stewards__names {
+  font-family: var(--typography-font-family-display);
+  font-size: var(--typography-font-size-lg);
+  font-weight: var(--typography-font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--typography-line-height-tight);
+}
+
+
+.stewards__story,
+.stewards__mission {
+  font-size: var(--typography-font-size-base);
+  line-height: var(--typography-line-height-relaxed);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+
+/* History Section */
+.section--history {
+  padding: 4rem 0;
+  background: var(--color-background);
+}
+
+
+.history__container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.history__timeline {
+  margin-top: var(--spacing-xl);
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  
+  .section--stewards,
+  .section--history {
+    padding: 2.5rem 0;
+  }
+  
+  .stewards__container,
+  .history__container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .stewards__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .stewards__image {
+    order: -1;
+  }
+  
+  .stewards__photo {
+    max-height: 350px;
+  }
+  
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>

@@ -1,0 +1,134 @@
+---
+import type { ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  href: string;
+  text: string;
+  icon?: string;
+  variant?: 'primary' | 'secondary';
+  position?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+}
+
+const { 
+  href,
+  text,
+  icon = '→',
+  variant = 'primary',
+  position = 'bottom-right',
+  target = '_blank',
+  rel = 'noopener',
+  ariaLabel,
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const classes = [
+  'floating-button',
+  `floating-button--${variant}`,
+  `floating-button--${position}`,
+  className
+].filter(Boolean).join(' ');
+---
+
+<a 
+  href={href}
+  target={target}
+  rel={rel}
+  class={classes}
+  aria-label={ariaLabel || `${text} (opens in new tab)`}
+  {...rest}
+>
+  <span class="floating-button__text">{text}</span>
+  {icon && (
+    <span class="floating-button__icon" aria-hidden="true">{icon}</span>
+  )}
+</a>
+
+<style>
+  .floating-button {
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-pill, 9999px);
+    font-weight: var(--font-weight-semibold, 600);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .floating-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .floating-button:active {
+    transform: translateY(0);
+  }
+
+  /* Variants */
+  .floating-button--primary {
+    background: var(--color-primary, #007acc);
+    color: var(--color-primary-contrast, white);
+  }
+
+  .floating-button--secondary {
+    background: var(--color-surface-elevated, white);
+    color: var(--color-text-primary, #1a1a1a);
+    border: 1px solid var(--color-border, #e5e5e5);
+  }
+
+  /* Positions */
+  .floating-button--bottom-right {
+    bottom: 2rem;
+    right: 2rem;
+  }
+
+  .floating-button--bottom-left {
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  .floating-button--top-right {
+    top: 2rem;
+    right: 2rem;
+  }
+
+  .floating-button--top-left {
+    top: 2rem;
+    left: 2rem;
+  }
+
+  .floating-button__text {
+    white-space: nowrap;
+  }
+
+  .floating-button__icon {
+    font-size: 1.2em;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .floating-button {
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.875rem 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .floating-button--bottom-left,
+    .floating-button--top-left {
+      left: 1rem;
+    }
+
+    .floating-button--top-right,
+    .floating-button--top-left {
+      top: 1rem;
+    }
+  }
+</style>

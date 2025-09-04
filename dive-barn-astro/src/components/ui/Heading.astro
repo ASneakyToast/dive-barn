@@ -1,0 +1,34 @@
+---
+import type { HeadingLevel, ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  title: string;
+  subtitle?: string;
+  level?: HeadingLevel;
+  centered?: boolean;
+}
+
+const { 
+  title,
+  subtitle,
+  level = 2,
+  centered = false,
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
+
+const classes = [
+  'section__header',
+  centered && 'section__header--centered',
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={classes} {...rest}>
+  <HeadingTag class="section__title">{title}</HeadingTag>
+  {subtitle && (
+    <p class="section__subtitle" set:html={subtitle} />
+  )}
+</div>

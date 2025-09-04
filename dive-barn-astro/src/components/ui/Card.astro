@@ -1,0 +1,94 @@
+---
+import type { ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  variant?: 'default' | 'outlined' | 'elevated';
+  hoverable?: boolean;
+  clickable?: boolean;
+  elevated?: boolean;
+  href?: string;
+  target?: string;
+  rel?: string;
+}
+
+const { 
+  variant = 'default',
+  hoverable = false,
+  clickable = false,
+  elevated = false,
+  href,
+  target,
+  rel,
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const Component = href ? 'a' : 'div';
+
+const classes = [
+  'db-card',
+  `db-card--${variant}`,
+  hoverable && 'db-card--hoverable',
+  clickable && 'db-card--clickable',
+  elevated && 'db-card--elevated',
+  href && 'db-card--link',
+  className
+].filter(Boolean).join(' ');
+
+const cardProps = href ? {
+  href,
+  target,
+  rel,
+  role: 'link'
+} : clickable ? {
+  role: 'button',
+  tabindex: 0
+} : {};
+---
+
+<Component 
+  class={classes}
+  {...cardProps}
+  {...rest}
+>
+  <slot />
+</Component>
+
+{clickable && !href && (
+  <script is:inline>
+    // Add keyboard support for clickable cards
+    document.addEventListener('DOMContentLoaded', () => {
+      const clickableCards = document.querySelectorAll('.db-card--clickable:not([href])');
+      
+      clickableCards.forEach(card => {
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            card.click();
+          }
+        });
+      });
+    });
+  </script>
+)}
+
+<style>
+  .db-card--link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .db-card--link:hover,
+  .db-card--link:focus {
+    text-decoration: none;
+  }
+
+  .db-card--clickable {
+    cursor: pointer;
+  }
+
+  .db-card--clickable:focus {
+    outline: 2px solid var(--color-focus-ring, #007acc);
+    outline-offset: 2px;
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+import type { ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  title: string;
+  text: string;
+  buttonText: string;
+  href: string;
+  variant?: 'primary' | 'donation';
+  target?: string;
+  rel?: string;
+}
+
+const { 
+  title,
+  text,
+  buttonText,
+  href,
+  variant = 'primary',
+  target,
+  rel,
+  class: className,
+  ...rest 
+} = Astro.props;
+
+const classes = [
+  'db-cta',
+  `db-cta--${variant}`,
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={classes} {...rest}>
+  <div class="db-cta__container">
+    <div class="db-cta__content">
+      <h2 class="db-cta__title">{title}</h2>
+      <p class="db-cta__text">{text}</p>
+    </div>
+    <a 
+      href={href} 
+      class="db-cta__button"
+      {target}
+      {rel}
+    >
+      {buttonText}
+    </a>
+  </div>
+</div>

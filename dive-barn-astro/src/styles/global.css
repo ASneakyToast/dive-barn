@@ -1,0 +1,24 @@
+/* 
+ * Dive Barn Global Styles
+ * CSS Layers architecture for Astro.js
+ */
+
+/* Define layer order - matches layers.css */
+@layer reset, global-tokens, semantic-tokens, component-tokens, base, layout, components, pages, utilities;
+
+/* Import design tokens */
+@import url('./tokens/layers/global-tokens.css');
+@import url('./tokens/layers/semantic-tokens.css');
+@import url('./tokens/layers/component-tokens.css');
+@import url('./tokens/layers/theme-system.css') layer(semantic-tokens);
+
+/* Import base layers */
+@import url('./layers/reset.css');
+@import url('./layers/base.css');
+@import url('./layers/layout.css');
+@import url('./layers/components.css');
+@import url('./layers/utilities.css');
+
+/* Import page-specific styles */
+@import url('./pages/schedule-styles.css') layer(pages);
+@import url('./pages/financial-transparency.css') layer(pages);
