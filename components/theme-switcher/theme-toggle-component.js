@@ -100,8 +100,8 @@ class DbThemeToggle extends HTMLElement {
                 role="button"
             >
                 <span class="db-theme-toggle__icon">
-                    <span class="db-theme-toggle__sun" aria-hidden="true">☀️</span>
-                    <span class="db-theme-toggle__moon" aria-hidden="true">🌙</span>
+                    <span class="db-theme-toggle__sun" aria-hidden="true">Light</span>
+                    <span class="db-theme-toggle__moon" aria-hidden="true">Dark</span>
                 </span>
             </button>
         `;

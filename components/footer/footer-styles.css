@@ -113,7 +113,7 @@
     transition: color 0.3s ease;
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-text-muted);
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-none);
 }
 
 .footer__donation-link:hover {

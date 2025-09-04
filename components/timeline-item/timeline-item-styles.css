@@ -8,7 +8,7 @@
 
 .db-timeline-item {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 140px 1fr;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
   margin-bottom: var(--spacing-sm);

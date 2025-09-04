@@ -15,7 +15,7 @@
     /* Button sizing and behavior - structural tokens only */
     --component-button-padding-x: var(--spacing-md);
     --component-button-padding-y: var(--spacing-sm);
-    --component-button-border-radius: var(--border-radius-md);
+    --component-button-border-radius: var(--border-radius-sm);
     --component-button-font-weight: var(--typography-font-weight-semibold);
     --component-button-transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
 
@@ -24,7 +24,7 @@
        ========================================================================== */
     
     /* Card sizing and behavior - structural tokens only */
-    --component-card-border-radius: var(--border-radius-xl);
+    --component-card-border-radius: var(--border-radius-none);
     --component-card-padding: var(--spacing-md);
     --component-card-gap: var(--spacing-sm);
 
@@ -35,7 +35,7 @@
     /* Form sizing and behavior - structural tokens only */
     --component-form-input-padding-x: var(--spacing-sm);
     --component-form-input-padding-y: var(--spacing-xs);
-    --component-form-input-border-radius: var(--border-radius-md);
+    --component-form-input-border-radius: var(--border-radius-sm);
     --component-form-label-font-weight: var(--typography-font-weight-medium);
 
     /* ==========================================================================

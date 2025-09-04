@@ -5,10 +5,10 @@
 @layer components {
   /* Hero Section */
   .hero {
-    min-height: 100dvh;
-    background: 
-      linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%),
-      url('/media/year-one/full/morning_camping-1.JPG') center/cover no-repeat;
+    min-height: 66vh;
+    background: url('/media/Website Banner Image 1.png') center;
+    background-size: contain;
+    background-repeat: repeat-x;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,6 +16,12 @@
     color: var(--color-text-light);
     position: relative;
     overflow: hidden;
+  }
+
+  .hero--page {
+    background: url('/media/schedule-hero.png') center;
+    background-size: contain;
+    background-repeat: repeat-x;
   }
 
   .hero__content {
@@ -49,7 +55,7 @@
   .hero__tagline {
     font-size: var(--typography-font-size-lg);
     font-style: italic;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 0;
     opacity: 0.8;
     line-height: var(--typography-line-height-relaxed);
     animation: slideInUp 0.8s ease-out 0.4s both;
@@ -430,7 +436,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: var(--color-background);
+    background: var(--color-surface-elevated);
     transform: skewY(3deg);
     z-index: -1;
   }
@@ -1132,15 +1138,73 @@
     background: rgba(26, 26, 26, 0.95);
   }
 
+  .nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+
+  .nav__logo {
+    flex-shrink: 0;
+  }
+
+  .nav__logo-image {
+    height: 40px;
+    width: auto;
+  }
+
+  .nav__logo-image--auto-spin {
+    animation: spinVerticalMain 0.3s ease-out 0.5s;
+  }
+
+  [data-theme="dark"] .nav__logo-image {
+    filter: invert(1);
+  }
+
   .nav__list {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--spacing-lg);
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-sm) var(--spacing-md);
     list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__secondary-logo {
+    flex-shrink: 0;
+  }
+
+  .nav__secondary-logo-image {
+    height: 40px;
+    width: auto;
+    transform: scaleX(-1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .nav__secondary-logo-image--spin {
+    animation: spinVertical 0.35s ease-out;
+  }
+
+  @keyframes spinVertical {
+    0% { transform: scaleX(-1) rotateY(0deg); }
+    25% { transform: scaleX(-1) rotateY(180deg); }
+    50% { transform: scaleX(-1) rotateY(360deg); }
+    75% { transform: scaleX(-1) rotateY(540deg); }
+    100% { transform: scaleX(-1) rotateY(720deg); }
+  }
+
+  @keyframes spinVerticalMain {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+  }
+
+  [data-theme="dark"] .nav__secondary-logo-image {
+    filter: invert(1);
   }
 
   .nav__link {
@@ -1149,6 +1213,7 @@
     font-size: var(--typography-font-size-base);
     color: var(--color-text-primary);
     text-decoration: none;
+    text-transform: uppercase;
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius-md);
     transition: var(--component-button-transition);
@@ -1175,11 +1240,28 @@
   }
 
   .db-cta--primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .db-cta--primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/media/dive-barn-festival-poster.png') center/cover no-repeat;
+    filter: blur(15px);
+    z-index: -1;
   }
 
   .db-cta--donation {
-    background: linear-gradient(135deg, var(--color-purple-500), var(--color-secondary));
+    background: url('/media/Website Banner Image 1.png') center,
+                linear-gradient(135deg, var(--color-purple-500), var(--color-secondary));
+    background-size: contain, 100%;
+    background-repeat: repeat-x, no-repeat;
+    background-blend-mode: overlay;
   }
 
   /* Decorative overlay effect */
@@ -1191,12 +1273,19 @@
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    z-index: 2;
+  }
+
+  /* Reset decorative overlay for CTAs with background images */
+  .db-cta--primary::before,
+  .db-cta--donation::before {
+    display: none;
   }
 
   /* Container */
   .db-cta__container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
@@ -1243,9 +1332,9 @@
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: var(--color-white);
-    color: var(--color-primary);
-    border: 2px solid var(--color-white);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: 2px solid transparent;
     border-radius: var(--component-button-border-radius);
     transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
     white-space: nowrap;
@@ -1257,7 +1346,7 @@
 
   .db-cta__button:hover,
   .db-cta__button:focus-visible {
-    background: transparent;
+    background: color-mix(in srgb, var(--color-primary) 90%, black);
     color: var(--color-white);
     transform: translateY(-2px);
     box-shadow: var(--effects-shadow-md);
@@ -1266,6 +1355,7 @@
   .db-cta__button:active {
     transform: translateY(0);
   }
+
 
   /* Focus styles */
   .db-cta__button:focus-visible {
@@ -1318,19 +1408,6 @@
     }
   }
 
-  /* Dark theme adjustments for CTA */
-  [data-theme="dark"] .db-cta__button {
-    background: var(--color-surface);
-    color: var(--color-text-primary);
-    border-color: var(--color-border-default);
-  }
-
-  [data-theme="dark"] .db-cta__button:hover,
-  [data-theme="dark"] .db-cta__button:focus-visible {
-    background: transparent;
-    color: var(--color-white);
-    border-color: var(--color-white);
-  }
 
   /* Accordion Component */
   .db-accordion {
@@ -1497,7 +1574,7 @@
     transition: color 0.3s ease;
     padding: 0.5rem 1rem;
     border: 1px solid var(--color-gray-300);
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-none);
   }
 
   .footer__donation-link:hover {

@@ -37,13 +37,13 @@
 }
 
 .db-button--primary:hover:not([disabled]) {
-    background: var(--color-coral-600);
+    background: color-mix(in srgb, var(--color-primary) 90%, black);
     transform: translateY(-2px);
     box-shadow: var(--effects-shadow-md);
 }
 
 .db-button--primary:active:not([disabled]) {
-    background: var(--color-coral-700);
+    background: color-mix(in srgb, var(--color-primary) 80%, black);
     transform: translateY(0);
 }
 
@@ -74,7 +74,7 @@
 }
 
 .db-button--accent:hover:not([disabled]) {
-    background: var(--color-teal-600);
+    background: color-mix(in srgb, var(--color-accent) 90%, black);
     transform: translateY(-2px);
     box-shadow: var(--effects-shadow-md);
 }

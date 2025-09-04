@@ -83,9 +83,9 @@
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  background: var(--color-white);
-  color: var(--color-primary);
-  border: 2px solid var(--color-white);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid transparent;
   border-radius: var(--component-button-border-radius);
   transition: all var(--effects-transition-duration-normal) var(--effects-transition-easing-ease-out);
   white-space: nowrap;
@@ -97,7 +97,7 @@
 
 .db-cta__button:hover,
 .db-cta__button:focus-visible {
-  background: transparent;
+  background: color-mix(in srgb, var(--color-primary) 90%, black);
   color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--effects-shadow-md);
@@ -158,19 +158,6 @@
   }
 }
 
-/* Dark theme adjustments */
-[data-theme="dark"] .db-cta__button {
-  background: var(--color-surface);
-  color: var(--color-text-primary);
-  border-color: var(--color-border-default);
-}
-
-[data-theme="dark"] .db-cta__button:hover,
-[data-theme="dark"] .db-cta__button:focus-visible {
-  background: transparent;
-  color: var(--color-white);
-  border-color: var(--color-white);
-}
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
