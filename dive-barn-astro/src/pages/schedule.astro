@@ -57,16 +57,10 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
             <Card class="schedule-card" elevated>
               <div class="schedule-card__time">
                 <span class="schedule-card__time-text">{item.data.time}</span>
-                {item.data.stage && (
-                  <span class="schedule-card__stage">{item.data.stage}</span>
-                )}
               </div>
               <div class="schedule-card__content">
                 <h3 class="schedule-card__title">{item.data.title}</h3>
                 <p class="schedule-card__performer">{item.data.performer}</p>
-                {item.data.description && (
-                  <p class="schedule-card__description">{item.data.description}</p>
-                )}
                 <div class="schedule-card__body" set:html={item.body} />
               </div>
             </Card>
@@ -82,18 +76,18 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
           
           <div class="info-grid">
             <div class="info-card">
-              <h3>Arrival & Parking</h3>
-              <p>Gates open at 9:30 AM. Free parking is available on-site. We recommend carpooling when possible.</p>
+              <h3>Arrival & Transportation</h3>
+              <p>Festival opens at 12:00 PM. Shuttle service available from San Francisco (departs 12:00 PM, arrives 2:00 PM) - contact divebarnranch@gmail.com for details. Free on-site parking available - carpooling encouraged!</p>
             </div>
             
             <div class="info-card">
               <h3>Food & Beverages</h3>
-              <p>Food vendors will be available throughout the day. You're welcome to bring your own water bottle and snacks.</p>
+              <p>Full food service and bar open at 5:00 PM. Light refreshments available earlier. Bring your own water bottle and feel free to pack snacks for the day.</p>
             </div>
             
             <div class="info-card">
-              <h3>Weather Preparation</h3>
-              <p>October in Mendocino County can be variable. Bring layers and comfortable shoes for walking on ranch grounds.</p>
+              <h3>What to Bring</h3>
+              <p>October in Mendocino County can be variable - bring layers for day to night temperature changes. Comfortable walking shoes essential for ranch terrain. Festival runs until 10:00 PM with late-night dancing until midnight.</p>
             </div>
           </div>
         </div>
@@ -114,7 +108,7 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
 
   .schedule-card {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 140px 1fr;
     gap: 1.5rem;
     padding: 1.5rem;
   }
@@ -124,7 +118,8 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-width: 120px;
+    width: 140px;
+    flex-shrink: 0;
   }
 
   .schedule-card__time-text {
@@ -155,10 +150,6 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
     margin-bottom: 0.75rem;
   }
 
-  .schedule-card__description {
-    font-style: italic;
-    margin-bottom: 1rem;
-  }
 
   .schedule-card__body {
     line-height: 1.6;

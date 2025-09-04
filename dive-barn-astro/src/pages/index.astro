@@ -36,47 +36,41 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
   <!-- Hero Section -->
   <Hero 
     id="hero"
-    title="DIVE BARN 2025"
-    subtitle="October 11, 2025"
-    tagline="An arts and music gathering on a ranch in Mendocino County"
-    backgroundImage="/media/year-one/full/morning_camping-1.JPG"
+    backgroundImage="/media/Website Banner Image 1.png"
   />
 
   <!-- Festival Overview Section -->
   <section id="festival" class="section section--festival">
     <Heading 
-      title="A Gathering Like No Other" 
-      subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. All are welcome to this growing, one-day festival.<br><br><a href='/schedule' class='inline-link'>See the full schedule →</a>"
+      title="An arts and music gathering on a ranch in Mendocino County" 
+      subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. All are welcome to this growing, one-day festival."
     />
     <div class="festival__layout" style="margin-bottom: var(--space-xl);">
       <div class="festival__cards">
-        <Card href="/schedule#music" hoverable>
-          <div class="db-card-header">
-            <div class="db-card-icon">🎵</div>
-            <div class="db-card-content">
-              <h3 class="db-card-title">Live Music</h3>
-            </div>
-          </div>
-          <p class="db-card-text">Local Bay Area bands Town Bully and Good Actor along with various djs</p>
-          <span class="db-card-link">See the line up →</span>
-        </Card>
-        
         <Card href="/schedule#art" hoverable>
           <div class="db-card-header">
-            <div class="db-card-icon">🎨</div>
             <div class="db-card-content">
-              <h3 class="db-card-title">Art Exhibition</h3>
+              <h3 class="db-card-title">Art</h3>
             </div>
           </div>
           <p class="db-card-text">Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.</p>
           <span class="db-card-link">Discover what to see →</span>
         </Card>
         
+        <Card href="/schedule#music" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Music</h3>
+            </div>
+          </div>
+          <p class="db-card-text">Local Bay Area bands Town Bully and Good Actor along with various djs</p>
+          <span class="db-card-link">See the line up →</span>
+        </Card>
+        
         <Card href="/schedule#food" hoverable>
           <div class="db-card-header">
-            <div class="db-card-icon">🍽️</div>
             <div class="db-card-content">
-              <h3 class="db-card-title">Local Flavors</h3>
+              <h3 class="db-card-title">Food</h3>
             </div>
           </div>
           <p class="db-card-text">Curated food and beverages from regional vendors, celebrating Mendocino's agricultural heritage.</p>
@@ -84,9 +78,9 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
         </Card>
       </div>
       
-      <!-- <div class="festival__poster">
-        <img src="/media/dive-barn-2025-poster.jpg" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
-      </div> -->
+      <div class="festival__poster">
+        <img src="/media/Selected Photo 2 1.png" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
+      </div>
     </div>
   </section>
 
@@ -103,56 +97,6 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
     />
   </section>
 
-  <!-- Gallery Section -->
-  <section class="section">
-    <Heading 
-      title="Memories from Year 1" 
-      subtitle="A glimpse into the magic we created together in 2024"
-      style="margin-top: var(--space-xl);"
-    />
-    <div class="gallery__grid">
-      <div class="gallery__item">
-        <img src="/media/year-one/full/art_installation-1.JPG" 
-             alt="Interactive art installation at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-      <div class="gallery__item">
-        <img src="/media/year-one/full/community_moments-1.JPG" 
-             alt="Festival attendees connecting at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-      <div class="gallery__item">
-        <img src="/media/year-one/full/art_installation-2.JPG" 
-             alt="Art installation illuminated at night at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-      <div class="gallery__item">
-        <img src="/media/year-one/full/morning_camping-1.JPG" 
-             alt="Sunrise moments after an unforgettable night at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-      <div class="gallery__item">
-        <img src="/media/year-one/full/community_moments-2.JPG" 
-             alt="Community gathering at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-      <div class="gallery__item">
-        <img src="/media/year-one/full/art_installation-3.JPG" 
-             alt="Creative art piece at Dive Barn 2024" 
-             loading="lazy"
-             class="gallery__image">
-      </div>
-    </div>
-    <p class="gallery__placeholder-text">
-      <em>More photos from Year 1 coming soon!</em>
-    </p>
-  </section>
-
   <!-- Essential Info Cards Section -->
   <section id="info" class="section section--info">
     <Heading 
@@ -163,7 +107,6 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
       <div class="info__main">
         <div class="info__list">
           <div class="info__item">
-            <div class="info__item-icon">🌅</div>
             <div class="info__item-content">
               <h3 class="info__item-title">When</h3>
               <p class="info__item-text">October 11, 2025. Gates open at 12 noon, festivities conclude at 12 midnight.</p>
@@ -171,7 +114,6 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
           </div>
           
           <div class="info__item">
-            <div class="info__item-icon">📍</div>
             <div class="info__item-content">
               <h3 class="info__item-title">Where</h3>
               <p class="info__item-text">Yorkville Schoolhouse Ranch, Mendocino County, CA • <em>Address provided after RSVP</em></p>
@@ -179,7 +121,6 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
           </div>
           
           <div class="info__item info__item--urgent">
-            <div class="info__item-icon">🚫</div>
             <div class="info__item-content">
               <h3 class="info__item-title">Fire Safety</h3>
               <p class="info__item-text"><strong>No campfires, candles, or flames</strong> • Ranch is extremely dry in October • Safety first, always</p>
@@ -187,7 +128,6 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
           </div>
           
           <div class="info__item">
-            <div class="info__item-icon">🎒</div>
             <div class="info__item-content">
               <h3 class="info__item-title">Bring</h3>
               <p class="info__item-text">Personal water bottle • Warm jacket for cool nights • Comfortable dancing shoes</p>
@@ -199,18 +139,16 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
       <div class="info__sidebar">
         <Card href="/yorkville-schoolhouse-ranch" hoverable>
           <div class="db-card-header">
-            <div class="db-card-icon">🏛️</div>
             <div class="db-card-content">
               <h3 class="db-card-title">Historic Property</h3>
             </div>
           </div>
           <p class="db-card-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
-          <span class="db-card-link">Explore the Ranch →</span>
+          <span class="db-card-link">What's happened here →</span>
         </Card>
         
         <Card href="/financial-transparency" hoverable>
           <div class="db-card-header">
-            <div class="db-card-icon">💝</div>
             <div class="db-card-content">
               <h3 class="db-card-title">Support the Festival</h3>
             </div>

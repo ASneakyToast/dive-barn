@@ -10,7 +10,7 @@ export const SITE_CONFIG: SiteConfig = {
 export const EVENT_INFO: EventInfo = {
   name: 'Dive Barn 2025',
   date: '2025-10-11',
-  startTime: '10:00',
+  startTime: '12:00',
   endTime: '23:00',
   location: 'Yorkville Schoolhouse Ranch, Mendocino County',
   description: 'An arts and music gathering on a ranch in Mendocino County'
