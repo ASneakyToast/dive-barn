@@ -18,11 +18,6 @@ const getNavLink = (href: string, section?: string) => {
 // Updated navigation links with section handling
 const navLinks = [
   { 
-    href: isHomePage ? '#hero' : '/', 
-    label: 'Barn',
-    ariaLabel: isHomePage ? 'Go to Dive Barn home section' : 'Go to Dive Barn home page'
-  },
-  { 
     href: getNavLink('', 'festival'), 
     label: 'Festival',
     ariaLabel: 'Go to festival information section'
@@ -41,18 +36,30 @@ const navLinks = [
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <ul class="nav__list">
-    {navLinks.map(link => (
-      <li>
-        <a 
-          href={link.href} 
-          class="nav__link"
-          aria-label={link.ariaLabel}
-          data-current={pathname === link.href ? 'page' : undefined}
-        >
-          {link.label}
-        </a>
-      </li>
-    ))}
-  </ul>
+  <div class="nav__container">
+    <div class="nav__logo">
+      <a href="/" aria-label="Go to Dive Barn home page">
+        <img src="/media/db-logo-circle.png" alt="Dive Barn Logo" class="nav__logo-image nav__logo-image--auto-spin">
+      </a>
+    </div>
+    
+    <ul class="nav__list">
+      {navLinks.map(link => (
+        <li>
+          <a 
+            href={link.href} 
+            class="nav__link"
+            aria-label={link.ariaLabel}
+            data-current={pathname === link.href ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    
+    <div class="nav__secondary-logo">
+      <img src="/media/appleicon.png" alt="Apple Icon" class="nav__secondary-logo-image" onclick="this.classList.add('nav__secondary-logo-image--spin'); setTimeout(() => this.classList.remove('nav__secondary-logo-image--spin'), 350)">
+    </div>
+  </div>
 </nav>
