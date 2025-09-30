@@ -1,10 +1,10 @@
 ---
-title: "Jungle DJ Set"
-time: "10:00 PM"
+title: "Esther DJ Set"
+time: "9:00 PM"
 stage: "Historic Barn"
-performer: "DJ Set"
-description: "Late-night jungle and electronic beats to close out the festival"
-order: 16
+performer: "Esther"
+description: "Late-night DJ set to dance the night away"
+order: 14
 ---
 
-Dance into the night with a high-energy jungle DJ set in the transformed historic barn. Electronic beats and jungle rhythms provide the perfect soundtrack to close out an unforgettable day at Dive Barn.
+Esther takes over the historic barn for a late-night DJ set that will keep you dancing into the early hours. The perfect way to close out an unforgettable day at Dive Barn.

@@ -1,10 +1,10 @@
 ---
-title: "Festival Opens + Shuttle Departure"
+title: "Festival Opens"
 time: "12:00 PM"
-stage: "Welcome Pavilion + SF Departure"
+stage: "Welcome Pavilion"
 performer: "Community Welcome"
-description: "Festival gates open, welcome orientation, and shuttle service departs from San Francisco"
+description: "Festival gates open with welcome orientation"
 order: 1
 ---
 
-Welcome to Dive Barn 2025! Festival gates officially open with a warm community welcome and orientation. Shuttle service departs from San Francisco at this time for the scenic journey to the ranch. Contact divebarnranch@gmail.com for shuttle details and booking.
+Welcome to Dive Barn 2025! Festival gates officially open with a warm community welcome and orientation.

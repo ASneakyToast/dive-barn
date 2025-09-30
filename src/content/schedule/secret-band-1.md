@@ -1,10 +1,10 @@
 ---
-title: "Secret Band?"
-time: "8:30 PM"
+title: "Paul"
+time: "6:00 PM"
 stage: "Main Stage"
-performer: "Mystery Performer"
-description: "A surprise musical guest - part of the evening's mystery and excitement"
-order: 13
+performer: "Paul"
+description: "Laptop-based electronic music set to open the evening performances"
+order: 11
 ---
 
-The evening holds surprises! A mystery musical guest takes the stage, adding an element of spontaneity and discovery to the night's lineup. Come with an open mind and heart.
+Paul kicks off the evening with a captivating laptop-based electronic music set. Experience innovative soundscapes and rhythms as the festival transitions from day to evening.
