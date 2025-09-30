@@ -164,31 +164,50 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
   <section id="faq" class="section section--faq">
     <Heading title="Festival FAQ" />
     <div class="faq__container">
-      
+
       <div class="faq__category">
         <h3 class="faq__category-title">Getting There</h3>
-        
-        <Accordion 
-          question="How do I get to the ranch?" 
+
+        <Accordion
+          question="How do I get to the ranch?"
           answer="After RSVPing, you'll receive the exact address and detailed directions. The ranch is about 20 minutes from Cloverdale, where you can grab last-minute supplies. We're in rural Mendocino County, so GPS might be spotty near the end."
         />
-        
-        <Accordion 
-          question="I don't have a car. Any options?" 
+
+        <Accordion
+          question="I don't have a car. Any options?"
           answer="Add a note in your RSVP that you need a ride. We're building a carpool board to connect festival-goers—because sharing rides means more friends and fewer emissions. Community rideshare is part of the Dive Barn spirit!"
         />
       </div>
 
       <div class="faq__category">
+        <h3 class="faq__category-title">Financial & Logistics</h3>
+
+        <Accordion
+          question="Is there a ticket price or admission fee?"
+          answer="Dive Barn is completely free to attend—no tickets, no admission fees. This festival is a labor of love, made possible by generous supporters and in-kind donations. While attendance is free, we welcome donations to help cover costs and support our artists."
+        />
+
+        <Accordion
+          question="How can I support the festival financially?"
+          answer="We're self-funded and rely on community support to make Dive Barn happen. Donations go directly toward artist stipends, band fees, food costs, and design services. You can contribute via <a href='https://venmo.com/dive-barn' target='_blank' rel='noopener'>Venmo @dive-barn</a>, or check out our <a href='/financial-transparency'>financial transparency page</a> to see exactly where your money goes."
+        />
+      </div>
+
+      <div class="faq__category">
         <h3 class="faq__category-title">Staying Overnight</h3>
-        
-        <Accordion 
-          question="Can I stay overnight?" 
+
+        <Accordion
+          question="Can I stay overnight?"
           answer="Many folks choose to stay on the ranch overnight to fully experience the festival. The property offers incredible star-gazing with no light pollution. Basic facilities are available. If you plan to stay, bring what you need: shelter, warm layers, water for your entire stay (1 gallon per person per day), a headlamp (it gets DARK out here), and breakfast/snacks for the morning after."
         />
-        
-        <Accordion 
-          question="What if I don't want to stay overnight?" 
+
+        <Accordion
+          question="Are there showers or bathroom facilities for overnight guests?"
+          answer="We have porta potties on-site (generously provided as an in-kind donation), but no showers. If you're staying overnight, plan accordingly—bring what you need to stay comfortable. For those who prefer full amenities, hotels in Cloverdale and Boonville are about 20 minutes away."
+        />
+
+        <Accordion
+          question="What if I don't want to stay overnight?"
           answer="That's totally fine! Cloverdale and Boonville have plenty of hotels and Airbnbs about 20 minutes away. October is peak season in wine country, so book early if you're planning to stay in town. Many people come for the evening and head back afterward."
         />
       </div>
@@ -209,23 +228,47 @@ import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
 
       <div class="faq__category">
         <h3 class="faq__category-title">Safety & Wellness</h3>
-        
-        <Accordion 
-          question="What if I get hurt?" 
+
+        <Accordion
+          question="What if I get hurt?"
           answer="Be mindful of where you're walking and how you're moving, but accidents happen. If you get hurt, find one of the organizers and we'll locate first aid kits and trained organizers to help. For bigger problems, we'll call 911 (no &quot;cauterizing wounds&quot; on site!)."
         />
-        
-        <Accordion 
-          question="Are we really in the middle of nowhere?" 
-          answer="Yeah, you'll probably lose cell service around Cloverdale, but there's WiFi on the property (tech money). The ranch is rural and remote—that's part of the magic! Plan accordingly and embrace the digital detox."
+
+        <Accordion
+          question="What's the cell service/WiFi situation?"
+          answer="Cell service gets spotty around Cloverdale and you'll likely lose it completely as you approach the ranch. But don't worry—we have WiFi on the property for emergencies and staying connected. The rural setting is part of the magic, so plan for limited cell service but know you're not completely off the grid."
+        />
+
+        <Accordion
+          question="Are we really in the middle of nowhere?"
+          answer="Yeah, you'll probably lose cell service around Cloverdale, but there's WiFi on the property. The ranch is rural and remote—that's part of the magic! Plan accordingly and embrace the digital detox."
+        />
+      </div>
+
+      <div class="faq__category">
+        <h3 class="faq__category-title">Festival Experience</h3>
+
+        <Accordion
+          question="What time should I arrive?"
+          answer="Gates open at 12:00 PM (noon), but feel free to arrive whenever works for you! If you're planning to camp overnight, arriving earlier gives you time to set up before the festivities kick off. Parking is free and on-site, but arriving earlier means better spot selection. The music and main events run into the night—we're planning on being up LATE."
+        />
+
+        <Accordion
+          question="Are dogs allowed?"
+          answer="Yes! Dogs are absolutely welcome at Dive Barn. Bring your furry friend along for the adventure. Just make sure they're well-behaved around crowds and other dogs, and please clean up after them. The ranch has plenty of space for them to explore safely."
+        />
+
+        <Accordion
+          question="Can I leave and re-enter?"
+          answer="Absolutely! Feel free to come and go as you please. The ranch is about 20 minutes from Cloverdale and Yorkville, and there are wineries scattered throughout the area. Many folks arrive early to set up camp, then explore nearby attractions before the evening festivities. Make a day (and night) of it!"
         />
       </div>
 
       <div class="faq__category">
         <h3 class="faq__category-title">After the Festival</h3>
-        
-        <Accordion 
-          question="I lost something important! Who do I contact?" 
+
+        <Accordion
+          question="I lost something important! Who do I contact?"
           answer="First, post on the RSVP board to see if any other festival-goers picked it up. Second, email hello@divebarn.com with a description. If we find something matching, we'll get in touch!"
         />
       </div>
