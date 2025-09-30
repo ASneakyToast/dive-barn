@@ -1494,12 +1494,12 @@
     font-family: var(--typography-font-family-display);
     font-size: 1.5rem;
     font-weight: var(--typography-font-weight-bold);
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
     margin-bottom: 1rem;
   }
 
   .footer__title-link {
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
     text-decoration: underline;
     text-decoration-color: var(--color-primary);
     text-underline-offset: 4px;
@@ -1527,7 +1527,7 @@
   .footer__subtitle {
     font-size: 1rem;
     font-weight: var(--typography-font-weight-semibold);
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
     margin-bottom: 0.75rem;
   }
 
@@ -1614,7 +1614,7 @@
   }
 
   .footer__contact-item strong {
-    color: var(--color-text-inverse);
+    color: var(--color-text-primary);
   }
 
   .footer__contact-link {
