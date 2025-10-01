@@ -366,6 +366,35 @@
     gap: var(--spacing-lg);
   }
 
+  /* Gallery in sidebar */
+  .info__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .info__gallery-title {
+    font-size: var(--typography-font-size-lg);
+    font-weight: var(--typography-font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: var(--typography-line-height-tight);
+  }
+
+  .info__gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .info__gallery-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
   .info__feature {
     background: var(--color-surface);
     padding: var(--spacing-md);
@@ -527,6 +556,22 @@
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
+  }
+
+  /* Featured Cards Section */
+  .section--featured-cards {
+    background: var(--color-background);
+    max-width: none;
+    width: 100%;
+  }
+
+  .featured-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
   }
 
   /* Gallery Section */
@@ -855,11 +900,16 @@
       grid-template-columns: 1fr;
       gap: var(--spacing-lg);
     }
-    
+
     .festival__poster {
       order: -1;
     }
-    
+
+    .featured-cards__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
     .faq__category-title {
       font-size: var(--typography-font-size-lg);
     }
@@ -876,21 +926,26 @@
       grid-template-columns: 1fr;
       gap: var(--spacing-lg);
     }
-    
+
     .festival__poster {
       order: -1;
     }
-    
+
+    .featured-cards__grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
     .info__grid--four-cards {
       grid-template-columns: repeat(6, 1fr);
       gap: var(--spacing-md);
     }
-    
+
     .info__grid--six-cards {
       grid-template-columns: repeat(6, 1fr);
       gap: var(--spacing-md);
     }
-    
+
     .info__container {
       grid-template-columns: 1fr 280px;
       gap: var(--spacing-lg);
