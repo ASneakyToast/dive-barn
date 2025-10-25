@@ -30,7 +30,7 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   <!-- Hero Section -->
   <Hero
     id="hero"
-    title="Thank You, Dive Barn 2025"
+    title="Dive Barn"
     backgroundImage="/media/year-one/full/community_moments-2.JPG"
   >
     <NewsletterSignup variant="hero" />
@@ -39,12 +39,12 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   <!-- Barn Section -->
   <section id="barn" class="section section--barn">
     <Heading
-      title="Barn"
-      subtitle="A celebration of art, music, and community"
+      title="Thank You, 2025!"
+      subtitle="An arts and music gathering on a ranch in Mendocino County"
     />
     <div class="barn__container">
       <div class="barn__content">
-        <h3 class="barn__heading">An arts and music gathering on a ranch in Mendocino County</h3>
+        <h3 class="barn__heading">A celebration of art, music, and community</h3>
         <p class="barn__text">
           Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. This growing, one-day festival celebrates creativity and connection in a stunning rural setting.
         </p>
@@ -58,19 +58,18 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 
       <div class="barn__gallery">
         <img src="/media/year-one/full/art_installation-1.JPG" alt="Art installation" class="barn__image barn__image--large" />
-        <img src="/media/year-one/full/community_moments-1.JPG" alt="Community moments" class="barn__image barn__image--tall" />
+        <img src="/media/year-one/full/community_moments-1.JPG" alt="Community moments" class="barn__image" />
         <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation" class="barn__image" />
         <img src="/media/year-one/full/community_moments-3.JPG" alt="Festival attendees" class="barn__image barn__image--wide" />
         <img src="/media/year-one/full/art_installation-5.JPG" alt="Art installation" class="barn__image" />
         <img src="/media/year-one/full/morning_camping-1.JPG" alt="Morning camping" class="barn__image" />
-        <img src="/media/year-one/full/art_installation-7.JPG" alt="Art installation" class="barn__image barn__image--tall" />
-        <img src="/media/year-one/full/art_installation-6.JPG" alt="Art installation" class="barn__image" />
+        <img src="/media/year-one/full/art_installation-7.JPG" alt="Art installation" class="barn__image" />
       </div>
     </div>
   </section>
 
   <!-- What's Next Section -->
-  <section class="section section--whats-next">
+  <section id="whats-next" class="section section--whats-next">
     <Heading
       title="What's Next"
       subtitle="Dive Barn 2026 is already in the works"
@@ -185,35 +184,6 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
     </div>
   </section>
 
-  <!-- What's Next Section -->
-  <section class="section section--whats-next">
-    <Heading
-      title="What's Next"
-      subtitle="Dive Barn 2026 is already in the works"
-    />
-    <div class="whats-next__container">
-      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/art_installation-6.JPG');">
-        <div class="whats-next__card-overlay"></div>
-        <div class="whats-next__card-content">
-          <h3 class="whats-next__title">Stay Updated</h3>
-          <p class="whats-next__text">Subscribe to our newsletter for announcements about 2026, including the date reveal and when artist applications open.</p>
-          <NewsletterSignup variant="compact" title="" description="" />
-        </div>
-      </div>
-
-      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/community_moments-4.JPG');">
-        <div class="whats-next__card-overlay"></div>
-        <div class="whats-next__card-content">
-          <h3 class="whats-next__title">Volunteer with Us</h3>
-          <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
-          <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary" class="whats-next__button-white">
-            Get Involved
-          </Button>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <Footer />
 </BaseLayout>
@@ -252,8 +222,8 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   /* Bento Box Gallery */
   .barn__gallery {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 200px);
     gap: var(--spacing-sm);
   }
 

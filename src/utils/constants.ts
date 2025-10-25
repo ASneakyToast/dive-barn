@@ -38,9 +38,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAVIGATION_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/2025-archive', label: 'Archive' },
-  { href: '/festival-guide', label: 'Guide' },
+  { href: '/#barn', label: 'Thank You' },
+  { href: '/#whats-next', label: "What's Next" },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/yorkville-schoolhouse-ranch', label: 'Venue' },
   { href: '/financial-transparency', label: 'Support' }
 ];
