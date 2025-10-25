@@ -3,36 +3,12 @@ import { NAVIGATION_LINKS } from '../../utils/constants';
 
 // Get current pathname for active link highlighting
 const pathname = Astro.url.pathname;
-const isHomePage = pathname === '/';
 
-// Helper function to determine nav link destinations
-const getNavLink = (href: string, section?: string) => {
-  if (section && isHomePage) {
-    return `#${section}`;
-  } else if (section) {
-    return `/${href}#${section}`;
-  }
-  return href;
-};
-
-// Updated navigation links with section handling
-const navLinks = [
-  { 
-    href: getNavLink('', 'festival'), 
-    label: 'Festival',
-    ariaLabel: 'Go to festival information section'
-  },
-  { 
-    href: getNavLink('', 'info'), 
-    label: 'Info',
-    ariaLabel: 'Go to essential details section'
-  },
-  { 
-    href: getNavLink('', 'faq'), 
-    label: 'FAQ',
-    ariaLabel: 'Go to frequently asked questions section'
-  }
-];
+// Use the navigation links from constants
+const navLinks = NAVIGATION_LINKS.map(link => ({
+  ...link,
+  ariaLabel: `Go to ${link.label.toLowerCase()}`
+}));
 ---
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
