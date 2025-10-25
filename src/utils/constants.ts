@@ -39,8 +39,7 @@ export const SOCIAL_LINKS = {
 
 export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/2025-archive', label: '2025 Archive' },
-  { href: '/festival-guide', label: 'Festival Guide' },
+  { href: '/schedule', label: 'Schedule' },
   { href: '/yorkville-schoolhouse-ranch', label: 'Venue' },
   { href: '/financial-transparency', label: 'Transparency' }
 ];
