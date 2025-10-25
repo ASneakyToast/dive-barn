@@ -10,8 +10,7 @@ import CTA from '../components/ui/CTA.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Accordion from '../components/ui/Accordion.astro';
-import ArtistList from '../components/ui/ArtistList.astro';
-import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
+import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
 ---
 
 <BaseLayout 
@@ -42,15 +41,43 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 
   <!-- Festival Overview Section -->
   <section id="festival" class="section section--festival">
-    <Heading
-      title="An arts and music gathering on a ranch in Mendocino County"
+    <Heading 
+      title="An arts and music gathering on a ranch in Mendocino County" 
       subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. All are welcome to this growing, one-day festival."
     />
     <div class="festival__layout" style="margin-bottom: var(--space-xl);">
       <div class="festival__cards">
-        <ArtistList artists={ARTISTS} />
+        <Card href="/schedule#art" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Art</h3>
+            </div>
+          </div>
+          <p class="db-card-text">Curated installations and performative works scattered throughout the ranch and field, inviting exploration and discovery.</p>
+          <span class="db-card-link">Discover what to see →</span>
+        </Card>
+        
+        <Card href="/schedule#music" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Music</h3>
+            </div>
+          </div>
+          <p class="db-card-text">Local Bay Area bands Town Bully and Good Actor along with various djs</p>
+          <span class="db-card-link">See the line up →</span>
+        </Card>
+        
+        <Card href="/schedule#food" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Food</h3>
+            </div>
+          </div>
+          <p class="db-card-text">BBQ and pig on a spit with Scott from local family-friendly restaurant Jumbo's Win Win, celebrating Mendocino's agricultural heritage.</p>
+          <span class="db-card-link">What's for dinner? →</span>
+        </Card>
       </div>
-
+      
       <div class="festival__poster">
         <img src="/media/Selected Photo 2 1.png" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
       </div>
@@ -72,8 +99,8 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 
   <!-- Essential Info Cards Section -->
   <section id="info" class="section section--info">
-    <Heading
-      title="Essential Details"
+    <Heading 
+      title="Essential Details" 
       subtitle="Everything you need to know for an incredible experience"
     />
     <div class="info__container">
@@ -85,21 +112,21 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
               <p class="info__item-text">October 11, 2025. Gates open at 12 noon, festivities conclude at 12 midnight.</p>
             </div>
           </div>
-
+          
           <div class="info__item">
             <div class="info__item-content">
               <h3 class="info__item-title">Where</h3>
               <p class="info__item-text">Yorkville Schoolhouse Ranch, Mendocino County, CA • <em>Address provided after RSVP</em></p>
             </div>
           </div>
-
+          
           <div class="info__item info__item--urgent">
             <div class="info__item-content">
               <h3 class="info__item-title">Fire Safety</h3>
               <p class="info__item-text"><strong>No campfires, candles, or flames</strong> • Ranch is extremely dry in October • Safety first, always</p>
             </div>
           </div>
-
+          
           <div class="info__item">
             <div class="info__item-content">
               <h3 class="info__item-title">Bring</h3>
@@ -108,13 +135,27 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
           </div>
         </div>
       </div>
-
+      
       <div class="info__sidebar">
-        <div class="info__gallery">
-          <img src="/media/year-one/full/community_moments-3.JPG" alt="Community moments at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/community_moments-1.JPG" alt="Festival attendees at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation at Dive Barn 2024" class="info__gallery-image" />
-        </div>
+        <Card href="/yorkville-schoolhouse-ranch" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Historic Property</h3>
+            </div>
+          </div>
+          <p class="db-card-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
+          <span class="db-card-link">What's happened here →</span>
+        </Card>
+        
+        <Card href="/financial-transparency" hoverable>
+          <div class="db-card-header">
+            <div class="db-card-content">
+              <h3 class="db-card-title">Support the Festival</h3>
+            </div>
+          </div>
+          <p class="db-card-text">See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</p>
+          <span class="db-card-link">View Transparency →</span>
+        </Card>
       </div>
     </div>
   </section>
@@ -232,41 +273,6 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
         />
       </div>
 
-    </div>
-  </section>
-
-  <!-- Featured Cards Section -->
-  <section class="section section--featured-cards">
-    <div class="featured-cards__grid">
-      <Card href="/schedule" hoverable>
-        <div class="db-card-header">
-          <div class="db-card-content">
-            <h3 class="db-card-title">Full Schedule</h3>
-          </div>
-        </div>
-        <p class="db-card-text">View the complete lineup of art installations, music performances, and food offerings throughout the day.</p>
-        <span class="db-card-link">See the schedule →</span>
-      </Card>
-
-      <Card href="/yorkville-schoolhouse-ranch" hoverable>
-        <div class="db-card-header">
-          <div class="db-card-content">
-            <h3 class="db-card-title">Historic Property</h3>
-          </div>
-        </div>
-        <p class="db-card-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
-        <span class="db-card-link">What's happened here →</span>
-      </Card>
-
-      <Card href="/financial-transparency" hoverable>
-        <div class="db-card-header">
-          <div class="db-card-content">
-            <h3 class="db-card-title">Support the Festival</h3>
-          </div>
-        </div>
-        <p class="db-card-text">See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</p>
-        <span class="db-card-link">View Transparency →</span>
-      </Card>
     </div>
   </section>
 
