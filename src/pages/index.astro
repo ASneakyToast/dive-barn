@@ -55,8 +55,8 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   <!-- 2025 Archive Call-to-Action Banner -->
   <section class="section">
     <CTA
-      title="See 2025 Artists & Photos"
-      text="View highlights from October 11, including all the artists, musicians, and moments from this year's festival."
+      title="See Past Installations"
+      text="Explore artwork and memories from previous year's events. Discover the artists, musicians, and community moments that made Dive Barn unforgettable."
       buttonText="View 2025 Archive"
       href="/2025-archive"
       variant="primary"
@@ -157,18 +157,24 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       subtitle="Dive Barn 2026 is already in the works"
     />
     <div class="whats-next__container">
-      <div class="whats-next__card">
-        <h3 class="whats-next__title">Stay Updated</h3>
-        <p class="whats-next__text">Subscribe to our newsletter for announcements about 2026, including the date reveal and when artist applications open.</p>
-        <NewsletterSignup variant="compact" title="" description="" />
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/art_installation-6.JPG');">
+        <div class="whats-next__card-overlay"></div>
+        <div class="whats-next__card-content">
+          <h3 class="whats-next__title">Stay Updated</h3>
+          <p class="whats-next__text">Subscribe to our newsletter for announcements about 2026, including the date reveal and when artist applications open.</p>
+          <NewsletterSignup variant="compact" title="" description="" />
+        </div>
       </div>
 
-      <div class="whats-next__card">
-        <h3 class="whats-next__title">Volunteer with Us</h3>
-        <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
-        <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary">
-          Get Involved
-        </Button>
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/community_moments-4.JPG');">
+        <div class="whats-next__card-overlay"></div>
+        <div class="whats-next__card-content">
+          <h3 class="whats-next__title">Volunteer with Us</h3>
+          <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
+          <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary">
+            Get Involved
+          </Button>
+        </div>
       </div>
     </div>
   </section>
@@ -256,19 +262,46 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
     padding: var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .whats-next__card--with-bg {
+    background-size: cover;
+    background-position: center;
+    border: none;
+  }
+
+  .whats-next__card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+  }
+
+  .whats-next__card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
   }
 
   .whats-next__title {
     font-family: var(--typography-font-family-display);
     font-size: var(--typography-font-size-xl);
     font-weight: var(--typography-font-weight-bold);
-    color: var(--color-text-primary);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-md);
   }
 
   .whats-next__text {
     font-size: var(--typography-font-size-base);
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     line-height: var(--typography-line-height-relaxed);
     margin-bottom: var(--spacing-lg);
   }

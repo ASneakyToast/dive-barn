@@ -39,10 +39,10 @@ export const SOCIAL_LINKS = {
 
 export const NAVIGATION_LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/2025-archive', label: '2025 Archive' },
-  { href: '/festival-guide', label: 'Festival Guide' },
+  { href: '/2025-archive', label: 'Archive' },
+  { href: '/festival-guide', label: 'Guide' },
   { href: '/yorkville-schoolhouse-ranch', label: 'Venue' },
-  { href: '/financial-transparency', label: 'Transparency' }
+  { href: '/financial-transparency', label: 'Support' }
 ];
 
 export const ARTISTS = [
