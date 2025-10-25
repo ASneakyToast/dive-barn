@@ -43,15 +43,6 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       title="An arts and music gathering on a ranch in Mendocino County"
       subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. This growing, one-day festival celebrates creativity and connection in a stunning rural setting."
     />
-    <div class="festival__layout" style="margin-bottom: var(--space-xl);">
-      <div class="festival__cards">
-        <ArtistList artists={ARTISTS} />
-      </div>
-
-      <div class="festival__poster">
-        <img src="/media/Selected Photo 2 1.png" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
-      </div>
-    </div>
   </section>
 
   <!-- 2025 Archive Call-to-Action Banner -->
@@ -63,55 +54,6 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       href="/2025-archive"
       variant="primary"
     />
-  </section>
-
-  <!-- Essential Info Cards Section -->
-  <section id="info" class="section section--info">
-    <Heading
-      title="Essential Details"
-      subtitle="Everything you need to know for an incredible experience"
-    />
-    <div class="info__container">
-      <div class="info__main">
-        <div class="info__list">
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">When</h3>
-              <p class="info__item-text">October 11, 2025. Gates open at 12 noon, festivities conclude at 12 midnight.</p>
-            </div>
-          </div>
-
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Where</h3>
-              <p class="info__item-text">Yorkville Schoolhouse Ranch, Mendocino County, CA • <em>Address provided after RSVP</em></p>
-            </div>
-          </div>
-
-          <div class="info__item info__item--urgent">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Fire Safety</h3>
-              <p class="info__item-text"><strong>No campfires, candles, or flames</strong> • Ranch is extremely dry in October • Safety first, always</p>
-            </div>
-          </div>
-
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Bring</h3>
-              <p class="info__item-text">Personal water bottle • Warm jacket for cool nights • Comfortable dancing shoes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="info__sidebar">
-        <div class="info__gallery">
-          <img src="/media/year-one/full/community_moments-3.JPG" alt="Community moments at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/community_moments-1.JPG" alt="Festival attendees at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation at Dive Barn 2024" class="info__gallery-image" />
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- FAQ Section -->
@@ -214,10 +156,10 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       </div>
 
       <div class="whats-next__card">
-        <h3 class="whats-next__title">Support Next Year</h3>
-        <p class="whats-next__text">Your contributions help us bring back this magic in 2026. Every donation goes directly to artists, musicians, and festival production.</p>
-        <Button href="/financial-transparency" variant="secondary">
-          See How We Use Funds
+        <h3 class="whats-next__title">Volunteer with Us</h3>
+        <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
+        <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary">
+          Get Involved
         </Button>
       </div>
     </div>
