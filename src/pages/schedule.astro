@@ -60,6 +60,7 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
               </div>
               <div class="schedule-card__content">
                 <h3 class="schedule-card__title">{item.data.title}</h3>
+                <p class="schedule-card__performer">{item.data.performer}</p>
                 <div class="schedule-card__body" set:html={item.body} />
               </div>
             </Card>
