@@ -36,31 +36,35 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
     <NewsletterSignup variant="hero" />
   </Hero>
 
-  <!-- Festival Overview Section -->
-  <section id="festival" class="section section--festival">
+  <!-- Photo Wall Section -->
+  <section id="photo-wall" class="section section--photo-wall">
     <Heading
-      title="An arts and music gathering on a ranch in Mendocino County"
-      subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. This growing, one-day festival celebrates creativity and connection in a stunning rural setting."
+      title="Photo Wall"
+      subtitle="Glimpses from our community gathering"
     />
-    <div class="festival__gallery">
-      <img src="/media/year-one/full/art_installation-1.JPG" alt="Art installation at Dive Barn" class="festival__gallery-image" />
-      <img src="/media/year-one/full/community_moments-1.JPG" alt="Community moments at Dive Barn" class="festival__gallery-image" />
-      <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation at Dive Barn" class="festival__gallery-image" />
-      <img src="/media/year-one/full/community_moments-3.JPG" alt="Festival attendees at Dive Barn" class="festival__gallery-image" />
-      <img src="/media/year-one/full/art_installation-5.JPG" alt="Art installation at Dive Barn" class="festival__gallery-image" />
-      <img src="/media/year-one/full/morning_camping-1.JPG" alt="Morning camping at Dive Barn" class="festival__gallery-image" />
-    </div>
-  </section>
+    <div class="photo-wall__container">
+      <div class="photo-wall__content">
+        <h3 class="photo-wall__heading">An arts and music gathering on a ranch in Mendocino County</h3>
+        <p class="photo-wall__text">
+          Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. This growing, one-day festival celebrates creativity and connection in a stunning rural setting.
+        </p>
+        <p class="photo-wall__text">
+          Explore artwork and memories from previous year's events. Discover the artists, musicians, and community moments that made Dive Barn unforgettable.
+        </p>
+        <Button href="/2025-archive" variant="primary">
+          View 2025 Archive
+        </Button>
+      </div>
 
-  <!-- 2025 Archive Call-to-Action Banner -->
-  <section class="section">
-    <CTA
-      title="See Past Installations"
-      text="Explore artwork and memories from previous year's events. Discover the artists, musicians, and community moments that made Dive Barn unforgettable."
-      buttonText="View 2025 Archive"
-      href="/2025-archive"
-      variant="primary"
-    />
+      <div class="photo-wall__gallery">
+        <img src="/media/year-one/full/art_installation-1.JPG" alt="Art installation at Dive Barn" class="photo-wall__image" />
+        <img src="/media/year-one/full/community_moments-1.JPG" alt="Community moments at Dive Barn" class="photo-wall__image" />
+        <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation at Dive Barn" class="photo-wall__image" />
+        <img src="/media/year-one/full/community_moments-3.JPG" alt="Festival attendees at Dive Barn" class="photo-wall__image" />
+        <img src="/media/year-one/full/art_installation-5.JPG" alt="Art installation at Dive Barn" class="photo-wall__image" />
+        <img src="/media/year-one/full/morning_camping-1.JPG" alt="Morning camping at Dive Barn" class="photo-wall__image" />
+      </div>
+    </div>
   </section>
 
   <!-- FAQ Section -->
@@ -171,7 +175,7 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
         <div class="whats-next__card-content">
           <h3 class="whats-next__title">Volunteer with Us</h3>
           <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
-          <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary">
+          <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary" class="whats-next__button-white">
             Get Involved
           </Button>
         </div>
@@ -184,24 +188,51 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 </BaseLayout>
 
 <style>
-  /* Festival Gallery */
-  .festival__gallery {
+  /* Photo Wall Section */
+  .photo-wall__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
-    max-width: 1400px;
-    margin: var(--spacing-xl) auto 0;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
   }
 
-  .festival__gallery-image {
+  .photo-wall__content {
+    padding-right: var(--spacing-lg);
+  }
+
+  .photo-wall__heading {
+    font-family: var(--typography-font-family-display);
+    font-size: var(--typography-font-size-xl);
+    font-weight: var(--typography-font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--typography-line-height-tight);
+  }
+
+  .photo-wall__text {
+    font-size: var(--typography-font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--typography-line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .photo-wall__gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .photo-wall__image {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
     border-radius: var(--border-radius-md);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .festival__gallery-image:hover {
+  .photo-wall__image:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
@@ -306,15 +337,34 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
     margin-bottom: var(--spacing-lg);
   }
 
+  .whats-next__button-white {
+    background: var(--color-surface-light, #fff) !important;
+    color: var(--color-text-primary) !important;
+    border-color: transparent !important;
+  }
+
+  .whats-next__button-white:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: translateY(-2px);
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
-    .festival__gallery {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--spacing-sm);
+    .photo-wall__container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
     }
 
-    .festival__gallery-image {
-      height: 200px;
+    .photo-wall__content {
+      padding-right: 0;
+    }
+
+    .photo-wall__gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .photo-wall__image {
+      height: 250px;
     }
 
     .whats-next__container {
