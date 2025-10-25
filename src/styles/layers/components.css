@@ -1335,6 +1335,20 @@
     min-width: unset;
   }
 
+  /* Newsletter CTA button styling - white background with colored text */
+  .db-cta--newsletter .newsletter__button {
+    background: var(--color-white);
+    color: var(--color-primary);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .db-cta--newsletter .newsletter__button:hover {
+    background: var(--color-white);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
   /* Decorative overlay effect */
   .db-cta::before {
     content: '';
