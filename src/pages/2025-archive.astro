@@ -6,7 +6,6 @@ import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
 import Hero from '../components/ui/Hero.astro';
 import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
-import Button from '../components/ui/Button.astro';
 import { ARTISTS } from '../utils/constants';
 ---
 
@@ -141,66 +140,14 @@ import { ARTISTS } from '../utils/constants';
     </div>
   </section>
 
-  <!-- Thank You Section -->
-  <section id="thanks" class="section section--thanks">
-    <Heading
-      title="Thank You"
-      subtitle="This festival exists because of community support"
-    />
-    <div class="thanks__container">
-      <div class="thanks__section">
-        <h3 class="thanks__title">Generous Sponsors</h3>
-        <div class="thanks__sponsors">
-          <div class="sponsor__item">
-            <img src="/media/sponsors/quality-time.png" alt="Quality Time" class="sponsor__logo" />
-          </div>
-          <div class="sponsor__item">
-            <img src="/media/sponsors/jumbos.png" alt="Jumbo's" class="sponsor__logo" />
-          </div>
-        </div>
-      </div>
-
-      <div class="thanks__section">
-        <h3 class="thanks__title">In-Kind Donations</h3>
-        <ul class="thanks__list">
-          <li>Porta potty facilities</li>
-          <li>Sound equipment and technical support</li>
-          <li>Food and beverage services</li>
-          <li>Transportation and logistics</li>
-        </ul>
-      </div>
-
-      <div class="thanks__section">
-        <h3 class="thanks__title">Volunteers</h3>
-        <p class="thanks__text">
-          To everyone who helped with setup, artist support, logistics, and cleanup—you made this happen. Your time and energy created the foundation for this beautiful gathering.
-        </p>
-      </div>
-
-      <div class="thanks__section">
-        <h3 class="thanks__title">The Henderson/Carlson Family</h3>
-        <p class="thanks__text">
-          Thank you for opening the Yorkville Schoolhouse Ranch to our community and stewarding this incredible space with such care and generosity.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="section section--cta">
-    <div class="cta__container">
-      <div class="cta__content">
-        <h2 class="cta__title">Want to be part of Dive Barn 2026?</h2>
-        <p class="cta__text">Subscribe to get updates about next year's festival, artist applications, and volunteer opportunities.</p>
-        <NewsletterSignup variant="compact" title="" description="" />
-      </div>
-      <div class="cta__content">
-        <h2 class="cta__title">Support Next Year's Festival</h2>
-        <p class="cta__text">Your contributions help us bring back this magic in 2026. Every donation goes directly to artists, musicians, and festival production.</p>
-        <Button href="/financial-transparency" variant="primary">
-          See Financial Transparency
-        </Button>
-      </div>
+  <!-- Newsletter CTA Section -->
+  <section class="section section--newsletter-cta">
+    <div class="newsletter-cta__container">
+      <h2 class="newsletter-cta__title">Join Us for Dive Barn 2026</h2>
+      <p class="newsletter-cta__text">
+        Subscribe to our newsletter for 2026 announcements, artist application openings, and volunteer opportunities.
+      </p>
+      <NewsletterSignup variant="default" title="" description="" hidePrivacy={true} />
     </div>
   </section>
 
@@ -358,95 +305,33 @@ import { ARTISTS } from '../utils/constants';
     transform: scale(1.05);
   }
 
-  /* Thanks Section */
-  .section--thanks {
-    background: var(--color-surface-variant);
+  /* Newsletter CTA Section */
+  .section--newsletter-cta {
+    background: var(--color-primary);
+    padding: calc(var(--spacing-section) * 1.5) var(--spacing-container);
   }
 
-  .thanks__container {
-    max-width: 1200px;
+  .newsletter-cta__container {
+    max-width: 700px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-  }
-
-  .thanks__section {
-    background: var(--color-surface);
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-border);
-  }
-
-  .thanks__title {
-    font-family: var(--typography-font-family-display);
-    font-size: var(--typography-font-size-lg);
-    font-weight: var(--typography-font-weight-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
-  }
-
-  .thanks__sponsors {
-    display: grid;
-    gap: var(--spacing-lg);
-  }
-
-  .sponsor__logo {
-    max-width: 200px;
-    height: auto;
-  }
-
-  .thanks__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .thanks__list li {
-    padding: var(--spacing-sm) 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .thanks__list li:last-child {
-    border-bottom: none;
-  }
-
-  .thanks__text {
-    font-size: var(--typography-font-size-base);
-    line-height: var(--typography-line-height-relaxed);
-    color: var(--color-text-secondary);
-  }
-
-  /* CTA Section */
-  .cta__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-xl);
-  }
-
-  .cta__content {
-    background: var(--color-surface);
-    padding: var(--spacing-xl);
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--color-border);
     text-align: center;
   }
 
-  .cta__title {
+  .newsletter-cta__title {
     font-family: var(--typography-font-family-display);
-    font-size: var(--typography-font-size-xl);
+    font-size: var(--typography-font-size-2xl);
     font-weight: var(--typography-font-weight-bold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
+    line-height: var(--typography-line-height-tight);
   }
 
-  .cta__text {
-    font-size: var(--typography-font-size-base);
-    color: var(--color-text-secondary);
+  .newsletter-cta__text {
+    font-size: var(--typography-font-size-lg);
+    color: var(--color-text-light);
     line-height: var(--typography-line-height-relaxed);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    opacity: 0.95;
   }
 
   /* Responsive adjustments */
@@ -461,9 +346,12 @@ import { ARTISTS } from '../utils/constants';
       gap: var(--spacing-sm);
     }
 
-    .thanks__container,
-    .cta__container {
-      grid-template-columns: 1fr;
+    .newsletter-cta__title {
+      font-size: var(--typography-font-size-xl);
+    }
+
+    .newsletter-cta__text {
+      font-size: var(--typography-font-size-base);
     }
   }
 </style>
