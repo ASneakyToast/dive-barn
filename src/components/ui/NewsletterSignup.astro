@@ -1,0 +1,177 @@
+---
+import type { ComponentProps } from '../../types';
+
+interface Props extends ComponentProps {
+  variant?: 'default' | 'compact' | 'hero';
+  title?: string;
+  description?: string;
+}
+
+const {
+  variant = 'default',
+  title = 'Get Updates for 2026',
+  description = 'Be the first to know when we announce the date, open artist applications, and share other festival news.',
+  class: className,
+  ...rest
+} = Astro.props;
+
+const classes = [
+  'newsletter',
+  variant !== 'default' && `newsletter--${variant}`,
+  className
+].filter(Boolean).join(' ');
+---
+
+<div class={classes} {...rest}>
+  <div class="newsletter__container">
+    {variant !== 'compact' && (
+      <div class="newsletter__header">
+        <h3 class="newsletter__title">{title}</h3>
+        <p class="newsletter__description">{description}</p>
+      </div>
+    )}
+    <form class="newsletter__form" action="https://divebarn.us7.list-manage.com/subscribe/post?u=YOUR_USER_ID&amp;id=YOUR_LIST_ID" method="post" target="_blank">
+      <div class="newsletter__input-group">
+        <input
+          type="email"
+          name="EMAIL"
+          class="newsletter__input"
+          placeholder="Enter your email"
+          required
+          aria-label="Email address"
+        />
+        <button type="submit" class="newsletter__button">
+          Subscribe
+        </button>
+      </div>
+      <p class="newsletter__privacy">
+        We'll send occasional updates about Dive Barn 2026. No spam, ever.
+      </p>
+    </form>
+  </div>
+</div>
+
+<style>
+.newsletter {
+  width: 100%;
+}
+
+.newsletter__container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter__header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.newsletter__title {
+  font-family: var(--typography-font-family-display);
+  font-size: var(--typography-font-size-xl);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: var(--typography-line-height-tight);
+}
+
+.newsletter__description {
+  font-size: var(--typography-font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--typography-line-height-relaxed);
+  margin: 0;
+}
+
+.newsletter__form {
+  width: 100%;
+}
+
+.newsletter__input-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.newsletter__input {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--typography-font-size-base);
+  font-family: var(--typography-font-family-base);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: border-color 0.2s ease;
+}
+
+.newsletter__input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.newsletter__button {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--typography-font-size-base);
+  font-weight: var(--typography-font-weight-semibold);
+  font-family: var(--typography-font-family-base);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.newsletter__button:hover {
+  background: var(--color-primary-dark);
+}
+
+.newsletter__privacy {
+  font-size: var(--typography-font-size-sm);
+  color: var(--color-text-muted);
+  text-align: center;
+  margin: 0;
+}
+
+/* Hero variant */
+.newsletter--hero {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+}
+
+.newsletter--hero .newsletter__title {
+  color: var(--color-text-light);
+}
+
+.newsletter--hero .newsletter__description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.newsletter--hero .newsletter__privacy {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Compact variant */
+.newsletter--compact .newsletter__input-group {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .newsletter__input-group {
+    flex-direction: column;
+  }
+
+  .newsletter__button {
+    width: 100%;
+  }
+
+  .newsletter__title {
+    font-size: var(--typography-font-size-lg);
+  }
+}
+</style>
