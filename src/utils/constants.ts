@@ -40,9 +40,7 @@ export const SOCIAL_LINKS = {
 export const NAVIGATION_LINKS = [
   { href: '/#barn', label: 'Thank You' },
   { href: '/#whats-next', label: "What's Next" },
-  { href: '/#faq', label: 'FAQ' },
-  { href: '/yorkville-schoolhouse-ranch', label: 'Venue' },
-  { href: '/financial-transparency', label: 'Support' }
+  { href: '/#faq', label: 'FAQ' }
 ];
 
 export const ARTISTS = [
