@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
 import Hero from '../components/ui/Hero.astro';
+import CTA from '../components/ui/CTA.astro';
 import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
 import { ARTISTS } from '../utils/constants';
 ---
@@ -141,14 +142,14 @@ import { ARTISTS } from '../utils/constants';
   </section>
 
   <!-- Newsletter CTA Section -->
-  <section class="section section--newsletter-cta">
-    <div class="newsletter-cta__container">
-      <h2 class="newsletter-cta__title">Join Us for Dive Barn 2026</h2>
-      <p class="newsletter-cta__text">
-        Subscribe to our newsletter for 2026 announcements, artist application openings, and volunteer opportunities.
-      </p>
+  <section class="section">
+    <CTA
+      variant="newsletter"
+      title="Join Us for Dive Barn 2026"
+      text="Subscribe to our newsletter for 2026 announcements, artist application openings, and volunteer opportunities."
+    >
       <NewsletterSignup variant="default" title="" description="" hidePrivacy={true} />
-    </div>
+    </CTA>
   </section>
 
   <!-- Footer -->
@@ -305,35 +306,6 @@ import { ARTISTS } from '../utils/constants';
     transform: scale(1.05);
   }
 
-  /* Newsletter CTA Section */
-  .section--newsletter-cta {
-    background: var(--color-primary);
-    padding: calc(var(--spacing-section) * 1.5) var(--spacing-container);
-  }
-
-  .newsletter-cta__container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .newsletter-cta__title {
-    font-family: var(--typography-font-family-display);
-    font-size: var(--typography-font-size-2xl);
-    font-weight: var(--typography-font-weight-bold);
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-lg);
-    line-height: var(--typography-line-height-tight);
-  }
-
-  .newsletter-cta__text {
-    font-size: var(--typography-font-size-lg);
-    color: var(--color-text-light);
-    line-height: var(--typography-line-height-relaxed);
-    margin-bottom: var(--spacing-xl);
-    opacity: 0.95;
-  }
-
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .artists__grid,
@@ -344,14 +316,6 @@ import { ARTISTS } from '../utils/constants';
     .gallery__grid {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: var(--spacing-sm);
-    }
-
-    .newsletter-cta__title {
-      font-size: var(--typography-font-size-xl);
-    }
-
-    .newsletter-cta__text {
-      font-size: var(--typography-font-size-base);
     }
   }
 </style>
