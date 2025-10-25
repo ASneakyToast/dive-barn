@@ -5,12 +5,14 @@ interface Props extends ComponentProps {
   variant?: 'default' | 'compact' | 'hero';
   title?: string;
   description?: string;
+  hidePrivacy?: boolean;
 }
 
 const {
   variant = 'default',
   title = 'Get Updates for 2026',
   description = 'Be the first to know when we announce the date, open artist applications, and share other festival news.',
+  hidePrivacy = false,
   class: className,
   ...rest
 } = Astro.props;
@@ -39,9 +41,11 @@ const classes = [
       >
         Subscribe to Newsletter
       </a>
-      <p class="newsletter__privacy">
-        We'll send occasional updates about Dive Barn 2026. No spam, ever.
-      </p>
+      {!hidePrivacy && (
+        <p class="newsletter__privacy">
+          We'll send occasional updates about Dive Barn 2026. No spam, ever.
+        </p>
+      )}
     </div>
   </div>
 </div>
