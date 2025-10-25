@@ -38,10 +38,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const NAVIGATION_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/schedule', label: 'Schedule' },
-  { href: '/yorkville-schoolhouse-ranch', label: 'Venue' },
-  { href: '/financial-transparency', label: 'Transparency' }
+  { href: '/#barn', label: 'Thank You' },
+  { href: '/#whats-next', label: "What's Next" },
+  { href: '/#faq', label: 'FAQ' }
 ];
 
 export const ARTISTS = [

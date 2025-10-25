@@ -11,6 +11,7 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import ArtistList from '../components/ui/ArtistList.astro';
+import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
 import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 ---
 
@@ -26,94 +27,70 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   <!-- Navigation -->
   <Navigation />
 
-  <!-- Floating RSVP Button -->
-  <FloatingButton 
-    href={SOCIAL_LINKS.rsvp}
-    text="RSVP" 
-    icon="→" 
-    ariaLabel="RSVP for Dive Barn 2025"
-  />
-
   <!-- Hero Section -->
-  <Hero 
+  <Hero
     id="hero"
-    backgroundImage="/media/Website Banner Image 1.png"
+    title="Dive Barn"
+    subtitle="An annual arts and music gathering on a ranch in Mendocino County"
+    backgroundImage="/media/year-one/full/community_moments-2.JPG"
   />
 
-  <!-- Festival Overview Section -->
-  <section id="festival" class="section section--festival">
+  <!-- Barn Section -->
+  <section id="barn" class="section section--barn">
     <Heading
-      title="An arts and music gathering on a ranch in Mendocino County"
-      subtitle="Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. All are welcome to this growing, one-day festival."
+      title="Thank You, 2025!"
+      subtitle="Celebrating two years of creativity and community"
     />
-    <div class="festival__layout" style="margin-bottom: var(--space-xl);">
-      <div class="festival__cards">
-        <ArtistList artists={ARTISTS} />
+    <div class="barn__container">
+      <div class="barn__content">
+        <h3 class="barn__heading">A celebration of art, music, and community</h3>
+        <p class="barn__text">
+          Beginning in 2024, Dive Barn is a gathering of artists and musicians on the Yorkville Schoolhouse Ranch, a property stewarded by the Henderson/Carlson family. This growing, one-day festival celebrates creativity and connection in a stunning rural setting.
+        </p>
+        <p class="barn__text">
+          Explore artwork and memories from previous year's events. Discover the artists, musicians, and community moments that made Dive Barn unforgettable.
+        </p>
+        <Button href="/2025-archive" variant="primary">
+          See the photo wall
+        </Button>
       </div>
 
-      <div class="festival__poster">
-        <img src="/media/Selected Photo 2 1.png" alt="Dive Barn 2025 Festival Poster" class="festival__poster-image">
+      <div class="barn__gallery">
+        <img src="/media/year-one/full/art_installation-1.JPG" alt="Art installation" class="barn__image barn__image--large" />
+        <img src="/media/year-one/full/community_moments-1.JPG" alt="Community moments" class="barn__image" />
+        <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation" class="barn__image" />
+        <img src="/media/year-one/full/community_moments-3.JPG" alt="Festival attendees" class="barn__image barn__image--wide" />
+        <img src="/media/year-one/full/art_installation-5.JPG" alt="Art installation" class="barn__image" />
+        <img src="/media/year-one/full/morning_camping-1.JPG" alt="Morning camping" class="barn__image" />
+        <img src="/media/year-one/full/art_installation-7.JPG" alt="Art installation" class="barn__image" />
       </div>
     </div>
   </section>
 
-  <!-- RSVP Call-to-Action Banner -->
-  <section class="section"> 
-    <CTA 
-      title="Reserve Your Spot"
-      text="Join us for a one-day festival of art, music, and food. All are welcome!"
-      buttonText="RSVP NOW"
-      href={SOCIAL_LINKS.rsvp}
-      variant="primary"
-      target="_blank"
-      rel="noopener"
-    />
-  </section>
-
-  <!-- Essential Info Cards Section -->
-  <section id="info" class="section section--info">
+  <!-- What's Next Section -->
+  <section id="whats-next" class="section section--whats-next">
     <Heading
-      title="Essential Details"
-      subtitle="Everything you need to know for an incredible experience"
+      title="What's Next"
+      subtitle="Dive Barn 2026 is already in the works"
     />
-    <div class="info__container">
-      <div class="info__main">
-        <div class="info__list">
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">When</h3>
-              <p class="info__item-text">October 11, 2025. Gates open at 12 noon, festivities conclude at 12 midnight.</p>
-            </div>
-          </div>
-
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Where</h3>
-              <p class="info__item-text">Yorkville Schoolhouse Ranch, Mendocino County, CA • <em>Address provided after RSVP</em></p>
-            </div>
-          </div>
-
-          <div class="info__item info__item--urgent">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Fire Safety</h3>
-              <p class="info__item-text"><strong>No campfires, candles, or flames</strong> • Ranch is extremely dry in October • Safety first, always</p>
-            </div>
-          </div>
-
-          <div class="info__item">
-            <div class="info__item-content">
-              <h3 class="info__item-title">Bring</h3>
-              <p class="info__item-text">Personal water bottle • Warm jacket for cool nights • Comfortable dancing shoes</p>
-            </div>
-          </div>
+    <div class="whats-next__container">
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/art_installation-6.JPG');">
+        <div class="whats-next__card-overlay"></div>
+        <div class="whats-next__card-content">
+          <h3 class="whats-next__title">Stay Updated</h3>
+          <p class="whats-next__text">Subscribe to our newsletter for announcements about 2026, including the date reveal and when artist applications open.</p>
+          <NewsletterSignup variant="compact" title="" description="" hidePrivacy />
         </div>
       </div>
 
-      <div class="info__sidebar">
-        <div class="info__gallery">
-          <img src="/media/year-one/full/community_moments-3.JPG" alt="Community moments at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/community_moments-1.JPG" alt="Festival attendees at Dive Barn 2024" class="info__gallery-image" />
-          <img src="/media/year-one/full/art_installation-4.JPG" alt="Art installation at Dive Barn 2024" class="info__gallery-image" />
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-one/full/community_moments-4.JPG');">
+        <div class="whats-next__card-overlay"></div>
+        <div class="whats-next__card-content">
+          <h3 class="whats-next__title">Volunteer with Us</h3>
+          <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
+          <Button href="mailto:hello@divebarn.com?subject=Volunteer%20for%20Dive%20Barn%202026" variant="secondary" class="whats-next__button-white">
+            Get Involved
+          </Button>
         </div>
       </div>
     </div>
@@ -121,131 +98,67 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
 
   <!-- FAQ Section -->
   <section id="faq" class="section section--faq">
-    <Heading title="Festival FAQ" />
+    <Heading title="Frequently Asked Questions" />
     <div class="faq__container">
 
-      <div class="faq__category">
-        <h3 class="faq__category-title">Getting There</h3>
+      <Accordion
+        question="What is Dive Barn?"
+        answer="Dive Barn is an annual one-day festival of art, music, and community on the Yorkville Schoolhouse Ranch in Mendocino County, CA. Started in 2024, it's a free, all-ages gathering that celebrates creativity and connection in a stunning rural setting."
+      />
 
-        <Accordion
-          question="How do I get to the ranch?"
-          answer="After RSVPing, you'll receive the exact address and detailed directions. The ranch is about 20 minutes from Cloverdale, where you can grab last-minute supplies. We're in rural Mendocino County, so GPS might be spotty near the end."
-        />
+      <Accordion
+        question="When is Dive Barn 2026?"
+        answer="We're planning for October 2026. Subscribe to our newsletter to be the first to know when we announce the exact date."
+      />
 
-        <Accordion
-          question="I don't have a car. Any options?"
-          answer="Add a note in your RSVP that you need a ride. We're building a carpool board to connect festival-goers—because sharing rides means more friends and fewer emissions. Community rideshare is part of the Dive Barn spirit!"
-        />
-      </div>
+      <Accordion
+        question="Is it really free?"
+        answer="Dive Barn is completely free to attend—no tickets, no admission fees. This festival is a labor of love, made possible by generous supporters and in-kind donations. While attendance is free, we welcome donations to help cover costs and support our artists."
+      />
 
-      <div class="faq__category">
-        <h3 class="faq__category-title">Financial & Logistics</h3>
+      <Accordion
+        question="How can I stay connected?"
+        answer="Subscribe to our newsletter for updates about 2026, and follow us on Instagram for community updates and festival highlights."
+      />
 
-        <Accordion
-          question="Is there a ticket price or admission fee?"
-          answer="Dive Barn is completely free to attend—no tickets, no admission fees. This festival is a labor of love, made possible by generous supporters and in-kind donations. While attendance is free, we welcome donations to help cover costs and support our artists."
-        />
+      <Accordion
+        question="Can I perform or show my art at Dive Barn?"
+        answer="Yes! We welcome artist and musician applications for each year's festival. Subscribe to our newsletter to be notified when applications open for 2026 (likely spring/early summer)."
+      />
 
-        <Accordion
-          question="How can I support the festival financially?"
-          answer="We're self-funded and rely on community support to make Dive Barn happen. Donations go directly toward artist stipends, band fees, food costs, and design services. You can contribute via <a href='https://venmo.com/dive-barn' target='_blank' rel='noopener'>Venmo @dive-barn</a>, or check out our <a href='/financial-transparency'>financial transparency page</a> to see exactly where your money goes."
-        />
-      </div>
+      <Accordion
+        question="How can I support Dive Barn?"
+        answer="Dive Barn is entirely community-funded. You can contribute via <a href='https://venmo.com/dive-barn' target='_blank' rel='noopener'>Venmo @dive-barn</a>. Check our <a href='/financial-transparency'>financial transparency page</a> to see exactly how we use funds."
+      />
 
-      <div class="faq__category">
-        <h3 class="faq__category-title">Staying Overnight</h3>
+      <Accordion
+        question="Can I volunteer or get involved?"
+        answer="Absolutely! We need help year-round with planning, and during the festival with setup, artist support, and logistics. Email hello@divebarn.com to learn about volunteer opportunities."
+      />
 
-        <Accordion
-          question="Can I stay overnight?"
-          answer="Many folks choose to stay on the ranch overnight to fully experience the festival. The property offers incredible star-gazing with no light pollution. Basic facilities are available. If you plan to stay, bring what you need: shelter, warm layers, water for your entire stay (1 gallon per person per day), a headlamp (it gets DARK out here), and breakfast/snacks for the morning after."
-        />
-
-        <Accordion
-          question="Are there showers or bathroom facilities for overnight guests?"
-          answer="We have porta potties on-site (generously provided as an in-kind donation), but no showers. If you're staying overnight, plan accordingly—bring what you need to stay comfortable. For those who prefer full amenities, hotels in Cloverdale and Boonville are about 20 minutes away."
-        />
-
-        <Accordion
-          question="What if I don't want to stay overnight?"
-          answer="That's totally fine! Cloverdale and Boonville have plenty of hotels and Airbnbs about 20 minutes away. October is peak season in wine country, so book early if you're planning to stay in town. Many people come for the evening and head back afterward."
-        />
-      </div>
-
-      <div class="faq__category">
-        <h3 class="faq__category-title">What to Bring</h3>
-        
-        <Accordion 
-          question="What should I pack for the festival?" 
-          answer="Essential items: 1 gallon of water per person per day, lunch + snacks, hat and sunscreen (it gets hot with little shade), long sleeves/sweater for nighttime, flashlight/headlamp, your health insurance card, and your dog (if you have one)! We plan on being up LATE."
-        />
-        
-        <Accordion 
-          question="Can I roast marshmallows and make s'mores?" 
-          answer="<strong>ABSOLUTELY NO FIRES ON THE PROPERTY.</strong> We cannot stress this enough—the ranch is extremely dry in October and covered in kindling. One spark could destroy everything. No campfires, no candles, no flames of any kind. Please don't ruin the night. Safety first, always."
-        />
-      </div>
-
-      <div class="faq__category">
-        <h3 class="faq__category-title">Safety & Wellness</h3>
-
-        <Accordion
-          question="What if I get hurt?"
-          answer="Be mindful of where you're walking and how you're moving, but accidents happen. If you get hurt, find one of the organizers and we'll locate first aid kits and trained organizers to help. For bigger problems, we'll call 911 (no &quot;cauterizing wounds&quot; on site!)."
-        />
-
-        <Accordion
-          question="What's the cell service/WiFi situation?"
-          answer="Cell service gets spotty around Cloverdale and you'll likely lose it completely as you approach the ranch. But don't worry—we have WiFi on the property for emergencies and staying connected. The rural setting is part of the magic, so plan for limited cell service but know you're not completely off the grid."
-        />
-
-        <Accordion
-          question="Are we really in the middle of nowhere?"
-          answer="Yeah, you'll probably lose cell service around Cloverdale, but there's WiFi on the property. The ranch is rural and remote—that's part of the magic! Plan accordingly and embrace the digital detox."
-        />
-      </div>
-
-      <div class="faq__category">
-        <h3 class="faq__category-title">Festival Experience</h3>
-
-        <Accordion
-          question="What time should I arrive?"
-          answer="Gates open at 12:00 PM (noon), but feel free to arrive whenever works for you! If you're planning to camp overnight, arriving earlier gives you time to set up before the festivities kick off. Parking is free and on-site, but arriving earlier means better spot selection. The music and main events run into the night—we're planning on being up LATE."
-        />
-
-        <Accordion
-          question="Are dogs allowed?"
-          answer="Yes! Dogs are absolutely welcome at Dive Barn. Bring your furry friend along for the adventure. Just make sure they're well-behaved around crowds and other dogs, and please clean up after them. The ranch has plenty of space for them to explore safely."
-        />
-
-        <Accordion
-          question="Can I leave and re-enter?"
-          answer="Absolutely! Feel free to come and go as you please. The ranch is about 20 minutes from Cloverdale and Yorkville, and there are wineries scattered throughout the area. Many folks arrive early to set up camp, then explore nearby attractions before the evening festivities. Make a day (and night) of it!"
-        />
-      </div>
-
-      <div class="faq__category">
-        <h3 class="faq__category-title">After the Festival</h3>
-
-        <Accordion
-          question="I lost something important! Who do I contact?"
-          answer="First, post on the RSVP board to see if any other festival-goers picked it up. Second, email hello@divebarn.com with a description. If we find something matching, we'll get in touch!"
-        />
-      </div>
+      <Accordion
+        question="Where is it located?"
+        answer="Dive Barn takes place at the Yorkville Schoolhouse Ranch in Mendocino County, California—a 2,000-acre property about 20 minutes from Cloverdale. The exact address is provided to those who RSVP."
+      />
 
     </div>
+    <p class="faq__footer-note">
+      Planning to attend next year? Check out our <a href="/festival-guide">Festival Guide</a> for everything you need to know about camping, what to bring, and day-of logistics.
+    </p>
   </section>
 
   <!-- Featured Cards Section -->
-  <section class="section section--featured-cards">
+  <section class="section section--featured-cards" style="background-image: url('/media/year-one/full/art_installation-2.JPG'); background-size: cover; background-position: center; position: relative;">
+    <div class="featured-cards__overlay"></div>
     <div class="featured-cards__grid">
-      <Card href="/schedule" hoverable>
+      <Card href="/2025-archive" hoverable>
         <div class="db-card-header">
           <div class="db-card-content">
-            <h3 class="db-card-title">Full Schedule</h3>
+            <h3 class="db-card-title">2025 Archive</h3>
           </div>
         </div>
-        <p class="db-card-text">View the complete lineup of art installations, music performances, and food offerings throughout the day.</p>
-        <span class="db-card-link">See the schedule →</span>
+        <p class="db-card-text">View all the artists, musicians, and moments from October 11, 2025—our second annual gathering.</p>
+        <span class="db-card-link">See 2025 highlights →</span>
       </Card>
 
       <Card href="/yorkville-schoolhouse-ranch" hoverable>
@@ -273,3 +186,210 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   <!-- Footer -->
   <Footer />
 </BaseLayout>
+
+<style>
+  /* Barn Section */
+  .barn__container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: var(--spacing-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .barn__content {
+  }
+
+  .barn__heading {
+    font-family: var(--typography-font-family-display);
+    font-size: var(--typography-font-size-xl);
+    font-weight: var(--typography-font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    line-height: var(--typography-line-height-tight);
+  }
+
+  .barn__text {
+    font-size: var(--typography-font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--typography-line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* Bento Box Gallery */
+  .barn__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: var(--spacing-sm);
+  }
+
+  .barn__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .barn__image:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  /* Bento Box variations */
+  .barn__image--large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .barn__image--wide {
+    grid-column: span 2;
+  }
+
+  .barn__image--tall {
+    grid-row: span 2;
+  }
+
+  /* Featured Cards with Background */
+  .section--featured-cards {
+    position: relative;
+  }
+
+  .featured-cards__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+  }
+
+  .featured-cards__grid {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* FAQ Footer Note */
+  .faq__footer-note {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    font-size: var(--typography-font-size-base);
+    color: var(--color-text-secondary);
+  }
+
+  .faq__footer-note a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: var(--typography-font-weight-semibold);
+  }
+
+  .faq__footer-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* What's Next Section */
+  .section--whats-next {
+    background: var(--color-surface-variant);
+  }
+
+  .whats-next__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .whats-next__card {
+    background: var(--color-surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .whats-next__card--with-bg {
+    background-size: cover;
+    background-position: center;
+    border: none;
+  }
+
+  .whats-next__card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+  }
+
+  .whats-next__card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .whats-next__title {
+    font-family: var(--typography-font-family-display);
+    font-size: var(--typography-font-size-xl);
+    font-weight: var(--typography-font-weight-bold);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .whats-next__text {
+    font-size: var(--typography-font-size-base);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: var(--typography-line-height-relaxed);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .whats-next__button-white {
+    background: var(--color-surface-light, #fff) !important;
+    color: var(--color-text-primary) !important;
+    border-color: transparent !important;
+  }
+
+  .whats-next__button-white:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .barn__container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .barn__content {
+      padding-right: 0;
+    }
+
+    .barn__gallery {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 200px);
+    }
+
+    .barn__image--large,
+    .barn__image--wide,
+    .barn__image--tall {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+
+    .whats-next__container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+  }
+</style>

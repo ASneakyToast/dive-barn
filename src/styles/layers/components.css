@@ -1319,6 +1319,36 @@
     background-blend-mode: overlay;
   }
 
+  .db-cta--newsletter {
+    background: var(--color-primary);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .db-cta--newsletter .db-cta__container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+
+  .db-cta--newsletter .db-cta__content {
+    max-width: 700px;
+    min-width: unset;
+  }
+
+  /* Newsletter CTA button styling - white background with colored text */
+  .db-cta--newsletter .newsletter__button {
+    background: var(--color-white) !important;
+    color: var(--color-primary) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .db-cta--newsletter .newsletter__button:hover {
+    background: var(--color-white) !important;
+    color: var(--color-secondary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25) !important;
+  }
+
   /* Decorative overlay effect */
   .db-cta::before {
     content: '';
@@ -1333,7 +1363,8 @@
 
   /* Reset decorative overlay for CTAs with background images */
   .db-cta--primary::before,
-  .db-cta--donation::before {
+  .db-cta--donation::before,
+  .db-cta--newsletter::before {
     display: none;
   }
 

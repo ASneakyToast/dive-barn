@@ -4,14 +4,14 @@ import type { ComponentProps } from '../../types';
 interface Props extends ComponentProps {
   title: string;
   text: string;
-  buttonText: string;
-  href: string;
-  variant?: 'primary' | 'donation';
+  buttonText?: string;
+  href?: string;
+  variant?: 'primary' | 'donation' | 'newsletter';
   target?: string;
   rel?: string;
 }
 
-const { 
+const {
   title,
   text,
   buttonText,
@@ -20,7 +20,7 @@ const {
   target,
   rel,
   class: className,
-  ...rest 
+  ...rest
 } = Astro.props;
 
 const classes = [
@@ -36,13 +36,17 @@ const classes = [
       <h2 class="db-cta__title">{title}</h2>
       <p class="db-cta__text">{text}</p>
     </div>
-    <a 
-      href={href} 
-      class="db-cta__button"
-      {target}
-      {rel}
-    >
-      {buttonText}
-    </a>
+    {variant === 'newsletter' ? (
+      <slot />
+    ) : (
+      <a
+        href={href}
+        class="db-cta__button"
+        {target}
+        {rel}
+      >
+        {buttonText}
+      </a>
+    )}
   </div>
 </div>
