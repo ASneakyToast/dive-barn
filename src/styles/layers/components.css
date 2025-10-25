@@ -1336,13 +1336,16 @@
   }
 
   /* Newsletter CTA button styling - white background with colored text */
-  .db-cta--newsletter .newsletter__button {
+  /* Higher specificity to override scoped Astro styles */
+  .db-cta--newsletter .newsletter .newsletter__button,
+  .db-cta--newsletter .newsletter__button.newsletter__button {
     background: var(--color-white) !important;
     color: var(--color-primary) !important;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
   }
 
-  .db-cta--newsletter .newsletter__button:hover {
+  .db-cta--newsletter .newsletter .newsletter__button:hover,
+  .db-cta--newsletter .newsletter__button.newsletter__button:hover {
     background: var(--color-white) !important;
     color: var(--color-secondary) !important;
     transform: translateY(-2px);
