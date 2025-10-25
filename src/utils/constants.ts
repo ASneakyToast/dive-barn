@@ -3,7 +3,7 @@ import type { SiteConfig, EventInfo, VenueInfo } from '../types';
 export const SITE_CONFIG: SiteConfig = {
   title: 'Dive Barn 2025 - Annual Arts Festival',
   description: 'An arts and music gathering on a ranch in Mendocino County',
-  url: 'https://divebarn.com',
+  url: 'https://divebarn.org',
   image: '/images/dive-barn-social.jpg'
 };
 
