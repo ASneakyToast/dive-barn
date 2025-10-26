@@ -1,39 +1,86 @@
 /**
  * 2024 Dive Barn Festival Artists
- * Placeholder data - update with actual 2024 artist information
  */
 
 export interface Artist {
   name: string;
   instagram?: string;
   website?: string | null;
+  type?: 'section';
 }
 
 export const artists2024: Artist[] = [
-  // TODO: Replace with actual 2024 artist data
   {
-    name: '2024 Artist 1',
-    instagram: 'https://www.instagram.com/example/',
+    type: 'section',
+    name: 'Artists'
+  },
+  {
+    name: 'Johannes Valvur',
+    instagram: undefined,
     website: null
   },
   {
-    name: '2024 Artist 2',
-    instagram: 'https://www.instagram.com/example/',
-    website: 'https://example.com'
-  },
-  {
-    name: '2024 Artist 3',
-    instagram: 'https://www.instagram.com/example/',
+    name: 'Sophie Smith',
+    instagram: 'https://www.instagram.com/sophie.danger.smith/',
     website: null
   },
   {
-    name: '2024 Artist 4',
-    instagram: 'https://www.instagram.com/example/',
+    name: 'Stephanie Smith',
+    instagram: 'https://www.instagram.com/https.slts/',
     website: null
   },
   {
-    name: '2024 Artist 5',
-    instagram: 'https://www.instagram.com/example/',
-    website: 'https://example.com'
+    name: 'Annie Duncan',
+    instagram: 'https://www.instagram.com/annieduncan_/',
+    website: null
+  },
+  {
+    name: 'Joseph Blake',
+    instagram: 'https://www.instagram.com/0ddfather/',
+    website: null
+  },
+  {
+    name: 'Annie Artell',
+    instagram: undefined,
+    website: null
+  },
+  {
+    name: 'Remy Mitchell',
+    instagram: 'https://www.instagram.com/remymitchell/',
+    website: null
+  },
+  {
+    name: 'Lizzy Myers',
+    instagram: 'https://www.instagram.com/lizzymontanamyers/',
+    website: null
+  },
+  {
+    name: 'Kiran Sahgal',
+    instagram: 'https://www.instagram.com/yay_kiku/',
+    website: null
+  },
+  {
+    name: 'Gabriel Garza',
+    instagram: undefined,
+    website: null
+  },
+  {
+    name: 'Joel Lithgow',
+    instagram: 'https://www.instagram.com/joellithgow/',
+    website: null
+  },
+  {
+    name: 'Alex Uranga',
+    instagram: 'https://www.instagram.com/alex_uranga/',
+    website: null
+  },
+  {
+    type: 'section',
+    name: 'Musicians'
+  },
+  {
+    name: 'Lofi Legs',
+    instagram: undefined,
+    website: null
   },
 ];
