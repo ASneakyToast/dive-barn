@@ -1,0 +1,110 @@
+---
+// FilterBar component - Year filtering for photo archive
+interface Props {
+  years: number[];
+}
+
+const { years } = Astro.props;
+---
+
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-bar__container">
+    <div class="filter-bar__content">
+      <!-- Year Filter Pills -->
+      <div class="filter-pills" id="year-filters">
+        <button class="filter-pill" data-filter-type="year" data-value="all" data-active="true">
+          All
+        </button>
+        {years.map(year => (
+          <button class="filter-pill" data-filter-type="year" data-value={year}>
+            {year}
+          </button>
+        ))}
+      </div>
+
+      <!-- Photo Count -->
+      <div class="filter-stats">
+        <span id="photo-count" class="filter-stats__text"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .filter-bar {
+    background: var(--color-surface-variant);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-xl) 0;
+  }
+
+  .filter-bar__container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .filter-bar__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+  }
+
+  .filter-pills {
+    display: flex;
+    gap: var(--spacing-xs);
+    flex-wrap: wrap;
+  }
+
+  .filter-pill {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border: 1.5px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-secondary);
+    border-radius: 100px;
+    font-size: var(--typography-font-size-sm);
+    font-weight: var(--typography-font-weight-medium);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .filter-pill:hover {
+    border-color: var(--color-primary);
+    background: var(--color-surface-variant);
+  }
+
+  .filter-pill[data-active="true"] {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .filter-stats {
+    font-size: var(--typography-font-size-sm);
+    color: var(--color-text-secondary);
+    font-weight: var(--typography-font-weight-medium);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .filter-bar {
+      padding: var(--spacing-md) 0;
+    }
+
+    .filter-bar__container {
+      padding: 0 var(--spacing-md);
+    }
+
+    .filter-bar__content {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+    }
+
+    .filter-stats {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

@@ -6,19 +6,21 @@ interface Props extends ComponentProps {
   subtitle?: string;
   tagline?: string;
   backgroundImage?: string;
+  backgroundImages?: string[];
   variant?: 'default' | 'financial' | 'ranch';
   level?: HeadingLevel;
 }
 
-const { 
+const {
   title,
   subtitle,
   tagline,
   backgroundImage,
+  backgroundImages,
   variant = 'default',
   level = 1,
   class: className,
-  ...rest 
+  ...rest
 } = Astro.props;
 
 const HeadingTag = `h${level}` as keyof HTMLElementTagNameMap;
@@ -27,15 +29,26 @@ const SubtitleTag = `h${level + 1}` as keyof HTMLElementTagNameMap;
 const classes = [
   'hero',
   variant !== 'default' && `hero--${variant}`,
+  backgroundImages && 'hero--slideshow',
   className
 ].filter(Boolean).join(' ');
 
-const heroStyle = backgroundImage 
+const heroStyle = backgroundImage
   ? `background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`
   : '';
 ---
 
 <section class={classes} style={heroStyle} {...rest}>
+  {backgroundImages && (
+    <div class="hero__slideshow">
+      {backgroundImages.map((image, index) => (
+        <div
+          class="hero__slide"
+          style={`background-image: url('${image}'); animation-delay: ${index * 4}s;`}
+        />
+      ))}
+    </div>
+  )}
   <div class="hero__container">
     <div class="hero__content">
       <HeadingTag class="hero__title">{title}</HeadingTag>
@@ -144,5 +157,80 @@ const heroStyle = backgroundImage
   .hero__content {
     animation: none;
   }
+
+  .hero__slide {
+    animation: none !important;
+  }
+
+  .hero__slide:not(:first-child) {
+    display: none;
+  }
+}
+
+/* Hero Slideshow */
+.hero__slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: heroSlideshow 20s infinite;
+}
+
+.hero__slide:first-child {
+  animation-delay: 0s;
+}
+
+.hero__slide:last-child {
+  /* Last image holds until loop for seamless restart */
+  animation: heroSlideshowLast 20s infinite;
+}
+
+/* Smooth crossfade with 1s overlap */
+/* Each image: 1s fade in, 3s hold, 1s fade out */
+@keyframes heroSlideshow {
+  0% { opacity: 0; }       /* Hidden */
+  5% { opacity: 1; }       /* Fade in (0-1s) */
+  20% { opacity: 1; }      /* Hold (1-4s) */
+  25% { opacity: 0; }      /* Fade out (4-5s) */
+  100% { opacity: 0; }     /* Stay hidden */
+}
+
+/* Last image: fades out to overlap with first image's fade-in at loop */
+@keyframes heroSlideshowLast {
+  0% { opacity: 0; }       /* Hidden */
+  5% { opacity: 1; }       /* Fade in (0-1s) */
+  15% { opacity: 1; }      /* Hold (1-3s) */
+  20% { opacity: 0; }      /* Fade out (3-4s) - overlaps with loop */
+  100% { opacity: 0; }     /* Hidden */
+}
+
+/* Dark overlay for better text readability on slideshow */
+.hero--slideshow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.hero--slideshow .hero__container {
+  z-index: 2;
+  position: relative;
 }
 </style>
