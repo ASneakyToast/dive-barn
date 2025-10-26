@@ -1,0 +1,127 @@
+---
+interface Props {
+  years: number[];
+}
+
+const { years } = Astro.props;
+---
+
+<nav class="year-nav">
+  <div class="year-nav__container">
+    <div class="year-nav__links">
+      {years.map(year => (
+        <a href={`#year-${year}`} class="year-nav__link">
+          {year}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .year-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    width: fit-content;
+    border-right: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    border-top-right-radius: var(--border-radius-md);
+    padding: var(--spacing-xs) var(--spacing-xs);
+    backdrop-filter: blur(10px);
+    background: rgba(var(--color-background-rgb, 255, 255, 255), 0.95);
+    box-shadow: 2px -2px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(120%);
+    transition: transform 0.3s ease;
+  }
+
+  .year-nav.year-nav--visible {
+    transform: translateY(0);
+  }
+
+  .year-nav__container {
+    padding: 0;
+  }
+
+  .year-nav__links {
+    display: flex;
+    gap: 0;
+    align-items: center;
+  }
+
+  .year-nav__link {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: var(--typography-font-weight-medium);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .year-nav__link:hover {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .year-nav {
+      padding: var(--spacing-xs) var(--spacing-xs);
+    }
+
+    .year-nav__links {
+      gap: 0;
+    }
+
+    .year-nav__link {
+      padding: 6px var(--spacing-md);
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script>
+  // Smooth scroll behavior and slide-in for year navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    const yearNav = document.querySelector('.year-nav');
+    const yearLinks = document.querySelectorAll('.year-nav__link');
+
+    // Scroll detection for slide-in
+    function handleScroll() {
+      const scrollThreshold = window.innerHeight * 3; // Show nav after scrolling 3x viewport height
+
+      if (window.scrollY > scrollThreshold) {
+        yearNav?.classList.add('year-nav--visible');
+      } else {
+        yearNav?.classList.remove('year-nav--visible');
+      }
+    }
+
+    // Listen to scroll events
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+
+    // Smooth scroll behavior
+    yearLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        if (!targetId) return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const navHeight = 60; // Approximate height of year-nav
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>

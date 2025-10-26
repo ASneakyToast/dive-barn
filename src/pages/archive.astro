@@ -5,18 +5,21 @@ import Footer from '../components/layout/Footer.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import CTA from '../components/ui/CTA.astro';
 import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
-import FilterBar from '../components/ui/FilterBar.astro';
-import PhotoWall from '../components/ui/PhotoWall.astro';
+import YearSection from '../components/archive/YearSection.astro';
+import YearNavigation from '../components/archive/YearNavigation.astro';
 import PhotoLightbox from '../components/ui/PhotoLightbox.astro';
-import ArtistPanel from '../components/ui/ArtistPanel.astro';
-import { allPhotos, getAllYears } from '../data/allPhotos';
+import { allPhotos, getPhotosByYear } from '../data/allPhotos';
+import { ARTISTS } from '../utils/constants';
+import { artists2024 } from '../data/artists2024';
 
-const years = getAllYears();
+const photos2024 = getPhotosByYear(2024);
+const photos2025 = getPhotosByYear(2025);
+const years = [2025, 2024];
 ---
 
 <BaseLayout
-  title="Dive Barn - Festival Photo Archive"
-  description="Explore the complete visual archive from Dive Barn 2024 and 2025 - art installations, community moments, and unforgettable memories from our annual gathering."
+  title="Dive Barn - Photo Archive"
+  description="Explore the visual archive from Dive Barn 2024 and 2025 - art installations, community moments, and unforgettable memories from our annual gathering."
   type="event"
   date="2025-10-11"
 >
@@ -26,17 +29,17 @@ const years = getAllYears();
   <!-- Navigation -->
   <Navigation />
 
-  <!-- Photo Wall -->
-  <PhotoWall photos={allPhotos} />
+  <!-- 2025 Section -->
+  <YearSection year={2025} artists={ARTISTS} photos={photos2025} />
 
-  <!-- Filter Bar -->
-  <FilterBar years={years} />
+  <!-- 2024 Section -->
+  <YearSection year={2024} artists={artists2024} photos={photos2024} />
+
+  <!-- Year Navigation -->
+  <YearNavigation years={years} />
 
   <!-- Photo Lightbox -->
   <PhotoLightbox />
-
-  <!-- Artist Panel -->
-  <ArtistPanel />
 
   <!-- Newsletter CTA Section -->
   <section class="section">

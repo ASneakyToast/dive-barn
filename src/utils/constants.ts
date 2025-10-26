@@ -45,6 +45,10 @@ export const NAVIGATION_LINKS = [
 
 export const ARTISTS = [
   {
+    type: 'section',
+    name: 'Artists'
+  },
+  {
     name: 'Selby Sohn',
     instagram: 'https://www.instagram.com/selbysohn/',
     website: 'http://selbysohn.com/?fbclid=PAZXh0bgNhZW0CMTEAAadFAR_YAuRf8IxTwbgtjhtnNsfe0Fsue_SLqPiOSsEpKjH7AT1uafkY-EUN4A_aem_uYdJiRNyUNpKufdsCucAig'
@@ -58,11 +62,6 @@ export const ARTISTS = [
     name: 'Dana Morrison',
     instagram: 'https://www.instagram.com/dana.r.morrison/',
     website: 'http://www.danamorrison.com/?fbclid=PAZXh0bgNhZW0CMTEAAafio4-R1L2YIESJ75q4Fem_lqe8ofXlxl0nDrE5NfaLqU1U4VPj-nUrPxufzw_aem_E3cYwZlDDLvedUV3Dl7l1Q'
-  },
-  {
-    name: 'Manuel Calderón Martínez',
-    instagram: 'https://www.instagram.com/manmamusic/',
-    website: 'https://manuelmartinezmusic.com/?fbclid=PAZXh0bgNhZW0CMTEAAaczRlo08MUEOxEk8WRgARt-01VKVRLIkDrmdKtJCTtXUKKQ3IES6mnR7tHNog_aem_57DkkjMJ1KBsviVrCupkyQ'
   },
   {
     name: 'Reniel Del Rosario',
@@ -93,6 +92,15 @@ export const ARTISTS = [
     name: 'Sylvia Hughes-Gonzales',
     instagram: 'https://www.instagram.com/sylvia.hu_go/',
     website: 'https://www.sylviahughesgonzales.com/'
+  },
+  {
+    type: 'section',
+    name: 'Musicians'
+  },
+  {
+    name: 'Manuel Calderón Martínez',
+    instagram: 'https://www.instagram.com/manmamusic/',
+    website: 'https://manuelmartinezmusic.com/?fbclid=PAZXh0bgNhZW0CMTEAAaczRlo08MUEOxEk8WRgARt-01VKVRLIkDrmdKtJCTtXUKKQ3IES6mnR7tHNog_aem_57DkkjMJ1KBsviVrCupkyQ'
   },
   {
     name: 'Esther',
