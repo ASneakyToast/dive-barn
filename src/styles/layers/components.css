@@ -1286,6 +1286,18 @@
     background: var(--color-surface-variant);
   }
 
+  /* Navigation Mobile Styles */
+  @media (max-width: 768px) {
+    .nav__list {
+      gap: var(--spacing-sm);
+    }
+
+    .nav__link {
+      padding: var(--spacing-xs) var(--spacing-xs);
+      font-size: var(--typography-font-size-sm);
+    }
+  }
+
   /* CTA Component */
   .db-cta {
     padding: var(--spacing-lg) 0;

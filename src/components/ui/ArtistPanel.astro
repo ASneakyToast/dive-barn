@@ -113,32 +113,32 @@ const musicians = ARTISTS.filter(artist => ['Good Actor', 'Town Bully'].includes
   /* Floating Artist Button */
   .artist-button {
     position: fixed;
-    bottom: var(--spacing-xl);
-    right: var(--spacing-xl);
+    bottom: calc(36px + 8px); /* Above the fixed filter bar (filter bar height ~36px + 8px spacing) */
+    right: var(--spacing-lg);
     background: var(--color-primary);
     color: white;
     border: none;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 6px var(--spacing-sm);
     border-radius: 100px;
-    font-size: var(--typography-font-size-base);
+    font-size: 12px;
     font-weight: var(--typography-font-weight-medium);
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
+    gap: 6px;
     transition: all 0.3s ease;
     z-index: 999;
+  }
+
+  .artist-button svg {
+    width: 16px;
+    height: 16px;
   }
 
   .artist-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
-  }
-
-  .artist-button svg {
-    width: 20px;
-    height: 20px;
   }
 
   /* Panel */
@@ -310,9 +310,15 @@ const musicians = ARTISTS.filter(artist => ['Good Actor', 'Town Bully'].includes
 
   @media (max-width: 768px) {
     .artist-button {
-      bottom: var(--spacing-lg);
-      right: var(--spacing-lg);
-      padding: var(--spacing-sm) var(--spacing-md);
+      bottom: calc(32px + 6px); /* Above the fixed filter bar on mobile (filter bar height ~32px + 6px spacing) */
+      right: var(--spacing-sm);
+      padding: 5px 10px;
+      font-size: 11px;
+    }
+
+    .artist-button svg {
+      width: 14px;
+      height: 14px;
     }
 
     .artist-panel__drawer {

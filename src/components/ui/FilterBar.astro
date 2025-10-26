@@ -10,16 +10,19 @@ const { years } = Astro.props;
 <div class="filter-bar" id="filter-bar">
   <div class="filter-bar__container">
     <div class="filter-bar__content">
-      <!-- Year Filter Pills -->
-      <div class="filter-pills" id="year-filters">
-        <button class="filter-pill" data-filter-type="year" data-value="all" data-active="true">
+      <!-- Filter Pills -->
+      <div class="filter-pills" id="filter-pills">
+        <button class="filter-pill" data-filter-type="view" data-value="all" data-active="true">
           All
         </button>
         {years.map(year => (
-          <button class="filter-pill" data-filter-type="year" data-value={year}>
+          <button class="filter-pill" data-filter-type="view" data-value={year}>
             {year}
           </button>
         ))}
+        <button class="filter-pill" data-filter-type="view" data-value="artists">
+          Artists
+        </button>
       </div>
 
       <!-- Photo Count -->
@@ -32,41 +35,50 @@ const { years } = Astro.props;
 
 <style>
   .filter-bar {
-    background: var(--color-surface-variant);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--color-background);
     border-top: 1px solid var(--color-border);
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-sm) 0;
+    backdrop-filter: blur(10px);
+    background: rgba(var(--color-background-rgb, 255, 255, 255), 0.95);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .filter-bar__container {
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-md);
   }
 
   .filter-bar__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
   }
 
   .filter-pills {
     display: flex;
-    gap: var(--spacing-xs);
-    flex-wrap: wrap;
+    gap: 6px;
+    flex-wrap: nowrap;
   }
 
   .filter-pill {
-    padding: var(--spacing-xs) var(--spacing-md);
-    border: 1.5px solid var(--color-border);
+    padding: 4px 12px;
+    border: 1px solid var(--color-border);
     background: var(--color-surface);
     color: var(--color-text-secondary);
     border-radius: 100px;
-    font-size: var(--typography-font-size-sm);
+    font-size: 12px;
     font-weight: var(--typography-font-weight-medium);
     cursor: pointer;
     transition: all 0.2s ease;
     white-space: nowrap;
+    line-height: 1.4;
   }
 
   .filter-pill:hover {
@@ -81,7 +93,7 @@ const { years } = Astro.props;
   }
 
   .filter-stats {
-    font-size: var(--typography-font-size-sm);
+    font-size: 12px;
     color: var(--color-text-secondary);
     font-weight: var(--typography-font-weight-medium);
     white-space: nowrap;
@@ -89,7 +101,7 @@ const { years } = Astro.props;
 
   @media (max-width: 768px) {
     .filter-bar {
-      padding: var(--spacing-md) 0;
+      padding: var(--spacing-sm) 0;
     }
 
     .filter-bar__container {
@@ -97,14 +109,16 @@ const { years } = Astro.props;
     }
 
     .filter-bar__content {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--spacing-md);
+      gap: var(--spacing-sm);
+    }
+
+    .filter-pill {
+      padding: 4px 10px;
+      font-size: 11px;
     }
 
     .filter-stats {
-      width: 100%;
-      text-align: center;
+      font-size: 11px;
     }
   }
 </style>
