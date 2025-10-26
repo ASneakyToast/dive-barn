@@ -36,11 +36,6 @@ const heroStyle = backgroundImage
 ---
 
 <section class={classes} style={heroStyle} {...rest}>
-  {variant === 'default' && (
-    <div class="hero__logo">
-      <img src="/media/db-logo-circle.png" alt="Dive Barn Logo" class="hero__logo-image">
-    </div>
-  )}
   <div class="hero__container">
     <div class="hero__content">
       <HeadingTag class="hero__title">{title}</HeadingTag>
@@ -76,20 +71,6 @@ const heroStyle = backgroundImage
   z-index: 2;
 }
 
-.hero__logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-}
-
-.hero__logo-image {
-  height: 200px;
-  width: auto;
-  filter: invert(1);
-}
-
 .hero__content {
   animation: slideInUp 0.8s ease-out;
 }
@@ -99,7 +80,7 @@ const heroStyle = backgroundImage
   font-size: clamp(var(--typography-font-size-2xl), 6vw, var(--typography-font-size-4xl));
   font-weight: var(--typography-font-weight-black);
   line-height: var(--typography-line-height-tight);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
