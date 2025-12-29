@@ -5,7 +5,6 @@ import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import CTA from '../components/ui/CTA.astro';
-import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
 import YearSection from '../components/archive/YearSection.astro';
 import YearNavigation from '../components/archive/YearNavigation.astro';
 import PhotoLightbox from '../components/ui/PhotoLightbox.astro';
@@ -82,16 +81,48 @@ const years = [2025, 2024];
   <!-- Photo Lightbox -->
   <PhotoLightbox />
 
-  <!-- Newsletter CTA Section -->
+  <!-- Continue the Journey Section -->
   <section class="section">
     <CTA
       variant="newsletter"
-      title="Join Us for Dive Barn 2026"
-      text="Subscribe to our newsletter for 2026 announcements, artist application openings, and volunteer opportunities."
+      title="The Journey Continues"
+      text="While Dive Barn has concluded, the organizers continue to create and connect. Follow their ongoing projects."
     >
-      <NewsletterSignup variant="default" title="" description="" hidePrivacy={true} />
+      <div class="archive-cta__links">
+        <a href="https://thisisahousegallery.com" target="_blank" rel="noopener" class="archive-cta__link">
+          This Is A House Gallery →
+        </a>
+        <a href="https://www.instagram.com/offhours_sf/" target="_blank" rel="noopener" class="archive-cta__link">
+          Off Hours SF →
+        </a>
+      </div>
     </CTA>
   </section>
+
+  <style>
+    .archive-cta__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-md);
+      justify-content: center;
+    }
+
+    .archive-cta__link {
+      display: inline-block;
+      padding: var(--spacing-md) var(--spacing-xl);
+      background: var(--color-primary);
+      color: var(--color-text-light);
+      border-radius: var(--border-radius-md);
+      text-decoration: none;
+      font-weight: var(--typography-font-weight-semibold);
+      transition: all 0.2s ease;
+    }
+
+    .archive-cta__link:hover {
+      background: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+  </style>
 
   <!-- Footer -->
   <Footer />

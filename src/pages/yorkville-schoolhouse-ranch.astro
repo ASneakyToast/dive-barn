@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingButton from '../components/ui/FloatingButton.astro';
 import TimelineItem from '../components/ui/TimelineItem.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
@@ -11,8 +10,8 @@ import CTA from '../components/ui/CTA.astro';
 import Card from '../components/ui/Card.astro';
 
 // Page metadata
-const title = 'Yorkville Schoolhouse Ranch - Dive Barn 2025 | Historic Property';
-const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre historic property in Mendocino County that serves as the backdrop for Dive Barn 2025.';
+const title = 'Yorkville Schoolhouse Ranch - Dive Barn | Historic Property';
+const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre historic property in Mendocino County that served as the backdrop for Dive Barn.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -25,20 +24,10 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
   <!-- Navigation -->
   <Navigation />
 
-  <!-- Floating RSVP Button -->
-  <FloatingButton 
-    href="https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo" 
-    text="RSVP" 
-    icon="→" 
-    ariaLabel="RSVP for Dive Barn 2025" 
-    target="_blank" 
-    rel="noopener"
-  />
-
   <!-- Main Content -->
   <main id="content">
     <!-- Hero Section -->
-    <Hero 
+    <Hero
       title="Yorkville Schoolhouse Ranch"
       subtitle="A 2,000-acre historic property in the heart of Mendocino County"
       backgroundImage="/media/posters/Website Banner Image 1.png"
@@ -65,8 +54,8 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
             </p>
           </div>
           <div class="stewards__image">
-            <img src="/media/year-one/full/community_moments-1.JPG" 
-                 alt="Eric Carlson and Barbara Henderson, stewards of Yorkville Schoolhouse Ranch" 
+            <img src="https://storage.googleapis.com/divebarn-photos-manual/2024/katherine-jemima-hamilton/morning_camping-1.JPG"
+                 alt="Morning landscape at Yorkville Schoolhouse Ranch"
                  class="stewards__photo"
                  loading="lazy">
           </div>
@@ -129,62 +118,13 @@ const description = 'Learn about Yorkville Schoolhouse Ranch, a 2,000-acre histo
       </div>
     </section>
 
-    <!-- Dive Barn 2024 Gallery Section -->
-    <section class="section section--gallery">
-      <div class="gallery__container">
-        <Heading 
-          title="Dive Barn 2024 Memories" 
-          subtitle="A glimpse into the magic we created together in our first year"
-          centered={true}
-        />
-        <div class="gallery__grid">
-          <div class="gallery__item">
-            <img src="/media/year-one/full/art_installation-1.JPG" 
-                 alt="Interactive art installation at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-          <div class="gallery__item">
-            <img src="/media/year-one/full/community_moments-1.JPG" 
-                 alt="Festival attendees connecting at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-          <div class="gallery__item">
-            <img src="/media/year-one/full/art_installation-2.JPG" 
-                 alt="Art installation illuminated at night at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-          <div class="gallery__item">
-            <img src="/media/year-one/full/morning_camping-1.JPG" 
-                 alt="Sunrise moments after an unforgettable night at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-          <div class="gallery__item">
-            <img src="/media/year-one/full/community_moments-2.JPG" 
-                 alt="Community gathering at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-          <div class="gallery__item">
-            <img src="/media/year-one/full/art_installation-3.JPG" 
-                 alt="Creative art piece at Dive Barn 2024" 
-                 loading="lazy"
-                 class="gallery__image">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Large CTA Section -->
+    <!-- CTA Section -->
     <section class="section">
-      <CTA 
-        title="Experience This Historic Beauty"
-        text="Join us at Dive Barn 2025 and become part of this remarkable property's continuing story. From the historic schoolhouse to the rolling hills, every corner tells a tale."
-        buttonText="Discover Dive Barn 2025"
-        href="/"
+      <CTA
+        title="See What Happened Here"
+        text="Dive Barn called this property home for two unforgettable years. Explore the artists, musicians, and moments from 2024 and 2025."
+        buttonText="View Archive"
+        href="/archive"
         variant="primary"
       />
     </section>

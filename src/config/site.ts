@@ -6,8 +6,8 @@
 import type { SiteConfig, VenueInfo } from '../types';
 
 export const SITE_CONFIG: SiteConfig = {
-  title: 'Dive Barn - Annual Arts Festival',
-  description: 'An arts and music gathering on a ranch in Mendocino County',
+  title: 'Dive Barn - Arts Festival Archive',
+  description: 'An arts and music gathering that took place on a ranch in Mendocino County (2024-2025)',
   url: 'https://divebarn.com',
   image: '/images/dive-barn-social.jpg'
 };
@@ -27,10 +27,12 @@ export const VENUE_INFO: VenueInfo = {
 };
 
 export const SOCIAL_LINKS = {
-  rsvp: 'https://partiful.com/e/Ft3EJk5f8OUREaoQKtBo',
+  rsvp: '',
   instagram: '',
   facebook: '',
-  email: ''
+  email: '',
+  thisIsAHouseGallery: 'https://thisisahousegallery.com',
+  offHoursSF: 'https://www.instagram.com/offhours_sf/'
 };
 
 export const NAVIGATION_LINKS = [

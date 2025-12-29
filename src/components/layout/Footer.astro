@@ -1,14 +1,12 @@
 ---
-import Button from '../ui/Button.astro';
-
 interface Props {
   showTransparency?: boolean;
   lastUpdated?: string;
 }
 
-const { 
-  showTransparency = false, 
-  lastUpdated = 'August 20, 2025' 
+const {
+  showTransparency = false,
+  lastUpdated = 'August 20, 2025'
 } = Astro.props;
 ---
 
@@ -17,20 +15,20 @@ const {
     <div class="footer__content">
       <div class="footer__section">
         <h3 class="footer__title">
-          <a href="/" class="footer__title-link">Dive Barn 2025</a>
+          <a href="/" class="footer__title-link">Dive Barn</a>
         </h3>
         <p class="footer__text">
-          Building an unforgettable music and arts experience at 
-          <a href="/yorkville-schoolhouse-ranch" class="footer__inline-link">Yorkville Schoolhouse Ranch</a> 
-          through community support and transparency.
+          Two years of unforgettable music and arts experiences at
+          <a href="/yorkville-schoolhouse-ranch" class="footer__inline-link">Yorkville Schoolhouse Ranch</a>
+          (2024-2025).
         </p>
       </div>
-      
+
       <div class="footer__section">
         <h4 class="footer__subtitle">Get In Touch</h4>
         <div class="footer__contact">
           <p class="footer__contact-item">
-            <strong>Email:</strong> 
+            <strong>Email:</strong>
             <a href="mailto:divebarnranch@gmail.com" class="footer__contact-link">
               divebarnranch@gmail.com
             </a>
@@ -46,41 +44,38 @@ const {
               @divebarnranch
             </a>
           </p>
+        </div>
+      </div>
+
+      <div class="footer__section">
+        <h4 class="footer__subtitle">The Organizers</h4>
+        <div class="footer__contact">
           <p class="footer__contact-item">
-            <strong>Discord:</strong>
             <a
-              href="https://discord.gg/4P6GnqJD"
+              href="https://thisisahousegallery.com"
               class="footer__contact-link"
               target="_blank"
               rel="noopener"
             >
-              Join our community
+              This Is A House Gallery
+            </a>
+          </p>
+          <p class="footer__contact-item">
+            <a
+              href="https://www.instagram.com/offhours_sf/"
+              class="footer__contact-link"
+              target="_blank"
+              rel="noopener"
+            >
+              Off Hours SF
             </a>
           </p>
         </div>
       </div>
-      
-      <div class="footer__section">
-        <h4 class="footer__subtitle">Support Us</h4>
-        <div class="footer__donation-links">
-          <Button 
-            variant="primary" 
-            size="small"
-            href="https://venmo.com/dive-barn"
-            target="_blank" 
-            rel="noopener"
-          >
-            Venmo
-          </Button>
-        </div>
-        <a href="/financial-transparency" class="footer__transparency-link">
-          Learn more about our financial transparency
-        </a>
-      </div>
     </div>
-    
+
     <div class="footer__bottom">
-      <p class="footer__copyright">&copy; 2025 Dive Barn. All rights reserved.</p>
+      <p class="footer__copyright">&copy; 2024-2025 Dive Barn. All rights reserved.</p>
       {showTransparency && (
         <p class="footer__transparency">
           Last updated: <span id="last-updated">{lastUpdated}</span>

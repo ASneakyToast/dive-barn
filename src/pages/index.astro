@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingButton from '../components/ui/FloatingButton.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
 import Hero from '../components/ui/Hero.astro';
@@ -12,7 +11,6 @@ import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import ArtistList from '../components/ui/ArtistList.astro';
-import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
 import { SOCIAL_LINKS } from '../config/site';
 
 // Get the latest year data for EVENT_INFO
@@ -28,8 +26,8 @@ const EVENT_INFO = {
 };
 ---
 
-<BaseLayout 
-  title="Dive Barn 2025 - Annual Arts Festival"
+<BaseLayout
+  title="Dive Barn - Arts Festival Archive"
   description={EVENT_INFO.description}
   type="event"
   date={EVENT_INFO.date}
@@ -44,7 +42,7 @@ const EVENT_INFO = {
   <Hero
     id="hero"
     title="Dive Barn"
-    subtitle="An annual arts and music gathering on a ranch in Mendocino County"
+    subtitle="An arts and music gathering on a ranch in Mendocino County (2024-2025)"
     backgroundImages={[
       "/media/hero/IMG_0583.jpg",
       "/media/hero/IMG_0577.jpg",
@@ -90,25 +88,27 @@ const EVENT_INFO = {
   <section id="whats-next" class="section section--whats-next">
     <Heading
       title="What's Next"
-      subtitle="Dive Barn 2026 is already in the works"
+      subtitle="The organizers continue to create and connect"
     />
     <div class="whats-next__container">
       <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/hero/IMG_0624.jpg');">
         <div class="whats-next__card-overlay"></div>
         <div class="whats-next__card-content">
-          <h3 class="whats-next__title">Stay Updated</h3>
-          <p class="whats-next__text">Subscribe to our newsletter for announcements about 2026, including the date reveal and when artist applications open.</p>
-          <NewsletterSignup variant="compact" title="" description="" hidePrivacy />
+          <h3 class="whats-next__title">This Is A House Gallery</h3>
+          <p class="whats-next__text">A DIY House Gallery in Oakland, California.</p>
+          <Button href="https://thisisahousegallery.com" variant="primary" target="_blank" rel="noopener">
+            Visit Gallery
+          </Button>
         </div>
       </div>
 
       <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/hero/IMG_0577.jpg');">
         <div class="whats-next__card-overlay"></div>
         <div class="whats-next__card-content">
-          <h3 class="whats-next__title">Volunteer with Us</h3>
-          <p class="whats-next__text">Help bring Dive Barn 2026 to life! We need volunteers for planning, setup, artist support, and day-of logistics. Join our community of festival builders.</p>
-          <Button href="https://discord.gg/4P6GnqJD" variant="secondary" class="whats-next__button-white">
-            Get Involved
+          <h3 class="whats-next__title">Off Hours SF</h3>
+          <p class="whats-next__text">A west coast curatorial collective.</p>
+          <Button href="https://www.instagram.com/offhours_sf/" variant="primary" target="_blank" rel="noopener">
+            Follow on Instagram
           </Button>
         </div>
       </div>
@@ -120,44 +120,33 @@ const EVENT_INFO = {
     <Heading title="Frequently Asked Questions" />
     <div class="faq__container">
 
+      <h3 class="faq__section-heading">About Dive Barn</h3>
+
       <Accordion
-        question="What is Dive Barn?"
-        answer="Dive Barn is an annual one-day festival of art, music, and community on the Yorkville Schoolhouse Ranch in Mendocino County, CA. Started in 2024, it's a free, all-ages gathering that celebrates creativity and connection in a stunning rural setting."
+        question="What was Dive Barn?"
+        answer="Dive Barn was a one-day festival of art, music, and community on the Yorkville Schoolhouse Ranch in Mendocino County, CA. Running in 2024 and 2025, it was a free, all-ages gathering that celebrated creativity and connection in a stunning rural setting."
       />
 
       <Accordion
-        question="When is Dive Barn 2026?"
-        answer="We're planning for October 2026. Subscribe to our newsletter to be the first to know when we announce the exact date."
+        question="What happened at Dive Barn?"
+        answer="Each year featured a curated lineup of live music, art installations, and interactive experiences—all set against the stunning backdrop of a 2,000-acre ranch in Mendocino County."
       />
 
       <Accordion
-        question="Is it really free?"
-        answer="Dive Barn is completely free to attend—no tickets, no admission fees. This festival is a labor of love, made possible by generous supporters and in-kind donations. While attendance is free, we welcome donations to help cover costs and support our artists."
+        question="Where was it located?"
+        answer="Dive Barn took place at the Yorkville Schoolhouse Ranch in Mendocino County, California—a 2,000-acre property about 20 minutes from Cloverdale."
+      />
+
+      <h3 class="faq__section-heading">Looking Back</h3>
+
+      <Accordion
+        question="Is Dive Barn happening again?"
+        answer="After two wonderful years, Dive Barn has concluded. Thank you to everyone who made it special—the artists, musicians, volunteers, and all who attended."
       />
 
       <Accordion
-        question="How can I stay connected?"
-        answer="Subscribe to our newsletter for updates about 2026, and follow us on Instagram for community updates and festival highlights."
-      />
-
-      <Accordion
-        question="Can I perform or show my art at Dive Barn?"
-        answer="Yes! We welcome artist and musician applications for each year's festival. Subscribe to our newsletter to be notified when applications open for 2026 (likely spring/early summer)."
-      />
-
-      <Accordion
-        question="How can I support Dive Barn?"
-        answer="Dive Barn is entirely community-funded. You can contribute via <a href='https://venmo.com/dive-barn' target='_blank' rel='noopener'>Venmo @dive-barn</a>. Check our <a href='/financial-transparency'>financial transparency page</a> to see exactly how we use funds."
-      />
-
-      <Accordion
-        question="Can I volunteer or get involved?"
-        answer="Absolutely! We need help year-round with planning, and during the festival with setup, artist support, and logistics. Email hello@divebarn.com to learn about volunteer opportunities."
-      />
-
-      <Accordion
-        question="Where is it located?"
-        answer="Dive Barn takes place at the Yorkville Schoolhouse Ranch in Mendocino County, California—a 2,000-acre property about 20 minutes from Cloverdale. The exact address is provided to those who RSVP."
+        question="How can I stay connected with the organizers?"
+        answer="The spirit of Dive Barn lives on through the organizers' ongoing projects. Visit <a href='https://thisisahousegallery.com' target='_blank' rel='noopener'>This Is A House Gallery</a> and follow <a href='https://www.instagram.com/offhours_sf/' target='_blank' rel='noopener'>Off Hours SF on Instagram</a> to stay connected."
       />
 
     </div>
@@ -177,24 +166,24 @@ const EVENT_INFO = {
         <span class="db-card-link">See archive →</span>
       </Card>
 
+      <Card href="/schedule" hoverable>
+        <div class="db-card-header">
+          <div class="db-card-content">
+            <h3 class="db-card-title">Schedule</h3>
+          </div>
+        </div>
+        <p class="db-card-text">See what a day at Dive Barn looked like, from afternoon art installations to evening performances.</p>
+        <span class="db-card-link">View schedule →</span>
+      </Card>
+
       <Card href="/yorkville-schoolhouse-ranch" hoverable>
         <div class="db-card-header">
           <div class="db-card-content">
             <h3 class="db-card-title">Historic Property</h3>
           </div>
         </div>
-        <p class="db-card-text">Discover the rich history of our 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
-        <span class="db-card-link">What's happened here →</span>
-      </Card>
-
-      <Card href="/financial-transparency" hoverable>
-        <div class="db-card-header">
-          <div class="db-card-content">
-            <h3 class="db-card-title">Support the Festival</h3>
-          </div>
-        </div>
-        <p class="db-card-text">See exactly how your contributions help create this magical experience. Complete transparency on funding, expenses, and goals.</p>
-        <span class="db-card-link">View Transparency →</span>
+        <p class="db-card-text">Discover the rich history of the 2,000-acre ranch, from its origins as a schoolhouse to its role in Mendocino County's agricultural heritage.</p>
+        <span class="db-card-link">Learn the history →</span>
       </Card>
     </div>
   </section>
@@ -289,6 +278,21 @@ const EVENT_INFO = {
     z-index: 2;
   }
 
+  /* FAQ Section Headings */
+  .faq__section-heading {
+    font-family: var(--typography-font-family-display);
+    font-size: var(--typography-font-size-lg);
+    font-weight: var(--typography-font-weight-semibold);
+    color: var(--color-text-primary);
+    margin: var(--spacing-xl) 0 var(--spacing-md) 0;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq__section-heading:first-of-type {
+    margin-top: 0;
+  }
+
   /* FAQ Footer Note */
   .faq__footer-note {
     text-align: center;
@@ -367,17 +371,6 @@ const EVENT_INFO = {
     color: rgba(255, 255, 255, 0.9);
     line-height: var(--typography-line-height-relaxed);
     margin-bottom: var(--spacing-lg);
-  }
-
-  .whats-next__button-white {
-    background: var(--color-surface-light, #fff) !important;
-    color: var(--color-text-primary) !important;
-    border-color: transparent !important;
-  }
-
-  .whats-next__button-white:hover {
-    background: rgba(255, 255, 255, 0.9) !important;
-    transform: translateY(-2px);
   }
 
   /* Responsive */

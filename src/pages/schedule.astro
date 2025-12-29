@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
-import FloatingButton from '../components/ui/FloatingButton.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
 import Card from '../components/ui/Card.astro';
@@ -26,9 +25,9 @@ const scheduleEntries = await getCollection('schedule');
 const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 ---
 
-<BaseLayout 
-  title="Festival Schedule - Dive Barn 2025"
-  description="View the complete schedule for Dive Barn 2025, including performance times, artist showcases, and special events"
+<BaseLayout
+  title="Festival Schedule - Dive Barn"
+  description="View the schedule from Dive Barn 2025, including performance times, artist showcases, and special events"
   type="event"
   date={EVENT_INFO.date}
 >
@@ -37,14 +36,6 @@ const sortedSchedule = scheduleEntries.sort((a, b) => (a.data.order || 0) - (b.d
   
   <!-- Navigation -->
   <Navigation />
-
-  <!-- Floating RSVP Button -->
-  <FloatingButton 
-    href={SOCIAL_LINKS.rsvp}
-    text="RSVP" 
-    icon="→" 
-    ariaLabel="RSVP for Dive Barn 2025"
-  />
 
   <main class="main">
     <!-- Hero Section -->
