@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -9,8 +10,48 @@ import YearSection from '../components/archive/YearSection.astro';
 import YearNavigation from '../components/archive/YearNavigation.astro';
 import PhotoLightbox from '../components/ui/PhotoLightbox.astro';
 import { allPhotos, getPhotosByYear } from '../data/allPhotos';
-import { ARTISTS } from '../utils/constants';
-import { artists2024 } from '../data/artists2024';
+
+// Fetch all artists from content collection
+const allArtists = await getCollection('artists');
+
+// Helper function to format artists with section headers
+function formatArtistsWithSections(year: number) {
+  const yearArtists = allArtists
+    .filter(artist => artist.data.year === year)
+    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+  const artists = yearArtists.filter(a => a.data.type === 'artist');
+  const musicians = yearArtists.filter(a => a.data.type === 'musician');
+
+  const result: Array<{name: string; instagram?: string; website?: string | null; type?: 'section'}> = [];
+
+  if (artists.length > 0) {
+    result.push({ name: 'Artists', type: 'section' });
+    artists.forEach(artist => {
+      result.push({
+        name: artist.data.name,
+        instagram: artist.data.instagram,
+        website: artist.data.website
+      });
+    });
+  }
+
+  if (musicians.length > 0) {
+    result.push({ name: 'Musicians', type: 'section' });
+    musicians.forEach(musician => {
+      result.push({
+        name: musician.data.name,
+        instagram: musician.data.instagram,
+        website: musician.data.website
+      });
+    });
+  }
+
+  return result;
+}
+
+const artists2024 = formatArtistsWithSections(2024);
+const artists2025 = formatArtistsWithSections(2025);
 
 const photos2024 = getPhotosByYear(2024);
 const photos2025 = getPhotosByYear(2025);
@@ -30,7 +71,7 @@ const years = [2025, 2024];
   <Navigation />
 
   <!-- 2025 Section -->
-  <YearSection year={2025} artists={ARTISTS} photos={photos2025} />
+  <YearSection year={2025} artists={artists2025} photos={photos2025} />
 
   <!-- 2024 Section -->
   <YearSection year={2024} artists={artists2024} photos={photos2024} />

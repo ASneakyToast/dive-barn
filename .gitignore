@@ -1,27 +1,223 @@
+# ===========================
+# Astro
+# ===========================
 # build output
 dist/
+.output/
+
 # generated types
 .astro/
 
-# dependencies
+# ===========================
+# Dependencies
+# ===========================
 node_modules/
+.pnp
+.pnp.js
 
-# logs
+# ===========================
+# Testing & Coverage
+# ===========================
+coverage/
+*.lcov
+.nyc_output
+
+# ===========================
+# Environment Variables
+# ===========================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+
+# ===========================
+# Logs
+# ===========================
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
+# ===========================
+# OS Files
+# ===========================
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# jetbrains setting folder
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===========================
+# IDEs & Editors
+# ===========================
+# JetBrains (IntelliJ, WebStorm, etc.)
 .idea/
+*.iml
+*.iws
+*.ipr
 
-# Local Netlify folder
-.netlify
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# ===========================
+# Deployment & Hosting
+# ===========================
+# Netlify
+.netlify/
+
+# Vercel
+.vercel
+
+# ===========================
+# Project-Specific
+# ===========================
+# Large media files (we use cloud storage)
+# Uncomment if you want to exclude certain media
+# /public/media/year-*/
+# !/public/media/hero/
+# !/public/media/logos/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Build artifacts
+*.tsbuildinfo
+
+# Lock files (keep package-lock.json, remove others if needed)
+# yarn.lock
+# pnpm-lock.yaml
+
+# Local configuration
+.local/
+local.config.js
+
+# Debug files
+debug/
+*.debug.js
+
+# Documentation drafts
+# /docs/drafts/
+
+# ===========================
+# Optional: Uncomment as needed
+# ===========================
+# TypeScript cache
+# *.tsbuildinfo
+
+# Optional npm cache directory
+# .npm
+
+# Optional eslint cache
+# .eslintcache
+
+# Optional stylelint cache
+# .stylelintcache
+
+# Microbundle cache
+# .rpt2_cache/
+# .rts2_cache_cjs/
+# .rts2_cache_es/
+# .rts2_cache_umd/
+
+# Optional REPL history
+# .node_repl_history
+
+# Output of 'npm pack'
+# *.tgz
+
+# Yarn Integrity file
+# .yarn-integrity
+
+# parcel-bundler cache
+# .cache
+# .parcel-cache
+
+# Next.js build output
+# .next
+# out
+
+# Nuxt.js build / generate output
+# .nuxt
+
+# Gatsby files
+# .cache/
+# public (Gatsby uses this for output)
+
+# Storybook build outputs
+# .out
+# .storybook-out
+# storybook-static
+
+# Serverless directories
+# .serverless/
+
+# FuseBox cache
+# .fusebox/
+
+# DynamoDB Local files
+# .dynamodb/
+
+# TernJS port file
+# .tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+# .vscode-test
+
+# Temporary folders
+# tmp/
+# temp/

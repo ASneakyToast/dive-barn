@@ -7,7 +7,19 @@ import FloatingButton from '../components/ui/FloatingButton.astro';
 import ThemeToggle from '../components/ui/ThemeToggle.astro';
 import Heading from '../components/ui/Heading.astro';
 import Card from '../components/ui/Card.astro';
-import { EVENT_INFO, SOCIAL_LINKS } from '../utils/constants';
+import { SOCIAL_LINKS } from '../config/site';
+
+// Get the latest year data for EVENT_INFO
+const allYears = await getCollection('years');
+const latestYear = allYears.sort((a, b) => b.data.year - a.data.year)[0];
+const EVENT_INFO = {
+  name: `Dive Barn ${latestYear.data.year}`,
+  date: latestYear.data.date,
+  startTime: latestYear.data.startTime || '12:00',
+  endTime: latestYear.data.endTime || '23:00',
+  location: 'Yorkville Schoolhouse Ranch, Mendocino County',
+  description: latestYear.data.description
+};
 
 // Fetch schedule data from content collections
 const scheduleEntries = await getCollection('schedule');

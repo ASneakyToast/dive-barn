@@ -7,7 +7,7 @@
 
 /* Hero Section - Financial */
 .hero--financial {
-    background: url('/media/Website Banner Image 1.png') center;
+    background: url('/media/posters/Website Banner Image 1.png') center;
     background-size: contain;
     background-repeat: repeat-x;
     color: var(--color-text-light);

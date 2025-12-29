@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Navigation from '../components/layout/Navigation.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -12,7 +13,19 @@ import Card from '../components/ui/Card.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import ArtistList from '../components/ui/ArtistList.astro';
 import NewsletterSignup from '../components/ui/NewsletterSignup.astro';
-import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
+import { SOCIAL_LINKS } from '../config/site';
+
+// Get the latest year data for EVENT_INFO
+const allYears = await getCollection('years');
+const latestYear = allYears.sort((a, b) => b.data.year - a.data.year)[0];
+const EVENT_INFO = {
+  name: `Dive Barn ${latestYear.data.year}`,
+  date: latestYear.data.date,
+  startTime: latestYear.data.startTime || '12:00',
+  endTime: latestYear.data.endTime || '23:00',
+  location: 'Yorkville Schoolhouse Ranch, Mendocino County',
+  description: latestYear.data.description
+};
 ---
 
 <BaseLayout 
@@ -33,11 +46,11 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
     title="Dive Barn"
     subtitle="An annual arts and music gathering on a ranch in Mendocino County"
     backgroundImages={[
-      "/media/year-two/full/IMG_0583.jpg",
-      "/media/year-two/full/IMG_0577.jpg",
-      "/media/year-two/full/IMG_0572.jpg",
-      "/media/year-two/full/IMG_0513.jpg",
-      "/media/year-two/full/IMG_0511.jpg",
+      "/media/hero/IMG_0583.jpg",
+      "/media/hero/IMG_0577.jpg",
+      "/media/hero/IMG_0572.jpg",
+      "/media/hero/IMG_0513.jpg",
+      "/media/hero/IMG_0511.jpg",
     ]}
   />
 
@@ -62,13 +75,13 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       </div>
 
       <div class="barn__gallery">
-        <img src="/media/year-two/full/IMG_0568.jpg" alt="Colorful mask workshop inside barn" class="barn__image barn__image--large" />
-        <img src="/media/year-two/full/IMG_0572.jpg" alt="Group walking tour through festival grounds" class="barn__image" />
-        <img src="/media/year-two/full/IMG_0513.jpg" alt="Wooden ladder art piece over creek" class="barn__image" />
-        <img src="/media/year-two/full/IMG_0577.jpg" alt="Attendees gathered listening to presentation" class="barn__image barn__image--wide" />
-        <img src="/media/year-two/full/IMG_0515.jpg" alt="Close-up of wooden ladder sculpture" class="barn__image" />
-        <img src="/media/year-two/full/IMG_0587.jpg" alt="Community gathering at festival" class="barn__image" />
-        <img src="/media/year-two/full/IMG_0529.jpg" alt="Two people wearing handmade blue masks" class="barn__image" />
+        <img src="/media/hero/IMG_0568.jpg" alt="Colorful mask workshop inside barn" class="barn__image barn__image--large" />
+        <img src="/media/hero/IMG_0572.jpg" alt="Group walking tour through festival grounds" class="barn__image" />
+        <img src="/media/hero/IMG_0513.jpg" alt="Wooden ladder art piece over creek" class="barn__image" />
+        <img src="/media/hero/IMG_0577.jpg" alt="Attendees gathered listening to presentation" class="barn__image barn__image--wide" />
+        <img src="/media/hero/IMG_0515.jpg" alt="Close-up of wooden ladder sculpture" class="barn__image" />
+        <img src="/media/hero/IMG_0587.jpg" alt="Community gathering at festival" class="barn__image" />
+        <img src="/media/hero/IMG_0529.jpg" alt="Two people wearing handmade blue masks" class="barn__image" />
       </div>
     </div>
   </section>
@@ -80,7 +93,7 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
       subtitle="Dive Barn 2026 is already in the works"
     />
     <div class="whats-next__container">
-      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-two/full/IMG_0624.jpg');">
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/hero/IMG_0624.jpg');">
         <div class="whats-next__card-overlay"></div>
         <div class="whats-next__card-content">
           <h3 class="whats-next__title">Stay Updated</h3>
@@ -89,7 +102,7 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
         </div>
       </div>
 
-      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/year-two/full/IMG_0577.jpg');">
+      <div class="whats-next__card whats-next__card--with-bg" style="background-image: url('/media/hero/IMG_0577.jpg');">
         <div class="whats-next__card-overlay"></div>
         <div class="whats-next__card-content">
           <h3 class="whats-next__title">Volunteer with Us</h3>
@@ -151,7 +164,7 @@ import { EVENT_INFO, SOCIAL_LINKS, ARTISTS } from '../utils/constants';
   </section>
 
   <!-- Featured Cards Section -->
-  <section class="section section--featured-cards" style="background-image: url('/media/year-two/full/IMG_0568.jpg'); background-size: cover; background-position: center; position: relative;">
+  <section class="section section--featured-cards" style="background-image: url('/media/hero/IMG_0568.jpg'); background-size: cover; background-position: center; position: relative;">
     <div class="featured-cards__overlay"></div>
     <div class="featured-cards__grid">
       <Card href="/archive" hoverable>

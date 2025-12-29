@@ -25,7 +25,35 @@ const transparencyCollection = defineCollection({
   })
 });
 
+const yearsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    year: z.number(),
+    date: z.string(),
+    theme: z.string(),
+    description: z.string(),
+    status: z.enum(['upcoming', 'past']),
+    startTime: z.string().optional(),
+    endTime: z.string().optional()
+  })
+});
+
+const artistsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    year: z.number(),
+    type: z.enum(['artist', 'musician']),
+    instagram: z.string().optional(),
+    website: z.string().optional(),
+    bio: z.string().optional(),
+    order: z.number().optional()
+  })
+});
+
 export const collections = {
   schedule: scheduleCollection,
-  transparency: transparencyCollection
+  transparency: transparencyCollection,
+  years: yearsCollection,
+  artists: artistsCollection
 };

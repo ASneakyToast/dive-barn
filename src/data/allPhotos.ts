@@ -3,8 +3,29 @@
  * Combines 2024 and 2025 festival photos
  */
 
-import { photos2025 } from './photos2025';
-import { photos2024 } from './photos2024';
+import photos2024Data from './photos/2024.json';
+import photos2025Data from './photos/2025.json';
+
+// Photo interfaces for type safety
+export interface Photo2024 {
+  id: string;
+  filename: string;
+  url: string;
+  photographer: 'katherine-jemima-hamilton';
+  categories: string[];
+  caption: string;
+  year: 2024;
+}
+
+export interface Photo2025 {
+  id: string;
+  filename: string;
+  url: string;
+  photographer: 'dana-morrison' | 'joseph-blake';
+  categories: string[];
+  caption: string;
+  year: 2025;
+}
 
 // Unified photo interface
 export interface ArchivePhoto {
@@ -16,6 +37,10 @@ export interface ArchivePhoto {
   caption: string;
   year: 2024 | 2025;
 }
+
+// Type assertions for imported JSON data
+const photos2024 = photos2024Data as Photo2024[];
+const photos2025 = photos2025Data as Photo2025[];
 
 // Convert and combine all photos
 export const allPhotos: ArchivePhoto[] = [

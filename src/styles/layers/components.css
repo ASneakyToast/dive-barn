@@ -6,7 +6,7 @@
   /* Hero Section */
   .hero {
     min-height: 66vh;
-    background: url('/media/Website Banner Image 1.png') center;
+    background: url('/media/posters/Website Banner Image 1.png') center;
     background-size: contain;
     background-repeat: repeat-x;
     display: flex;
@@ -19,7 +19,7 @@
   }
 
   .hero--page {
-    background: url('/media/schedule-hero.png') center;
+    background: url('/media/posters/schedule-hero.png') center;
     background-size: contain;
     background-repeat: repeat-x;
   }
@@ -1318,13 +1318,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/media/dive-barn-festival-poster.png') center/cover no-repeat;
+    background: url('/media/posters/dive-barn-festival-poster.png') center/cover no-repeat;
     filter: blur(15px);
     z-index: -1;
   }
 
   .db-cta--donation {
-    background: url('/media/Website Banner Image 1.png') center,
+    background: url('/media/posters/Website Banner Image 1.png') center,
                 linear-gradient(135deg, var(--color-purple-500), var(--color-secondary));
     background-size: contain, 100%;
     background-repeat: repeat-x, no-repeat;

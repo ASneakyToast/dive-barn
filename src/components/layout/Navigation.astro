@@ -1,10 +1,10 @@
 ---
-import { NAVIGATION_LINKS } from '../../utils/constants';
+import { NAVIGATION_LINKS } from '../../config/site';
 
 // Get current pathname for active link highlighting
 const pathname = Astro.url.pathname;
 
-// Use the navigation links from constants
+// Use the navigation links from config
 const navLinks = NAVIGATION_LINKS.map(link => ({
   ...link,
   ariaLabel: `Go to ${link.label.toLowerCase()}`
@@ -15,7 +15,7 @@ const navLinks = NAVIGATION_LINKS.map(link => ({
   <div class="nav__container">
     <div class="nav__logo">
       <a href="/" aria-label="Go to Dive Barn home page">
-        <img src="/media/db-logo-circle.png" alt="Dive Barn Logo" class="nav__logo-image nav__logo-image--auto-spin">
+        <img src="/media/logos/db-logo-circle.png" alt="Dive Barn Logo" class="nav__logo-image nav__logo-image--auto-spin">
       </a>
     </div>
     
@@ -35,7 +35,7 @@ const navLinks = NAVIGATION_LINKS.map(link => ({
     </ul>
     
     <div class="nav__secondary-logo">
-      <img src="/media/appleicon.png" alt="Apple Icon" class="nav__secondary-logo-image" onclick="this.classList.add('nav__secondary-logo-image--spin'); setTimeout(() => this.classList.remove('nav__secondary-logo-image--spin'), 350)">
+      <img src="/media/logos/appleicon.png" alt="Apple Icon" class="nav__secondary-logo-image" onclick="this.classList.add('nav__secondary-logo-image--spin'); setTimeout(() => this.classList.remove('nav__secondary-logo-image--spin'), 350)">
     </div>
   </div>
 </nav>

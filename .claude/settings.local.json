@@ -18,7 +18,14 @@
       "Bash(curl:*)",
       "Bash(npm run preview:*)",
       "Bash(python3:*)",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Read(//Users/joellithgow/Downloads/**)",
+      "Bash(grep:*)",
+      "Bash(gsutil ls:*)",
+      "Read(//private/tmp/**)",
+      "Read(//tmp/**)",
+      "Bash(xargs:*)",
+      "Bash(gsutil cp:*)"
     ],
     "deny": []
   }
